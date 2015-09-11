@@ -1,0 +1,22 @@
+REFERENCIAS
+-------------------------------------
+http://docs.aws.amazon.com/codecommit/latest/userguide/codecommit-user.pdf
+
+
+COMANDOS
+------------------------------------
+#crear nueva rama
+git checkout -b MyNewBranch
+
+#sobrescribir local desde una rama 
+git fetch origin
+
+#verificar ramas existentes
+git branch --all
+
+#cambiar de rama
+git checkout MyNewBranch
+
+#ver log
+git branch or git status
+git log
