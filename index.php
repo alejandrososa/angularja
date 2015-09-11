@@ -1514,21 +1514,7 @@
 							<div class="footer-widget-right">
 
 								<portal-etiquetas></portal-etiquetas>
-
-								<div class="widget">
-									<div class="title-block">
-										<h2>Categories</h2>
-									</div>
-									<div class="w-category-block">
-										<ul>
-											<li><a href="#">Style hunter</a><a href="#" class="right">42</a></li>
-											<li><a href="#">Chicago show</a><a href="#" class="right">12</a></li>
-											<li><a href="#">Fashion week</a><a href="#" class="right">17</a></li>
-											<li><a href="#">Cosmopolitan</a><a href="#" class="right">34</a></li>
-											<li><a href="#">Daily steet chic</a><a href="#" class="right">78</a></li>
-										</ul>
-									</div>
-								</div>
+                                <portal-listadocategorias></portal-listadocategorias>    								
 
 							<!-- END .footer-widget-right -->
 							</div>
@@ -1590,6 +1576,7 @@
 	    	<script src="componentes/menuinferior/menu.drct.js"></script>	 	    	
 	    	<script src="componentes/slider/slider.drct.js"></script>
 	    	<script src="componentes/etiquetas/etiquetas.drct.js"></script>
+	    	<script src="componentes/listadocategorias/categorias.drct.js"></script>
 	        <script src="componentes/show/show.drct.js"></script>
 	        <script src="directivas/ngEnter.drct.js"></script>
 	        <script src="componentes/piedepagina/pie.drct.js"></script>
