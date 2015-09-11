@@ -1,0 +1,5 @@
+*.settings
+*.buildpath
+*.project
+/server/app.pem
+/server/app.ppk
