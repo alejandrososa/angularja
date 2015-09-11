@@ -1,0 +1,16 @@
+
+/* Titles & Menu Font, default: 'Roboto Condensed' */
+h1, h2, h3, h4, h5, h6,
+.widget .ot-widget-review .item strong,
+.widget .article-block .item-button,
+.ot-slide .ot-slider-layer a .content-bottom > strong,
+#main-menu, .under-menu a {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Paragraph Font, default 'Roboto' */
+p, .ot-panel-block .title-block span,
+.split-block > #sidebar .widget > .title-block span,
+.ot-panel-block .title-block span, .top-menu {
+	font-family: 'Roboto', sans-serif;
+}

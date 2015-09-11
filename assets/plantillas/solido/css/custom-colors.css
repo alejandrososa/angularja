@@ -1,0 +1,29 @@
+
+/* Main color scheme, default: #9f282a */
+a:hover,
+.main-content .shortcode-content a:hover,
+.ot-panel-block.panel-dark > div a:hover,
+.widget .ot-widget-review .item a:hover strong,
+.widget.widget-dark .article-block .item-content h4 a:hover,
+.footer .footer-widgets a:hover,
+#sidebar-small.small-sidebar .widget > .title-block h2,
+.article-grid .item .item-content-date {
+	color: #9f282a;
+}
+.main-content .shortcode-content .tags-cats > a,
+.main-content .shortcode-content .tags-cats > span,
+.main-content .shortcode-content .article-header .article-header-meta .meta-item.meta-share-button i.fa,
+.writecomment .contact-form-submit button,
+.ot-panel-block .title-block h2,
+#sidebar-small .widget > .title-block h2,
+#sidebar .widget > .title-block h2,
+.article-grid .item .item-header .item-header-category i.fa,
+.ot-slider-new .ot-slider-new-controls .ot-slider-new-controls-left,
+.ot-slider-new .ot-slider-new-controls .ot-slider-new-controls-right,
+#main-menu ul li > a > span .m-d-arrow,
+.ot-slider-new .slider-slide .slider-layer .date {
+	background: #9f282a;
+}
+.post.sticky .item-content {
+	border-left: 4px solid #9f282a;
+}

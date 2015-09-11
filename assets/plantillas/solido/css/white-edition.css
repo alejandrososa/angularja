@@ -1,0 +1,138 @@
+
+.header {
+	background-color: #f0f0f0;
+	color: #232323;
+}
+
+.under-menu {
+	background-color: #EDEDED;
+	color: #232323;
+}
+
+#main-menu.main-menu-dark .wrapper > .right .menu-icon .content,
+#main-menu.main-menu-dark {
+	background: #FFFFFF;
+	color: #232323;
+}
+
+#main-menu .wrapper > ul > li {
+	border-right: 1px solid #F0F0F0;
+}
+
+#main-menu li a {
+	color: #232323!important;
+}
+
+#main-menu li:hover > a {
+	background-color: #F7F7F7!important;
+}
+
+#main-menu .wrapper > ul > li.ot-showmenu > a {
+	background-color: #FFFFFF;
+}
+
+#main-menu .wrapper > ul > li.ot-showmenu:hover > a {
+	background-color: #F7F7F7;
+}
+
+.under-menu .wrapper {
+	background: #F5F5F5;
+	border-top: 1px solid rgba(0,0,0,0.03);
+}
+
+.under-menu li {
+	border-right: 1px solid #EAEAEA;
+}
+
+.under-menu a {
+	color: #717171;
+}
+
+.under-menu a:hover {
+	background-color: #FCFCFC!important;
+}
+
+#main-menu.main-menu-dark .wrapper > ul > li:not(.has-ot-mega-menu) ul,
+#main-menu.main-menu-dark .wrapper > ul > li.has-ot-mega-menu > ul {
+	background: #F7F7F7;
+}
+
+#main-menu.main-menu-dark li.has-ot-mega-menu .article-block .item,
+#main-menu.main-menu-dark ul li ul li a:after {
+	border-bottom: 1px dotted #D3D3D3;
+}
+
+#main-menu.main-menu-dark .wrapper > ul > li li:hover > a {
+	background: rgba(0,0,0,0.02)!important;
+}
+
+#sidebar-small .widget,
+#sidebar .widget {
+	background-color: #FFFFFF;
+}
+
+.widget .ot-widget-gallery .item-footer > a {
+	background: rgba(255, 255, 255, 0.15);
+	color: #BEBEBE;
+}
+
+.widget .ot-widget-gallery .item-footer > a:hover {
+	background: rgba(200, 200, 200, 0.15);
+}
+
+.widget .comments-w-block .item-content p {
+	background-color: rgba(0,0,0,0.03);
+	color: #898989;
+}
+
+.widget .comments-w-block .item-content h4 {
+	color: #8B8B8B;
+}
+
+#sidebar .widget a {
+	color: #747474;
+}
+
+.widget .comments-w-block .item-content .date-meta {
+	background: #B8B8B8;
+}
+
+.widget .comments-w-block .item-content h4 a:hover {
+	color: #474747!important;
+}
+
+.widget .ot-widget-timeline .item-date:after {
+	background-color: #EAEAEA;
+}
+
+.widget .article-block .item .article-meta a:hover {
+	color: #5A5A5A!important;
+}
+
+#sidebar-small, #sidebar {
+	background-color: #FFFFFF;
+}
+
+.widget .article-block .item-button {
+	background-color: rgba(0,0,0,0.04);
+	color: #747474;
+}
+
+.widget .tagcloud a {
+	background: #F4F4F4;
+}
+
+.widget .tagcloud a:hover {
+	background: #fff;
+}
+
+.header-flex .header-flex-box.latest-news-top .item {
+	color: #232323;
+	background: #fff;
+	box-shadow: inset -1px 0 0 rgba(184, 184, 184, 0.3);
+}
+
+.header-flex .header-flex-box.latest-news-top .item:last-child {
+	box-shadow: none;
+}
+
