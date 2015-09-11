@@ -1366,16 +1366,7 @@
 				<!-- BEGIN .wrapper -->
 				<div class="wrapper">
 
-					<div class="footer-menu">
-						<a href="#top" class="right">Back to top <i class="fa fa-chevron-up"></i></a>
-						<ul>
-							<li><a href="#" style="border-bottom: 2px solid #43b3bd;">Business</a></li>
-							<li><a href="#" style="border-bottom: 2px solid #9e005d;">Fashion</a></li>
-							<li><a href="#" style="border-bottom: 2px solid #575cc0;">Gadgets</a></li>
-							<li><a href="#" style="border-bottom: 2px solid #007236;">Design</a></li>
-							<li><a href="#" style="border-bottom: 2px solid #aba000;">Computers</a></li>
-						</ul>
-					</div>
+					<portal-menuinferior></portal-menuinferior>
 
 					<!-- BEGIN .footer-widgets -->
 					<div class="footer-widgets">
@@ -1622,7 +1613,8 @@
 	    	<script src="componentes/logo/logo.drct.js"></script>
 	    	<script src="componentes/menutop/menu.drct.js"></script>	    	
 	    	<script src="componentes/menu/menu.drct.js"></script>
-	    	<script src="componentes/menusecundario/menu.drct.js"></script>	    	
+	    	<script src="componentes/menusecundario/menu.drct.js"></script>
+	    	<script src="componentes/menuinferior/menu.drct.js"></script>	 	    	
 	    	<script src="componentes/slider/slider.drct.js"></script>
 	        <script src="componentes/show/show.drct.js"></script>
 	        <script src="directivas/ngEnter.drct.js"></script>
