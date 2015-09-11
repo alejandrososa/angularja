@@ -1513,14 +1513,7 @@
 							<!-- BEGIN .footer-widget-right -->
 							<div class="footer-widget-right">
 
-								<div class="widget">
-									<div class="title-block">
-										<h2>Tags</h2>
-									</div>
-									<div class="tagcloud">
-										<a href="blog.html">Gadgets</a><a href="blog.html">Cars</a><a href="blog.html">Fashion</a><a href="blog.html">Cars</a><a href="blog.html">Computers</a><a href="blog.html">Trends</a><a href="blog.html">Gadgets</a><a href="blog.html">Cars</a><a href="blog.html">Fashion</a><a href="blog.html">Cars</a><a href="blog.html">Computers</a><a href="blog.html">Trends</a>
-									</div>
-								</div>
+								<portal-etiquetas></portal-etiquetas>
 
 								<div class="widget">
 									<div class="title-block">
@@ -1596,6 +1589,7 @@
 	    	<script src="componentes/menusecundario/menu.drct.js"></script>
 	    	<script src="componentes/menuinferior/menu.drct.js"></script>	 	    	
 	    	<script src="componentes/slider/slider.drct.js"></script>
+	    	<script src="componentes/etiquetas/etiquetas.drct.js"></script>
 	        <script src="componentes/show/show.drct.js"></script>
 	        <script src="directivas/ngEnter.drct.js"></script>
 	        <script src="componentes/piedepagina/pie.drct.js"></script>
