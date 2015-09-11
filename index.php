@@ -1549,27 +1549,7 @@
 				</div>
 
 				<!-- BEGIN .footer-copy -->
-				<div class="footer-copy">
-				
-					<!-- BEGIN .wrapper -->
-					<div class="wrapper">
-						
-						<ul>
-							<li><a href="index.html">Site map</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">Newsletter sign up</a></li>
-							<li><a href="#">Press Center</a></li>
-							<li><a href="#">Customer Service</a></li>
-							<li><a href="#">Advertising</a></li>
-						</ul>
-
-						<p>THE MATERIAL ON THIS SITE MAY NOT BE REPRODUCED, DISTRIBUTED, TRANSMITTED, CACHED OR OTHERWISE USED,<br>EXCEPT WITH THE PRIOR WRITTEN PERMISSION OF SOLIDUS DIGITAL.</p>
-						
-					<!-- END .wrapper -->
-					</div>
-
-				<!-- END .footer-copy -->
-				</div>
+				<portal-piedepagina></portal-piedepagina>s
 				
 			<!-- END .footer -->
 			</footer>
@@ -1618,6 +1598,7 @@
 	    	<script src="componentes/slider/slider.drct.js"></script>
 	        <script src="componentes/show/show.drct.js"></script>
 	        <script src="directivas/ngEnter.drct.js"></script>
+	        <script src="componentes/piedepagina/pie.drct.js"></script>
 	    <!-- / -->
 		
 		
