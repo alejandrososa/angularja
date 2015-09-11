@@ -1376,23 +1376,7 @@
 							<!-- BEGIN .footer-widget-left -->
 							<div class="footer-widget-left">
 
-								<div class="widget">
-									<div class="title-block">
-										<h2>ABOUT SOLIDUS</h2>
-									</div>
-									<div class="ot-about-widget">
-										<p>Solidus magazine was set up in 1991 and is the leading magazine of contemporary art and culture. frieze includes essays, reviews and columns by today’s most forward-thinking writers, artists and curators.</p>
-										
-										<ul class="list-group">
-											<li><i class="fa fa-location-arrow fa-fw"></i>122 Baker Street, Marylebone London, W1U 6TX</li>
-											<li><i class="fa fa-phone fa-fw"></i>0870 241 3300</li>
-											<li><i class="fa fa-envelope fa-fw"></i>support@theme.com</li>
-										</ul>
-										<br/>
-										<br/>
-										<img src="assets/plantillas/solido/images/logo.png" alt="" />
-									</div>
-								</div>
+								<portal-quienesomos></portal-quienesomos>
 
 							<!-- END .footer-widget-left -->
 							</div>
@@ -1579,6 +1563,7 @@
 	    	<script src="componentes/listadocategorias/categorias.drct.js"></script>
 	        <script src="componentes/show/show.drct.js"></script>
 	        <script src="directivas/ngEnter.drct.js"></script>
+	        <script src="componentes/quienesomos/quienesomos.drct.js"></script>
 	        <script src="componentes/piedepagina/pie.drct.js"></script>
 	    <!-- / -->
 		
