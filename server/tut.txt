@@ -1,0 +1,126 @@
+#CREACION CARPETA DONDE SE ALOJARA LA WEB
+chmod 755 /var/www/
+sudo mkdir -p /var/www/portalja_pro/public_html
+sudo mkdir -p /var/www/ja_pro/public_html/log
+sudo chown -R $USER:$USER /var/www/ja_pro/public_html
+
+#CREACION REPOSITORIOS
+mkdir repoja_pro
+cd repoja_pro
+git init --bare
+cd hooks
+sudo cat > post-receive
+cat > repo_jademo/hooks/post-receive
+
+
+#copiar siguientes lineas
+#!/bin/sh 
+GIT_WORK_TREE=/var/www/ja_tst/public_html
+export GIT_WORK_TREE 
+git checkout -f
+
+#para salir ctrl + c
+sudo chmod +x post-receive
+chmod +x repo_jademo/hooks/post-receive
+
+
+#ELIMINAR DIRECTORIO CON ARCHIVOS
+sudo rm -rf /var/www/portal  
+
+#REINICIAR APACHE2
+sudo service apache2 restart  
+
+#REINICIAR MYSQL
+sudo service mysql restart
+
+
+
+
+
+#!/bin/sh 
+GIT_WORK_TREE=/var/www/portalja/public_html
+export GIT_WORK_TREE 
+git checkout -f
+
+
+#!/bin/sh 
+GIT_WORK_TREE=/var/www/portalja_tst/public_html
+export GIT_WORK_TREE 
+git checkout -f
+
+
+
+<VirtualHost *:80>
+    ServerName jadev.com
+    ServerAlias dev.portalja.com
+    DocumentRoot /var/www/portalja_tst/public_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    
+    SetEnv APP_ENV "desarrollo"
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName jatst.com
+    ServerAlias tst.portalja.com
+    DocumentRoot /var/www/portalja_tst/public_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    
+    SetEnv APP_ENV "test"
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName japro.com
+    ServerAlias pro.portalja.com
+    DocumentRoot /var/www/portalja/public_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    
+    SetEnv APP_ENV "produccion"
+</VirtualHost>
+
+
+#LOCALHOST
+crear carpeta del proyecto
+git remote add japro ssh://ubuntu@52.21.203.61/home/ubuntu/repo_japro/
+git remote add jatst ssh://ubuntu@52.21.203.61/home/ubuntu/repo_ja_tst/
+git remote add jademo ssh://ubuntu@52.21.203.61/home/ubuntu/repo_jademo/
+
+#GIT
+git config --global user.name "Alejandro Sosa"
+git config --global user.email elpastorsalomon@gmail.com
+git config branch.master.remote origin
+git config branch.master.merge refs/heads/master
+git config --global branch.master.remote origin
+git config --global branch.master.merge refs/heads/master
+
+cat ~/bin/git_diff_wrapper
+
+
+      tool = vsdiffmerge
+[difftool]
+      prompt = true
+[difftool "vsdiffmerge"]
+      cmd = "C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\vsdiffmerge.exe" "$LOCAL" "$REMOTE" //t
+      keepbackup = false
+      trustexistcode = true
+[merge]
+      tool = vsdiffmerge
+[mergetool]
+      prompt = true
+[mergetool "vsdiffmerge"]
+      cmd = "C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\vsdiffmerge.exe" "$REMOTE" "$LOCAL" "$BASE" "$MERGED" //m
+      keepbackup = false
+      trustexistcode = true	
+#autologin
+git config -l
+git config remote.origin.url https://alejandrososa:dilcia0386@github.com/alejandrososa/webja.git
+
+
+REFERENCIAS
+https://www.youtube.com/watch?v=qUtq59N6ph4
+https://www.youtube.com/watch?v=d84IsK8YzLs
+https://www.digitalocean.com/community/tutorials/como-configurar-virtual-host-de-apache-en-ubuntu-14-04-lts-es
+
+https://www.phusionpassenger.com/library/walkthroughs/deploy/meteor/ownserver/nginx/oss/install_language_runtime.html

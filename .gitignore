@@ -3,3 +3,6 @@
 *.project
 /server/app.pem
 /server/app.ppk
+/diseño/*.zip
+/log
+/copia/
