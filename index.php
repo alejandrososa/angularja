@@ -283,7 +283,8 @@
 	        <script src="componentes/eventos/eventos.drct.js"></script>
 	        <script src="componentes/comentarios/comentarios.drct.js"></script>
 	        <script src="componentes/galeria/galeria.drct.js"></script>
-	        <script src="componentes/videos/videos.drct.js"></script>
+	        <script src="componentes/videos/videos.drct.js"></script>	        
+	        <script src="componentes/publicidad/publicidad.drct.js"></script>
 	        <script src="componentes/piedepagina/pie.drct.js"></script>
 	    <!-- / -->
 		
