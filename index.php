@@ -281,6 +281,7 @@
 	        <script src="directivas/ngEnter.drct.js"></script>
 	        <script src="componentes/quienesomos/quienesomos.drct.js"></script>
 	        <script src="componentes/eventos/eventos.drct.js"></script>
+	        <script src="componentes/comentarios/comentarios.drct.js"></script>
 	        <script src="componentes/videos/videos.drct.js"></script>
 	        <script src="componentes/piedepagina/pie.drct.js"></script>
 	    <!-- / -->
