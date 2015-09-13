@@ -1,0 +1,16 @@
+<div class="widget">
+	<div class="title-block">
+		<h2>Ultimos Articulos</h2>
+	</div>
+	<div class="ot-article-big">
+	
+       <div class="item" data-ng-repeat="art in list.datos track by $index">
+			<div class="item-content">
+				<h5><a href="#">#{{$index + 1}} {{art.titulo}}</a></h5>
+				<p>{{art.texto}}</p>
+			</div>
+		</div>
+		
+	</div>
+<!-- END .widget -->
+</div>

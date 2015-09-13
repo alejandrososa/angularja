@@ -267,6 +267,7 @@
 	    <!-- SERVICES -->
 	        <script src="servicios/show.fct.js"></script>
 	        <script src="servicios/page.val.js"></script>
+	        <script src="servicios/contenido.fct.js"></script>
 	    <!-- / -->
 	    <!-- DIRECTIVES -->
 	    	<script src="componentes/logo/logo.drct.js"></script>
@@ -275,7 +276,8 @@
 	    	<script src="componentes/menusecundario/menu.drct.js"></script>
 	    	<script src="componentes/menuinferior/menu.drct.js"></script>	 	    	
 	    	<script src="componentes/slider/slider.drct.js"></script>
-	    	<script src="componentes/etiquetas/etiquetas.drct.js"></script>
+	    	<script src="componentes/etiquetas/etiquetas.drct.js"></script>	    	
+	    	<script src="componentes/listadoarticulos/articulos.drct.js"></script>
 	    	<script src="componentes/listadocategorias/categorias.drct.js"></script>
 	        <script src="componentes/show/show.drct.js"></script>
 	        <script src="directivas/ngEnter.drct.js"></script>

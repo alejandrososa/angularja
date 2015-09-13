@@ -1,0 +1,19 @@
+<div class="widget">
+	<div class="title-block">
+		<h2>Business</h2>
+	</div>
+	<div class="ot-article-big">
+	
+		<div class="item" data-ng-repeat="noti in list.datos track by $index">
+			<div class="item-header">
+				<a href="post.html"><img src="{{noti.imagen}}" alt="" /></a>
+			</div>
+			<div class="item-content">
+				<h5><a href="post.html">{{noti.titulo}}</a></h5>
+				<p>{{noti.texto}}</p>
+			</div>
+		</div>
+		
+	</div>
+<!-- END .widget -->
+</div>

@@ -5,6 +5,7 @@
 	require_once("app_modelo.php");
 	require_once("app_sesion.php");
 	require_once("app_helper.php");
+	require_once("app_demo.php");
 	
 	class API extends Modelo{ //REST
 		
@@ -15,6 +16,7 @@
 		private $db       = NULL;
 		private $mysqli   = NULL;
 		private $helper;
+		private $demo;
 		
 		/**
 		 * Inicialización objetos
@@ -23,6 +25,7 @@
 			$this->rest      = new Rest();
 			$this->sesion    = new Session(); 
 			$this->helper    = new Helper();
+			$this->demo      = new Demo();
 		}
 		
 		/**
@@ -91,6 +94,46 @@
 			$this->sesion->sesion_exit();		
 		}
 		
+		
+		
+		/**
+		 * DEMOS
+		 */
+		
+		public function getUltimosArticulos(){
+		    if($this->rest->get_request_method() != "GET"){
+		        $this->rest->response('',406);
+		    }
+		    
+		    $cantidad = (int)$this->rest->_request['cantidad'];
+		    
+		    $articulos = $this->demo->getUltimosArticulos($cantidad);
+		    
+		    if(isset($articulos)){
+		        $this->rest->response($this->helper->json($articulos), 200);
+		    }
+		    $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+		}
+		
+		public function getUltimasNoticias(){
+		    if($this->rest->get_request_method() != "GET"){
+		        $this->rest->response('',406);
+		    }
+		
+		    $cantidad = (int)$this->rest->_request['cantidad'];
+		
+		    $noticias = $this->demo->getUltimasNoticias($cantidad);
+		
+		    if(isset($noticias)){
+		        $this->rest->response($this->helper->json($noticias), 200);
+		    }
+		    $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+		}
+		
+		
+		/**
+		 * FIN DEMOS
+		 */
 		
 		
 		//PAGINAS
