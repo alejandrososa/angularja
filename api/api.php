@@ -130,6 +130,21 @@
 		    $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
 		}
 		
+		public function getArticulosCategoria(){
+		    if($this->rest->get_request_method() != "GET"){
+		        $this->rest->response('',406);
+		    }
+		
+		    $cantidad = (int)$this->rest->_request['cantidad'];
+		
+		    $articulos = $this->demo->getArticulosCategoria($cantidad);
+		
+		    if(isset($articulos)){
+		        $this->rest->response($this->helper->json($articulos), 200);
+		    }
+		    $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+		}
+		
 		
 		/**
 		 * FIN DEMOS

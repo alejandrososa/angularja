@@ -12,6 +12,7 @@ function servicio($http, API_URL, $log) {
     var data = {
     	'getUltimosArticulos': getUltimosArticulos,
     	'getUltimasNoticias': getUltimasNoticias,
+    	'getArticulosCategoria': getArticulosCategoria,
     };
     
     function ejecutar(tipo, url, params) {
@@ -39,6 +40,10 @@ function servicio($http, API_URL, $log) {
     
     function getUltimasNoticias(cantidad){
     	return ejecutar('get', 'getUltimasNoticias?cantidad='+ cantidad, {});
+    }
+    
+    function getArticulosCategoria(cantidad){
+    	return ejecutar('get', 'getArticulosCategoria?cantidad='+ cantidad, {});
     }
     
     /*

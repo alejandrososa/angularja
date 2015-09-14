@@ -277,6 +277,7 @@
 	    	<script src="componentes/menuinferior/menu.drct.js"></script>	 	    	
 	    	<script src="componentes/slider/slider.drct.js"></script>
 	    	<script src="componentes/etiquetas/etiquetas.drct.js"></script>	    	
+	    	<script src="componentes/articulos/articulos.drct.js"></script>	    	
 	    	<script src="componentes/listadoarticulos/articulos.drct.js"></script>
 	    	<script src="componentes/listadocategorias/categorias.drct.js"></script>
 	        <script src="componentes/show/show.drct.js"></script>
