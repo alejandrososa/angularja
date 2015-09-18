@@ -1,4 +1,5 @@
 <?php
+    require_once __DIR__ . '/vendor/autoload.php';
     require_once('app_entorno.php');
 	require_once(ENTORNO.'app_global.php');
  	require_once("app_rest.php");
@@ -6,10 +7,11 @@
 	require_once("app_sesion.php");
 	require_once("app_helper.php");
 	require_once("app_demo.php");
+
+    use Lcobucci\JWT\Builder;
+    use Lcobucci\JWT\ValidationData;
 	
 	class API extends Modelo{ //REST
-		
-		
 		public $data      = "";
 		private $sesion;
 		private $rest;
@@ -49,7 +51,24 @@
 				$this->$func();
 			else
 				$this->rest->response('',404); // If the method not exist with in this class "Page not found".
-		}		
+		}
+
+        private function getToken($usuario){
+            $token = '';
+            $token = (new Builder())->setIssuer('http://ja.dev') // Configures the issuer (iss claim)
+                ->setAudience('http://ja.dev/') // Configures the audience (aud claim)
+                ->setId('jajwt', true) // Configures the id (jti claim), replicating as a header item
+                ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
+                ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
+                ->setExpiration(time() + 3600) // Configures the expiration time of the token (exp claim)
+                ->set('sub', 1) // Configures a new claim, called "uid"
+                ->set('user', $usuario['usuario'])// Configures a new claim, called "uid"
+                ->set('role', $usuario['rol'])// Configures a new claim, called "uid"
+                ->getToken(); // Retrieves the generated token
+
+
+            return (string)$token;
+        }
 		
 		/**
 		 * Login
@@ -58,42 +77,29 @@
 		 */
 		private function login(){			
 			if($this->rest->get_request_method() == "POST"){	
-				$user       = json_decode(file_get_contents('php://input'));  //get user from 
-				$correo     = isset($user->correo) ? $user->correo : '';
-				$pass       = isset($user->pass) ? $user->pass : '';
-				$usuario    = $this->seleccionar_by('usuario', array('email' => $correo, 'password' => $pass));
-		
-				if($correo == $usuario['email'] && $pass == $usuario['password']){
-					$uid = $this->sesion->sesion_init();
-					$this->rest->response($this->helper->json(array('msg'=>'autorizado', 'uid'=> $uid)), 200);
+				$dato       = json_decode(file_get_contents('php://input'));  //get user from
+				//$correo     = isset($user->correo) ? $user->correo : '';
+				//$pass       = isset($user->pass) ? $user->pass : '';
+				//$usuario    = $this->seleccionar_by('usuario', array('email' => $correo, 'password' => $pass));
+
+				$usuario    = isset($dato->usuario) ? $dato->usuario : '';
+				$clave      = isset($dato->clave) ? $dato->clave : '';
+				$usuariodb  = array('id'=> 1,'usuario' => 'admin', 'clave' => '1234', 'rol'=>'lector');
+
+				if($usuario == $usuariodb['usuario'] && $clave == $usuariodb['clave']){
+					//$uid = $this->sesion->sesion_init();
+					$token = $this->getToken(array('usuario' => 'admin', 'clave' => '1234', 'rol'=>'lector'));
+					$this->rest->_token = $token;
+					$this->rest->response($this->helper->json(array('tokenja'=> $token, 'msg'=>'autorizado', 'uid'=> $dato)), 200);
 				}
-				$this->rest->response('',204);
-			
+				$this->rest->response($this->helper->json(array('tokenja'=>'invalido','message'=>'Usuario o clave incorrecto')), 401);
+
 			}else{
 				$this->rest->response('',404);
 			}
 		}
 	
-		private function ver_sesion(){		
-			if($this->rest->get_request_method() == "POST"){
-				
-				$resultado = $this->sesion->sesion_check();
-				
-				if(isset($resultado)){	
-					$estado = array('estado' => $resultado);
-					$this->rest->response($this->helper->json($estado), 200);
-				}
-				$this->rest->response('',204);
-			
-			}else{
-				$this->rest->response('',406);
-			}
-		}
-		
-		private function cerrar_sesion(){
-			$this->sesion->sesion_exit();		
-		}
-		
+
 		
 		
 		/**

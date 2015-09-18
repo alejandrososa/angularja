@@ -4,9 +4,11 @@
 		public $_allow = array();
 		public $_content_type = "application/json";
 		public $_request = array();
+		public $_token = "";
 		
 		private $_method = "";		
 		private $_code = 200;
+		private $_autorization = "Authorization";
 		
 		public function __construct(){
 			$this->inputs();
@@ -22,6 +24,10 @@
 			echo $data;
 			exit;
 		}
+		public function setToken($token){
+			$this->_token = $token;
+		}
+
 		// For a list of http codes checkout http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 		private function get_status_message(){
 			$status = array(
@@ -29,7 +35,8 @@
 						201 => 'Created',  
 						204 => 'No Content',  
 						404 => 'Not Found',  
-						406 => 'Not Acceptable');
+						406 => 'Not Acceptable',
+						401 => 'Unauthorized');
 			return ($status[$this->_code])?$status[$this->_code]:$status[500];
 		}
 		
@@ -75,6 +82,12 @@
 		private function set_headers(){
 			header("HTTP/1.1 ".$this->_code." ".$this->get_status_message());
 			header("Content-Type:".$this->_content_type);
+
+			if(!empty($this->_token)){
+				header($this->_autorization.': oauth'.$this->_token);
+			}else{
+				header_remove($this->_autorization);
+			}
 		}
 	}	
 ?>

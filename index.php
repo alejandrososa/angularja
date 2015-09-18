@@ -16,6 +16,9 @@
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="assets/plantillas/solido/images/favicon.ico" type="image/x-icon" />
 
+		<!-- Estilos General -->
+		<link type="text/css" rel="stylesheet" href="assets/general/angular-toastr.css" />
+
 		<!-- Stylesheets -->
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/reset.css" />
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/font-awesome.min.css" />
@@ -244,6 +247,9 @@
 	        <script src="bower_components/angular/angular.min.js"></script>
 	        <script src="bower_components/angular/angular-resource.min.js"></script>
 	        <script src="bower_components/angular/angular-animate.min.js"></script>
+			<script src="bower_components/angular/angular-messages.js"></script>
+			<script src="bower_components/angular/angular-sanitize.min.js"></script>
+			<script src="bower_components/angular/angular-toastr.tpls.js"></script>
 	        <script src="bower_components/angular/angular-cookies.min.js"></script>
 	        <script src="bower_components/angular/angular-route.min.js"></script>
 	        <script src="bower_components/angular/angular-touch.min.js"></script>
@@ -259,10 +265,13 @@
 	        <script src="lib/app.config.js"></script>
 	        <script src="lib/app.core.js"></script>
 	        <script src="lib/app.servicios.js"></script>
+			<script src="lib/app.satellizer.js"></script>
 	        <script src="lib/app.js"></script>
 	    <!-- / -->
 	    <!-- CONTROLLERS -->
 	        <script src="secciones/portada/portada.ctrl.js"></script>
+			<script src="secciones/login/login.ctrl.js"></script>
+			<script src="secciones/admin/admin.ctrl.js"></script>
 	    <!-- / -->
 	    <!-- SERVICES -->
 	        <script src="servicios/show.fct.js"></script>

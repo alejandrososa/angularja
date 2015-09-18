@@ -15,6 +15,7 @@ $token = (new Builder())->setIssuer('http://example.com') // Configures the issu
 ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
 ->setExpiration(time() + 3600) // Configures the expiration time of the token (nbf claim)
 ->set('uid', 1) // Configures a new claim, called "uid"
+->set('role', 'admin') // Configures a new claim, called "uid"
 ->getToken(); // Retrieves the generated token
 
 

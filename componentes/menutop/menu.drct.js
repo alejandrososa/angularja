@@ -7,6 +7,8 @@ angular
 function menu() {  //ShowService
     var directive = {
         controller: controller,
+        controllerAs: 'vm',
+        bindToController: true, //required in 1.3+ with controllerAs
         templateUrl: 'componentes/menutop/menu.tpl.html',
         restrict: 'E',
         scope: {
@@ -14,10 +16,11 @@ function menu() {  //ShowService
         }
     };
     return directive;
-    function controller($scope) {
-        //$scope.genres = [];
-        //ShowService.get($scope.menu.id).then(function(response){
-        //    $scope.genres = response.genres;
-        //});
+    function controller($scope, $auth) {
+        var vm = this;
+
+        vm.isAuthenticated = function() {
+            return $auth.isAuthenticated();
+        };
     }
 }
