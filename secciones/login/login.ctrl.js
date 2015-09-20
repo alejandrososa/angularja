@@ -4,19 +4,22 @@
 'use strict';
 angular
     .module('app.core')
-    .controller('LoginController', function($scope, PageValues, $location, $auth, $log, toastr) {
+    .controller('LoginController', function($scope, $rootScope, PageValues, $location, $auth, $log, toastr, $window) {
         //Set page title and description
         PageValues.title = "HOME";
         PageValues.description = "Learn AngularJS using best practice real world examples.";
         //Setup view model object
         var vm = this;
 
+        vm.vista = $rootScope.vista;
+
 
         vm.login = function() {
             $auth.login(vm.persona)
                 .then(function() {
                     toastr.success('You have successfully signed in');
-                    $location.path('/');
+                    //$location.path('/admin');
+                    $window.location.href = '/admin/';
                 })
                 .catch(function(response) {
                     //console.clear();
@@ -31,7 +34,8 @@ angular
             $auth.authenticate(provider)
                 .then(function() {
                     toastr.success('You have successfully signed in with ' + provider);
-                    $location.path('/');
+                    //$location.path('/admin');
+                    $window.location.href = '/admin/';
                 })
                 .catch(function(response) {
                     toastr.error(response.message);

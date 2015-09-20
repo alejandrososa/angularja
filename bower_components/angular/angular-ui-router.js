@@ -2449,8 +2449,8 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *   not including any params defined by ancestor states.
    * - **path** `{string}` - returns the full path from the root down to this state. 
    *   Needed for state activation.
-   * - **includes** `{object}` - returns an object that includes every state that 
-   *   would pass a `$state.includes()` test.
+   * - **vistas** `{object}` - returns an object that vistas every state that
+   *   would pass a `$state.vistas()` test.
    *
    * @example
    * <pre>
@@ -3353,7 +3353,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * @methodOf ui.router.state.$state
      *
      * @description
-     * Similar to {@link ui.router.state.$state#methods_includes $state.includes},
+     * Similar to {@link ui.router.state.$state#methods_includes $state.vistas},
      * but only checks for the full state name. If params is supplied then it will be
      * tested for strict equality against the current active params object, so all params
      * must match with none missing and no extras.
@@ -3406,28 +3406,28 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * $state.$current.name = 'contacts.details.item';
      *
      * // Using partial names
-     * $state.includes("contacts"); // returns true
-     * $state.includes("contacts.details"); // returns true
-     * $state.includes("contacts.details.item"); // returns true
-     * $state.includes("contacts.list"); // returns false
-     * $state.includes("about"); // returns false
+     * $state.vistas("contacts"); // returns true
+     * $state.vistas("contacts.details"); // returns true
+     * $state.vistas("contacts.details.item"); // returns true
+     * $state.vistas("contacts.list"); // returns false
+     * $state.vistas("about"); // returns false
      *
      * // Using relative names (. and ^), typically from a template
      * // E.g. from the 'contacts.details' template
-     * <div ng-class="{highlighted: $state.includes('.item')}">Item</div>
+     * <div ng-class="{highlighted: $state.vistas('.item')}">Item</div>
      * </pre>
      *
      * Basic globbing patterns
      * <pre>
      * $state.$current.name = 'contacts.details.item.url';
      *
-     * $state.includes("*.details.*.*"); // returns true
-     * $state.includes("*.details.**"); // returns true
-     * $state.includes("**.item.**"); // returns true
-     * $state.includes("*.details.item.url"); // returns true
-     * $state.includes("*.details.*.url"); // returns true
-     * $state.includes("*.details.*"); // returns false
-     * $state.includes("item.**"); // returns false
+     * $state.vistas("*.details.*.*"); // returns true
+     * $state.vistas("*.details.**"); // returns true
+     * $state.vistas("**.item.**"); // returns true
+     * $state.vistas("*.details.item.url"); // returns true
+     * $state.vistas("*.details.*.url"); // returns true
+     * $state.vistas("*.details.*"); // returns false
+     * $state.vistas("item.**"); // returns false
      * </pre>
      *
      * @param {string} stateOrName A partial name, relative name, or glob pattern
@@ -3437,7 +3437,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * @param {object=} options An options object.  The options are:
      *
      * - **`relative`** - {string|object=} -  If `stateOrName` is a relative state reference and `options.relative` is set,
-     * .includes will test relative to `options.relative` state (or name).
+     * .vistas will test relative to `options.relative` state (or name).
      *
      * @returns {boolean} Returns true if it does include the state
      */
@@ -4353,7 +4353,7 @@ function $IsStateFilter($state) {
  * @requires ui.router.state.$state
  *
  * @description
- * Translates to {@link ui.router.state.$state#methods_includes $state.includes('fullOrPartialStateName')}.
+ * Translates to {@link ui.router.state.$state#methods_includes $state.vistas('fullOrPartialStateName')}.
  */
 $IncludedByStateFilter.$inject = ['$state'];
 function $IncludedByStateFilter($state) {

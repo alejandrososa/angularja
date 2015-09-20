@@ -262,7 +262,7 @@ jQuery.extend({
 		code = jQuery.trim( code );
 
 		if ( code ) {
-			// If the code includes a valid, prologue position
+			// If the code vistas a valid, prologue position
 			// strict mode pragma, execute code by injecting a
 			// script tag into the document.
 			if ( code.indexOf("use strict") === 1 ) {

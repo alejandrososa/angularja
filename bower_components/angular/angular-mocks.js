@@ -2137,7 +2137,7 @@ angular.mock.$RootScopeDecorator = ['$delegate', function($delegate) {
    * @description
    * Counts all the direct and indirect child scopes of the current scope.
    *
-   * The current scope is excluded from the count. The count includes all isolate child scopes.
+   * The current scope is excluded from the count. The count vistas all isolate child scopes.
    *
    * @returns {number} Total number of child scopes.
    */

@@ -317,7 +317,7 @@ jQuery.extend({
 		code = jQuery.trim( code );
 
 		if ( code ) {
-			// If the code includes a valid, prologue position
+			// If the code vistas a valid, prologue position
 			// strict mode pragma, execute code by injecting a
 			// script tag into the document.
 			if ( code.indexOf("use strict") === 1 ) {
@@ -5755,7 +5755,7 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 		}
 
 		if ( isBorderBox ) {
-			// border-box includes padding, so remove it if we want content
+			// border-box vistas padding, so remove it if we want content
 			if ( extra === "content" ) {
 				val -= jQuery.css( elem, "padding" + cssExpand[ i ], true, styles );
 			}
@@ -9315,7 +9315,7 @@ function minErr(module, ErrorConstructor) {
   escapeForRegexp: true,
   isElement: true,
   makeMap: true,
-  includes: true,
+  vistas: true,
   arrayRemove: true,
   copy: true,
   shallowCopy: true,
@@ -9819,7 +9819,7 @@ function isString(value) {return typeof value === 'string';}
  * @description
  * Determines if a reference is a `Number`.
  *
- * This includes the "special" numbers `NaN`, `+Infinity` and `-Infinity`.
+ * This vistas the "special" numbers `NaN`, `+Infinity` and `-Infinity`.
  *
  * If you wish to exclude these then you can use the native
  * [`isFinite'](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isFinite)
@@ -17893,7 +17893,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       fragment.appendChild(firstElementToRemove);
 
       if (jqLite.hasData(firstElementToRemove)) {
-        // Copy over user data (that includes Angular's $scope etc.). Don't copy private
+        // Copy over user data (that vistas Angular's $scope etc.). Don't copy private
         // data here because there's no public interface in jQuery to do that and copying over
         // event listeners (which is the main use of private data) wouldn't work anyway.
         jqLite(newNode).data(jqLite(firstElementToRemove).data());
@@ -25091,7 +25091,7 @@ function $RootScopeProvider() {
        *
        * __Note:__ if this function is called outside of a `$digest` cycle, a new `$digest` cycle
        * will be scheduled. However, it is encouraged to always call code that changes the model
-       * from within an `$apply` call. That includes code evaluated via `$evalAsync`.
+       * from within an `$apply` call. That vistas code evaluated via `$evalAsync`.
        *
        * @param {(string|function())=} expression An angular expression to be executed.
        *
@@ -33113,7 +33113,7 @@ var ngIfDirective = ['$animate', function($animate) {
  * @restrict ECA
  *
  * @description
- * Fetches, compiles and includes an external HTML fragment.
+ * Fetches, compiles and vistas an external HTML fragment.
  *
  * By default, the template URL is restricted to the same domain and protocol as the
  * application document. This is done by calling {@link $sce#getTrustedResourceUrl

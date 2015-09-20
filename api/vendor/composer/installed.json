@@ -1,6 +1,6 @@
 [
     {
-        "name": "lcobucci/jwt",
+        "name": "token/jwt",
         "version": "3.0.4",
         "version_normalized": "3.0.4.0",
         "source": {
@@ -39,7 +39,8 @@
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Lcobucci\\JWT\\": "src"
+                "Token\\JWT\\": "src",
+                "JARestful\\": "src"
             }
         },
         "notification-url": "https://packagist.org/downloads/",

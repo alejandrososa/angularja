@@ -48,34 +48,34 @@
 
 		<!-- BEGIN .boxed.active -->
 		<div class="boxed">
-			
+
 			<!-- BEGIN .header -->
 			<header class="header">
-				
+
 				<portal-menutop></portal-menutop>
-				
+
 				<!-- BEGIN .wrapper -->
 				<div class="wrapper">
 
-					<portal-logo></portal-logo>					
-					
+					<portal-logo></portal-logo>
+
 					<!-- <nav id="main-menu"> -->
 					<portal-menu></portal-menu>
 				<!-- END .wrapper -->
 				</div>
 
 				<portal-menusecundario></portal-menusecundario>
-				
+
 			<!-- END .header -->
 			</header>
-			
+
 			<!-- BEGIN .content -->
 			<section class="content">
 
-			
+
 			     <ng-view></ng-view>
-			
-				
+
+
 			<!-- BEGIN .content -->
 			</section>
 
@@ -217,7 +217,7 @@
 							<div class="footer-widget-right">
 
 								<portal-etiquetas></portal-etiquetas>
-                                <portal-listadocategorias></portal-listadocategorias>    								
+                                <portal-listadocategorias></portal-listadocategorias>
 
 							<!-- END .footer-widget-right -->
 							</div>
@@ -226,20 +226,20 @@
 
 					<!-- END .footer-widgets -->
 					</div>
-						
+
 				<!-- END .wrapper -->
 				</div>
 
 				<!-- BEGIN .footer-copy -->
 				<portal-piedepagina></portal-piedepagina>s
-				
+
 			<!-- END .footer -->
 			</footer>
-			
+
 		<!-- END .boxed -->
 		</div>
-		
-		
+
+
 		
 		
 		<!-- build:assets assets.min.js -->
@@ -270,8 +270,9 @@
 	    <!-- / -->
 	    <!-- CONTROLLERS -->
 	        <script src="secciones/portada/portada.ctrl.js"></script>
+			<script src="secciones/error/error.ctrl.js"></script>
 			<script src="secciones/login/login.ctrl.js"></script>
-			<script src="secciones/admin/admin.ctrl.js"></script>
+			<script src="secciones/oficina/admin.ctrl.js"></script>
 	    <!-- / -->
 	    <!-- SERVICES -->
 	        <script src="servicios/show.fct.js"></script>
