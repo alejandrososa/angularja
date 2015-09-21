@@ -13,7 +13,7 @@ angular
 
 
         if (!$auth.isAuthenticated()) {
-            $window.location.href = '/login';
+            $$location.path('/login');
         }
 
 
@@ -23,8 +23,8 @@ angular
             $log.info('La sesión se ha cerrado');
             $auth.logout()
                 .then(function() {
-                    $window.location.href = '/login';
-                    //$location.path('/');
+                    //$window.location.href = '/login';
+                    $location.path('/');
                 });
         };
 

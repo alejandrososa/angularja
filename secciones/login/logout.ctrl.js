@@ -16,8 +16,8 @@ angular
             $auth.logout()
                 .then(function() {
                     toastr.info('La sesion se ha cerrado');
-                    $window.location.href = '/';
-                    //$location.path('/');
+                    //$window.location.href = '/';
+                    $location.path('/');
                 });
         };
 

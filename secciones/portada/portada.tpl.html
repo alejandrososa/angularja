@@ -1,40 +1,29 @@
-<!--
-<div class="home-frame">
-    <div class="home-banner">
-        <div class="container inner">
-            <img class="hidden-sm hidden-xs" src="assets/images/angular.png" width="400" height="400" />
-            <h1>LEARN ANGULARJS <span>THE EASY WAY</span>.</h1>
-            <h2>Learn how to build superb AngularJS web applications using real world best practice examples coupled with in-depth tutorials from <a href="#">revillweb.com</a>.</h2>
-            <p>This website is a living and breathing AngularJS web application built using recommended best practices. <strong>AngularJS by example</strong> provides you with a complete application demonstrating recommended best practices from app structure all the way through to production deployment.</p>
-            <div class="home-buttons">
-                <a href="https://github.com/RevillWeb/angularjs-by-example" target="_blank" class="btn btn-lg btn-primary"><span class="icon icon-github2"></span> GitHub</a>
-                <a href="http://www.revillweb.com" target="_blank" class="btn btn-lg btn-default"><span class="icon icon-home"></span> RevillWeb</a>
-            </div>
-        </div>
-    </div>
-    <div class="clearbanner"></div>
-    <div class="tutorials-title">
-        <div class="container">
-            ARTICLES & TUTORIALS
-            <div class="hidden-xs share-buttons">
-                <div class='shareaholic-canvas' data-app='share_buttons' data-app-id='15135403'></div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <ul class="tutorials">
-            <li data-ng-repeat="tutorial in home.tutorials track by $index" data-ng-class="{'offline': (tutorial.link == '#')}">
-                <div class="number">#{{$index + 1}}</div>
-                <h3>{{tutorial.title}}</h3>
-                <p>{{tutorial.description}}</p>
-                <a href="{{tutorial.link}}" data-ng-class="{'disabled': (tutorial.link == '#')}" class="btn btn-lg btn-primary"><span class="icon icon-arrow-up-right5"></span> View</a>
-                <div class="clearfix"></div>
-            </li>
-        </ul>
-        <p class="no-data tuts">More tutorials coming soon...</p>
-    </div>
-</div>
--->
+<!-- BEGIN .boxed.active -->
+<div class="boxed">
+
+	<!-- BEGIN .header -->
+	<header class="header">
+
+		<portal-menutop></portal-menutop>
+
+		<!-- BEGIN .wrapper -->
+		<div class="wrapper">
+
+			<portal-logo></portal-logo>
+
+			<!-- <nav id="main-menu"> -->
+			<portal-menu></portal-menu>
+			<!-- END .wrapper -->
+		</div>
+
+		<portal-menusecundario></portal-menusecundario>
+
+		<!-- END .header -->
+	</header>
+
+	<!-- BEGIN .content -->
+	<section class="content">
+
 
 
 
@@ -528,4 +517,171 @@
 
 	
 <!-- END .wrapper -->
+</div>
+
+
+
+
+
+		<!-- BEGIN .content -->
+	</section>
+
+	<!-- BEGIN .footer -->
+	<footer class="footer">
+
+		<!-- BEGIN .wrapper -->
+		<div class="wrapper">
+
+			<portal-menuinferior></portal-menuinferior>
+
+			<!-- BEGIN .footer-widgets -->
+			<div class="footer-widgets">
+
+				<div class="footer-widget-wrapper">
+
+					<!-- BEGIN .footer-widget-left -->
+					<div class="footer-widget-left">
+
+						<portal-quienesomos></portal-quienesomos>
+
+						<!-- END .footer-widget-left -->
+					</div>
+
+					<!-- BEGIN .footer-widget-middle -->
+					<div class="footer-widget-middle">
+
+						<!-- BEGIN .widget -->
+						<div class="widget">
+							<div class="title-block">
+								<h2>Reviews</h2>
+							</div>
+							<div class="article-block">
+								<div class="item">
+									<div class="item-header">
+										<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-2.jpg" alt="" /></a>
+									</div>
+									<div class="item-content">
+												<span class="article-meta">
+													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+												</span>
+										<h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
+										<span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item-header">
+										<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-3.jpg" alt="" /></a>
+									</div>
+									<div class="item-content">
+												<span class="article-meta">
+													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+												</span>
+										<h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
+										<span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item-header">
+										<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-4.jpg" alt="" /></a>
+									</div>
+									<div class="item-content">
+												<span class="article-meta">
+													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+												</span>
+										<h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
+										<span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
+									</div>
+								</div>
+								<a href="blog.html" class="item-button">Load more ...</a>
+							</div>
+							<!-- END .widget -->
+						</div>
+
+						<!-- END .footer-widget-middle -->
+					</div>
+
+					<!-- BEGIN .footer-widget-right -->
+					<div class="footer-widget-right">
+
+						<!-- BEGIN .widget -->
+						<div class="widget">
+							<div class="title-block">
+								<h2>Latest News</h2>
+							</div>
+							<div class="article-block without-images">
+
+								<div class="item">
+									<div class="item-content">
+										<a href="#" style="background: #0076a3;" class="item-content-category left">Fashion</a>
+												<span class="article-meta left">
+													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+												</span>
+										<div class="clear-float"></div>
+										<h4><a href="post.html">Solidus - best selling wordpress theme</a></h4>
+										<p>His at everti appetere, vitae utamur eum in, ea ubique vidisse duo.</p>
+									</div>
+								</div>
+
+								<div class="item">
+									<div class="item-content">
+										<a href="#" style="background: #9e2929;" class="item-content-category left">Cars</a>
+												<span class="article-meta left">
+													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+												</span>
+										<div class="clear-float"></div>
+										<h4><a href="post.html">Solidus - best selling wordpress theme</a></h4>
+										<p>His at everti appetere, vitae utamur eum in, ea ubique vidisse duo.</p>
+									</div>
+								</div>
+
+								<div class="item">
+									<div class="item-content">
+										<a href="#" style="background: #00a651;" class="item-content-category left">Fashion</a>
+												<span class="article-meta left">
+													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+												</span>
+										<div class="clear-float"></div>
+										<h4><a href="post.html">Solidus - best selling wordpress theme</a></h4>
+										<p>His at everti appetere, vitae utamur eum in, ea ubique vidisse duo.</p>
+									</div>
+								</div>
+
+							</div>
+							<!-- END .widget -->
+						</div>
+
+
+						<!-- END .footer-widget-right -->
+					</div>
+
+					<!-- BEGIN .footer-widget-right -->
+					<div class="footer-widget-right">
+
+						<portal-etiquetas></portal-etiquetas>
+						<portal-listadocategorias></portal-listadocategorias>
+
+						<!-- END .footer-widget-right -->
+					</div>
+
+				</div>
+
+				<!-- END .footer-widgets -->
+			</div>
+
+			<!-- END .wrapper -->
+		</div>
+
+		<!-- BEGIN .footer-copy -->
+		<portal-piedepagina></portal-piedepagina>s
+
+		<!-- END .footer -->
+	</footer>
+
+	<!-- END .boxed -->
 </div>

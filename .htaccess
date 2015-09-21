@@ -14,7 +14,7 @@ DirectoryIndex index.php
   RewriteRule (.*) /index.php [L]
 
   RewriteRule ^logout / [R=301,L]
-  RewriteRule ^admin /login [R=301,L]
+  #RewriteRule ^admin /login [R=301,L]
 
   #RewriteRule ^paneladmin/(.*)$ http://angularrequire.com/paneladmin/$1 [R=301,L]
 </IfModule>

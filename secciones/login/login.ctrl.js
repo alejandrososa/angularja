@@ -18,8 +18,8 @@ angular
             $auth.login(vm.persona)
                 .then(function() {
                     toastr.success('You have successfully signed in');
-                    //$location.path('/admin');
-                    $window.location.href = '/admin/';
+                    $location.path('/admin/');
+                    //$window.location.href = '/admin/';
                 })
                 .catch(function(response) {
                     //console.clear();
@@ -34,8 +34,8 @@ angular
             $auth.authenticate(provider)
                 .then(function() {
                     toastr.success('You have successfully signed in with ' + provider);
-                    //$location.path('/admin');
-                    $window.location.href = '/admin/';
+                    $location.path('/admin');
+                    //$window.location.href = '/admin/';
                 })
                 .catch(function(response) {
                     toastr.error(response.message);
