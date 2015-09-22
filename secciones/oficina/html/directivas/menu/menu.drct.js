@@ -21,6 +21,17 @@ function menu() {  //ShowService
 
         var vm = this;
 
+        vm.logout = function() {
+            var deferred = $q.defer();
+
+            $log.info('La sesión se ha cerrado');
+            $auth.logout()
+                .then(function() {
+                    //$window.location.href = '/login';
+                    $location.path('/');
+                });
+        };
+
         /**
          * Sidebar Toggle & Cookie Control
          */

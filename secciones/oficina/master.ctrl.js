@@ -18,16 +18,7 @@ angular
         }
 
 
-        $scope.logout = function() {
-            var deferred = $q.defer();
 
-            $log.info('La sesión se ha cerrado');
-            $auth.logout()
-                .then(function() {
-                    //$window.location.href = '/login';
-                    $location.path('/');
-                });
-        };
 
 
 
