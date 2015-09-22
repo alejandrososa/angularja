@@ -23,7 +23,7 @@ function ngCargando($rootScope) {
     //templateUrl: "src/templates/rotatingPlaneSpinner.html",
     template: "<div ng-show='isRouteLoading' class='loading-indicator'>" +
     "<div class='loading-indicator-body'>" +
-    "<h3 class='loading-title'>Cargando...</h3>" +
+    //"<h3 class='loading-title'>Cargando...</h3>" +
     "<div class='spinner'><div class='three-dots-row-spinner'></div></div>" +
     "</div>" +
     "</div>",

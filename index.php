@@ -6,7 +6,7 @@
 	<base href="/">
     <meta charset="UTF-8">
     <meta name="fragment" content="!" />
-		<title>JA | Portada</title>
+		<title>JA | Oficina</title>
 
 		<!-- Meta Tags -->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -89,6 +89,7 @@
 	        <script src="lib/app.rutas.js"></script>
 	        <script src="lib/app.config.js"></script>
 	        <script src="lib/app.core.js"></script>
+			<script src="lib/app.coreoficina.js"></script>
 	        <script src="lib/app.servicios.js"></script>
 			<script src="lib/app.satellizer.js"></script>
 	        <script src="lib/app.js"></script>
@@ -107,18 +108,18 @@
 	    <!-- / -->
 	    <!-- DIRECTIVES -->
 	    	<script src="directivas/ngCargando.drct.js"></script>
+			<script src="directivas/ngEnter.drct.js"></script>
 	    	<script src="componentes/logo/logo.drct.js"></script>
 	    	<script src="componentes/menutop/menu.drct.js"></script>	    	
 	    	<script src="componentes/menu/menu.drct.js"></script>
 	    	<script src="componentes/menusecundario/menu.drct.js"></script>
-	    	<script src="componentes/menuinferior/menu.drct.js"></script>	 	    	
+	    	<script src="componentes/menuinferior/menu.drct.js"></script>
 	    	<script src="componentes/slider/slider.drct.js"></script>
 	    	<script src="componentes/etiquetas/etiquetas.drct.js"></script>	    	
 	    	<script src="componentes/articulos/articulos.drct.js"></script>	    	
 	    	<script src="componentes/listadoarticulos/articulos.drct.js"></script>
 	    	<script src="componentes/listadocategorias/categorias.drct.js"></script>
 	        <script src="componentes/show/show.drct.js"></script>
-	        <script src="directivas/ngEnter.drct.js"></script>
 	        <script src="componentes/quienesomos/quienesomos.drct.js"></script>
 	        <script src="componentes/eventos/eventos.drct.js"></script>
 	        <script src="componentes/comentarios/comentarios.drct.js"></script>
@@ -126,6 +127,9 @@
 	        <script src="componentes/videos/videos.drct.js"></script>	        
 	        <script src="componentes/publicidad/publicidad.drct.js"></script>
 	        <script src="componentes/piedepagina/pie.drct.js"></script>
+
+			<script src="secciones/oficina/html/directivas/menu/menu.drct.js"></script>
+			<script src="secciones/oficina/html/directivas/header/header.drct.js"></script>
 	    <!-- / -->
 		
 		
