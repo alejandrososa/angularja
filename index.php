@@ -17,7 +17,24 @@
 		<link rel="shortcut icon" href="assets/plantillas/solido/images/favicon.ico" type="image/x-icon" />
 
 		<!-- Estilos General -->
+		<link type="text/css" rel="stylesheet" href="assets/general/general.css" />
 		<link type="text/css" rel="stylesheet" href="assets/general/angular-toastr.css" />
+		<link type="text/css" rel="stylesheet" href="assets/general/angular-spinkit.min.css" />
+
+		<!-- Stylesheets -->
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/reset.css" />
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/font-awesome.min.css" />
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/main-stylesheet.css" />
+		<!-- For white edition style -->
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/white-edition.css" />
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/lightbox.css" />
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/shortcodes.css" />
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/custom-fonts.css" />
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/custom-colors.css" />
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/owl.carousel.css" />
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/responsive.css" />
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/animate.css" />
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/dat-menu.css" />
 
         <!--[if lte IE 8]>
 		<link type="text/css" rel="stylesheet" href="css/ie-ancient.css" />
@@ -36,9 +53,10 @@
 	<body ng-cloak>
 
 
+		<ng-Cargando></ng-Cargando>
+		<!--<div raw-ajax-busy-indicator="" class="ajax-busy-indicator"></div>-->
 
-
-			     <ng-view></ng-view>
+		<ng-view></ng-view>
 
 
 
@@ -46,7 +64,7 @@
 		
 		<!-- build:assets assets.min.js -->
 	    <!-- ASSETS -->
-                 <script src="bower_components/jquery/dist/jquery.js"></script>
+            <script src="bower_components/jquery/dist/jquery.js"></script>
 	        <script src="bower_components/angular/angular.min.js"></script>
 	        <script src="bower_components/angular/angular-resource.min.js"></script>
 	        <script src="bower_components/angular/angular-animate.min.js"></script>
@@ -80,7 +98,7 @@
 			<script src="secciones/error/error.ctrl.js"></script>
 			<script src="secciones/login/login.ctrl.js"></script>
 			<script src="secciones/oficina/admin.ctrl.js"></script>
-                 <script src="secciones/oficina/master.ctrl.js"></script>
+            <script src="secciones/oficina/master.ctrl.js"></script>
 	    <!-- / -->
 	    <!-- SERVICES -->
 	        <script src="servicios/show.fct.js"></script>
@@ -88,6 +106,7 @@
 	        <script src="servicios/contenido.fct.js"></script>
 	    <!-- / -->
 	    <!-- DIRECTIVES -->
+	    	<script src="directivas/ngCargando.drct.js"></script>
 	    	<script src="componentes/logo/logo.drct.js"></script>
 	    	<script src="componentes/menutop/menu.drct.js"></script>	    	
 	    	<script src="componentes/menu/menu.drct.js"></script>
