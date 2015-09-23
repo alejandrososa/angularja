@@ -105,6 +105,7 @@
 	        <script src="servicios/show.fct.js"></script>
 	        <script src="servicios/page.val.js"></script>
 	        <script src="servicios/contenido.fct.js"></script>
+			<script src="servicios/usuarios.fct.js"></script>
 	    <!-- / -->
 	    <!-- DIRECTIVES -->
 	    	<script src="directivas/ngCargando.drct.js"></script>

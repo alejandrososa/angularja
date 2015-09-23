@@ -13,6 +13,8 @@ namespace Api;
 	use Api\Helper;
 	use Api\Entorno;
 
+    use Api\Modelos\Usuarios;
+
 	class ServicioJA extends Modelo{ //REST
         public $data      = "";
         private $sesion;
@@ -21,6 +23,7 @@ namespace Api;
         private $mysqli   = NULL;
         private $helper;
         private $demo;
+        private $modelUsuarios = NULL;
 
         /**
          * Inicialización objetos
@@ -30,6 +33,7 @@ namespace Api;
             $this->sesion    = new Sesion();
             $this->helper    = new Helper();
             $this->demo      = new Demo();
+            $this->modelUsuarios = Usuarios::getInstance();
         }
 
         /**
@@ -113,6 +117,23 @@ namespace Api;
         /**
          * DEMOS
          */
+
+        public function getUsuariosModelohoy(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            $this->init_rest();
+
+            $cantidad = (int)$this->rest->_request['cantidad'];
+
+            $articulos = $this->modelUsuarios->getUsuarios();
+
+            if(isset($articulos)){
+                $this->rest->response($this->helper->json(array('resultado'=>$articulos)), 200);
+            }
+            $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+        }
 
         public function getUltimosArticulos(){
             if($this->rest->get_request_method() != "GET"){

@@ -3,9 +3,9 @@
  */
 'use strict';
 angular
-    .module('app.core')
+    .module('app.coreoficina')
     .controller('MasterController', function($scope, $rootScope, PageValues, $cookieStore,
-                                             $q, $location, $auth, $log, toastr, $window) {
+                                             $q, $location, $auth, $log, toastr, $window, Usuarios) {
 
         var vm = this;
 
@@ -18,7 +18,18 @@ angular
         }
 
 
+        vm.usuarios = [];
+        vm.tblsortType     = 'name'; // set the default sort type
+        vm.tblsortReverse  = false;  // set the default sort order
+        vm.tblsearchFish   = '';     //
 
+        Usuarios.getUsuarios().then(function(respuesta){
+            vm.usuarios = JSON.parse(respuesta.resultado);
+        });
+
+
+
+        vm.hola = vm.usuarios;
 
 
 

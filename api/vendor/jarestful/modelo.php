@@ -171,15 +171,18 @@ abstract class Modelo{
 	protected function model_get($tabla) {
 		$sql = "Select * from " . $tabla . " ";			
 		$counter = 0;
-		
-		foreach ($this->where as $key => $value) {
-			if ($counter == 0) {				
-				$sql .= "WHERE {$key} = '".$value."' ";				
-			} else {				
-				$sql .= "AND {$key} = '".$value."' ";					
-			}									
-			$counter++;			
+
+		if(!empty($this->where)){
+			foreach ($this->where as $key => $value) {
+				if ($counter == 0) {
+					$sql .= "WHERE {$key} = '".$value."' ";
+				} else {
+					$sql .= "AND {$key} = '".$value."' ";
+				}
+				$counter++;
+			}
 		}
+
 		//echo $sql;
 		$resultado = $this->_cnx->query($sql);
       	$resultado->execute();
@@ -616,6 +619,30 @@ abstract class Modelo{
 		}
 	
 		return $new_array;
+	}
+
+
+
+
+
+
+
+
+
+
+
+	protected function find_all($tabla){
+		$columnas = array();
+		$resultado = $this->_cnx->query("SELECT * FROM " . $tabla);
+
+		while ( $row = $resultado->fetchObject() ) {
+			$columnas[] = $row;
+		}
+
+		if (isset($columnas)){
+			$this->resultado = $columnas;
+			return json_encode($this->resultado, JSON_NUMERIC_CHECK);
+		}
 	}
 	
 	

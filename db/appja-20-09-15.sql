@@ -53,7 +53,7 @@ CREATE TABLE `ja_pagina_categorias` (
   CONSTRAINT `fk_pag` FOREIGN KEY (`id_pagina`) REFERENCES `ja_paginas` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
-INSERT INTO `appja`.`ja_pagina_categorias` (`id_pagina`, `id_categoria`) VALUES ('Sin Categoria','sin-categoria');
+INSERT INTO `appja`.`ja_categorias` (`titulo`, `slug`) VALUES ('Sin Categoria','sin-categoria');
 
 ALTER TABLE `appja`.`ja_paginas`
 ADD COLUMN `slug` TEXT NULL COMMENT '' AFTER `comentario_count`,
