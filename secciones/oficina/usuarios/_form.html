@@ -1,0 +1,32 @@
+<form role="form" name="frmUsuario" ng-submit="vm.procesar(frmUsuario.$valid, vm.tipo)" novalidate>
+    <div class="form-group"  ng-class="{ 'has-error' : frmUsuario.nombre.$invalid && !frmUsuario.nombre.$pristine }">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" ng-model="vm.usuario.nombre" ng-minlength="3" ng-maxlength="8" required />
+        <p ng-show="frmUsuario.nombre.$dirty" class="help-block">Nombre requerido</p>
+        <p ng-show="frmUsuario.nombre.$error.minlength" class="help-block">Username is too short.</p>
+        <p ng-show="frmUsuario.nombre.$error.maxlength" class="help-block">Username is too long.</p>
+    </div>
+    <div class="form-group">
+        <label for="correo">Correo</label>
+        <input type="email" class="form-control" id="correo" ng-model="vm.usuario.correo" required>
+        <span ng-show="frmUsuario.correo.$dirty && frmUsuario.correo.$invalid" class="help-inline">Correo requerido</span>
+    </div>
+    <div class="form-group">
+        <label for="clave">Clave</label>
+        <input type="password" class="form-control" id="clave" />
+    </div>
+    <div class="form-group">
+        <label for="telefono">Telefono</label>
+        <input type="text" class="form-control" id="telefono" ng-model="vm.usuario.tel" />
+    </div>
+    <div class="form-group">
+        <label for="direccion">Dirección</label>
+        <input type="text" class="form-control" id="direccion" ng-model="vm.usuario.direccion" />
+    </div>
+    <div class="form-group">
+        <label for="ciudad">Ciudad</label>
+        <input type="text" class="form-control" id="ciudad" ng-model="vm.usuario.ciudad" />
+    </div>
+
+    <button type="submit" class="btn btn-success">{{vm.botonTexto}}</button>
+</form>

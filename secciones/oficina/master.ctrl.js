@@ -14,7 +14,7 @@ angular
 
 
         if (!$auth.isAuthenticated()) {
-            $$location.path('/login');
+            $location.path('/login');
         }
 
 
@@ -26,6 +26,7 @@ angular
         Usuarios.getUsuarios().then(function(respuesta){
             vm.usuarios = JSON.parse(respuesta.resultado);
         });
+
 
 
 

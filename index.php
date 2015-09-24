@@ -100,6 +100,7 @@
 			<script src="secciones/login/login.ctrl.js"></script>
 			<script src="secciones/oficina/admin.ctrl.js"></script>
             <script src="secciones/oficina/master.ctrl.js"></script>
+			<script src="secciones/oficina/usuarios/usuarios.ctrl.js"></script>
 	    <!-- / -->
 	    <!-- SERVICES -->
 	        <script src="servicios/show.fct.js"></script>

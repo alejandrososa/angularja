@@ -49,6 +49,7 @@ abstract class Modelo{
        }
        return self::$_instancias[$class];
     }
+
     final public function __clone() {
         throw new Exception('Class tipo ' . get_called_class() . ' no puede ser clonada');
     }
@@ -109,9 +110,7 @@ abstract class Modelo{
 		$this->_cnx = null;
 	}
 	
-	public function last_insert_id() {		
-		return $this->_cnx->lastInsertId();	
-	}
+
 
 	/**
 	* @desc - consulta dinámica con pdo, de ámbito protegido, de esta forma sus clases hijas podrán utilizarlo
@@ -171,15 +170,18 @@ abstract class Modelo{
 	protected function model_get($tabla) {
 		$sql = "Select * from " . $tabla . " ";			
 		$counter = 0;
-		
-		foreach ($this->where as $key => $value) {
-			if ($counter == 0) {				
-				$sql .= "WHERE {$key} = '".$value."' ";				
-			} else {				
-				$sql .= "AND {$key} = '".$value."' ";					
-			}									
-			$counter++;			
+
+		if(!empty($this->where)){
+			foreach ($this->where as $key => $value) {
+				if ($counter == 0) {
+					$sql .= "WHERE {$key} = '".$value."' ";
+				} else {
+					$sql .= "AND {$key} = '".$value."' ";
+				}
+				$counter++;
+			}
 		}
+
 		//echo $sql;
 		$resultado = $this->_cnx->query($sql);
       	$resultado->execute();
@@ -386,10 +388,7 @@ abstract class Modelo{
 		$this->resultado = $resultado;			
     }
 	
-	public function where($valor) {
-		$this->where = $valor;		
-		return $this;		
-	}
+
 	
 	public function model_insertar($tabla, $valores) {
 		try {	
@@ -500,11 +499,6 @@ abstract class Modelo{
 		return $this->resultado;					
 	}
 	
-	/**
-	 * Update a value in a table
-	 * 
-	 * @access public
-	 */ 
 	protected function model_actualizar($tabla, $valores) {
 		foreach ($valores as $key => $valor){
 			$campo[] = $key . ' = :' . $key;
@@ -555,12 +549,7 @@ abstract class Modelo{
 		return $this->resultado;			
 	}
 
-	/**
-	 * Delete a record
-	 * 
-	 * @access public
-	 */ 
-	protected function model_borrar($table) {            
+	protected function model_borrar($table) {
 		$sql = "DELETE FROM " . $table . " ";		
 		$counter = 0;		
 		foreach ($this->where as $key => $value) {
@@ -617,6 +606,190 @@ abstract class Modelo{
 	
 		return $new_array;
 	}
+
+
+
+
+
+
+
+
+
+
+
+        protected function find_one($tabla){
+
+
+
+        try {
+            $sql = "SELECT * FROM " . $tabla . " ";
+            $counter = 0;
+
+            foreach ($this->where as $key => $value) {
+                if ($counter == 0) {
+                    $sql .= "WHERE {$key} = :{$key} ";
+                    //$sql .= "WHERE {$key} = ". (is_int($value) ? $value : "'".$value."'")." ";
+                } else {
+                    $sql .= "AND {$key} = :{$key} ";
+                }
+                $counter++;
+            }
+
+            $stmt = $this->pdo->prepare($sql);
+
+            foreach ($this->where as $key => $value)
+                $stmt->bindValue(':' . $key, $value);
+
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+            return json_encode($stmt->fetch(PDO::FETCH_ASSOC), JSON_NUMERIC_CHECK);
+
+        } catch (PDOException $exception) {
+
+            die($exception->getMessage());
+
+        }
+	}
+
+
+	protected function find_all($tabla){
+		$columnas = array();
+		$resultado = $this->_cnx->query("SELECT * FROM " . $tabla);
+
+		while ( $row = $resultado->fetchObject() ) {
+			$columnas[] = $row;
+		}
+
+		if (isset($columnas)){
+			$this->resultado = $columnas;
+			return $this->resultado;
+		}
+	}
+
+
+    public function query($statement) {
+        try {
+            return self::$PDO->query($statement);
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
+    public function row_count($statement) {
+        try {
+            return self::$PDO->query($statement)->rowCount();
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
+    public function fetch_all($statement, $fetch_style = PDO::FETCH_ASSOC) {
+        try {
+            return self::$PDO->query($statement)->fetchAll($fetch_style);
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
+    public function fetch_row_assoc($statement) {
+        try {
+            return self::$PDO->query($statement)->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
+    public function last_insert_id() {
+        return $this->_cnx->lastInsertId();
+    }
+
+    public function where($value) {
+        $this->where = $value;
+        return $this;
+    }
+
+    public function insert($table, $values) {
+
+        try {
+            foreach ($values as $key => $value)
+                $field_names[] = $key . ' = :' . $key;
+
+            $sql = "INSERT INTO " . $table . " SET " . implode(', ', $field_names);
+            $stmt = self::$PDO->prepare($sql);
+
+            foreach ($values as $key => $value)
+                $stmt->bindValue(':' . $key, $value);
+
+            $stmt->execute();
+
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
+    public function update($table, $values) {
+
+        try {
+
+            foreach ($values as $key => $value)
+                $field_names[] = $key . ' = :' . $key;
+
+            $sql  = "UPDATE " . $table . " SET " . implode(', ', $field_names) . " ";
+
+            $counter = 0;
+
+            foreach ($this->where as $key => $value) {
+
+                if ($counter == 0) {
+
+                    $sql .= "WHERE {$key} = :{$key} ";
+
+                } else {
+
+                    $sql .= "AND {$key} = :{$key} ";
+
+                }
+
+                $counter++;
+
+            }
+
+            $stmt = self::$PDO->prepare($sql);
+
+            foreach ($values as $key => $value)
+                $stmt->bindValue(':' . $key, $value);
+
+            foreach ($this->where as $key => $value)
+                $stmt->bindValue(':' . $key, $value);
+
+            $stmt->execute();
+
+        } catch (PDOException $exception) {
+
+            die($exception->getMessage());
+
+        }
+
+    }
+
+    public function delete($table) {
+        $sql = "DELETE FROM " . $table . " ";
+        $counter = 0;
+
+        foreach ($this->where as $key => $value) {
+            if ($counter == 0) {
+                $sql .= "WHERE {$key} = :{$key} ";
+            } else {
+                $sql .= "AND {$key} = :{$key} ";
+            }
+            $counter++;
+        }
+        $stmt = self::$PDO->prepare($sql);
+        foreach ($this->where as $key => $value)
+            $stmt->bindValue(':' . $key, $value);
+
+        $stmt->execute();
+    }
 	
 	
 }?>

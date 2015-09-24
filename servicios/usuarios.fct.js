@@ -10,12 +10,13 @@ angular
 
 function servicio($http, API_URL, $log) { 
     var data = {
+        'one': one,
         'getUsuarios': getUsuarios,
-    	'getUltimosArticulos': getUltimosArticulos,
-    	'getUltimasNoticias': getUltimasNoticias,
-    	'getArticulosCategoria': getArticulosCategoria,
+        //'getUltimosArticulos': getUltimosArticulos,
+        //'getUltimasNoticias': getUltimasNoticias,
+        //'getArticulosCategoria': getArticulosCategoria,
     };
-    
+
     function ejecutar(tipo, url, params) {
         var requestUrl = API_URL + url;
         
@@ -31,11 +32,40 @@ function servicio($http, API_URL, $log) {
             },
             'cache': true
         }).then(function(response){
+            console.log(response.data);
             return response.data;
         }).catch(dataServiceError);
     }
+
+    function one(id){
+        /*return $http.post(API_URL + 'getUsuario', {id:id}).then(function (datos) {
+            console.log(datos.data);
+            return datos.data; //status.data;
+        });*/
+
+        return $http.get(API_URL + 'getUsuario?id='+id, {}).then(function (datos) {
+            console.log(datos.data);
+            return datos.data; //status.data;
+         });
+
+        /*
+        return ejecutar('get','getUsuario?id='+id, {}).then(function(data) {
+            return data;
+        });
+        */
+    }
+
     function getUsuarios(){
-        return ejecutar('get', 'getUsuariosModelohoy', {});
+        return $http.get(API_URL + 'getUsuarios', {}).then(function (datos) {
+            console.log(datos.data.resultado);
+            return datos.data.resultado; //status.data;
+        });
+        /*
+        return ejecutar('get', 'getUsuarios', {}).then(function (datos) {
+            console.log(datos.resultado);
+            return datos.resultado; //status.data;
+        });
+        */
     }
     
     function getUltimosArticulos(cantidad){

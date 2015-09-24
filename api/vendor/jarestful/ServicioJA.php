@@ -113,19 +113,54 @@ namespace Api;
 
 
 
-
         /**
-         * DEMOS
+         * USUARIOS
          */
 
-        public function getUsuariosModelohoy(){
+        public function getUsuario(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            //$post = json_decode(file_get_contents("php://input"),true); //(int)$this->rest->_request['id'];
+            $post = $this->rest->_request['id']; // ? (int)$this->rest->_request['id'] : 0;
+
+            $this->init_rest();
+            $this->modelUsuarios->atributos = array('uid'=> $post);
+            $resultado = $this->modelUsuarios->getUsuario();
+
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json($resultado), 200);
+            }
+            $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
+        public function getUsuarioss(){
+            $this->init_rest();
+            $this->modelUsuarios->atributos = array('uid'=> 170);
+            $resultado = $this->modelUsuarios->getUsuario();
+            $this->rest->response($this->helper->json($resultado), 200);
+            //print_r($resultado);
+
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+            $datos = json_decode(file_get_contents("php://input"),true); //(int)$this->rest->_request['id'];
+            $portada = $this->seleccionar_pagina_by('pagina', array('pagina_tipo' => $datos['tipo']));
+            if(isset($portada)){
+                $this->rest->response($this->helper->json($portada), 200);
+            }
+            $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
+        public function getUsuarios(){
             if($this->rest->get_request_method() != "GET"){
                 $this->rest->response('',406);
             }
 
             $this->init_rest();
 
-            $cantidad = (int)$this->rest->_request['cantidad'];
+            //$cantidad = (int)$this->rest->_request['cantidad'];
 
             $articulos = $this->modelUsuarios->getUsuarios();
 
@@ -134,6 +169,13 @@ namespace Api;
             }
             $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
         }
+
+
+
+        /**
+         * DEMOS
+         */
+
 
         public function getUltimosArticulos(){
             if($this->rest->get_request_method() != "GET"){

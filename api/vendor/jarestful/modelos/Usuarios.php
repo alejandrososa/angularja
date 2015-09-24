@@ -14,6 +14,7 @@ class Usuarios extends Modelo
 {
 
     private static $modelo = 'ja_usuarios';
+    public $atributos = array();
 
 
 
@@ -27,6 +28,13 @@ class Usuarios extends Modelo
 
     public function getUsuarios(){
         return $this->find_all(self::$modelo);
+    }
+
+    public function getUsuario(){
+        $this->where = $this->atributos;
+        $usuario = $this->find_one(self::$modelo);
+        unset($usuario['clave']);
+        return $usuario;
     }
 
 }
