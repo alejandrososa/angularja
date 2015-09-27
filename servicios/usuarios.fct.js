@@ -6,6 +6,7 @@
 angular
     .module('app.servicios')
     .constant('API_URL', 'http://ja.dev/api/')
+    .constant('IMG_URL', 'http://ja.dev/assets/images/')
     .factory('Usuarios', servicio);
 
 function servicio($http, API_URL, $log, toastr) {
@@ -50,14 +51,24 @@ function servicio($http, API_URL, $log, toastr) {
     }
 
     function actualizar(usuario){
-        return $http.put(API_URL + 'actualizarUsuario', {id: usuario.id, usuario:usuario}).then(function (datos) {
+        return $http.put(API_URL + 'actualizarUsuario', {
+            id: usuario.id,
+            usuario:usuario,
+            transformRequest: angular.indentity,
+            headers: { 'Content-Type': undefined }
+        }).then(function (datos) {
             toastr.success(datos.data.mensaje);
             return datos.data;
         });
     }
 
     function crear(usuario){
-        return $http.post(API_URL + 'crearUsuario', {id: usuario.id, usuario:usuario}).then(function (datos) {
+        return $http.post(API_URL + 'crearUsuario', {
+            id: usuario.id,
+            usuario:usuario,
+            transformRequest: angular.indentity,
+            headers: { 'Content-Type': undefined }
+        }).then(function (datos) {
             toastr.success(datos.data.mensaje);
             return datos.data;
         });
@@ -65,6 +76,16 @@ function servicio($http, API_URL, $log, toastr) {
 
     function eliminar(id){
         return $http.delete(API_URL + 'eliminarUsuario?id='+id, {}).then(function (datos) {
+            toastr.success(datos.data.mensaje);
+            return datos.data;
+        });
+    }
+
+    function guardarImagen(){
+        return $http.post(API_URL + 'eliminarUsuario?id='+id, {
+            transformRequest: angular.indentity,
+            headers: { 'Content-Type': undefined }
+        }).then(function (datos) {
             toastr.success(datos.data.mensaje);
             return datos.data;
         });

@@ -1,33 +1,103 @@
-<form role="form" name="frmUsuario" ng-submit="vm.procesar(frmUsuario.$valid, vm.tipo)" novalidate>
-    <div class="form-group"  ng-class="{ 'has-error' : frmUsuario.nombre.$invalid && !frmUsuario.nombre.$pristine }">
-        <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" ng-model="vm.usuario.nombre" required />
-        <p ng-show="frmUsuario.nombre.$dirty" class="help-block">Nombre requerido</p>
-        <!--
-        <p ng-show="frmUsuario.nombre.$error.minlength" class="help-block">Username is too short.</p>
-        <p ng-show="frmUsuario.nombre.$error.maxlength" class="help-block">Username is too long.</p>-->
-    </div>
-    <div class="form-group">
-        <label for="correo">Correo</label>
-        <input type="email" class="form-control" id="correo" ng-model="vm.usuario.correo" required>
-        <span ng-show="frmUsuario.correo.$dirty && frmUsuario.correo.$invalid" class="help-inline">Correo requerido</span>
-    </div>
-    <div class="form-group">
-        <label for="clave">Clave</label>
-        <input type="password" class="form-control" ng-model="vm.usuario.clave" id="clave" />
-    </div>
-    <div class="form-group">
-        <label for="telefono">Telefono</label>
-        <input type="text" class="form-control" id="telefono" ng-model="vm.usuario.tel" />
-    </div>
-    <div class="form-group">
-        <label for="direccion">Dirección</label>
-        <input type="text" class="form-control" id="direccion" ng-model="vm.usuario.direccion" />
-    </div>
-    <div class="form-group">
-        <label for="ciudad">Ciudad</label>
-        <input type="text" class="form-control" id="ciudad" ng-model="vm.usuario.ciudad" />
-    </div>
+{{vm.usuario}}
 
-    <button type="submit" class="btn btn-success">{{vm.botonTexto}}</button>
-</form>
+<div class="card">
+    <div class="header">
+        <h4 class="title">Edit Profile</h4>
+    </div>
+    <div class="content">
+        <form role="form" name="frmUsuario" ng-submit="vm.procesar(frmUsuario.$valid, vm.tipo)" novalidate>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group" ng-class="{ 'has-error' : frmUsuario.usuario.$invalid && !frmUsuario.usuario.$pristine }">
+                        <label>Usuario</label>
+                        <input type="text" class="form-control" name="usuario" ng-model="vm.usuario.usuario" ng-disabled="vm.usuario.usuario" placeholder="Usuario" value="">
+                        <p ng-show="frmUsuario.usuario.$dirty" class="help-block">Nombre requerido</p>
+                        <!--
+                        <p ng-show="frmUsuario.nombre.$error.minlength" class="help-block">Username is too short.</p>
+                        <p ng-show="frmUsuario.nombre.$error.maxlength" class="help-block">Username is too long.</p>-->
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Telefono</label>
+                        <input type="text" class="form-control" placeholder="Telefono" value="" id="telefono" ng-model="vm.usuario.tel">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="correo">Email address</label>
+                        <input type="email" class="form-control" placeholder="Email" id="correo" ng-model="vm.usuario.correo" required>
+                        <span ng-show="frmUsuario.correo.$dirty && frmUsuario.correo.$invalid" class="help-inline">Correo requerido</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Imagen</label>
+                        <input type="file" class="form-control" id="imagen" file-model="vm.usuario.imagen">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" placeholder="Nombre" ng-model="vm.usuario.nombre" value="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Apellido</label>
+                        <input type="text" class="form-control" placeholder="Apellidos" ng-model="vm.usuario.apellidos" value="Andrew">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <input type="text" class="form-control" placeholder="Dirección" id="direccion" ng-model="vm.usuario.direccion" value="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Ciudad</label>
+                        <input type="text" class="form-control" id="ciudad" ng-model="vm.usuario.ciudad" placeholder="City" value="Mike">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>País</label>
+                        <input type="text" class="form-control" placeholder="Pais" value="Andrew">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Clave</label>
+                        <input type="number" class="form-control" placeholder="" id="clave" ng-model="vm.usuario.clave">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>About Me</label>
+                        <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-fill pull-right">{{vm.botonTexto}}</button>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

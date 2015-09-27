@@ -82,6 +82,7 @@
 			<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 			<script src="bower_components/angular/angular-css.js"></script>
 			<script src="bower_components/angular/angular-css.min.js"></script>
+			<script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
 	    <!-- / -->
 	    <!-- endbuild -->
 	    <!-- build:js app.min.js -->

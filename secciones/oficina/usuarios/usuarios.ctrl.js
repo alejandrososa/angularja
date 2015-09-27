@@ -50,11 +50,14 @@ angular
         //usuario
         vm.usuario = {
             id: _datos.uid,
+            usuario: _datos.usuario,
             nombre: _datos.nombre,
+            apellidos: _datos.apellidos,
             correo: _datos.correo,
             tel: _datos.telefono,
             direccion: _datos.direccion,
-            ciudad: _datos.ciudad
+            ciudad: _datos.ciudad,
+            pais: _datos.pais
         };
 
         //acciones

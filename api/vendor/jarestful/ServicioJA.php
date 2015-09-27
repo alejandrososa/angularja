@@ -167,8 +167,14 @@ namespace Api;
             $tel        = isset($datos['usuario']['tel']) ? $datos['usuario']['tel'] : '';
             $direccion  = isset($datos['usuario']['direccion']) ? $datos['usuario']['direccion'] : '';
             $ciudad     = isset($datos['usuario']['ciudad']) ? $datos['usuario']['ciudad'] : '';
+            $pais       = isset($datos['usuario']['pais']) ? $datos['usuario']['pais'] : '';
 
             $valores = [];
+
+
+            $filename = $_FILES['file']['name'];
+            $destination = '../images/' . $filename;
+            move_uploaded_file( $_FILES['file']['tmp_name'] , $destination );
 
             if(empty($datos)){
                 $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
@@ -197,7 +203,10 @@ namespace Api;
             }
 
             $this->init_rest();
+
+
             $datos      = json_decode(file_get_contents("php://input"),true);
+
             $nombre     = isset($datos['usuario']['nombre']) ? $datos['usuario']['nombre'] : '';
             $correo     = isset($datos['usuario']['correo']) ? $datos['usuario']['correo'] : '';
             $clave      = isset($datos['usuario']['clave']) ? $datos['usuario']['clave'] : '';
