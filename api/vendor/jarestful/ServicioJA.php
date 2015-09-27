@@ -14,8 +14,9 @@ namespace Api;
 	use Api\Entorno;
 
     use Api\Modelos\Usuarios;
+    use Api\Modelos\Categorias;
 
-	class ServicioJA extends Modelo{ //REST
+	class ServicioJA { //REST
         public $data      = "";
         private $sesion;
         private $rest;
@@ -24,24 +25,18 @@ namespace Api;
         private $helper;
         private $demo;
         private $modelUsuarios = NULL;
+        private $modelCategorias = NULL;
 
         /**
          * Inicialización objetos
          */
-        private function init_rest(){
+        function __construct(){
             $this->rest      = new RestJA();
             $this->sesion    = new Sesion();
             $this->helper    = new Helper();
             $this->demo      = new Demo();
             $this->modelUsuarios = Usuarios::getInstance();
-        }
-
-        /**
-         * Inicialización Base de datos
-         * @abstract Modelo
-         */
-        protected static function initModelo() {
-            // Aquí realizaríamos la conexión a la BBDD con el método que queramos
+            $this->modelCategorias = Categorias::getInstance();
         }
 
         /**
@@ -49,7 +44,7 @@ namespace Api;
          * @return response
          */
         public function iniciarServicio(){
-            $this->init_rest();
+            //$this->init_rest();
 
             $req = isset($_REQUEST['x']) ? $_REQUEST['x'] : '';
             $func = strtolower(trim(str_replace("/","",$req)));
@@ -74,12 +69,6 @@ namespace Api;
 
 
             return (string)$token;
-        }
-
-        private function getTokendemo(){
-            $demo = new Demo();
-
-            print_r($demo->getUltimosArticulos(5));
         }
 
         /**
@@ -129,10 +118,8 @@ namespace Api;
                 $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),204);
             }
 
-            $this->init_rest();
             $this->modelUsuarios->atributos = array('uid'=> $id);
             $resultado = $this->modelUsuarios->unicoUsuario();
-
             if(isset($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }
@@ -144,9 +131,7 @@ namespace Api;
                 $this->rest->response('',406);
             }
 
-            $this->init_rest();
             $usuarios = $this->modelUsuarios->todosUsuarios();
-
             if(isset($usuarios)){
                 $this->rest->response($this->helper->json(array('resultado'=>$usuarios)), 200);
             }
@@ -158,10 +143,10 @@ namespace Api;
                 $this->rest->response('',406);
             }
 
-            $this->init_rest();
             $datos      = json_decode(file_get_contents("php://input"),true);
             $id         = isset($datos['usuario']['id']) ? (int)$datos['usuario']['id'] : 0;
             $nombre     = isset($datos['usuario']['nombre']) ? $datos['usuario']['nombre'] : '';
+            $apellidos  = isset($datos['usuario']['apellidos']) ? $datos['usuario']['apellidos'] : '';
             $correo     = isset($datos['usuario']['correo']) ? $datos['usuario']['correo'] : '';
             $clave      = isset($datos['usuario']['clave']) ? $datos['usuario']['clave'] : '';
             $tel        = isset($datos['usuario']['tel']) ? $datos['usuario']['tel'] : '';
@@ -170,7 +155,6 @@ namespace Api;
             $pais       = isset($datos['usuario']['pais']) ? $datos['usuario']['pais'] : '';
 
             $valores = [];
-
 
             $filename = $_FILES['file']['name'];
             $destination = '../images/' . $filename;
@@ -186,6 +170,7 @@ namespace Api;
             if(isset($clave))      { $valores['clave']      = $this->helper->encriptar($clave); }
             if(isset($direccion))  { $valores['direccion']  = $direccion; }
             if(isset($ciudad))     { $valores['ciudad']     = $ciudad; }
+            if(isset($pais))       { $valores['pais']       = $pais; }
 
             $this->modelUsuarios->atributos = array('uid'=>$id);
             $this->modelUsuarios->setatributos = $valores;
@@ -202,17 +187,16 @@ namespace Api;
                 $this->rest->response('',406);
             }
 
-            $this->init_rest();
-
-
             $datos      = json_decode(file_get_contents("php://input"),true);
-
+            $usuario    = isset($datos['usuario']['usuario']) ? $datos['usuario']['usuario'] : '';
             $nombre     = isset($datos['usuario']['nombre']) ? $datos['usuario']['nombre'] : '';
+            $apellidos  = isset($datos['usuario']['apellidos']) ? $datos['usuario']['apellidos'] : '';
             $correo     = isset($datos['usuario']['correo']) ? $datos['usuario']['correo'] : '';
             $clave      = isset($datos['usuario']['clave']) ? $datos['usuario']['clave'] : '';
             $tel        = isset($datos['usuario']['tel']) ? $datos['usuario']['tel'] : '';
             $direccion  = isset($datos['usuario']['direccion']) ? $datos['usuario']['direccion'] : '';
             $ciudad     = isset($datos['usuario']['ciudad']) ? $datos['usuario']['ciudad'] : '';
+            $pais       = isset($datos['usuario']['pais']) ? $datos['usuario']['pais'] : '';
 
             $valores = [];
 
@@ -220,16 +204,18 @@ namespace Api;
                 $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
             }
 
+            if(isset($usuario))    { $valores['usuario']    = $usuario; }
             if(isset($nombre))     { $valores['nombre']     = $nombre; }
+            if(isset($apellidos))  { $valores['apellidos']  = $apellidos; }
             if(isset($correo))     { $valores['correo']     = $correo; }
             if(isset($tel))        { $valores['telefono']   = $tel; }
             if(isset($clave))      { $valores['clave']      = $this->helper->encriptar($clave); }
             if(isset($direccion))  { $valores['direccion']  = $direccion; }
             if(isset($ciudad))     { $valores['ciudad']     = $ciudad; }
+            if(isset($pais))       { $valores['pais']       = $pais; }
 
             $this->modelUsuarios->atributos = $valores;
             $resultado = $this->modelUsuarios->crearUsuario();
-
             if(isset($resultado)){
                 $this->rest->response($this->helper->json(array('mensaje'=>'Se ha creado el usuario con exito')), 200);
             }
@@ -250,6 +236,146 @@ namespace Api;
                 $this->rest->response($id.'',204);	// If no records "No Content" status
             }
         }
+
+
+
+        /**
+         * CATEGORIAS
+         */
+
+        public function unicaCategoria(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $post = json_decode(file_get_contents("php://input"),true);
+            $id         = isset($post['id']) ? (int)$post['id'] : 0;
+
+            if(empty($id) || $id == 0){
+                $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),204);
+            }
+
+            $this->modelCategorias->atributos = array('uid'=> $id);
+            $resultado = $this->modelCategorias->unicaCategoria();
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json($resultado), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
+        private function todasCategorias(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            $usuarios = $this->modelCategorias->todasCategorias();
+            if(isset($usuarios)){
+                $this->rest->response($this->helper->json(array('resultado'=>$usuarios)), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
+        private function actualizarCategoria(){
+            if($this->rest->get_request_method() != "PUT"){
+                $this->rest->response('',406);
+            }
+
+            $datos      = json_decode(file_get_contents("php://input"),true);
+            $id         = isset($datos['usuario']['id']) ? (int)$datos['usuario']['id'] : 0;
+            $nombre     = isset($datos['usuario']['nombre']) ? $datos['usuario']['nombre'] : '';
+            $apellidos  = isset($datos['usuario']['apellidos']) ? $datos['usuario']['apellidos'] : '';
+            $correo     = isset($datos['usuario']['correo']) ? $datos['usuario']['correo'] : '';
+            $clave      = isset($datos['usuario']['clave']) ? $datos['usuario']['clave'] : '';
+            $tel        = isset($datos['usuario']['tel']) ? $datos['usuario']['tel'] : '';
+            $direccion  = isset($datos['usuario']['direccion']) ? $datos['usuario']['direccion'] : '';
+            $ciudad     = isset($datos['usuario']['ciudad']) ? $datos['usuario']['ciudad'] : '';
+            $pais       = isset($datos['usuario']['pais']) ? $datos['usuario']['pais'] : '';
+
+            $valores = [];
+
+            $filename = $_FILES['file']['name'];
+            $destination = '../images/' . $filename;
+            move_uploaded_file( $_FILES['file']['tmp_name'] , $destination );
+
+            if(empty($datos)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            }
+
+            if(isset($nombre))     { $valores['nombre']     = $nombre; }
+            if(isset($correo))     { $valores['correo']     = $correo; }
+            if(isset($tel))        { $valores['telefono']   = $tel; }
+            if(isset($clave))      { $valores['clave']      = $this->helper->encriptar($clave); }
+            if(isset($direccion))  { $valores['direccion']  = $direccion; }
+            if(isset($ciudad))     { $valores['ciudad']     = $ciudad; }
+            if(isset($pais))       { $valores['pais']       = $pais; }
+
+            $this->modelCategorias->atributos = array('uid'=>$id);
+            $this->modelCategorias->setatributos = $valores;
+            $resultado = $this->modelCategorias->actualizarCategoria();
+
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'Se ha actualizado con exito')), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+        }
+
+        private function crearCategoria(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $datos      = json_decode(file_get_contents("php://input"),true);
+            $usuario    = isset($datos['usuario']['usuario']) ? $datos['usuario']['usuario'] : '';
+            $nombre     = isset($datos['usuario']['nombre']) ? $datos['usuario']['nombre'] : '';
+            $apellidos  = isset($datos['usuario']['apellidos']) ? $datos['usuario']['apellidos'] : '';
+            $correo     = isset($datos['usuario']['correo']) ? $datos['usuario']['correo'] : '';
+            $clave      = isset($datos['usuario']['clave']) ? $datos['usuario']['clave'] : '';
+            $tel        = isset($datos['usuario']['tel']) ? $datos['usuario']['tel'] : '';
+            $direccion  = isset($datos['usuario']['direccion']) ? $datos['usuario']['direccion'] : '';
+            $ciudad     = isset($datos['usuario']['ciudad']) ? $datos['usuario']['ciudad'] : '';
+            $pais       = isset($datos['usuario']['pais']) ? $datos['usuario']['pais'] : '';
+
+            $valores = [];
+
+            if(empty($datos)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            }
+
+            if(isset($usuario))    { $valores['usuario']    = $usuario; }
+            if(isset($nombre))     { $valores['nombre']     = $nombre; }
+            if(isset($apellidos))  { $valores['apellidos']  = $apellidos; }
+            if(isset($correo))     { $valores['correo']     = $correo; }
+            if(isset($tel))        { $valores['telefono']   = $tel; }
+            if(isset($clave))      { $valores['clave']      = $this->helper->encriptar($clave); }
+            if(isset($direccion))  { $valores['direccion']  = $direccion; }
+            if(isset($ciudad))     { $valores['ciudad']     = $ciudad; }
+            if(isset($pais))       { $valores['pais']       = $pais; }
+
+            $this->modelCategorias->atributos = $valores;
+            $resultado = $this->modelCategorias->crearCategoria();
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'Se ha creado el usuario con exito')), 200);
+            }
+            $this->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+        }
+
+        private function eliminarCategoria(){
+            if($this->rest->get_request_method() != "DELETE"){
+                $this->rest->response('',406);
+            }
+            $id = isset($this->rest->_request['id']) ? (int)$this->rest->_request['id'] : 0;
+            if($id > 0){
+                $this->modelCategorias->atributos = array('uid' => $id);
+                $resultado = $this->modelCategorias->eliminarCategoria();
+                $success = array('status' => "Success", "mensaje" => $id." Successfully deleted one record.".$resultado);
+                $this->rest->response($this->helper->json($success),200);
+            }else{
+                $this->rest->response($id.'',204);	// If no records "No Content" status
+            }
+        }
+
+
+
         /**
          * DEMOS
          */

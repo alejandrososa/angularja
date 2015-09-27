@@ -5,6 +5,6 @@
 
 	use Api\ServicioJA;
 
-	$api = ServicioJA::getInstance(); // new API;
+	$api = new ServicioJA(); //ServicioJA::getInstance(); // new API;
 	$api->iniciarServicio();
 ?>
