@@ -14,8 +14,8 @@ class Usuarios extends Modelo
 {
 
     private static $modelo = 'ja_usuarios';
-    public $atributos = array();
-
+    public static $atributos = array();
+    public static $setatributos = array();
 
 
     /**
@@ -26,15 +26,32 @@ class Usuarios extends Modelo
         // Aquí realizaríamos la conexión a la BBDD con el método que queramos
     }
 
-    public function getUsuarios(){
-        return $this->find_all(self::$modelo);
+    public function todosUsuarios(){
+        return $this->todos(self::$modelo);
     }
 
-    public function getUsuario(){
+    public function unicoUsuario(){
         $this->where = $this->atributos;
-        $usuario = $this->find_one(self::$modelo);
+        $usuario = $this->unico(self::$modelo);
         unset($usuario['clave']);
         return $usuario;
+    }
+
+    public function crearUsuario(){
+        $resultado = $this->insertar(self::$modelo, $this->atributos);
+        return $resultado;
+    }
+
+    public function actualizarUsuario(){
+        $this->where = $this->atributos;
+        $resultado = $this->actualizar(self::$modelo, $this->setatributos);
+        return $resultado;
+    }
+
+    public function eliminarUsuario(){
+        $this->where = $this->atributos;
+        $resultado = $this->eliminar(self::$modelo);
+        return $resultado;
     }
 
 }

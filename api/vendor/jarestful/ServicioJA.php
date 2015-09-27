@@ -117,61 +117,130 @@ namespace Api;
          * USUARIOS
          */
 
-        public function getUsuario(){
-            if($this->rest->get_request_method() != "GET"){
+        public function unicoUsuario(){
+            if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
 
-            //$post = json_decode(file_get_contents("php://input"),true); //(int)$this->rest->_request['id'];
-            $post = $this->rest->_request['id']; // ? (int)$this->rest->_request['id'] : 0;
+            $post = json_decode(file_get_contents("php://input"),true);
+            $id         = isset($post['id']) ? (int)$post['id'] : 0;
+
+            if(empty($id) || $id == 0){
+                $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),204);
+            }
 
             $this->init_rest();
-            $this->modelUsuarios->atributos = array('uid'=> $post);
-            $resultado = $this->modelUsuarios->getUsuario();
+            $this->modelUsuarios->atributos = array('uid'=> $id);
+            $resultado = $this->modelUsuarios->unicoUsuario();
 
             if(isset($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }
-            $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
         }
 
-        public function getUsuarioss(){
-            $this->init_rest();
-            $this->modelUsuarios->atributos = array('uid'=> 170);
-            $resultado = $this->modelUsuarios->getUsuario();
-            $this->rest->response($this->helper->json($resultado), 200);
-            //print_r($resultado);
-
-            if($this->rest->get_request_method() != "POST"){
-                $this->rest->response('',406);
-            }
-            $datos = json_decode(file_get_contents("php://input"),true); //(int)$this->rest->_request['id'];
-            $portada = $this->seleccionar_pagina_by('pagina', array('pagina_tipo' => $datos['tipo']));
-            if(isset($portada)){
-                $this->rest->response($this->helper->json($portada), 200);
-            }
-            $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
-        }
-
-        public function getUsuarios(){
+        private function todosUsuarios(){
             if($this->rest->get_request_method() != "GET"){
                 $this->rest->response('',406);
             }
 
             $this->init_rest();
+            $usuarios = $this->modelUsuarios->todosUsuarios();
 
-            //$cantidad = (int)$this->rest->_request['cantidad'];
-
-            $articulos = $this->modelUsuarios->getUsuarios();
-
-            if(isset($articulos)){
-                $this->rest->response($this->helper->json(array('resultado'=>$articulos)), 200);
+            if(isset($usuarios)){
+                $this->rest->response($this->helper->json(array('resultado'=>$usuarios)), 200);
             }
-            $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
         }
 
+        private function actualizarUsuario(){
+            if($this->rest->get_request_method() != "PUT"){
+                $this->rest->response('',406);
+            }
 
+            $this->init_rest();
+            $datos      = json_decode(file_get_contents("php://input"),true);
+            $id         = isset($datos['usuario']['id']) ? (int)$datos['usuario']['id'] : 0;
+            $nombre     = isset($datos['usuario']['nombre']) ? $datos['usuario']['nombre'] : '';
+            $correo     = isset($datos['usuario']['correo']) ? $datos['usuario']['correo'] : '';
+            $clave      = isset($datos['usuario']['clave']) ? $datos['usuario']['clave'] : '';
+            $tel        = isset($datos['usuario']['tel']) ? $datos['usuario']['tel'] : '';
+            $direccion  = isset($datos['usuario']['direccion']) ? $datos['usuario']['direccion'] : '';
+            $ciudad     = isset($datos['usuario']['ciudad']) ? $datos['usuario']['ciudad'] : '';
 
+            $valores = [];
+
+            if(empty($datos)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            }
+
+            if(isset($nombre))     { $valores['nombre']     = $nombre; }
+            if(isset($correo))     { $valores['correo']     = $correo; }
+            if(isset($tel))        { $valores['telefono']   = $tel; }
+            if(isset($clave))      { $valores['clave']      = $this->helper->encriptar($clave); }
+            if(isset($direccion))  { $valores['direccion']  = $direccion; }
+            if(isset($ciudad))     { $valores['ciudad']     = $ciudad; }
+
+            $this->modelUsuarios->atributos = array('uid'=>$id);
+            $this->modelUsuarios->setatributos = $valores;
+            $resultado = $this->modelUsuarios->actualizarUsuario();
+
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'Se ha actualizado con exito')), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+        }
+
+        private function crearUsuario(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $this->init_rest();
+            $datos      = json_decode(file_get_contents("php://input"),true);
+            $nombre     = isset($datos['usuario']['nombre']) ? $datos['usuario']['nombre'] : '';
+            $correo     = isset($datos['usuario']['correo']) ? $datos['usuario']['correo'] : '';
+            $clave      = isset($datos['usuario']['clave']) ? $datos['usuario']['clave'] : '';
+            $tel        = isset($datos['usuario']['tel']) ? $datos['usuario']['tel'] : '';
+            $direccion  = isset($datos['usuario']['direccion']) ? $datos['usuario']['direccion'] : '';
+            $ciudad     = isset($datos['usuario']['ciudad']) ? $datos['usuario']['ciudad'] : '';
+
+            $valores = [];
+
+            if(empty($datos)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            }
+
+            if(isset($nombre))     { $valores['nombre']     = $nombre; }
+            if(isset($correo))     { $valores['correo']     = $correo; }
+            if(isset($tel))        { $valores['telefono']   = $tel; }
+            if(isset($clave))      { $valores['clave']      = $this->helper->encriptar($clave); }
+            if(isset($direccion))  { $valores['direccion']  = $direccion; }
+            if(isset($ciudad))     { $valores['ciudad']     = $ciudad; }
+
+            $this->modelUsuarios->atributos = $valores;
+            $resultado = $this->modelUsuarios->crearUsuario();
+
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'Se ha creado el usuario con exito')), 200);
+            }
+            $this->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+        }
+
+        private function eliminarUsuario(){
+            if($this->rest->get_request_method() != "DELETE"){
+                $this->rest->response('',406);
+            }
+            $id = isset($this->rest->_request['id']) ? (int)$this->rest->_request['id'] : 0;
+            if($id > 0){
+                $this->modelUsuarios->atributos = array('uid' => $id);
+                $resultado = $this->modelUsuarios->eliminarUsuario();
+                $success = array('status' => "Success", "mensaje" => $id." Successfully deleted one record.".$resultado);
+                $this->rest->response($this->helper->json($success),200);
+            }else{
+                $this->rest->response($id.'',204);	// If no records "No Content" status
+            }
+        }
         /**
          * DEMOS
          */
@@ -459,12 +528,13 @@ namespace Api;
             $this->model_get(tbl_usuarios);
             return $this->resultado;
         }
+        /*
         private function insertar($tipo= '', $valores = '', $meta = ''){
             $tabla = $this->helper->tipo_tabla($tipo);
             $tablameta = $this->helper->tipo_tabla('paginameta');
             $this->model_insertar($tabla, $valores);
             return $this->resultado;
-        }
+        }*/
         private function insertar_pagina($tipo= '', $valores = ''){
             $tabla = $this->helper->tipo_tabla($tipo);
             $this->model_insertar($tabla, $valores); //, array('tabla'=>$tablameta, 'valores'=>$meta)
@@ -499,12 +569,12 @@ namespace Api;
             $this->model_actualizar(tbl_usuarios, $valores);
             return $this->resultado;
         }
-        private function eliminar($parametros = array()){
+       /* private function eliminar($parametros = array()){
             $this->where = $parametros;
             $this->model_borrar(tbl_usuarios);
             return $this->resultado;
         }
-
+*/
 
 
     }

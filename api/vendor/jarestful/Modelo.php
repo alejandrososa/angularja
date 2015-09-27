@@ -390,44 +390,7 @@ abstract class Modelo{
 	
 
 	
-	public function model_insertar($tabla, $valores) {
-		try {	
-			//GENERAL
-			foreach ($valores as $key => $valor){
-				$campo[] = $key . ' = :' . $key;
-			}
 
-			$sql = "INSERT INTO " . $tabla . " SET " . implode(', ', $campo);
-			$stmt = $this->_cnx->prepare($sql);
-						
-			foreach ($valores as $key => $valor){
-				if(is_int($valor)){	$param = PDO::PARAM_INT; }
-				elseif(is_bool($valor)){ $param = PDO::PARAM_BOOL; }
-				elseif(is_null($valor)){ $param = PDO::PARAM_NULL; }
-				elseif(is_string($valor)){ $param = PDO::PARAM_STR; }
-				else{ $param = FALSE; }
-	
-				if($param){ $stmt->bindValue(':' . $key,$valor,$param); }
-				//$stmt->bindValue(':' . $key, $valor);
-			}
-			
-			//$stmt->execute();
-			//$this->resultado = $sql;
-			$stmt->execute();
-			$this->resultado = $this->_cnx->lastInsertId();
-			//$this->resultado = $sqlmetas; //$this->_cnx->lastInsertId(); //		
-			
-			
-		} catch (PDOException $exception) {
-			//die($exception->getMessage());
-			//$this->resultado = $exception->getMessage();
-			//
-			//$this->resultado = $sqlmetas;
-			$this->resultado = false;						
-		}
-		
-		return $this->resultado;					
-	}
 	
 	public function model_insertar_meta($id, $tabla, $valores) {
 		try {				
@@ -549,24 +512,7 @@ abstract class Modelo{
 		return $this->resultado;			
 	}
 
-	protected function model_borrar($table) {
-		$sql = "DELETE FROM " . $table . " ";		
-		$counter = 0;		
-		foreach ($this->where as $key => $value) {
-			if ($counter == 0) {				
-				$sql .= "WHERE {$key} = :{$key} ";				
-			} else {				
-				$sql .= "AND {$key} = :{$key} ";				
-			}									
-			$counter++;			
-		}		
-		$stmt = $this->_cnx->prepare($sql);		
-		foreach ($this->where as $key => $value){
-			$stmt->bindValue(':' . $key, $value);
-		}					
-		$this->resultado = $stmt->execute();
-		return $this->resultado;           
-    }
+
 	
 	
 	
@@ -617,7 +563,7 @@ abstract class Modelo{
 
 
 
-        protected function find_one($tabla){
+	protected function unico($tabla){
 
 
 
@@ -650,9 +596,7 @@ abstract class Modelo{
 
         }
 	}
-
-
-	protected function find_all($tabla){
+	protected function todos($tabla){
 		$columnas = array();
 		$resultado = $this->_cnx->query("SELECT * FROM " . $tabla);
 
@@ -665,7 +609,106 @@ abstract class Modelo{
 			return $this->resultado;
 		}
 	}
+	protected function insertar($tabla, $valores) {
+		try {
+			foreach ($valores as $key => $valor){
+				$campo[] = $key . ' = :' . $key;
+			}
 
+			$sql = "INSERT INTO " . $tabla . " SET " . implode(', ', $campo);
+			$stmt = $this->_cnx->prepare($sql);
+
+			foreach ($valores as $key => $valor){
+				if(is_int($valor)){	$param = PDO::PARAM_INT; }
+				elseif(is_bool($valor)){ $param = PDO::PARAM_BOOL; }
+				elseif(is_null($valor)){ $param = PDO::PARAM_NULL; }
+				elseif(is_string($valor)){ $param = PDO::PARAM_STR; }
+				else{ $param = FALSE; }
+
+				if($param){ $stmt->bindValue(':' . $key,$valor,$param); }
+			}
+
+			$stmt->execute();
+			$this->resultado = $this->_cnx->lastInsertId();
+
+		} catch (PDOException $exception) {
+			$this->resultado = false;
+		}
+		return $this->resultado;
+	}
+	protected function actualizar($tabla, $valores) {
+		try {
+			$campo = array();
+			foreach ($valores as $key => $valor){
+				$campo[] = $key . ' = :' . $key;
+			}
+
+			$sql  = "UPDATE " . $tabla . " SET " . implode(', ', $campo) . " ";
+
+			$counter = 0;
+			foreach ($this->where as $key => $value) {
+				if ($counter == 0) {
+					$sql .= "WHERE {$key} = :{$key} ";
+				} else {
+					$sql .= "AND {$key} = :{$key} ";
+				}
+				$counter++;
+			}
+
+			$stmt = $this->pdo->prepare($sql);
+
+			foreach ($valores as $key => $valor){
+				if(is_int($valor)){
+					$param = \PDO::PARAM_INT;
+				}
+				elseif(is_bool($valor)){
+					$param = \PDO::PARAM_BOOL;
+				}
+				elseif(is_null($valor)){
+					$param = \PDO::PARAM_NULL;
+				}
+				elseif(is_string($valor)){
+					$param = \PDO::PARAM_STR;
+				}
+				else{
+					$param = FALSE;
+				}
+
+				if($param){
+					$stmt->bindValue(':' . $key,$valor,$param);
+				}
+				//$stmt->bindValue(':' . $key, $valor);
+			}
+
+			foreach ($this->where as $key => $value){
+				$stmt->bindValue(':' . $key, $value);
+			}
+
+			return $stmt->execute();
+			//return $sql;
+
+		}catch (\PDOException $exception) {
+			die($exception->getMessage());
+		}
+	}
+	protected function eliminar($table) {
+		$sql = "DELETE FROM " . $table . " ";
+		$counter = 0;
+		foreach ($this->where as $key => $value) {
+			if ($counter == 0) {
+				$sql .= "WHERE {$key} = :{$key} ";
+			} else {
+				$sql .= "AND {$key} = :{$key} ";
+			}
+			$counter++;
+		}
+		$stmt = $this->pdo->prepare($sql);
+		foreach ($this->where as $key => $value){
+			$stmt->bindValue(':' . $key, $value);
+		}
+		$this->resultado = $stmt->execute();
+		return $this->resultado;
+	}
 
     public function query($statement) {
         try {
@@ -686,7 +729,7 @@ abstract class Modelo{
     public function fetch_all($statement, $fetch_style = PDO::FETCH_ASSOC) {
         try {
             return self::$PDO->query($statement)->fetchAll($fetch_style);
-        } catch (PDOException $exception) {
+        }	 catch (PDOException $exception) {
             die($exception->getMessage());
         }
     }
@@ -727,50 +770,7 @@ abstract class Modelo{
         }
     }
 
-    public function update($table, $values) {
 
-        try {
-
-            foreach ($values as $key => $value)
-                $field_names[] = $key . ' = :' . $key;
-
-            $sql  = "UPDATE " . $table . " SET " . implode(', ', $field_names) . " ";
-
-            $counter = 0;
-
-            foreach ($this->where as $key => $value) {
-
-                if ($counter == 0) {
-
-                    $sql .= "WHERE {$key} = :{$key} ";
-
-                } else {
-
-                    $sql .= "AND {$key} = :{$key} ";
-
-                }
-
-                $counter++;
-
-            }
-
-            $stmt = self::$PDO->prepare($sql);
-
-            foreach ($values as $key => $value)
-                $stmt->bindValue(':' . $key, $value);
-
-            foreach ($this->where as $key => $value)
-                $stmt->bindValue(':' . $key, $value);
-
-            $stmt->execute();
-
-        } catch (PDOException $exception) {
-
-            die($exception->getMessage());
-
-        }
-
-    }
 
     public function delete($table) {
         $sql = "DELETE FROM " . $table . " ";

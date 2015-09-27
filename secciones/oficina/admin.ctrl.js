@@ -4,7 +4,7 @@
 'use strict';
 angular
     .module('app.coreoficina')
-    .controller('AdminController', function($scope, $rootScope, PageValues, Usuarios, $routeParams, persona) {
+    .controller('AdminController', function($scope, $rootScope, PageValues, Usuarios, $routeParams) {
         //Set page title and description
         PageValues.title = "Admin";
         PageValues.description = "Learn AngularJS using best practice real world examples.";
@@ -17,9 +17,9 @@ angular
         vm.persona = {};
 
 
-        vm.persona =  persona; //usuarios.one($routeParams.id);
+        //vm.persona =  persona; //usuarios.one($routeParams.id);
 
-        console.log(persona.correo);
+        //console.log(persona.correo);
 
 
         //USUARIOS

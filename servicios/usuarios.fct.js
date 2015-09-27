@@ -8,13 +8,13 @@ angular
     .constant('API_URL', 'http://ja.dev/api/')
     .factory('Usuarios', servicio);
 
-function servicio($http, API_URL, $log) { 
+function servicio($http, API_URL, $log, toastr) {
     var data = {
-        'one': one,
-        'getUsuarios': getUsuarios,
-        //'getUltimosArticulos': getUltimosArticulos,
-        //'getUltimasNoticias': getUltimasNoticias,
-        //'getArticulosCategoria': getArticulosCategoria,
+        'unico': unico,
+        'todos': todos,
+        'crear': crear,
+        'eliminar': eliminar,
+        'actualizar': actualizar,
     };
 
     function ejecutar(tipo, url, params) {
@@ -32,54 +32,45 @@ function servicio($http, API_URL, $log) {
             },
             'cache': true
         }).then(function(response){
-            console.log(response.data);
             return response.data;
         }).catch(dataServiceError);
     }
 
-    function one(id){
-        /*return $http.post(API_URL + 'getUsuario', {id:id}).then(function (datos) {
-            console.log(datos.data);
-            return datos.data; //status.data;
-        });*/
-
-        return $http.get(API_URL + 'getUsuario?id='+id, {}).then(function (datos) {
-            console.log(datos.data);
-            return datos.data; //status.data;
+    function unico(id){
+        return $http.post(API_URL + 'unicoUsuario', {id:id}).then(function (datos) {
+            return datos.data;
          });
-
-        /*
-        return ejecutar('get','getUsuario?id='+id, {}).then(function(data) {
-            return data;
-        });
-        */
     }
 
-    function getUsuarios(){
-        return $http.get(API_URL + 'getUsuarios', {}).then(function (datos) {
-            console.log(datos.data.resultado);
-            return datos.data.resultado; //status.data;
+    function todos(){
+        return $http.get(API_URL + 'todosUsuarios', {});
+            /*.then(function (datos) {
+            return datos.data.resultado;
+        });*/
+    }
+
+    function actualizar(usuario){
+        return $http.put(API_URL + 'actualizarUsuario', {id: usuario.id, usuario:usuario}).then(function (datos) {
+            toastr.success(datos.data.mensaje);
+            return datos.data;
         });
-        /*
-        return ejecutar('get', 'getUsuarios', {}).then(function (datos) {
-            console.log(datos.resultado);
-            return datos.resultado; //status.data;
+    }
+
+    function crear(usuario){
+        return $http.post(API_URL + 'crearUsuario', {id: usuario.id, usuario:usuario}).then(function (datos) {
+            toastr.success(datos.data.mensaje);
+            return datos.data;
         });
-        */
+    }
+
+    function eliminar(id){
+        return $http.delete(API_URL + 'eliminarUsuario?id='+id, {}).then(function (datos) {
+            toastr.success(datos.data.mensaje);
+            return datos.data;
+        });
     }
     
-    function getUltimosArticulos(cantidad){
-    	return ejecutar('get', 'getUltimosArticulos?cantidad='+ cantidad, {});
-    }
-    
-    function getUltimasNoticias(cantidad){
-    	return ejecutar('get', 'getUltimasNoticias?cantidad='+ cantidad, {});
-    }
-    
-    function getArticulosCategoria(cantidad){
-    	return ejecutar('get', 'getArticulosCategoria?cantidad='+ cantidad, {});
-    }
-    
+
     /*
     function getPremieres() {
         //Get first day of the current month

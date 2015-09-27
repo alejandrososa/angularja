@@ -4,9 +4,24 @@
 'use strict';
 angular
     .module('app.coreoficina')
-    .controller('UsuariosController', function($scope, $rootScope, PageValues, $cookieStore,
-                                               $q, $location, $auth, $log, toastr, $window,
-                                               $routeParams, Usuarios, _datos) {
+    .filter('custom', function () {
+        return function (input, search) {
+            if (!input) return input;
+            if (!search) return input;
+            var expected = ('' + search).toLowerCase();
+            var result = {};
+            angular.forEach(input, function (value, key) {
+                var actual = ('' + value).toLowerCase();
+                if (actual.indexOf(expected) !== -1) {
+                    result[key] = value;
+                }
+            });
+            return result;
+        }
+    })
+    .controller('UsuariosController', function ($scope, $rootScope, PageValues, $cookieStore,
+                                                $q, $location, $auth, $log, toastr, $window,
+                                                $routeParams, Usuarios, _datos) {
 
         var vm = this;
 
@@ -21,54 +36,59 @@ angular
 
         vm.usuario = {};
         vm.usuarios = [];
-        vm.tblsortType     = 'nombre'; // set the default sort type
-        vm.tblsortReverse  = false;  // set the default sort order
-        vm.tblsearchFish   = '';     //
+        vm.tblsortType = 'nombre'; // set the default sort type
+        vm.tblsortReverse = false;  // set the default sort order
+        vm.tblsearchFish = [];     //
 
         vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
         vm.botonTexto = (vm.idUsuario > 0) ? 'Actualizar' : 'Agregar';
         vm.tipo = (vm.idUsuario > 0) ? true : false;
 
         //usuarios
-        vm.usuarios = _datos;
+        vm.usuarios = angular.isDefined(_datos.data) ? _datos.data.resultado : {};
 
         //usuario
         vm.usuario = {
-            id          : _datos.uid,
-            nombre      : _datos.nombre,
-            correo      : _datos.correo,
-            tel         : _datos.telefono,
-            direccion   : _datos.direccion,
-            ciudad      : _datos.ciudad
+            id: _datos.uid,
+            nombre: _datos.nombre,
+            correo: _datos.correo,
+            tel: _datos.telefono,
+            direccion: _datos.direccion,
+            ciudad: _datos.ciudad
         };
 
         //acciones
-        vm.procesar = function(isValid, tipo){
-            if(!isValid){
+        vm.procesar = function (isValid, tipo) {
+            if (!isValid) {
                 console.log('no es valido');
                 return;
             }
 
-            if(!tipo){
+            if (!tipo) {
                 vm.crear();
-            }else{
+            } else {
                 vm.editar()
             }
         }
 
-        vm.crear = function (){
-            console.log('crear:' + vm.usuario);
+        vm.crear = function () {
+            var resultado = Usuarios.crear(vm.usuario);
+            $location.path('/admin/usuarios');
+            //$log.info( resultado);
         }
 
-        vm.editar = function (){
-            console.log('editar:' + vm.usuario);
+        vm.editar = function () {
+            var resultado = Usuarios.actualizar(vm.usuario);
+            //$log.info( resultado);
         }
 
-
-
-        vm.hola = vm.usuarios;
-
-
+        vm.eliminar = function (id, index) {
+            var resultado = Usuarios.eliminar(id);
+            if (resultado){
+                $log.info( index);
+                vm.usuarios.splice(index, 1);
+            }
+        }
 
 
         /**
@@ -83,13 +103,13 @@ angular
             msg: 'Found a bug? Create an issue with as many details as you can.'
         }];
 
-        $scope.addAlert = function() {
+        $scope.addAlert = function () {
             $scope.alerts.push({
                 msg: 'Another alert!'
             });
         };
 
-        $scope.closeAlert = function(index) {
+        $scope.closeAlert = function (index) {
             $scope.alerts.splice(index, 1);
         };
 

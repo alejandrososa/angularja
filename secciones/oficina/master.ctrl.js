@@ -23,12 +23,6 @@ angular
         vm.tblsortReverse  = false;  // set the default sort order
         vm.tblsearchFish   = '';     //
 
-        Usuarios.getUsuarios().then(function(respuesta){
-            vm.usuarios = JSON.parse(respuesta.resultado);
-        });
-
-
-
 
         vm.hola = vm.usuarios;
 
