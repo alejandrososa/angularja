@@ -60,6 +60,26 @@ angular
             pais: _datos.pais
         };
 
+        //dataprovider
+        vm.columnas =  [
+            { "key": "id", "nombre": "Id", "style": {"width": "35%"} },
+            //{ "key": "usuario", "nombre": "Usuario", "style": {"width": "50%"} },
+            { "key": "nombre", "nombre": "Nombre", "style": {"width": "15%"} },
+            { "key": "Correo", "nombre": "Correo", "style": {"width": "50%"} },
+            { "key": "Telefono", "nombre": "Telefono", "style": {"width": "15%"} },
+        ];
+        vm.columnasMostrar = ['uid', 'id', 'nombre','correo', 'telefono'];
+        vm.datosproveedor = {
+            servicio: Usuarios,
+            identidad : 'usuario',
+            datos : vm.usuarios,
+            columnas : vm.columnas,
+            columnasMosrtar : vm.columnasMostrar,
+            pordefecto: 'nombre',
+            acciones: true,
+            ordenAsc: false
+        };
+
         //acciones
         vm.procesar = function (isValid, tipo) {
             if (!isValid) {

@@ -1,0 +1,24 @@
+<div ng-cloak>
+
+    <div id="page-wrapper" ng-class="{'open': menu}" ng-cloak>
+        <!-- Sidebar -->
+        <!--<div ng-include="'html/_menulateral.html'"></div>-->
+        <cms-menu></cms-menu>
+        <!-- End Sidebar -->
+
+        <div id="content-wrapper">
+            <div class="page-content">
+
+                <!-- Header Bar -->
+                <cms-barra-superior></cms-barra-superior>
+                <!-- End Header Bar -->
+
+                <!-- Main Content -->
+                <cms-tabla datosproveedor="vm.datosproveedor"></cms-tabla>
+                <!-- END MAIN CONTENT -->
+
+            </div><!-- End Page Content -->
+        </div><!-- End Content Wrapper -->
+    </div><!-- End Page Wrapper -->
+
+</div>

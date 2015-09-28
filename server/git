@@ -20,3 +20,9 @@ git checkout MyNewBranch
 #ver log
 git branch or git status
 git log
+
+ERRORES
+#force-git-to-overwrite-local-files-on-pull
+#ERRRO: your local changes to would be overwritten by merge
+git fetch --all
+git reset --hard origin/RAMA

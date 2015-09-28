@@ -19,7 +19,7 @@
                     <div class="col-md-12">
                         <a href="/admin/usuario/crear/" data-placement="top" data-toggle="tooltip" title="Edit">
                             <button class="btn btn-info" data-title="Agregar"  >
-                                <span class="glyphicon glyphicon-plus fa-0x"></span> Agregar</button></a>
+                                <span class="glyphicon fa fa-user fa-0x"></span> Agregar</button></a>
                     </div>
                 </div>
 
@@ -27,14 +27,19 @@
                     <div class="col-md-12">
 
 
+                        <cms-tabla datosproveedor="vm.datosproveedor"></cms-tabla>
+
+                        <!--
                         <form>
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                                    <input type="text" class="form-control" placeholder="Search da Fish" ng-model="tblsearchFish">
+                                    <input type="text" class="form-control" placeholder="Buscar usuario" ng-model="usuarios">
                                 </div>
                             </div>
                         </form>
+
+
 
                         <table class="table table-bordered table-striped">
 
@@ -77,7 +82,7 @@
                             </thead>
 
                             <tbody>
-                            <tr ng-repeat="usuario in vm.usuarios | orderBy:tblsortType:tblsortReverse | custom:tblsearchFish">
+                            <tr ng-repeat="usuario in vm.usuarios | orderBy:tblsortType:tblsortReverse | filter:usuarios">
                                 <td>{{ usuario.uid }}</td>
                                 <td>{{ usuario.nombre }}</td>
                                 <td>{{ usuario.correo }}</td>
@@ -85,16 +90,17 @@
                                 <td>
                                     <a href="/admin/usuario/{{ usuario.uid }}/editar/" data-placement="top" data-toggle="tooltip" title="Edit">
                                         <button class="btn btn-info btn-xs" data-title="Editar" data-toggle="modal" data-target="#edit" >
-                                        <span class="glyphicon glyphicon-pencil"></span></button></a>
+                                            <span class="glyphicon glyphicon-pencil"></span></button></a>
 
                                     <a href="#" ng-click="vm.eliminar(usuario.uid, $index)" data-placement="top" data-toggle="tooltip" title="Edit">
                                         <button class="btn btn-danger btn-xs" data-title="Editar" data-toggle="modal" data-target="#edit" >
-                                        <span class="glyphicon glyphicon-remove"></span></button></a>
+                                            <span class="glyphicon glyphicon-remove"></span></button></a>
                                 </td>
                             </tr>
                             </tbody>
 
                         </table>
+                        -->
                     </div>
                 </div>
 
