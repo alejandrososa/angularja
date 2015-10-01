@@ -62,7 +62,6 @@ function tabla() {
 
         try{
             vm.editar = function(id){
-                console.log(id);
                 if(id){
                     $location.path('/admin/'+ vm.tblIdentidad +'/'+ id +'/editar/');
                 }

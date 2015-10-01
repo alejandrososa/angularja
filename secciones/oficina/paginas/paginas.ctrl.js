@@ -4,9 +4,9 @@
 'use strict';
 angular
     .module('app.coreoficina')
-    .controller('CategoriasController', function($scope, $rootScope, PageValues, $cookieStore,
+    .controller('PaginasController', function($scope, $rootScope, PageValues, $cookieStore,
                                              $q, $location, $auth, $log, toastr, $window,
-                                             $routeParams, Categorias, _datos) {
+                                             $routeParams, Paginas, _datos) {
 
         var vm = this;
 
@@ -18,21 +18,21 @@ angular
             $location.path('/login');
         }
 
-        vm.idCategoria = ($routeParams.id) ? parseInt($routeParams.id) : 0;
-        vm.titulo = (vm.idCategoria > 0) ? 'Actualizar categoria' : 'Agregar nueva categoria';
-        vm.botonTexto = (vm.idCategoria > 0) ? 'Actualizar' : 'Agregar';
-        vm.tipoProceso = (vm.idCategoria > 0) ? true : false;
+        vm.idPagina = ($routeParams.id) ? parseInt($routeParams.id) : 0;
+        vm.titulo = (vm.idPagina > 0) ? 'Actualizar categoria' : 'Agregar nueva categoria';
+        vm.botonTexto = (vm.idPagina > 0) ? 'Actualizar' : 'Agregar';
+        vm.tipoProceso = (vm.idPagina > 0) ? true : false;
 
 
-        vm.categorias = [];
-        vm.categoria = {};
+        vm.paginas = [];
+        vm.pagina = {};
 
         //categorias
-        vm.categorias = angular.isDefined(_datos.data) ? _datos.data.resultado : {};
+        vm.paginas = angular.isDefined(_datos.data) ? _datos.data.resultado : {};
 
         console.log(_datos);
         //categoria
-        vm.categoria = {
+        vm.pagina = {
             id: _datos.id,
             titulo: _datos.titulo,
             slug: _datos.slug
@@ -41,14 +41,16 @@ angular
 
         vm.columnas =  [
             { "key": "id", "nombre": "id", "style": {"width": "35%"} },
-            { "key": "titulo", "nombre": "Titulo", "style": {"width": "50%"} },
-            { "key": "slug", "nombre": "Slug", "style": {"width": "15%"} }
+            { "key": "nombre", "nombre": "Nombre", "style": {"width": "50%"} },
+            //{ "key": "slug", "nombre": "Slug", "style": {"width": "15%"} },
+            { "key": "tipo", "nombre": "Tipo", "style": {"width": "15%"} },
+            { "key": "fecha", "nombre": "Fecha", "style": {"width": "15%"} }
         ];
 
         vm.datosproveedor = {
-            servicio: Categorias,
-            identidad : 'categoria',
-            datos : vm.categorias,
+            servicio: Paginas,
+            identidad : 'pagina',
+            datos : vm.paginas,
             columnas : vm.columnas,
             pordefecto: 'titulo',
             acciones: true,
@@ -73,21 +75,21 @@ angular
         }
 
         vm.crear = function () {
-            var resultado = Categorias.crear(vm.categoria);
-            $location.path('/admin/categoria');
+            var resultado = Paginas.crear(vm.pagina);
+            $location.path('/admin/paginas');
             //$log.info( resultado);
         }
 
         vm.editar = function () {
-            var resultado = Categorias.actualizar(vm.categoria);
+            var resultado = Paginas.actualizar(vm.pagina);
             //$log.info( resultado);
         }
 
         vm.eliminar = function (id, index) {
-            var resultado = Categorias.eliminar(id);
+            var resultado = Paginas.eliminar(id);
             if (resultado){
                 $log.info( index);
-                vm.categoria.splice(index, 1);
+                vm.paginas.splice(index, 1);
             }
         }
 

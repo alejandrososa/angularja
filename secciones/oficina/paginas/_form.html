@@ -1,0 +1,35 @@
+{{vm.categoria}}
+
+<div class="card">
+    <div class="header">
+        <h4 class="title">{{vm.titulo}}</h4>
+    </div>
+    <div class="content">
+        <form role="form" name="frmCategoria" ng-submit="vm.procesar(frmCategoria.$valid, vm.tipoProceso)" novalidate>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Titulo</label>
+                        <input type="text" class="form-control" placeholder="Titulo" ng-model="vm.categoria.titulo" value="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <input type="text" class="form-control" placeholder="slug" id="slug" ng-model="vm.categoria.slug" value="">
+                    </div>
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-success btn-fill pull-right">{{vm.botonTexto}}</button>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

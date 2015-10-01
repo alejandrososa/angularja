@@ -28,7 +28,6 @@ angular
         vm.vista = $auth.isAuthenticated();
         vm.menu = $rootScope.menu;
 
-
         if (!$auth.isAuthenticated()) {
             $location.path('/login');
         }
@@ -36,9 +35,9 @@ angular
 
         vm.usuario = {};
         vm.usuarios = [];
-        vm.tblsortType = 'nombre'; // set the default sort type
-        vm.tblsortReverse = false;  // set the default sort order
-        vm.tblsearchFish = [];     //
+        //vm.tblsortType = 'nombre'; // set the default sort type
+        //vm.tblsortReverse = false;  // set the default sort order
+        //vm.tblsearchFish = [];     //
 
         vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
         vm.botonTexto = (vm.idUsuario > 0) ? 'Actualizar' : 'Agregar';
@@ -49,7 +48,7 @@ angular
 
         //usuario
         vm.usuario = {
-            id: _datos.uid,
+            id: _datos.id,
             usuario: _datos.usuario,
             nombre: _datos.nombre,
             apellidos: _datos.apellidos,

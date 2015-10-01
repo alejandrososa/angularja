@@ -103,6 +103,7 @@
             <script src="secciones/oficina/master.ctrl.js"></script>
 			<script src="secciones/oficina/usuarios/usuarios.ctrl.js"></script>
 			<script src="secciones/oficina/categorias/categorias.ctrl.js"></script>
+			<script src="secciones/oficina/paginas/paginas.ctrl.js"></script>
 	    <!-- / -->
 	    <!-- SERVICES -->
 	        <script src="servicios/show.fct.js"></script>
@@ -110,6 +111,7 @@
 	        <script src="servicios/contenido.fct.js"></script>
 			<script src="servicios/usuarios.fct.js"></script>
 			<script src="servicios/categorias.fct.js"></script>
+			<script src="servicios/paginas.fct.js"></script>
 	    <!-- / -->
 	    <!-- DIRECTIVES -->
 	    	<script src="directivas/ngCargando.drct.js"></script>

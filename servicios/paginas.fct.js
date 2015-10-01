@@ -7,7 +7,7 @@ angular
     .module('app.servicios')
     .constant('API_URL', 'http://ja.dev/api/')
     .constant('IMG_URL', 'http://ja.dev/assets/images/')
-    .factory('Categorias', categoria);
+    .factory('Paginas', categoria);
 
 function categoria($http, API_URL, $log, toastr) {
     var data = {
@@ -39,13 +39,13 @@ function categoria($http, API_URL, $log, toastr) {
     }
 
     function unico(id){
-        return $http.post(API_URL + 'unicaCategoria', {id:id}).then(function (datos) {
+        return $http.post(API_URL + 'unicaPagina', {id:id}).then(function (datos) {
             return datos.data;
          });
     }
 
     function todos(){
-        return $http.get(API_URL + 'todasCategorias', {});
+        return $http.get(API_URL + 'todasPaginas', {});
             /*.then(function (datos) {
             return datos.data.resultado;
         });*/
