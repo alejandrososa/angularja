@@ -3,7 +3,7 @@
  * progress, resize, thumbnail, preview, validation and CORS
  * FileAPI Flash shim for old browsers not supporting FormData
  * @author  Danial  <danial.farid@gmail.com>
- * @version 8.0.1
+ * @version 8.0.6
  */
 
 (function () {
@@ -427,7 +427,7 @@ if (!window.FileReader) {
  * AngularJS file upload directives and services. Supoorts: file upload/drop/paste, resume, cancel/abort,
  * progress, resize, thumbnail, preview, validation and CORS
  * @author  Danial  <danial.farid@gmail.com>
- * @version 8.0.1
+ * @version 8.0.6
  */
 
 if (window.XMLHttpRequest && !(window.FileAPI && FileAPI.shouldLoad)) {
@@ -448,7 +448,7 @@ if (window.XMLHttpRequest && !(window.FileAPI && FileAPI.shouldLoad)) {
 
 var ngFileUpload = angular.module('ngFileUpload', []);
 
-ngFileUpload.version = '8.0.1';
+ngFileUpload.version = '8.0.6';
 
 ngFileUpload.service('UploadBase', ['$http', '$q', '$timeout', function ($http, $q, $timeout) {
   var upload = this;
@@ -488,24 +488,26 @@ ngFileUpload.service('UploadBase', ['$http', '$q', '$timeout', function ($http, 
       }
     }
 
-    config.headers.__setXHR_ = function () {
-      return function (xhr) {
-        if (!xhr) return;
-        config.__XHR = xhr;
-        if (config.xhrFn) config.xhrFn(xhr);
-        xhr.upload.addEventListener('progress', function (e) {
-          e.config = config;
-          notifyProgress(getNotifyEvent(e));
-        }, false);
-        //fix for firefox not firing upload progress end, also IE8-9
-        xhr.upload.addEventListener('load', function (e) {
-          if (e.lengthComputable) {
+    if (!config.disableProgress) {
+      config.headers.__setXHR_ = function () {
+        return function (xhr) {
+          if (!xhr || !(xhr instanceof XMLHttpRequest)) return;
+          config.__XHR = xhr;
+          if (config.xhrFn) config.xhrFn(xhr);
+          xhr.upload.addEventListener('progress', function (e) {
             e.config = config;
             notifyProgress(getNotifyEvent(e));
-          }
-        }, false);
+          }, false);
+          //fix for firefox not firing upload progress end, also IE8-9
+          xhr.upload.addEventListener('load', function (e) {
+            if (e.lengthComputable) {
+              e.config = config;
+              notifyProgress(getNotifyEvent(e));
+            }
+          }, false);
+        };
       };
-    };
+    }
 
     function uploadWithAngular() {
       $http(config).then(function (r) {
@@ -614,7 +616,7 @@ ngFileUpload.service('UploadBase', ['$http', '$q', '$timeout', function ($http, 
 
   this.upload = function (config) {
     function isFile(file) {
-      return file instanceof Blob || (file.flashId && file.name && file.size);
+      return file != null && file instanceof Blob || (file.flashId && file.name && file.size);
     }
 
     function toResumeFile(file, formData) {
@@ -1118,11 +1120,31 @@ ngFileUpload.directive('ngfSelect', ['$parse', '$timeout', '$compile', 'Upload',
 
   ngFileUpload.service('UploadDataUrl', ['UploadBase', '$timeout', '$q', function (UploadBase, $timeout, $q) {
     var upload = UploadBase;
+    upload.base64DataUrl = function(file) {
+      if (angular.isArray(file)) {
+        var d = $q.defer(), count = 0;
+        angular.forEach(file, function (f) {
+          upload.dataUrl(f, true)['finally'](function () {
+            count++;
+            if (count === file.length) {
+              var urls = [];
+              angular.forEach(file, function (ff) {
+                urls.push(ff.$ngfDataUrl);
+              });
+              d.resolve(urls, file);
+            }
+          });
+        });
+        return d.promise;
+      } else {
+        return upload.dataUrl(file, true);
+      }
+    };
     upload.dataUrl = function (file, disallowObjectUrl) {
       if ((disallowObjectUrl && file.$ngfDataUrl != null) || (!disallowObjectUrl && file.$ngfBlobUrl != null)) {
         var d = $q.defer();
         $timeout(function () {
-          d.resolve(disallowObjectUrl ? file.$ngfDataUrl : file.$ngfBlobUrl);
+          d.resolve(disallowObjectUrl ? file.$ngfDataUrl : file.$ngfBlobUrl, file);
         });
         return d.promise;
       }
@@ -1150,14 +1172,14 @@ ngFileUpload.directive('ngfSelect', ['$parse', '$timeout', '$compile', 'Upload',
             }
             $timeout(function () {
               file.$ngfBlobUrl = url;
-              if (url) deferred.resolve(url);
+              if (url) deferred.resolve(url, file);
             });
           } else {
             var fileReader = new FileReader();
             fileReader.onload = function (e) {
               $timeout(function () {
                 file.$ngfDataUrl = e.target.result;
-                deferred.resolve(e.target.result);
+                deferred.resolve(e.target.result, file);
               });
             };
             fileReader.onerror = function () {
@@ -1375,6 +1397,13 @@ ngFileUpload.service('UploadValidate', ['UploadDataUrl', '$q', '$timeout', funct
     }
 
     ngModel.$formatters.push(function (val) {
+      if (val != null && !ngModel.$dirty) {
+        if (ngModel.$setDirty) {
+          ngModel.$setDirty();
+        } else {
+          ngModel.$dirty = true;
+        }
+      }
       if (upload.attrGetter('ngfValidateLater', attr, scope) || !ngModel.$$ngfValidated) {
         upload.validate(val, ngModel, attr, scope, false, function () {
           setValidities(ngModel);
@@ -1947,26 +1976,24 @@ ngFileUpload.service('UploadResize', ['UploadValidate', '$q', '$timeout', functi
     }, false);
 
     function calculateDragOverClass(scope, attr, evt, callback) {
-      var clazz = attrGetter('ngfDragOverClass', scope, {$event: evt}),
-        dClass = attrGetter('ngfDragOverClass') || 'dragover';
-      if (angular.isString(clazz)) {
-        callback(clazz);
-        return;
-      }
-      if (clazz) {
-        if (clazz.delay) dragOverDelay = clazz.delay;
-        if (clazz.accept || clazz.reject) {
+      var obj = attrGetter('ngfDragOverClass', scope, {$event: evt}), dClass = 'dragover';
+      if (angular.isString(obj)) {
+        dClass = obj;
+      } else if (obj) {
+        if (obj.delay) dragOverDelay = obj.delay;
+        if (obj.accept || obj.reject) {
           var items = evt.dataTransfer.items;
-          if (items != null) {
-            var pattern = clazz.pattern || attrGetter('ngfPattern', scope, {$event: evt});
-            for (var i = 0; i < items.length; i++) {
-              if (items[i].kind === 'file' || items[i].kind === '') {
-                if (!upload.validatePattern(items[i], pattern)) {
-                  dClass = clazz.reject;
-                  break;
-                } else {
-                  dClass = clazz.accept;
-                }
+          if (items == null || !items.length) {
+            dClass = obj.accept;
+          } else {
+            var pattern = obj.pattern || attrGetter('ngfPattern', scope, {$event: evt});
+            var len = items.length;
+            while (len--) {
+              if (items[len].kind !== 'file' || !upload.validatePattern(items[len], pattern)) {
+                dClass = obj.reject;
+                break;
+              } else {
+                dClass = obj.accept;
               }
             }
           }

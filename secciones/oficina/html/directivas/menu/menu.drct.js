@@ -12,7 +12,7 @@ function menu() {  //ShowService
         templateUrl: 'secciones/oficina/html/directivas/menu/menu.tpl.html',
         restrict: 'E',
         scope: {
-            menu: '='
+            menu: '=?menu'
         }
     };
     return directive;

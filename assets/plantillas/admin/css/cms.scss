@@ -1,0 +1,35 @@
+html, body {
+  height: 100%;
+}
+
+// core
+
+@import "scss/_contextual";
+@import "scss/_dialogs";
+@import "scss/_material-icons";
+@import "scss/_material-overrides";
+@import "scss/_material-backgrounds";
+@import "scss/_print";
+@import "scss/_reset";
+@import "scss/_social";
+@import "scss/_tables";
+@import "scss/_typography";
+@import "scss/_utilities";
+@import "scss/_default";
+
+// components
+
+@import "../../../../secciones/oficina/html/componentes/loader/_loader.scss";
+@import "../../../../secciones/oficina/html/componentes/toolbars/_toolbar.scss";
+@import "../../../../secciones/oficina/html/componentes/menu/menu.scss";
+@import "../../../../secciones/oficina/html/componentes/notifications-panel/notifications-panel.scss";
+@import "../../../../secciones/oficina/html/componentes/content/_default.scss";
+//@import "components/table/table.scss";
+//@import "components/widget/widget.scss";
+//@import "components/wizard/wizard.scss";
+
+// directives
+
+// layouts
+
+//@import "layouts/default/default.scss";

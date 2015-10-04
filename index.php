@@ -20,6 +20,9 @@
 		<link type="text/css" rel="stylesheet" href="assets/general/general.css" />
 		<link type="text/css" rel="stylesheet" href="assets/general/angular-toastr.css" />
 		<link type="text/css" rel="stylesheet" href="assets/general/angular-spinkit.min.css" />
+		<link type="text/css" rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
+
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/admin/css/admin.css" />
 
 		<!-- Stylesheets -->
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/reset.css" />
@@ -40,6 +43,7 @@
 		<link type="text/css" rel="stylesheet" href="css/ie-ancient.css" />
 		<![endif]-->
 
+
         <style>
             [ng-cloak] {
                 display: none;
@@ -53,7 +57,7 @@
 	<body ng-cloak>
 
 
-		<ng-Cargando></ng-Cargando>
+		<!--<ng-Cargando></ng-Cargando>-->
 		<!--<div raw-ajax-busy-indicator="" class="ajax-busy-indicator"></div>-->
 
 		<ng-view></ng-view>
@@ -66,23 +70,26 @@
 	    <!-- ASSETS -->
             <script src="bower_components/jquery/dist/jquery.js"></script>
 	        <script src="bower_components/angular/angular.min.js"></script>
-	        <script src="bower_components/angular/angular-resource.min.js"></script>
-	        <script src="bower_components/angular/angular-animate.min.js"></script>
+			<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+			<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+			<script src="bower_components/angular/angular-resource.min.js"></script>
+	        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
 			<script src="bower_components/angular/angular-messages.js"></script>
 			<script src="bower_components/angular/angular-sanitize.min.js"></script>
-			<script src="bower_components/angular/angular-toastr.tpls.js"></script>
+			<script src="bower_components/angular-toastr/angular-toastr.tpls.js"></script>
 	        <script src="bower_components/angular/angular-cookies.min.js"></script>
 	        <script src="bower_components/angular/angular-route.min.js"></script>
 	        <script src="bower_components/angular/angular-touch.min.js"></script>
-	        <script src="bower_components/angular/moment.min.js"></script>
-	        <script src="bower_components/angular/angular-moment.min.js"></script>
-	        <script src="bower_components/angular/angular-truncate.js"></script>
-	        <script src="bower_components/angular/angular-preload-image.min.js"></script>
-			<script src="bower_components/angular/ui-bootstrap-tpls.min.js"></script>
-			<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-			<script src="bower_components/angular/angular-css.js"></script>
-			<script src="bower_components/angular/angular-css.min.js"></script>
+	        <script src="bower_components/moment/moment.js"></script>
+	        <script src="bower_components/angular-moment/angular-moment.min.js"></script>
+	        <script src="bower_components/angular-truncate/angular-truncate.js"></script>
+	        <script src="bower_components/angular-preload/angular-preload-image.min.js"></script>
+			<script src="bower_components/angular-css/angular-css.js"></script>
+			<script src="bower_components/angular-css/angular-css.min.js"></script>
 			<script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+			<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+			<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+			<script src="bower_components/angular-material/angular-material.min.js"></script>
 	    <!-- / -->
 	    <!-- endbuild -->
 	    <!-- build:js app.min.js -->
@@ -135,15 +142,39 @@
 	        <script src="componentes/publicidad/publicidad.drct.js"></script>
 	        <script src="componentes/piedepagina/pie.drct.js"></script>
 
+		<script src="lib/app.layout.js"></script>
+		<script src="lib/layouts.provider.js"></script>
+		<script src="lib/theming.provider.js"></script>
+		<script src="lib/skins.provider.js"></script>
+		<script src="lib/trisettings.provider.js"></script>
+		<script src="lib/config.triangular.settings.js"></script>
+		<script src="lib/config.triangular.themes.js"></script>
+
 			<script src="secciones/oficina/html/directivas/menu/menu.drct.js"></script>
 			<script src="secciones/oficina/html/directivas/header/header.drct.js"></script>
 			<script src="secciones/oficina/html/directivas/tabla/tabla.drct.js"></script>
 	    <!-- / -->
-		
-		
-		
-		
-		
+
+
+
+
+
+		<script src="secciones/oficina/html/componentes/toolbars/toolbar.controller.js"></script>
+
+		<script src="secciones/oficina/html/componentes/breadcrumbs/breadcrumbs.service.js"></script>
+
+		<script src="secciones/oficina/html/componentes/menu/menu.directive.js"></script>
+		<script src="secciones/oficina/html/componentes/menu/menu-item.directive.js"></script>
+		<script src="secciones/oficina/html/componentes/menu/menu.provider.js"></script>
+
+
+		<script src="componentes/loader/loader.directive.js"></script>
+		<script src="componentes/loader/loader-service.js"></script>
+
+
+		<script src="secciones/oficina/html/componentes/content/content.drct.js"></script>
+		<script src="secciones/oficina/html/componentes/footer/footer.controller.js"></script>
+
 		
 		
 		

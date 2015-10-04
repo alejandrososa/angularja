@@ -1,24 +1,44 @@
-<div ng-cloak ng-controller="MasterController as vm">
+<tri-loader></tri-loader>
 
-    <div id="page-wrapper" ng-class="{'open': menu}" ng-cloak>
-        <!-- Sidebar -->
-        <!--<div ng-include="'html/_menulateral.html'"></div>-->
-        <cms-menu></cms-menu>
-        <!-- End Sidebar -->
+<div layout="row" class="full-height">
+    <!-- left sidebar -->
 
-        <div id="content-wrapper">
-            <div class="page-content">
+    <md-sidenav layout class="admin-sidebar-left md-sidenav-left md-whiteframe-z2"
+                md-component-id="left"
+                md-is-locked-open="layout.sideMenuSize !== 'hidden' && $mdMedia('gt-md')"
+                ui-view="sidebarLeft"
+                ng-class="{ 'admin-sidebar-collapsed': layout.sideMenuSize == 'icon' }"
+                ng-mouseover="vm.activateHover()"
+                ng-mouseleave="vm.removeHover()">
 
-                <!-- Header Bar -->
-                <cms-barra-superior></cms-barra-superior>
-                <!-- End Header Bar -->
+        <tri-menu ></tri-menu>
 
-                <!-- Main Content -->
-                contenido
-                <!-- END MAIN CONTENT -->
+    </md-sidenav>
 
-            </div><!-- End Page Content -->
-        </div><!-- End Content Wrapper -->
-    </div><!-- End Page Wrapper -->
+    <!-- main content -->
+    <div id="admin-panel" layout="column" flex>
+        <!-- loading animation -->
+        <tri-loader></tri-loader>
 
+        <!-- top toolbar ui-view="toolbar" -->
+        <md-toolbar class="admin-toolbar"
+                    ng-if="layout.showToolbar"
+                    md-theme="{{triSkin.elements.toolbar}}"
+                    ng-class="[layout.toolbarSize,layout.toolbarClass]">
+            <cms-toolbar></cms-toolbar>
+        </md-toolbar>
+
+        <!-- scrollable content -->
+        <md-content ng-class="layout.contentClass" flex tri-default-content ui-view="content">
+
+
+        </md-content>
+
+        <div ui-view="belowContent"></div>
+    </div>
+
+    <!-- right sidebar -->
+    <md-sidenav layout layout-fill class="md-sidenav-right md-whiteframe-z2"
+                md-component-id="notifications"
+                ui-view="sidebarRight"></md-sidenav>
 </div>
