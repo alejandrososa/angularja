@@ -17,7 +17,7 @@
             scope: {
                 item: '='
             },
-            // replace: true,
+            replace: true,
             template: '<div ng-include="::triMenuItem.item.template"></div>',
             controller: triMenuItemController,
             controllerAs: 'triMenuItem',
@@ -30,7 +30,7 @@
     function triMenuItemController($scope, $mdSidenav, $route,$location, $filter, triBreadcrumbsService) {
         var triMenuItem = this;
         // load a template for this directive based on the type ( link | dropdown )
-        console.log(triMenuItem.item.type);
+       // console.log(triMenuItem.item.type);
         triMenuItem.item.template = 'secciones/oficina/html/componentes/menu/menu-item-' + triMenuItem.item.type + '.tmpl.html';
 
         switch(triMenuItem.item.type) {
