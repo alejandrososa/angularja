@@ -16,19 +16,22 @@
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="assets/plantillas/solido/images/favicon.ico" type="image/x-icon" />
 
-		<!-- Estilos General -->
+		<!-- Estilos General
+
+		-->
 		<link type="text/css" rel="stylesheet" href="assets/general/general.css" />
 		<link type="text/css" rel="stylesheet" href="assets/general/angular-toastr.css" />
 		<link type="text/css" rel="stylesheet" href="assets/general/angular-spinkit.min.css" />
-		<link type="text/css" rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
+
 
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/admin/css/admin.css" />
+		<link type="text/css" rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
 
-		<!-- Stylesheets -->
+		<!-- Stylesheets
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/reset.css" />
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/font-awesome.min.css" />
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/main-stylesheet.css" />
-		<!-- For white edition style -->
+		<!-- For white edition style
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/white-edition.css" />
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/lightbox.css" />
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/shortcodes.css" />
@@ -37,7 +40,7 @@
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/owl.carousel.css" />
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/responsive.css" />
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/animate.css" />
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/dat-menu.css" />
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/dat-menu.css" />-->
 
         <!--[if lte IE 8]>
 		<link type="text/css" rel="stylesheet" href="css/ie-ancient.css" />
@@ -173,15 +176,17 @@
 
 
 		<script src="secciones/oficina/html/componentes/content/content.drct.js"></script>
-		<script src="secciones/oficina/html/componentes/footer/footer.controller.js"></script>
+		<script src="secciones/oficina/html/componentes/footer/footer.drct.js"></script>
 
-		
+		<script src="secciones/oficina/html/directivas/sidebar/sidebar.drct.js"></script>
+
+
 		
 		
 		
 
 		<!-- Scripts -->
-		<script type="text/javascript" src="assets/plantillas/solido/jscript/jquery-latest.min.js"></script>
+		<!--<script type="text/javascript" src="assets/plantillas/solido/jscript/jquery-latest.min.js"></script>
 		<script type="text/javascript" src="assets/plantillas/solido/jscript/elementQuery.min.js"></script>
 		<script type="text/javascript" src="assets/plantillas/solido/jscript/theme-scripts.js"></script>
 		<script type="text/javascript" src="assets/plantillas/solido/jscript/lightbox.js"></script>
@@ -235,7 +240,7 @@
 					}
 				});
 			});
-		</script>
+		</script> -->
 		<!-- Demo Only 
 		<script type="text/javascript" src="assets/plantillas/solido/jscript/demo-settings.js"></script>
 		-->
