@@ -4,19 +4,7 @@
     <!-- BEGIN .header -->
     <header class="header">
 
-        <portal-menutop></portal-menutop>
-
-        <!-- BEGIN .wrapper -->
-        <div class="wrapper">
-
-            <portal-logo></portal-logo>
-
-            <!-- <nav id="main-menu"> -->
-            <portal-menu></portal-menu>
-            <!-- END .wrapper -->
-        </div>
-
-        <portal-menusecundario></portal-menusecundario>
+        <!--<portal-menutop></portal-menutop> -->
 
         <!-- END .header -->
     </header>
@@ -24,10 +12,10 @@
     <!-- BEGIN .content -->
     <section class="content">
 
+        <cms-login></cms-login>
 
-
-
-<div class="container">
+<!--
+        <div class="container">
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 text">
             <h1><strong>Bootstrap</strong> Login Form</h1>
@@ -91,7 +79,7 @@
                 <h2 class="text-center">Log in</h2>
                 <form method="post" ng-submit="acceso.login()" name="loginForm">
                     <div class="form-group has-feedback">
-                        <input class="form-control input-lg" type="text" name="email" ng-model="acceso.persona.usuario" placeholder="Email" required autofocus>
+                        <input class="form-control input-lg" type="text" name="email" ng-model="acceso.persona.usuario" placeholder="Email" required>
                         <span class="ion-at form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
@@ -158,7 +146,7 @@
 </div>
 
 
-
+-->
 
 
         <!-- BEGIN .content -->
@@ -167,156 +155,8 @@
     <!-- BEGIN .footer -->
     <footer class="footer">
 
-        <!-- BEGIN .wrapper -->
-        <div class="wrapper">
-
-            <portal-menuinferior></portal-menuinferior>
-
-            <!-- BEGIN .footer-widgets -->
-            <div class="footer-widgets">
-
-                <div class="footer-widget-wrapper">
-
-                    <!-- BEGIN .footer-widget-left -->
-                    <div class="footer-widget-left">
-
-                        <portal-quienesomos></portal-quienesomos>
-
-                        <!-- END .footer-widget-left -->
-                    </div>
-
-                    <!-- BEGIN .footer-widget-middle -->
-                    <div class="footer-widget-middle">
-
-                        <!-- BEGIN .widget -->
-                        <div class="widget">
-                            <div class="title-block">
-                                <h2>Reviews</h2>
-                            </div>
-                            <div class="article-block">
-                                <div class="item">
-                                    <div class="item-header">
-                                        <a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-2.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="item-content">
-												<span class="article-meta">
-													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
-													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
-												</span>
-                                        <h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
-                                        <span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="item-header">
-                                        <a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-3.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="item-content">
-												<span class="article-meta">
-													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
-													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
-												</span>
-                                        <h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
-                                        <span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="item-header">
-                                        <a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-4.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="item-content">
-												<span class="article-meta">
-													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
-													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
-												</span>
-                                        <h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
-                                        <span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
-                                    </div>
-                                </div>
-                                <a href="blog.html" class="item-button">Load more ...</a>
-                            </div>
-                            <!-- END .widget -->
-                        </div>
-
-                        <!-- END .footer-widget-middle -->
-                    </div>
-
-                    <!-- BEGIN .footer-widget-right -->
-                    <div class="footer-widget-right">
-
-                        <!-- BEGIN .widget -->
-                        <div class="widget">
-                            <div class="title-block">
-                                <h2>Latest News</h2>
-                            </div>
-                            <div class="article-block without-images">
-
-                                <div class="item">
-                                    <div class="item-content">
-                                        <a href="#" style="background: #0076a3;" class="item-content-category left">Fashion</a>
-												<span class="article-meta left">
-													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
-													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
-												</span>
-                                        <div class="clear-float"></div>
-                                        <h4><a href="post.html">Solidus - best selling wordpress theme</a></h4>
-                                        <p>His at everti appetere, vitae utamur eum in, ea ubique vidisse duo.</p>
-                                    </div>
-                                </div>
-
-                                <div class="item">
-                                    <div class="item-content">
-                                        <a href="#" style="background: #9e2929;" class="item-content-category left">Cars</a>
-												<span class="article-meta left">
-													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
-													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
-												</span>
-                                        <div class="clear-float"></div>
-                                        <h4><a href="post.html">Solidus - best selling wordpress theme</a></h4>
-                                        <p>His at everti appetere, vitae utamur eum in, ea ubique vidisse duo.</p>
-                                    </div>
-                                </div>
-
-                                <div class="item">
-                                    <div class="item-content">
-                                        <a href="#" style="background: #00a651;" class="item-content-category left">Fashion</a>
-												<span class="article-meta left">
-													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
-													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
-												</span>
-                                        <div class="clear-float"></div>
-                                        <h4><a href="post.html">Solidus - best selling wordpress theme</a></h4>
-                                        <p>His at everti appetere, vitae utamur eum in, ea ubique vidisse duo.</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!-- END .widget -->
-                        </div>
-
-
-                        <!-- END .footer-widget-right -->
-                    </div>
-
-                    <!-- BEGIN .footer-widget-right -->
-                    <div class="footer-widget-right">
-
-                        <portal-etiquetas></portal-etiquetas>
-                        <portal-listadocategorias></portal-listadocategorias>
-
-                        <!-- END .footer-widget-right -->
-                    </div>
-
-                </div>
-
-                <!-- END .footer-widgets -->
-            </div>
-
-            <!-- END .wrapper -->
-        </div>
-
         <!-- BEGIN .footer-copy -->
-        <portal-piedepagina></portal-piedepagina>s
+        <portal-piedepagina></portal-piedepagina>
 
         <!-- END .footer -->
     </footer>

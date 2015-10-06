@@ -14,22 +14,7 @@ angular
         vm.vista = $rootScope.vista;
 
 
-        vm.login = function() {
-            $auth.login(vm.persona)
-                .then(function() {
-                    toastr.success('You have successfully signed in');
-                    $location.path('/admin/');
-                    //$window.location.href = '/admin/';
-                })
-                .catch(function(response) {
-                    //console.clear();
-                    $log.reset;
-                    $log.warn('No esta autorizado');
-                    toastr.error(response.data.message, response.status); //response.data.message
-                    $location.path('/login');
 
-                });
-        };
         vm.authenticate = function(provider) {
             $auth.authenticate(provider)
                 .then(function() {
@@ -41,5 +26,9 @@ angular
                     toastr.error(response.message);
                 });
         };
+
+
+
+
 
     });

@@ -27,7 +27,7 @@ html, body {
  */
 @font-face {
   font-family: "Material-Design-Iconic-Font";
-  src: url("../icons/dist/fonts/Material-Design-Iconic-Font.woff2?v=2.1.0") format("woff2"), url("../icons/dist/fonts/Material-Design-Iconic-Font.woff?v=2.1.0") format("woff"), url("../icons/dist/fonts/Material-Design-Iconic-Font.ttf?v=2.1.0") format("truetype");
+  src: url("../../../../../bower_components/material-design-iconic-font/icons/dist/fonts/Material-Design-Iconic-Font.woff2?v=2.1.0") format("woff2"), url("../../../../../bower_components/material-design-iconic-font/icons/dist/fonts/Material-Design-Iconic-Font.woff?v=2.1.0") format("woff"), url("../../../../../bower_components/material-design-iconic-font/icons/dist/fonts/Material-Design-Iconic-Font.ttf?v=2.1.0") format("truetype");
   font-weight: normal;
   font-style: normal; }
 .zmdi {
@@ -7419,5 +7419,22 @@ tri-menu {
   z-index: 4; }
   .admin-toolbar .md-button {
     height: 48px; }
+
+#footer {
+  box-shadow: 0 -2px 6px 0 rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 0; }
+
+.login-frame md-card {
+  max-width: 400px;
+  margin: auto; }
+.login-frame md-checkbox {
+  margin: 0; }
+.login-frame img {
+  max-width: 15% !important;
+  max-height: 15% !important;
+  width: auto; }
+.login-frame md-toolbar .md-headline {
+  margin: 0; }
 
 /*# sourceMappingURL=cms.css.map */

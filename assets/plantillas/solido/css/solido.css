@@ -10,3 +10,8 @@
 @import url("responsive.css");
 @import url("animate.css");
 @import url("dat-menu.css");
+
+
+md-card>:not(md-card-content) img, md-card>img {
+    width: auto !important;
+}

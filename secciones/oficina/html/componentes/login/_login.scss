@@ -1,0 +1,20 @@
+// Login
+.login-frame {
+  md-card {
+    max-width: 400px;
+    margin: auto;
+  }
+  md-checkbox {
+    margin: 0;
+  }
+  img {
+    max-width: 15% !important;
+    max-height: 15% !important;
+    width: auto;
+  }
+  md-toolbar {
+    .md-headline {
+      margin: 0;
+    }
+  }
+}

@@ -17,13 +17,10 @@ function cmsFooter() {  //ShowService
     };
     return directive;
 
-    function controller(triSettings, triLayout, triSkins) {
+    function controller(triSettings, triLayout) {
         var vm = this;
-
-        console.log(vm.toolbar);
-
         vm.name = triSettings.name;
-        vm.date = 'adsf';//new Date();
+        vm.date = new Date();
         vm.layout = triLayout.layout;
         vm.toolbar = vm.toolbar;
         vm.version = triSettings.version;
