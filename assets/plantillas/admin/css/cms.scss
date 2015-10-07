@@ -28,6 +28,30 @@ html, body {
 @import "../../../../secciones/oficina/html/componentes/login/_login.scss";
 @import "../../../../secciones/oficina/html/componentes/widget/_widget.scss";
 @import "../../../../secciones/oficina/html/componentes/table/_table.scss";
+@import "../../../../secciones/oficina/html/componentes/table/table-1.tmpl";
+@import "../../../../secciones/oficina/html/componentes/table/table-advanced.tmpl";
+
+
+@import "../../../../secciones/oficina/html/componentes/authentication.module.scss";
+@import "../../../../secciones/oficina/html/componentes/calendar.tmpl";
+@import "../../../../secciones/oficina/html/componentes/charts.module";
+@import "../../../../secciones/oficina/html/componentes/dashboard.module";
+@import "../../../../secciones/oficina/html/componentes/dashboard-sales.tmpl";
+@import "../../../../secciones/oficina/html/componentes/elements.module";
+@import "../../../../secciones/oficina/html/componentes/email.tmpl";
+@import "../../../../secciones/oficina/html/componentes/email-dialog.tmpl";
+@import "../../../../secciones/oficina/html/componentes/event-dialog.tmpl";
+@import "../../../../secciones/oficina/html/componentes/extras.module";
+@import "../../../../secciones/oficina/html/componentes/forms.module";
+@import "../../../../secciones/oficina/html/componentes/github.tmpl";
+@import "../../../../secciones/oficina/html/componentes/inbox.tmpl";
+@import "../../../../secciones/oficina/html/componentes/introduction.tmpl";
+@import "../../../../secciones/oficina/html/componentes/login.tmpl";
+@import "../../../../secciones/oficina/html/componentes/maps.module";
+@import "../../../../secciones/oficina/html/componentes/order-dialog.tmpl";
+@import "../../../../secciones/oficina/html/componentes/todo.module";
+@import "../../../../secciones/oficina/html/componentes/ui.module";
+
 //@import "components/widget/widget.scss";
 //@import "components/wizard/wizard.scss";
 

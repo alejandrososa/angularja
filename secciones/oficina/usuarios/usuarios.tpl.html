@@ -19,9 +19,14 @@
         <!-- scrollable content -->
         <md-content ng-class="layout.contentClass"  flex tri-default-content  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
 
+            {{vm.contenido}} <br><br>
+
+            {{vm.usuarios }}
+
+
            <div class="padded-content-page ng-scope">
                 <md-card>
-                    <tri-table class="elements-image-table-example" columns="vm.columns" contents="vm.contents" page-size="5"></tri-table>
+                    <tri-table class="elements-image-table-example" columns="vm.columns" contents="vm.contenido" page-size="5"></tri-table>
                 </md-card>
             </div>
 

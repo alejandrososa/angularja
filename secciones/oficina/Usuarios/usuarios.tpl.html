@@ -1,115 +1,61 @@
-<div ng-cloak>
+<div layout="row" class="full-height">
+    <!-- left sidebar -->
+    <cms-sidebar></cms-sidebar>
 
-    <div id="page-wrapper" ng-class="{'open': menu}" ng-cloak>
-        <!-- Sidebar -->
-        <!--<div ng-include="'html/_menulateral.html'"></div>-->
-        <cms-menu></cms-menu>
-        <!-- End Sidebar -->
+    <!-- main content -->
+    <div id="admin-panel" layout="column" flex>
+        <!-- loading animation -->
+        <tri-loader></tri-loader>
 
-        <div id="content-wrapper">
-            <div class="page-content">
+        <!-- top toolbar ui-view="toolbar" -->
+        <md-toolbar class="admin-toolbar"
+                    ng-if="vm.layout.showToolbar"
+                    md-theme="{{triSkin.elements.toolbar}}"
+                    ng-class="[vm.layout.toolbarSize,vm.layout.toolbarClass]">
+            <cms-toolbar></cms-toolbar>
+        </md-toolbar>
 
-                <!-- Header Bar -->
-                <cms-barra-superior></cms-barra-superior>
-                <!-- End Header Bar -->
 
-                <!-- Main Content -->
+        <!-- scrollable content -->
+        <md-content ng-class="layout.contentClass"  flex tri-default-content  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <a href="/admin/usuario/crear/" data-placement="top" data-toggle="tooltip" title="Edit">
-                            <button class="btn btn-info" data-title="Agregar"  >
-                                <span class="glyphicon fa fa-user fa-0x"></span> Agregar</button></a>
+            {{vm.contenido}} <br><br>
+
+            {{vm.usuarios }}
+
+
+           <div class="padded-content-page ng-scope">
+                <md-card>
+                    <tri-table class="elements-image-table-example" columns="vm.columns" contents="vm.contenido" page-size="5"></tri-table>
+                </md-card>
+            </div>
+
+
+            <md-card flex="50">
+                <img src="assets/plantillas/admin/img/backgrounds/material-backgrounds/mb-bg-03.jpg" alt="Card Image">
+                <md-card-content>
+                    <div class="content-padded">
+                        <h2 class="md-title">Card Title</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, distinctio minus nostrum aut magni ipsam, eius ipsa eos voluptate natus excepturi qui numquam velit non explicabo molestias quasi sunt veniam.</p>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-
-
-                        <cms-tabla datosproveedor="vm.datosproveedor"></cms-tabla>
-
-                        <!--
-                        <form>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                                    <input type="text" class="form-control" placeholder="Buscar usuario" ng-model="usuarios">
-                                </div>
-                            </div>
-                        </form>
-
-
-
-                        <table class="table table-bordered table-striped">
-
-                            <thead>
-                            <tr>
-                                <td>
-                                    <a href="#" ng-click="tblsortType = 'uid'; tblsortReverse = !tblsortReverse">
-                                        ID
-                                        <span ng-show="tblsortType == 'uid' && !tblsortReverse" class="fa fa-caret-down"></span>
-                                        <span ng-show="tblsortType == 'uid' && tblsortReverse" class="fa fa-caret-up"></span>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="#" ng-click="tblsortType = 'nombre'; tblsortReverse = !tblsortReverse">
-                                        Nombre
-                                        <span ng-show="tblsortType == 'nombre' && !tblsortReverse" class="fa fa-caret-down"></span>
-                                        <span ng-show="tblsortType == 'nombre' && tblsortReverse" class="fa fa-caret-up"></span>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="#" ng-click="tblsortType = 'correo'; tblsortReverse = !tblsortReverse">
-                                        Correo
-                                        <span ng-show="tblsortType == 'correo' && !tblsortReverse" class="fa fa-caret-down"></span>
-                                        <span ng-show="tblsortType == 'correo' && tblsortReverse" class="fa fa-caret-up"></span>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="#" ng-click="tblsortType = 'telefono'; tblsortReverse = !tblsortReverse">
-                                        Telefono
-                                        <span ng-show="tblsortType == 'telefono' && !tblsortReverse" class="fa fa-caret-down"></span>
-                                        <span ng-show="tblsortType == 'telefono' && tblsortReverse" class="fa fa-caret-up"></span>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    #
-                                </td>
-                            </tr>
-                            </thead>
-
-                            <tbody>
-                            <tr ng-repeat="usuario in vm.usuarios | orderBy:tblsortType:tblsortReverse | filter:usuarios">
-                                <td>{{ usuario.uid }}</td>
-                                <td>{{ usuario.nombre }}</td>
-                                <td>{{ usuario.correo }}</td>
-                                <td>{{ usuario.telefono }}</td>
-                                <td>
-                                    <a href="/admin/usuario/{{ usuario.uid }}/editar/" data-placement="top" data-toggle="tooltip" title="Edit">
-                                        <button class="btn btn-info btn-xs" data-title="Editar" data-toggle="modal" data-target="#edit" >
-                                            <span class="glyphicon glyphicon-pencil"></span></button></a>
-
-                                    <a href="#" ng-click="vm.eliminar(usuario.uid, $index)" data-placement="top" data-toggle="tooltip" title="Edit">
-                                        <button class="btn btn-danger btn-xs" data-title="Editar" data-toggle="modal" data-target="#edit" >
-                                            <span class="glyphicon glyphicon-remove"></span></button></a>
-                                </td>
-                            </tr>
-                            </tbody>
-
-                        </table>
-                        -->
+                    <md-divider></md-divider>
+                    <div class="button-toolbar" layout="row" layout-align="start center">
+                        <md-button class="md-accent">Share</md-button>
+                        <md-button class="md-primary">Explore</md-button>
                     </div>
-                </div>
+                </md-card-content>
+            </md-card>
 
 
 
-<!-- END MAIN CONTENT -->
+        </md-content>
 
-</div><!-- End Page Content -->
-</div><!-- End Content Wrapper -->
-</div><!-- End Page Wrapper -->
+        <cms-pie-pagina md-theme="{{triSkin.elements.toolbar}}"></cms-pie-pagina>
 
+    </div>
+
+    <!-- right sidebar -->
+    <md-sidenav layout layout-fill class="md-sidenav-right md-whiteframe-z2"
+                md-component-id="notifications"
+                ui-view="sidebarRight"></md-sidenav>
 </div>
