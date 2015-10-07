@@ -9,7 +9,6 @@
             controllerAs: 'vm',
             bindToController: true,
             templateUrl: 'secciones/oficina/html/componentes/toolbars/toolbar.tmpl.html',
-            //templateUrl: 'secciones/oficina/html/directivas/menu/menu.tpl.html',
             restrict: 'E',
             scope: {
                 menu: '=?menu'

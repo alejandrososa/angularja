@@ -90,7 +90,7 @@
       transform: scale(0.5);
     }
     &.ng-hide {
-      @include fadeOut();
+      /*@include fadeOut();*/
     }
   }
 }

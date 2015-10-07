@@ -33,14 +33,14 @@
                         {{pageStart()}}
                         -
                         {{pageEnd()}}
-                        <span translate>TABLES.OF</span>
+                        <span>TABLES.OF</span> <!--  | translate -->
                         {{totalItems()}}
                     </span>
                     <div class="md-table-page-nav">
-                        <md-button ng-disabled="page == 0" ng-click="page = page - 1" aria-label="{{'TABLES.PREV' | translate}}" class="md-primary md-icon-button">
+                        <md-button ng-disabled="page == 0" ng-click="page = page - 1" aria-label="TABLES.PREV" class="md-primary md-icon-button">
                             <md-icon md-font-icon="zmdi zmdi-chevron-left"></md-icon>
                         </md-button>
-                        <md-button ng-disabled="page == numberOfPages() - 1" ng-click="page = page + 1" aria-label="{{'TABLES.NEXT' | translate}}" class="md-primary md-icon-button">
+                        <md-button ng-disabled="page == numberOfPages() - 1" ng-click="page = page + 1" aria-label="TABLES.NEXT" class="md-primary md-icon-button">
                             <md-icon md-font-icon="zmdi zmdi-chevron-right"></md-icon>
                         </md-button>
                     </div>

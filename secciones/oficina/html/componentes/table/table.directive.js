@@ -1,9 +1,11 @@
-(function() {
+
     'use strict';
 
     angular
         .module('app.coreoficina')
         .directive('triTable', triTable);
+
+
 
     /* @ngInject */
     function triTable($filter) {
@@ -15,7 +17,7 @@
                 filters: '='
             },
             link: link,
-            templateUrl: 'app/triangular/components/table/table-directive.tmpl.html'
+            templateUrl: 'secciones/oficina/html/componentes/table/table-directive.tmpl.html'
         };
         return directive;
 
@@ -111,4 +113,3 @@
             };
         }
     }
-})();

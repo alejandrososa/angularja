@@ -26,6 +26,7 @@
 
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/admin/css/admin.css" />
 		<link type="text/css" rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
+		<link type="text/css" href="https://material.angularjs.org/HEAD/angular-material.css" />
 
 		<!-- Stylesheets
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/reset.css" />
@@ -182,7 +183,11 @@
 
 		<script src="secciones/oficina/html/componentes/login/login.drct.js"></script>
 
+		<script src="secciones/oficina/html/componentes/table/table.directive.js"></script>
+		<script src="secciones/oficina/html/componentes/table/table-cell-image.filter.js"></script>
+		<script src="secciones/oficina/html/componentes/table/table-start-from.filter.js"></script>
 
+		<script src="secciones/oficina/html/directivas/tema-fondo.drct.js"></script>
 		
 		
 		
