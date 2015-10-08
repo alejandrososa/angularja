@@ -12,19 +12,93 @@
         var directive = {
             restrict: 'E',
             scope: {
+                datosproveedor: '=',
                 columns: '=',
                 contents: '=',
                 filters: '='
             },
             link: link,
+            //bindToController: true,
+            controller: controller,
+            controllerAs: 'vm',
             templateUrl: 'secciones/oficina/html/componentes/table/table-directive.tmpl.html'
         };
         return directive;
 
-        function link($scope, $element, attrs) {
+        function controller($scope){
+            var vm = this;
+            vm.query = {
+                filter: '',
+                limit: '10',
+                order: '-id',
+                page: 1
+            };
+            vm.selected = [];
+            vm.filter = {
+                options: {
+                    debounce: 500
+                }
+            };
+            vm.getUsers = getUsers;
+            vm.removeFilter = removeFilter;
+
+            //vm.tblContenido = 'datos' in vm.datosproveedor ? vm.datosproveedor.datos : null;
+            //vm.tblColumnas  = 'columnas' in vm.datosproveedor ? vm.datosproveedor.columnas : null
+            vm.tblServicio = angular.isDefined($scope.datosproveedor.servicio) ? $scope.datosproveedor.servicio : null;
+            var Servicio = vm.tblServicio;
+
+            activate();
+
+            ////////////////
+
+            //$scope.demo =;
+            vm.tablacontenido = $scope.contents;
+            vm.tablacolumnas = $scope.columns;
+
+
+            function activate() {
+                var bookmark;
+                $scope.$watch('vm.query.filter', function (newValue, oldValue) {
+                    if(!oldValue) {
+                        bookmark = vm.query.page;
+                    }
+
+                    if(newValue !== oldValue) {
+                        vm.query.page = 1;
+                    }
+
+                    if(!newValue) {
+                        vm.query.page = bookmark;
+                    }
+
+                    vm.getUsers();
+                });
+            }
+
+            function getUsers() {
+                Servicio.buscador(vm.query.filter).then(function(users){
+                    vm.tablacontenido = users.data;
+                });
+            }
+
+            function removeFilter() {
+                vm.filter.show = false;
+                vm.query.filter = '';
+
+                if(vm.filter.form.$dirty) {
+                    vm.filter.form.$setPristine();
+                }
+            }
+        }
+
+        function link($scope, $element, attrs, scope) {
             var sortableColumns = [];
             var activeSortColumn = null;
             var activeSortOrder = false;
+
+            var vm = this;
+
+
 
             // init page size if not set to default
             $scope.pageSize = angular.isUndefined(attrs.pageSize) ? 0 : attrs.pageSize;

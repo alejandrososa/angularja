@@ -26,6 +26,13 @@ class Usuarios extends Modelo
         // Aquí realizaríamos la conexión a la BBDD con el método que queramos
     }
 
+    public function buscadorUsuarios(){
+        $this->where = $this->atributos;
+        $usuarios = $this->buscar(self::$modelo);
+        //unset($usuarios['clave']);
+        return $usuarios;
+    }
+
     public function todosUsuarios(){
         return $this->todos(self::$modelo);
     }

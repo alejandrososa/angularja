@@ -109,6 +109,22 @@ namespace Api;
          * USUARIOS
          */
 
+        public function buscadorUsuarios(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $post = json_decode(file_get_contents("php://input"),true);
+            $filtro     = isset($post['filtro']) ? $post['filtro'] : '';
+
+            $this->modelUsuarios->atributos = array('id'=> $filtro,'nombre'=> $filtro,'correo'=> $filtro,'usuario'=> $filtro,'telefono'=> $filtro);
+            $resultado = $this->modelUsuarios->buscadorUsuarios();
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json($resultado), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
         public function unicoUsuario(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);

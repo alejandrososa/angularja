@@ -1,4 +1,3 @@
-(function() {
     'use strict';
 
     angular
@@ -15,5 +14,3 @@
             return input.slice(start);
         }
     }
-
-})();

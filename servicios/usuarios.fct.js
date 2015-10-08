@@ -13,6 +13,7 @@ function servicio($http, API_URL, $log, toastr) {
     var data = {
         'unico': unico,
         'todos': todos,
+        'buscador': buscador,
         'crear': crear,
         'eliminar': eliminar,
         'actualizar': actualizar,
@@ -48,6 +49,10 @@ function servicio($http, API_URL, $log, toastr) {
             /*.then(function (datos) {
             return datos.data.resultado;
         });*/
+    }
+
+    function buscador(query){
+        return $http.post(API_URL + 'buscadorUsuarios', {filtro:query});
     }
 
     function actualizar(usuario){

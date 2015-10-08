@@ -1,7 +1,35 @@
+
+{{vm.tablacontenido}}
+
+
+<md-data-table-toolbar ng-hide="vm.selected.length || vm.filter.show">
+    <h2 class="md-title">Popular Github Users</h2>
+    <div flex></div>
+    <md-button class="md-icon-button" ng-click="vm.filter.show = true" aria-label="Buscar">
+        <!-- <i class="material-icons md-dark">filter_list</i> -->
+        <md-icon md-font-icon="zmdi zmdi-filter-list"></md-icon>
+    </md-button>
+</md-data-table-toolbar>
+
+<md-data-table-toolbar ng-show="vm.filter.show && !vm.selected.length" class="md-data-table-toolbar">
+    <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+    <form flex="" name="vm.filter.form">
+        <input type="text" ng-model="vm.query.filter" ng-model-options="vm.filter.options" placeholder="search">
+    </form>
+    <md-button class="md-icon-button" ng-click="vm.removeFilter()" aria-label="Salir">
+        <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+    </md-button>
+</md-data-table-toolbar>
+
+<md-data-table-toolbar class="alternate" ng-show="vm.selected.length" layout-align="space-between">
+    <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'users' : 'user'}} selected</div>
+</md-data-table-toolbar>
+
+
 <table class="md-table">
     <thead>
         <tr>
-            <th ng-repeat="column in columns" ng-click="sortClick(column.field)" ng-class="headerClass(column.field)">
+            <th ng-repeat="column in vm.tablacolumnas" ng-click="sortClick(column.field)" ng-class="headerClass(column.field)">
                 <md-icon ng-show="showSortOrder(column.field, true)" class="icon-rotate-90" md-font-icon="zmdi zmdi-arrow-back"></md-icon>
                 <md-icon ng-show="showSortOrder(column.field, false)" class="icon-rotate-270" md-font-icon="zmdi zmdi-arrow-back"></md-icon>
                 <span>
@@ -11,7 +39,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="content in contents | filter:filters | startFrom:page * pageSize | limitTo: pageSize">
+        <tr ng-repeat="content in vm.tablacontenido | filter:filters : vm.query.filter | startFrom:page * pageSize | limitTo: pageSize">
             <td ng-repeat="column in columns" ng-bind-html="cellContents(column, content)" ng-class="column.field + '-cell'"></td>
         </tr>
     </tbody>

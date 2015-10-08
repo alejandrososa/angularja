@@ -70,6 +70,4 @@
         // get the menu and order it
         triMenuController.menu = triMenu.menu;
 
-        console.log(triMenu.menu)
     }
-

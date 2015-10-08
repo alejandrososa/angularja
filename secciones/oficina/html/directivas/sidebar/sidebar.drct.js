@@ -54,8 +54,6 @@ function menu() {  //ShowService
         };
         vm.toggleIconMenu = toggleIconMenu;
 
-        console.log(vm.sidebarInfo.appLogo);
-
         ////////////
         function toggleIconMenu() {
             var menu = vm.layout.sideMenuSize === 'icon' ? 'full' : 'icon';

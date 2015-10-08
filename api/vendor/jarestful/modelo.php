@@ -562,7 +562,51 @@ abstract class Modelo{
 
 
 
+	protected function buscar($tabla){
+		try {
+			$sql = "SELECT * FROM " . $tabla . " ";
+			$counter = 0;
+			$columnas = array();
 
+			if(!empty($this->where)){
+				foreach ($this->where as $key => $value) {
+					if ($counter == 0) {
+						$sql .= "WHERE {$key} LIKE CONCAT('%', :{$key}, '%') "; //like :{$key} ";
+					} else {
+						$sql .= "OR {$key} LIKE CONCAT('%', :{$key}, '%') ";
+					}
+					$counter++;
+				}
+			}
+
+			$stmt = $this->pdo->prepare($sql);
+
+			if(!empty($this->where)) {
+				foreach ($this->where as $key => $value) {
+					$stmt->bindValue(':' . $key, $value);
+				}
+			}
+
+			$stmt->execute();
+
+
+			while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) {
+				$columnas[] = $row;
+			}
+
+			if (isset($columnas)){
+				$this->resultado = $columnas;
+				return $this->resultado;
+			}
+
+			//return json_encode($stmt->fetch(PDO::FETCH_ASSOC), JSON_NUMERIC_CHECK);
+
+		} catch (PDOException $exception) {
+
+			die($exception->getMessage());
+
+		}
+	}
 	protected function unico($tabla){
 
 
