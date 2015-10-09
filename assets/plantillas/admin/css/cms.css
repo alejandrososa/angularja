@@ -8275,4 +8275,14 @@ md-select[md-container-class="calendar-color-select"] md-select-value span {
   border-radius: 50%;
   z-index: 5; }
 
+div.imagenTabla {
+  margin: 0 0 0 10px;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-size: cover;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+}
 /*# sourceMappingURL=cms.css.map */

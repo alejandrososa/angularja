@@ -1,9 +1,6 @@
 
-{{vm.tablacontenido}}
-
-
 <md-data-table-toolbar ng-hide="vm.selected.length || vm.filter.show">
-    <h2 class="md-title">Popular Github Users</h2>
+    <h2 class="md-title">{{vm.tblTitulo | capitalize}}</h2>
     <div flex></div>
     <md-button class="md-icon-button" ng-click="vm.filter.show = true" aria-label="Buscar">
         <!-- <i class="material-icons md-dark">filter_list</i> -->
@@ -14,7 +11,7 @@
 <md-data-table-toolbar ng-show="vm.filter.show && !vm.selected.length" class="md-data-table-toolbar">
     <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
     <form flex="" name="vm.filter.form">
-        <input type="text" ng-model="vm.query.filter" ng-model-options="vm.filter.options" placeholder="search">
+        <input type="text" ng-model="vm.query.filter" ng-model-options="vm.filter.options" placeholder="buscar...">
     </form>
     <md-button class="md-icon-button" ng-click="vm.removeFilter()" aria-label="Salir">
         <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
@@ -26,10 +23,10 @@
 </md-data-table-toolbar>
 
 
-<table class="md-table">
+<table class="md-table" md-progress="vm.deferred">
     <thead>
         <tr>
-            <th ng-repeat="column in vm.tablacolumnas" ng-click="sortClick(column.field)" ng-class="headerClass(column.field)">
+            <th ng-repeat="column in columns" ng-click="sortClick(column.field)" ng-class="headerClass(column.field)">
                 <md-icon ng-show="showSortOrder(column.field, true)" class="icon-rotate-90" md-font-icon="zmdi zmdi-arrow-back"></md-icon>
                 <md-icon ng-show="showSortOrder(column.field, false)" class="icon-rotate-270" md-font-icon="zmdi zmdi-arrow-back"></md-icon>
                 <span>
@@ -39,8 +36,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="content in vm.tablacontenido | filter:filters : vm.query.filter | startFrom:page * pageSize | limitTo: pageSize">
+        <tr ng-repeat="content in contents | filter:filters | startFrom:page * pageSize | limitTo: pageSize">
             <td ng-repeat="column in columns" ng-bind-html="cellContents(column, content)" ng-class="column.field + '-cell'"></td>
+            <td ng-show="vm.tblAcciones">
+                <md-button class="md-icon-button md-warn" aria-label="Favorite">
+                    <md-icon md-font-icon="zmdi zmdi-edit"></md-icon>
+                </md-button>
+            </td>
         </tr>
     </tbody>
     <tfoot>
@@ -65,10 +67,10 @@
                         {{totalItems()}}
                     </span>
                     <div class="md-table-page-nav">
-                        <md-button ng-disabled="page == 0" ng-click="page = page - 1" aria-label="TABLES.PREV" class="md-primary md-icon-button">
+                        <md-button ng-disabled="page == 0" ng-click="page = page - 1" aria-label="TABLES.PREV" class="md-icon-button md-accent">
                             <md-icon md-font-icon="zmdi zmdi-chevron-left"></md-icon>
                         </md-button>
-                        <md-button ng-disabled="page == numberOfPages() - 1" ng-click="page = page + 1" aria-label="TABLES.NEXT" class="md-primary md-icon-button">
+                        <md-button ng-disabled="page == numberOfPages() - 1" ng-click="page = page + 1" aria-label="TABLES.NEXT" class="md-icon-button md-accent">
                             <md-icon md-font-icon="zmdi zmdi-chevron-right"></md-icon>
                         </md-button>
                     </div>

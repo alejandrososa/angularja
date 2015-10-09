@@ -4,18 +4,18 @@ html, body {
 
 // core
 
-@import "scss/_contextual";
-@import "scss/_dialogs";
-@import "scss/_material-icons";
-@import "scss/_material-overrides";
-@import "scss/_material-backgrounds";
-@import "scss/_print";
-@import "scss/_reset";
-@import "scss/_social";
-@import "scss/_tables";
-@import "scss/_typography";
-@import "scss/_utilities";
-@import "scss/_default";
+@import "scss/_contextual.scss";
+@import "scss/_dialogs.scss";
+@import "scss/_material-icons.scss";
+@import "scss/_material-overrides.scss";
+@import "scss/_material-backgrounds.scss";
+@import "scss/_print.scss";
+@import "scss/_reset.scss";
+@import "scss/_social.scss";
+@import "scss/_tables.scss";
+@import "scss/_typography.scss";
+@import "scss/_utilities.scss";
+@import "scss/_default.scss";
 
 // components
 
@@ -28,35 +28,35 @@ html, body {
 @import "../../../../secciones/oficina/html/componentes/login/_login.scss";
 @import "../../../../secciones/oficina/html/componentes/widget/_widget.scss";
 @import "../../../../secciones/oficina/html/componentes/table/_table.scss";
-@import "../../../../secciones/oficina/html/componentes/table/table-1.tmpl";
-@import "../../../../secciones/oficina/html/componentes/table/table-advanced.tmpl";
+@import "../../../../secciones/oficina/html/componentes/table/table-1.tmpl.scss";
+@import "../../../../secciones/oficina/html/componentes/table/table-advanced.tmpl.scss";
 
 
 @import "../../../../secciones/oficina/html/componentes/authentication.module.scss";
-@import "../../../../secciones/oficina/html/componentes/calendar.tmpl";
-@import "../../../../secciones/oficina/html/componentes/charts.module";
-@import "../../../../secciones/oficina/html/componentes/dashboard.module";
-@import "../../../../secciones/oficina/html/componentes/dashboard-sales.tmpl";
-@import "../../../../secciones/oficina/html/componentes/elements.module";
-@import "../../../../secciones/oficina/html/componentes/email.tmpl";
-@import "../../../../secciones/oficina/html/componentes/email-dialog.tmpl";
-@import "../../../../secciones/oficina/html/componentes/event-dialog.tmpl";
-@import "../../../../secciones/oficina/html/componentes/extras.module";
-@import "../../../../secciones/oficina/html/componentes/forms.module";
-@import "../../../../secciones/oficina/html/componentes/github.tmpl";
-@import "../../../../secciones/oficina/html/componentes/inbox.tmpl";
-@import "../../../../secciones/oficina/html/componentes/introduction.tmpl";
-@import "../../../../secciones/oficina/html/componentes/login.tmpl";
-@import "../../../../secciones/oficina/html/componentes/maps.module";
-@import "../../../../secciones/oficina/html/componentes/order-dialog.tmpl";
-@import "../../../../secciones/oficina/html/componentes/todo.module";
-@import "../../../../secciones/oficina/html/componentes/ui.module";
+@import "../../../../secciones/oficina/html/componentes/calendar.tmpl.scss";
+@import "../../../../secciones/oficina/html/componentes/charts.module.scss";
+@import "../../../../secciones/oficina/html/componentes/dashboard.module.scss";
+@import "../../../../secciones/oficina/html/componentes/dashboard-sales.tmpl.scss";
+@import "../../../../secciones/oficina/html/componentes/elements.module.scss";
+@import "../../../../secciones/oficina/html/componentes/email.tmpl.scss";
+@import "../../../../secciones/oficina/html/componentes/email-dialog.tmpl.scss";
+@import "../../../../secciones/oficina/html/componentes/event-dialog.tmpl.scss";
+@import "../../../../secciones/oficina/html/componentes/extras.module.scss";
+@import "../../../../secciones/oficina/html/componentes/forms.module.scss";
+@import "../../../../secciones/oficina/html/componentes/github.tmpl.scss";
+@import "../../../../secciones/oficina/html/componentes/inbox.tmpl.scss";
+@import "../../../../secciones/oficina/html/componentes/introduction.tmpl.scss";
+@import "../../../../secciones/oficina/html/componentes/login.tmpl.scss";
+@import "../../../../secciones/oficina/html/componentes/maps.module.scss";
+@import "../../../../secciones/oficina/html/componentes/order-dialog.tmpl.scss";
+@import "../../../../secciones/oficina/html/componentes/todo.module.scss";
+@import "../../../../secciones/oficina/html/componentes/ui.module.scss";
 
-//@import "components/widget/widget.scss";
-//@import "components/wizard/wizard.scss";
+//@import "components/widget/widget.scss.scss";
+//@import "components/wizard/wizard.scss.scss";
 
 // directives
 
 // layouts
 
-//@import "layouts/default/default.scss";
+//@import "layouts/default/default.scss.scss";

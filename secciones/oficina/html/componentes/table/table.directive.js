@@ -44,17 +44,15 @@
 
             //vm.tblContenido = 'datos' in vm.datosproveedor ? vm.datosproveedor.datos : null;
             //vm.tblColumnas  = 'columnas' in vm.datosproveedor ? vm.datosproveedor.columnas : null
+            vm.tblIdentidad = angular.isDefined($scope.datosproveedor.identidad) ? $scope.datosproveedor.identidad : null;
+            vm.tblAcciones = angular.isDefined($scope.datosproveedor.acciones) ? $scope.datosproveedor.acciones : false;
             vm.tblServicio = angular.isDefined($scope.datosproveedor.servicio) ? $scope.datosproveedor.servicio : null;
+            vm.tblTitulo = angular.isDefined(vm.tblIdentidad) ? vm.tblIdentidad : 'Listado';
             var Servicio = vm.tblServicio;
 
             activate();
 
             ////////////////
-
-            //$scope.demo =;
-            vm.tablacontenido = $scope.contents;
-            vm.tablacolumnas = $scope.columns;
-
 
             function activate() {
                 var bookmark;
@@ -77,7 +75,8 @@
 
             function getUsers() {
                 Servicio.buscador(vm.query.filter).then(function(users){
-                    vm.tablacontenido = users.data;
+                    //vm.tablacontenido = users.data;
+                    $scope.contents = users.data;
                 });
             }
 

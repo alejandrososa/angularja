@@ -208,6 +208,7 @@ namespace Api;
 
             $datos      = json_decode(file_get_contents("php://input"),true);
             $usuario    = isset($datos['usuario']['usuario']) ? $datos['usuario']['usuario'] : '';
+            $imagen     = isset($datos['usuario']['imagen']) ? $datos['usuario']['imagen'] : '';
             $nombre     = isset($datos['usuario']['nombre']) ? $datos['usuario']['nombre'] : '';
             $apellidos  = isset($datos['usuario']['apellidos']) ? $datos['usuario']['apellidos'] : '';
             $correo     = isset($datos['usuario']['correo']) ? $datos['usuario']['correo'] : '';
@@ -224,6 +225,7 @@ namespace Api;
             }
 
             if(isset($usuario))    { $valores['usuario']    = $usuario; }
+            if(isset($imagen))     { $valores['imagen']     = $imagen; }
             if(isset($nombre))     { $valores['nombre']     = $nombre; }
             if(isset($apellidos))  { $valores['apellidos']  = $apellidos; }
             if(isset($correo))     { $valores['correo']     = $correo; }

@@ -24,7 +24,7 @@ angular
 .controller('UsuariosController', function ($scope, $rootScope, PageValues, $cookieStore,
                                                 $q, $location, $auth, $log, toastr, $window,
                                                 $routeParams, Usuarios, _datos,
-                                                triLayout, GithubService) {
+                                                triLayout, $mdDialog) {
 
         var vm = this;
 
@@ -68,14 +68,14 @@ angular
             pais: _datos.pais
         };
 
-        console.log(_datos);
+
 
         vm.columns = [
             {
-            title: '',
-            field: 'imagen',
-            sortable: false,
-            filter: 'tableImage'
+                title: '',
+                field: 'imagen',
+                sortable: false,
+                filter: 'tableImage'
             },{
                 title: 'Id',
                 field: 'id',
@@ -90,44 +90,39 @@ angular
                 sortable: true
             },{
                 title: 'Telefono',
-                field: 'tel',
+                field: 'telefono',
                 sortable: true
             },{
                 title: 'Fecha',
-                field: 'fecha',
-                sortable: true
+                field: 'fechacreado',
+                sortable: true,
+                filter: 'tablaFecha'
             },];
 
-        vm.contenido = [];
+        vm.tblcontenido = [];
 
-        angular.forEach(vm.usuarios, function(d){
+        console.log(_datos.data.resultado);
 
-            vm.contenido.push({
+        angular.forEach(_datos.data.resultado, function(d){
+
+            vm.tblcontenido.push({
                 imagen: d.imagen,
                 id: d.id,
                 usuario: d.usuario,
                 correo: d.correo,
-                tel: d.telefono,
-                fecha: d.fechacreado
+                telefono: d.telefono,
+                fechacreado: d.fechacreado
             });
 
         });
 
 
         //dataprovider
-        /*vm.columnas =  [
-            { "key": "id", "nombre": "Id", "style": {"width": "35%"} },
-            //{ "key": "usuario", "nombre": "Usuario", "style": {"width": "50%"} },
-            { "key": "nombre", "nombre": "Nombre", "style": {"width": "15%"} },
-            { "key": "Correo", "nombre": "Correo", "style": {"width": "50%"} },
-            { "key": "Telefono", "nombre": "Telefono", "style": {"width": "15%"} },
-        ];*/
-        vm.columnasMostrar = ['uid', 'id', 'nombre','correo', 'telefono'];
         vm.datosproveedor = {
             servicio: Usuarios,
             identidad : 'usuario',
-            datos : vm.usuarios,
-            columnas : vm.columnas,
+            //datos : vm.contenido, //vm.usuarios,
+            columnas : vm.columns,//vm.columnas,
             columnasMosrtar : vm.columnasMostrar,
             pordefecto: 'nombre',
             acciones: true,
@@ -171,60 +166,124 @@ angular
         /**
          * End sidebar
          */
+        vm.actualizardatos = actualizardatos;
+        function actualizardatos() {
+            vm.tablacontenido = [];
+            Usuarios.todos().then(function(datos){
+                    if(angular.isDefined(datos)){
+                        console.log(datos);
+                        vm.tblcontenido = datos.data.resultado;
+                    }
+                });
+            console.log(vm.tablacontenido);
+        }
 
-        vm.query = {
-            filter: '',
-            limit: '10',
-            order: '-id',
-            page: 1
+
+        //DIALOGO
+        //////////
+        vm.addTodo = addTodo;
+        function addTodo($event) {
+            $rootScope.$broadcast('addTodo', $event);
+        }
+        vm.cancel = cancel;
+        vm.hide = hide;
+        vm.item = {
+            description: '',
+            priority: '',
+            selected: false
         };
-        vm.selected = [];
-        vm.filter = {
-            options: {
-                debounce: 500
-            }
-        };
-        vm.getUsers = getUsers;// vm.contenido;
-        vm.removeFilter = removeFilter;
 
-        activate();
+        /////////////////////////
 
-        ////////////////
-
-        function activate() {
-            var bookmark;
-            $scope.$watch('vm.query.filter', function (newValue, oldValue) {
-                if(!oldValue) {
-                    bookmark = vm.query.page;
-                }
-
-                if(newValue !== oldValue) {
-                    vm.query.page = 1;
-                }
-
-                if(!newValue) {
-                    vm.query.page = bookmark;
-                }
-
-                vm.getUsers();
-            });
+        function hide() {
+            $mdDialog.hide(vm.item);
         }
 
-        function getUsers() {
-            /*GithubService.getUsers(vm.query).then(function(users){
-                vm.users = users.data;
-            });
-            */
+        function cancel() {
+            $mdDialog.cancel();
         }
 
-        function removeFilter() {
-            vm.filter.show = false;
-            vm.query.filter = '';
 
-            if(vm.filter.form.$dirty) {
-                vm.filter.form.$setPristine();
+        //
+        vm.usuario = {};
+
+        vm.todos = [
+            {description: 'Material Design', priority: 'high', selected: true},
+        ];
+        vm.orderTodos = orderTodos;
+        vm.removeTodo = removeTodo;
+
+
+        //////////////////////////
+
+
+
+        function orderTodos(task) {
+            switch(task.priority){
+                case 'high':
+                    return 1;
+                case 'medium':
+                    return 2;
+                case 'low':
+                    return 3;
+                default: // no priority set
+                    return 4;
             }
         }
+
+        function removeTodo(todo){
+            for(var i = vm.usuario.length - 1; i >= 0; i--) {
+                if(vm.usuario[i] === todo) {
+                    vm.usuario.splice(i, 1);
+                }
+            }
+        }
+
+        // watches
+
+        $scope.$on('addTodo', function( ev ){
+            $mdDialog.show({
+                templateUrl: 'secciones/oficina/usuarios/add-todo-dialog.tmpl.html',
+                targetEvent: ev,
+                controllerAs: 'vm',
+                controller:  function DialogController($mdDialog) {
+                    var vm = this;
+                    vm.cancel = cancel;
+                    vm.hide = hide;
+                    vm.usuario = {};
+
+                    /////////////////////////
+
+                    function hide() {
+                        $mdDialog.hide(vm.usuario);
+                    }
+
+                    function cancel() {
+                        $mdDialog.cancel();
+                    }
+                },
+
+            })
+                .then(function(usuario) {
+                    //vm.persona.push(usuario);
+                    vm.usuario = usuario;
+                    //vm.tblcontenido.push(usuario);
+                    var resultado = Usuarios.crear(usuario);
+                    var nuevousuario;
+
+                    console.log(usuario);
+                    /*Usuarios.buscador(usuario.nombre).then(function(datos){
+                        console.log(usuario.nombre);
+                        if(angular.isDefined(datos)){
+                            console.log(datos);
+                            vm.tblcontenido.push(datos.data);
+                        }
+                    });*/
+                    vm.actualizardatos();
+                    //console.info(resultado)
+                });
+        });
+
 
     });
 

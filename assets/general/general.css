@@ -3,7 +3,7 @@
         position: fixed;
         top: 50px;
         right: 15px;
-        background-image: url("/assets/imagens/loading.jpg");
+        background-image: url("../../assets/images/loading.jpg");
         height: 48px;
         width: 48px;
     }

@@ -19,30 +19,19 @@
         <!-- scrollable content -->
         <md-content ng-class="layout.contentClass"  flex tri-default-content  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
 
-            {{vm.getUsers}} <br><br>
-
+            {{vm.persona}}
 
            <div class="padded-content-page ng-scope">
                 <md-card>
-                    <tri-table class="elements-image-table-example" columns="vm.columns" contents="vm.contenido" datosproveedor="vm.datosproveedor" page-size="5"></tri-table>
+                    <tri-table class="elements-image-table-example" identidad="usuarios" columns="vm.columns" contents="vm.tblcontenido" datosproveedor="vm.datosproveedor" page-size="5"></tri-table>
                 </md-card>
-            </div>
 
+               <md-button ng-click="vm.addTodo($event)" class="md-fab md-accent md-fab-bottom-right" aria-label="{{'TODO.ADD-TODO'}}">
+                   <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+               </md-button>
 
-            <md-card flex="50">
-                <img src="assets/plantillas/admin/img/backgrounds/material-backgrounds/mb-bg-03.jpg" alt="Card Image">
-                <md-card-content>
-                    <div class="content-padded">
-                        <h2 class="md-title">Card Title</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, distinctio minus nostrum aut magni ipsam, eius ipsa eos voluptate natus excepturi qui numquam velit non explicabo molestias quasi sunt veniam.</p>
-                    </div>
-                    <md-divider></md-divider>
-                    <div class="button-toolbar" layout="row" layout-align="start center">
-                        <md-button class="md-accent">Share</md-button>
-                        <md-button class="md-primary">Explore</md-button>
-                    </div>
-                </md-card-content>
-            </md-card>
+           </div>
+
 
 
 
