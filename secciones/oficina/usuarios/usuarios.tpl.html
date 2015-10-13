@@ -17,25 +17,20 @@
 
 
         <!-- scrollable content -->
-        <md-content ng-class="layout.contentClass"  flex tri-default-content  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
-
-            {{vm.persona}}
+        <md-content ng-class="layout.contentClass"  flex  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
 
            <div class="padded-content-page ng-scope">
                 <md-card>
-                    <tri-table class="elements-image-table-example" identidad="usuarios" columns="vm.columns" contents="vm.tblcontenido" datosproveedor="vm.datosproveedor" page-size="5"></tri-table>
+                    <cms-data-tabla class="elements-image-table-example" identidad="usuarios" columns="vm.columns" contents="vm.tblcontenido" datosproveedor="vm.datosproveedor" page-size="5"></cms-data-tabla>
                 </md-card>
-
-               <md-button ng-click="vm.addTodo($event)" class="md-fab md-accent md-fab-bottom-right" aria-label="{{'TODO.ADD-TODO'}}">
-                   <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
-               </md-button>
-
            </div>
 
-
-
-
         </md-content>
+
+        <md-button ng-click="vm.agregar($event)" class="md-fab md-hue-1 md-fab-bottom-right" aria-label="{{'TODO.ADD-TODO'}}">
+            <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+        </md-button>
+
 
         <cms-pie-pagina md-theme="{{triSkin.elements.toolbar}}"></cms-pie-pagina>
 

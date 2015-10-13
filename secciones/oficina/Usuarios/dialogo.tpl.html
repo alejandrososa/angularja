@@ -1,8 +1,8 @@
-<md-dialog aria-label="Mango (Fruit)" flex="300" flex-sm="300" >
+<md-dialog aria-label="Mango (Fruit)" flex="40" flex-sm="40">
     <md-toolbar md-theme="{{triSkin.elements.content}}">
         <div class="md-toolbar-tools">
             <h2>
-                <span translate>MENU.TODO.DIALOG.NEW</span>
+                <span translate>Agregar Usuario</span>
             </h2>
         </div>
     </md-toolbar>
@@ -113,7 +113,7 @@
     </md-dialog-content>
     <div class="md-actions" layout="row">
         <span flex></span>
-        <md-button ng-click="vm.cancel()">Cancel</md-button>
-        <md-button ng-click="vm.hide()" class="md-primary" ng-disabled="taskForm.$invalid">Ok</md-button>
+        <md-button ng-click="vm.cancelar()">Cancel</md-button>
+        <md-button ng-click="vm.ocultar()" class="md-primary" ng-disabled="taskForm.$invalid">Ok</md-button>
     </div>
 </md-dialog>

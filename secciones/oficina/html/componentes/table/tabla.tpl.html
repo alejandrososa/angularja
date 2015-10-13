@@ -5,6 +5,7 @@
     <md-button class="md-icon-button" ng-click="vm.filter.show = true" aria-label="Buscar">
         <!-- <i class="material-icons md-dark">filter_list</i> -->
         <md-icon md-font-icon="zmdi zmdi-filter-list"></md-icon>
+        <md-tooltip>Buscar</md-tooltip>
     </md-button>
 </md-data-table-toolbar>
 
@@ -13,7 +14,7 @@
     <form flex="" name="vm.filter.form">
         <input type="text" ng-model="vm.query.filter" ng-model-options="vm.filter.options" placeholder="buscar...">
     </form>
-    <md-button class="md-icon-button" ng-click="vm.removeFilter()" aria-label="Salir">
+    <md-button class="md-icon-button" ng-click="vm.limpiaFiltro()" aria-label="Salir">
         <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
     </md-button>
 </md-data-table-toolbar>
@@ -39,8 +40,14 @@
         <tr ng-repeat="content in contents | filter:filters | startFrom:page * pageSize | limitTo: pageSize">
             <td ng-repeat="column in columns" ng-bind-html="cellContents(column, content)" ng-class="column.field + '-cell'"></td>
             <td ng-show="vm.tblAcciones">
-                <md-button class="md-icon-button md-warn" aria-label="Favorite">
+                <md-button ng-click="vm.accionEditar(content.id)" class="md-icon-button md-hue-2" aria-label="Favorite">
                     <md-icon md-font-icon="zmdi zmdi-edit"></md-icon>
+                    <md-tooltip>Editar</md-tooltip>
+                </md-button>
+
+                <md-button ng-click="vm.accionBorrar($event, content.id, $index)" class="md-icon-button md-warn" aria-label="Favorite">
+                    <md-icon md-font-icon="zmdi zmdi-delete"></md-icon>
+                    <md-tooltip>Eliminar</md-tooltip>
                 </md-button>
             </td>
         </tr>
@@ -50,7 +57,7 @@
             <td colspan="{{columns.length}}">
                 <div class="md-table-footer" layout="row" layout-align="end center">
                     <div class="md-table-page-select" layout="row" layout-align="center center">
-                        <span>Rows per page:</span>
+                        <span>Filas por p&aacute;gina:</span>
                         <md-select ng-model="pageSize" ng-change="refresh(true)">
                             <md-option value="5">5</md-option>
                             <md-option value="10">10</md-option>
@@ -63,15 +70,17 @@
                         {{pageStart()}}
                         -
                         {{pageEnd()}}
-                        <span>TABLES.OF</span> <!--  | translate -->
+                        <span>de</span> <!--  | translate -->
                         {{totalItems()}}
                     </span>
                     <div class="md-table-page-nav">
                         <md-button ng-disabled="page == 0" ng-click="page = page - 1" aria-label="TABLES.PREV" class="md-icon-button md-accent">
                             <md-icon md-font-icon="zmdi zmdi-chevron-left"></md-icon>
+                            <md-tooltip>Anterior</md-tooltip>
                         </md-button>
                         <md-button ng-disabled="page == numberOfPages() - 1" ng-click="page = page + 1" aria-label="TABLES.NEXT" class="md-icon-button md-accent">
                             <md-icon md-font-icon="zmdi zmdi-chevron-right"></md-icon>
+                            <md-tooltip>Siguiente</md-tooltip>
                         </md-button>
                     </div>
                 </div>

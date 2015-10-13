@@ -19,9 +19,7 @@ angular
             return result;
         }
     })
-    .service('GithubService', Service)
-
-.controller('UsuariosController', function ($scope, $rootScope, PageValues, $cookieStore,
+    .controller('UsuariosController', function ($scope, $rootScope, PageValues, $cookieStore,
                                                 $q, $location, $auth, $log, toastr, $window,
                                                 $routeParams, Usuarios, _datos,
                                                 triLayout, $mdDialog) {
@@ -98,29 +96,29 @@ angular
                 sortable: true,
                 filter: 'tablaFecha'
             },];
-
         vm.tblcontenido = [];
 
-        console.log(_datos.data.resultado);
 
-        angular.forEach(_datos.data.resultado, function(d){
+        if(angular.isDefined(vm.usuarios)){
+            angular.forEach(vm.usuarios, function(d){
 
-            vm.tblcontenido.push({
-                imagen: d.imagen,
-                id: d.id,
-                usuario: d.usuario,
-                correo: d.correo,
-                telefono: d.telefono,
-                fechacreado: d.fechacreado
+                vm.tblcontenido.push({
+                    imagen: d.imagen,
+                    id: d.id,
+                    usuario: d.usuario,
+                    correo: d.correo,
+                    telefono: d.telefono,
+                    fechacreado: d.fechacreado
+                });
+
             });
-
-        });
-
+        }
 
         //dataprovider
         vm.datosproveedor = {
             servicio: Usuarios,
             identidad : 'usuario',
+            titulo: 'Listado de Usuarios',
             //datos : vm.contenido, //vm.usuarios,
             columnas : vm.columns,//vm.columnas,
             columnasMosrtar : vm.columnasMostrar,
@@ -181,134 +179,54 @@ angular
 
         //DIALOGO
         //////////
-        vm.addTodo = addTodo;
-        function addTodo($event) {
-            $rootScope.$broadcast('addTodo', $event);
+        vm.agregar = agregar;
+
+        function agregar($event) {
+            $rootScope.$broadcast('agregar', $event);
         }
-        vm.cancel = cancel;
-        vm.hide = hide;
-        vm.item = {
-            description: '',
-            priority: '',
-            selected: false
-        };
-
-        /////////////////////////
-
-        function hide() {
-            $mdDialog.hide(vm.item);
-        }
-
-        function cancel() {
-            $mdDialog.cancel();
-        }
-
-
-        //
-        vm.usuario = {};
-
-        vm.todos = [
-            {description: 'Material Design', priority: 'high', selected: true},
-        ];
-        vm.orderTodos = orderTodos;
-        vm.removeTodo = removeTodo;
 
 
         //////////////////////////
 
 
-
-        function orderTodos(task) {
-            switch(task.priority){
-                case 'high':
-                    return 1;
-                case 'medium':
-                    return 2;
-                case 'low':
-                    return 3;
-                default: // no priority set
-                    return 4;
-            }
-        }
-
-        function removeTodo(todo){
-            for(var i = vm.usuario.length - 1; i >= 0; i--) {
-                if(vm.usuario[i] === todo) {
-                    vm.usuario.splice(i, 1);
-                }
-            }
-        }
-
         // watches
 
-        $scope.$on('addTodo', function( ev ){
+        $scope.$on('agregar', function( ev ){
             $mdDialog.show({
-                templateUrl: 'secciones/oficina/usuarios/add-todo-dialog.tmpl.html',
+                templateUrl: 'secciones/oficina/usuarios/dialogo.tpl.html',
                 targetEvent: ev,
                 controllerAs: 'vm',
-                controller:  function DialogController($mdDialog) {
-                    var vm = this;
-                    vm.cancel = cancel;
-                    vm.hide = hide;
-                    vm.usuario = {};
+                controller:  DialogController,
+            }).then(function(usuario) {
+                //vm.persona.push(usuario);
+                vm.usuario = usuario;
+                //vm.tblcontenido.push(usuario);
+                var resultado = Usuarios.crear(usuario);
+                var nuevousuario;
 
-                    /////////////////////////
+                vm.actualizardatos();
+            });
 
-                    function hide() {
-                        $mdDialog.hide(vm.usuario);
-                    }
+            function DialogController($mdDialog) {
+                var vm = this;
+                vm.cancelar = cancelar;
+                vm.ocultar = ocultar;
+                vm.usuario = {};
 
-                    function cancel() {
-                        $mdDialog.cancel();
-                    }
-                },
+                /////////////////////////
 
-            })
-                .then(function(usuario) {
-                    //vm.persona.push(usuario);
-                    vm.usuario = usuario;
-                    //vm.tblcontenido.push(usuario);
-                    var resultado = Usuarios.crear(usuario);
-                    var nuevousuario;
+                function ocultar() {
+                    $mdDialog.hide(vm.usuario);
+                }
 
-                    console.log(usuario);
-                    /*Usuarios.buscador(usuario.nombre).then(function(datos){
-                        console.log(usuario.nombre);
-                        if(angular.isDefined(datos)){
-                            console.log(datos);
-                            vm.tblcontenido.push(datos.data);
-                        }
-                    });*/
-                    vm.actualizardatos();
-                    //console.info(resultado)
-                });
+                function cancelar() {
+                    $mdDialog.cancel();
+                }
+            }
         });
 
 
+
+
+
     });
-
-
-Service.$inject = ['$http', '$q'];
-
-/* @ngInject */
-function Service($http) {
-    this.getUsers = getUsers;
-
-    ////////////////
-
-    function getUsers(query) {
-        var order = query.order === 'id' ? 'desc':'asc';
-
-        console.log(query);
-
-        /*return $http.get('https://api.github.com/search/users?q='+query.filter+'+repos:%3E10+followers:%3E100&order='+order+'&sort=joined&per_page='+query.limit+'&page='+query.page,
-            { headers : {
-                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
-            }}).
-            success(function(data) {
-                return data;
-            });
-
-            */
-    }
-}

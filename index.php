@@ -183,7 +183,7 @@
 
 		<script src="secciones/oficina/html/componentes/login/login.drct.js"></script>
 
-		<script src="secciones/oficina/html/componentes/table/table.directive.js"></script>
+		<script src="secciones/oficina/html/componentes/table/tabla.drct.js"></script>
 		<script src="secciones/oficina/html/componentes/table/table-cell-image.filter.js"></script>
 		<script src="secciones/oficina/html/componentes/table/table-start-from.filter.js"></script>
 

@@ -3,12 +3,12 @@
 
     angular
         .module('app.coreoficina')
-        .directive('triTable', triTable);
+        .directive('cmsDataTabla', cmsTabla);
 
 
 
     /* @ngInject */
-    function triTable($filter) {
+    function cmsTabla($filter) {
         var directive = {
             restrict: 'E',
             scope: {
@@ -21,11 +21,11 @@
             //bindToController: true,
             controller: controller,
             controllerAs: 'vm',
-            templateUrl: 'secciones/oficina/html/componentes/table/table-directive.tmpl.html'
+            templateUrl: 'secciones/oficina/html/componentes/table/tabla.tpl.html'
         };
         return directive;
 
-        function controller($scope){
+        function controller($scope, $location, $mdDialog){
             var vm = this;
             vm.query = {
                 filter: '',
@@ -39,15 +39,17 @@
                     debounce: 500
                 }
             };
-            vm.getUsers = getUsers;
-            vm.removeFilter = removeFilter;
+            vm.getDatos = getDatos;
+            vm.limpiaFiltro = limpiaFiltro;
+            vm.accionEditar = accionEditar;
+            vm.accionBorrar = accionBorrar;
 
             //vm.tblContenido = 'datos' in vm.datosproveedor ? vm.datosproveedor.datos : null;
             //vm.tblColumnas  = 'columnas' in vm.datosproveedor ? vm.datosproveedor.columnas : null
             vm.tblIdentidad = angular.isDefined($scope.datosproveedor.identidad) ? $scope.datosproveedor.identidad : null;
             vm.tblAcciones = angular.isDefined($scope.datosproveedor.acciones) ? $scope.datosproveedor.acciones : false;
             vm.tblServicio = angular.isDefined($scope.datosproveedor.servicio) ? $scope.datosproveedor.servicio : null;
-            vm.tblTitulo = angular.isDefined(vm.tblIdentidad) ? vm.tblIdentidad : 'Listado';
+            vm.tblTitulo = angular.isDefined($scope.datosproveedor.titulo) ? $scope.datosproveedor.titulo : 'Listado';
             var Servicio = vm.tblServicio;
 
             activate();
@@ -69,24 +71,45 @@
                         vm.query.page = bookmark;
                     }
 
-                    vm.getUsers();
+                    vm.getDatos();
                 });
             }
 
-            function getUsers() {
-                Servicio.buscador(vm.query.filter).then(function(users){
+            function getDatos() {
+                Servicio.buscador(vm.query.filter).then(function(datos){
                     //vm.tablacontenido = users.data;
-                    $scope.contents = users.data;
+                    $scope.contents = datos.data;
                 });
             }
 
-            function removeFilter() {
+            function limpiaFiltro() {
                 vm.filter.show = false;
                 vm.query.filter = '';
 
                 if(vm.filter.form.$dirty) {
                     vm.filter.form.$setPristine();
                 }
+            }
+
+            function accionEditar(id) {
+                $location.path('/admin/'+ vm.tblIdentidad + '/'+ id +'/editar/');
+            }
+
+            function accionBorrar(ev, id, index){
+                var confirm = $mdDialog.confirm()
+                    .title('Seguro que desea eliminar?')
+                    .content('Los datos eliminados no poduen recuperarse.')
+                    .ariaLabel('Lucky day')
+                    .targetEvent(ev)
+                    .ok('Aceptar')
+                    .cancel('Cancelar');
+                $mdDialog.show(confirm).then(function() {
+                    Servicio.eliminar(id);
+                    $scope.contents.splice(index, 1);
+                }, function() {
+                    vm.status = 'no'+id;
+                });
+
             }
         }
 
