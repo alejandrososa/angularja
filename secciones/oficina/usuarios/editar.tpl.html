@@ -19,18 +19,31 @@
         <!-- scrollable content -->
         <md-content ng-class="layout.contentClass"  flex  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
 
-            <div class="padded-content-page ng-scope">
-                <md-card>
+            {{layout.contentClass}}
 
-                </md-card>
+            <div class="padded-content-page ng-scope">
+                <!-- Contenido -->
+
+                <div layout="row" layout-wrap>
+                    <div flex="70">
+                        <div ng-include="'secciones/oficina/usuarios/_form.html'"></div>
+                    </div>
+
+                    <div flex="30">
+
+                                <div ng-include="'secciones/oficina/usuarios/_vista.html'"></div>
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                </div>
+
+
+
+
+                <!-- Fin Contenido -->
             </div>
 
         </md-content>
-
-        <md-button ng-click="vm.agregar($event)" class="md-fab md-hue-1 md-fab-bottom-right" aria-label="{{'TODO.ADD-TODO'}}">
-            <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
-        </md-button>
-
 
         <cms-pie-pagina md-theme="{{triSkin.elements.toolbar}}"></cms-pie-pagina>
 

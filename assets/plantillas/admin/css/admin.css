@@ -1,7 +1,7 @@
 @import url("font-awesome.min.css");
 @import url("bootstrap.min.css");
+@import url("../../../../bower_components/angular-material/angular-material.min.css");
 @import url("cms.css");
-@import url("../icons/dist/css/material-design-iconic-font.min.css");
 @import url("../icons/dist/css/material-design-iconic-font.min.css");
 @import url("../../../../bower_components/animate.css-scss/animate.min.css");
 @import url("../../../../bower_components/animate.css-scss/animate.css");

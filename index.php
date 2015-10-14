@@ -25,8 +25,7 @@
 
 
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/admin/css/admin.css" />
-		<link type="text/css" rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
-		<link type="text/css" href="https://material.angularjs.org/HEAD/angular-material.css" />
+		<!--<link type="text/css" href="https://material.angularjs.org/HEAD/angular-material.css" />-->
 
 		<!-- Stylesheets
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/reset.css" />
@@ -123,6 +122,7 @@
 			<script src="servicios/usuarios.fct.js"></script>
 			<script src="servicios/categorias.fct.js"></script>
 			<script src="servicios/paginas.fct.js"></script>
+			<script src="servicios/menu.fct.js"></script>
 	    <!-- / -->
 	    <!-- DIRECTIVES -->
 	    	<script src="directivas/ngCargando.drct.js"></script>

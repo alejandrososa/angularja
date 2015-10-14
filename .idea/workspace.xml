@@ -6,20 +6,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95f37b84-ea85-42ea-9843-7850d7bf8278" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/secciones/oficina/usuarios/dialogo.tpl.html" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\angular\angularja\secciones\oficina\usuarios\add-todo-dialog.tmpl.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\angular\angularja\secciones\oficina\usuarios\crear.tpl.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\angular\angularja\secciones\oficina\usuarios\editar-BK.tpl.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\angular\angularja\secciones\oficina\usuarios\usuarios-BK.tpl.html" afterPath="" />
       <change type="MOVED" beforePath="C:\xampp\htdocs\angular\angularja\api\vendor\jarestful\Modelo.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/modelo.php" />
-      <change type="MOVED" beforePath="C:\xampp\htdocs\angular\angularja\secciones\oficina\html\componentes\table\table-1.tmpl.scss" afterPath="$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.tmpl.scss" />
-      <change type="MOVED" beforePath="C:\xampp\htdocs\angular\angularja\secciones\oficina\html\componentes\table\table-directive.tmpl.html" afterPath="$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.tpl.html" />
-      <change type="MOVED" beforePath="C:\xampp\htdocs\angular\angularja\secciones\oficina\html\componentes\table\table.directive.js" afterPath="$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.drct.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/usuarios/_form.html" afterPath="$PROJECT_DIR$/secciones/oficina/usuarios/_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/usuarios/_vista.html" afterPath="$PROJECT_DIR$/secciones/oficina/usuarios/_vista.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plantillas/admin/css/admin.css" afterPath="$PROJECT_DIR$/assets/plantillas/admin/css/admin.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/app.rutas.js" afterPath="$PROJECT_DIR$/lib/app.rutas.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plantillas/admin/css/cms.css.map" afterPath="$PROJECT_DIR$/assets/plantillas/admin/css/cms.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plantillas/admin/css/cms.css" afterPath="$PROJECT_DIR$/assets/plantillas/admin/css/cms.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plantillas/admin/css/cms.scss" afterPath="$PROJECT_DIR$/assets/plantillas/admin/css/cms.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/usuarios/editar.tpl.html" afterPath="$PROJECT_DIR$/secciones/oficina/usuarios/editar.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/html/componentes/footer/footer.drct.js" afterPath="$PROJECT_DIR$/secciones/oficina/html/componentes/footer/footer.drct.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/layouts.provider.js" afterPath="$PROJECT_DIR$/lib/layouts.provider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plantillas/solido/css/main-stylesheet.css" afterPath="$PROJECT_DIR$/assets/plantillas/solido/css/main-stylesheet.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/html/componentes/menu/menu-item.directive.js" afterPath="$PROJECT_DIR$/secciones/oficina/html/componentes/menu/menu-item.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/html/componentes/menu/menu.directive.js" afterPath="$PROJECT_DIR$/secciones/oficina/html/componentes/menu/menu.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/componentes/menu/menu.drct.js" afterPath="$PROJECT_DIR$/componentes/menu/menu.drct.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/modelo.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/modelo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.tmpl.scss" afterPath="$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.tmpl.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.ctrl.js" afterPath="$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.ctrl.js" />
       <change type="MODIFICATION" beforePath="C:\xampp\htdocs\angular\angularja\secciones\oficina\usuarios\usuarios.tpl.html" afterPath="$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.tpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="angularja.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,84 +50,134 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="usuarios.ctrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.ctrl.js">
+      <file leaf-file-name="ServicioJA.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="102" column="39" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
+            <state vertical-scroll-proportion="-6.0384617">
+              <caret line="380" column="32" selection-start-line="380" selection-start-column="25" selection-end-line="380" selection-end-column="32" />
               <folding>
-                <element signature="e#2351#3117#0" expanded="false" />
-                <element signature="e#6513#6572#0" expanded="false" />
+                <element signature="e#25#47#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dialogo.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/dialogo.tpl.html">
+      <file leaf-file-name="modelo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.836364">
-              <caret line="116" column="39" selection-start-line="116" selection-start-column="39" selection-end-line="116" selection-end-column="39" />
+            <state vertical-scroll-proportion="-7.0384617">
+              <caret line="639" column="14" selection-start-line="639" selection-start-column="14" selection-end-line="639" selection-end-column="14" />
+              <folding>
+                <element signature="e#3371#4408#0#PHP" expanded="false" />
+                <element signature="e#4691#5203#0#PHP" expanded="false" />
+                <element signature="e#5211#8452#0#PHP" expanded="false" />
+                <element signature="e#8456#10967#0#PHP" expanded="false" />
+                <element signature="e#10971#11882#0#PHP" expanded="false" />
+                <element signature="e#11886#12032#0#PHP" expanded="false" />
+                <element signature="e#12042#13162#0#PHP" expanded="false" />
+                <element signature="e#13166#14212#0#PHP" expanded="false" />
+                <element signature="e#14216#15305#0#PHP" expanded="false" />
+                <element signature="e#15319#15942#0#PHP" expanded="false" />
+                <element signature="e#16116#17065#0#PHP" expanded="false" />
+                <element signature="e#18007#18294#0#PHP" expanded="false" />
+                <element signature="e#18296#19079#0#PHP" expanded="false" />
+                <element signature="e#19081#20243#0#PHP" expanded="false" />
+                <element signature="e#20245#20714#0#PHP" expanded="false" />
+                <element signature="e#20932#21150#0#PHP" expanded="false" />
+                <element signature="e#21156#21420#0#PHP" expanded="false" />
+                <element signature="e#21426#21663#0#PHP" expanded="false" />
+                <element signature="e#21669#21753#0#PHP" expanded="false" />
+                <element signature="e#21759#21849#0#PHP" expanded="false" />
+                <element signature="e#21855#22384#0#PHP" expanded="false" />
+                <element signature="e#22390#22919#0#PHP" expanded="false" />
+                <marker date="1444837468524" expanded="true" signature="4740:4754" placeholder="Select * fro..." />
+                <marker date="1444837468524" expanded="true" signature="5487:5501" placeholder="SELECT * FRO..." />
+                <marker date="1444837468524" expanded="true" signature="6038:6143" placeholder="SELECT meta_..wsp_paginasmeta..." />
+                <marker date="1444837468524" expanded="true" signature="6272:6379" placeholder="SELECT meta_..wsp_paginasmeta..." />
+                <marker date="1444837468524" expanded="true" signature="8529:8543" placeholder="SELECT * FRO..." />
+                <marker date="1444837468524" expanded="true" signature="9080:9185" placeholder="SELECT meta_..wsp_paginasmeta..." />
+                <marker date="1444837468524" expanded="true" signature="9314:9421" placeholder="SELECT meta_..wsp_paginasmeta..." />
+                <marker date="1444837468524" expanded="true" signature="11054:11083" placeholder="SELECT * FRO..." />
+                <marker date="1444837468524" expanded="true" signature="12347:12378" placeholder="INSERT INTO ..." />
+                <marker date="1444837468524" expanded="true" signature="16170:16184" placeholder="SELECT * FRO..." />
+                <marker date="1444837468524" expanded="true" signature="17138:17152" placeholder="SELECT * FRO..." />
+                <marker date="1444837468524" expanded="true" signature="18099:18113" placeholder="SELECT * FRO..." />
+                <marker date="1444837468524" expanded="true" signature="18447:18478" placeholder="INSERT INTO ..." />
+                <marker date="1444837468524" expanded="true" signature="20293:20305" placeholder="DELETE FROM ..." />
+                <marker date="1444837468524" expanded="true" signature="22036:22067" placeholder="INSERT INTO ..." />
+                <marker date="1444837468524" expanded="true" signature="22439:22451" placeholder="DELETE FROM ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.rutas.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/app.rutas.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="115" column="40" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tabla.drct.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.drct.js">
+      <file leaf-file-name="Menu.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../yiiportalja/portal/common/models/Menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="42.103447">
-              <caret line="23" column="74" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
+            <state vertical-scroll-proportion="-5.076923">
+              <caret line="75" column="36" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="36" />
+              <folding>
+                <marker date="1438691246545" expanded="true" signature="1349:1381" placeholder="SELECT * FRO..v_getmenudetallado..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Menu.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Menu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.39494833">
+              <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="usuarios.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.tpl.html">
+      <file leaf-file-name="Usuarios.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Usuarios.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="42" selection-end-column="6" />
+            <state vertical-scroll-proportion="-24.846153">
+              <caret line="43" column="24" selection-start-line="40" selection-start-column="8" selection-end-line="43" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editar-BK.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/editar-BK.tpl.html">
+      <file leaf-file-name="menu.drct.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/componentes/menu/menu.drct.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editar.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/editar.tpl.html">
+      <file leaf-file-name="menu.tpl.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/componentes/menu/menu.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.038462">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state vertical-scroll-proportion="-29.423077">
+              <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tabla.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.tpl.html">
+      <file leaf-file-name="menu.fct.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/servicios/menu.fct.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8461537">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cms.scss" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/cms.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15402843">
-              <caret line="26" column="2" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -127,8 +186,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.769231">
-              <caret line="181" column="57" selection-start-line="181" selection-start-column="57" selection-end-line="181" selection-end-column="57" />
+            <state vertical-scroll-proportion="-9.943397">
+              <caret line="124" column="39" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -154,20 +213,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../demo/scripts/app-6e8de41f.js" />
-        <option value="$PROJECT_DIR$/assets/plantillas/admin/css/main.min.css" />
-        <option value="$PROJECT_DIR$/assets/plantillas/admin/css/icons/scss/material-design-iconic-font.css" />
-        <option value="$PROJECT_DIR$/assets/plantillas/admin/css/scss/_material-icons.scss" />
-        <option value="$PROJECT_DIR$/secciones/portada/portada.tpl.html" />
-        <option value="$PROJECT_DIR$/lib/config.triangular.themes.js" />
-        <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/footer/footer.tmpl.html" />
-        <option value="$PROJECT_DIR$/lib/config.triangular.settings.js" />
-        <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/toolbars/toolbar.controller.js" />
-        <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/toolbars/toolbar.tmpl.html" />
-        <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/widget/_widget.scss" />
-        <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/widget/widget-calendar.directive.js" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/table/_table.scss" />
-        <option value="$PROJECT_DIR$/lib/app.rutas.js" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/directivas/tema-fondo.drct.js" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/menu/menu-item-link.tmpl.html" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/menu/_menu.scss" />
@@ -181,30 +227,43 @@
         <option value="$PROJECT_DIR$/api/vendor/jarestful/modelos/Usuarios.php" />
         <option value="$PROJECT_DIR$/../adminja/source/src/app/examples/elements/examples/table-advanced.controller.js" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/table/table-advanced.tmpl.html" />
-        <option value="$PROJECT_DIR$/assets/plantillas/admin/css/admin.css" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/table/table-start-from.filter.js" />
-        <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/menu/menu.directive.js" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/directivas/sidebar/sidebar.drct.js" />
         <option value="$PROJECT_DIR$/db/appja-08-10-15.sql" />
-        <option value="$PROJECT_DIR$/api/vendor/jarestful/modelo.php" />
         <option value="$PROJECT_DIR$/servicios/usuarios.fct.js" />
         <option value="$PROJECT_DIR$/assets/plantillas/admin/css/cms.css" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/table/table-cell-image.filter.js" />
         <option value="$PROJECT_DIR$/assets/general/general.css" />
-        <option value="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
         <option value="$PROJECT_DIR$/db/appja-09-10-15.sql" />
         <option value="$PROJECT_DIR$/secciones/oficina/usuarios/add-todo-dialog.tmpl.html" />
         <option value="$PROJECT_DIR$/secciones/oficina/usuarios/dialogo.tpl.html" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/table/table.directive.js" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/table/table-directive.tmpl.html" />
-        <option value="$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.tpl.html" />
-        <option value="$PROJECT_DIR$/secciones/oficina/usuarios/editar.tpl.html" />
-        <option value="$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.ctrl.js" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.drct.js" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/footer/footer.drct.js" />
-        <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.tpl.html" />
         <option value="$PROJECT_DIR$/assets/plantillas/admin/css/cms.scss" />
+        <option value="$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.tpl.html" />
+        <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.tpl.html" />
+        <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.tmpl.scss" />
+        <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/menu/menu-item.directive.js" />
+        <option value="$PROJECT_DIR$/assets/plantillas/solido/css/main-stylesheet.css" />
+        <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/menu/menu.directive.js" />
+        <option value="$PROJECT_DIR$/assets/plantillas/admin/css/admin.css" />
+        <option value="$PROJECT_DIR$/lib/config.triangular.themes.js" />
+        <option value="$PROJECT_DIR$/lib/layouts.provider.js" />
+        <option value="$PROJECT_DIR$/secciones/oficina/usuarios/editar.tpl.html" />
+        <option value="$PROJECT_DIR$/secciones/oficina/usuarios/_vista.html" />
+        <option value="$PROJECT_DIR$/lib/skins.provider.js" />
+        <option value="$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.ctrl.js" />
+        <option value="$PROJECT_DIR$/secciones/oficina/usuarios/_form.html" />
+        <option value="$PROJECT_DIR$/lib/app.rutas.js" />
+        <option value="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
+        <option value="$PROJECT_DIR$/api/vendor/jarestful/modelo.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/db/appja-14-10-15.sql" />
+        <option value="$PROJECT_DIR$/api/vendor/jarestful/modelos/Menu.php" />
+        <option value="$PROJECT_DIR$/servicios/menu.fct.js" />
+        <option value="$PROJECT_DIR$/componentes/menu/menu.drct.js" />
       </list>
     </option>
   </component>
@@ -277,20 +336,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="servicios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="secciones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -320,62 +365,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="secciones" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oficina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="usuarios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="secciones" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oficina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="secciones" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oficina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -393,15 +382,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="secciones" />
+              <option name="myItemId" value="componentes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="oficina" />
+              <option name="myItemId" value="menusecundario" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -409,7 +404,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="table" />
+              <option name="myItemId" value="menu" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -423,11 +418,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plantillas" />
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -441,15 +432,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plantillas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -463,19 +450,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plantillas" />
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="jarestful" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -489,7 +472,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jarestful" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modelos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -509,11 +504,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\angular\angularja\servicios" />
+      <recent name="C:\xampp\htdocs\angular\angularja\api\vendor\jarestful\modelos" />
+      <recent name="C:\xampp\htdocs\angular\angularja\db" />
+      <recent name="C:\xampp\htdocs\angular\angularja\secciones\oficina" />
       <recent name="C:\xampp\htdocs\angular\angularja\secciones\oficina\usuarios" />
-      <recent name="C:\xampp\htdocs\angular\angularja\bower_components" />
-      <recent name="C:\xampp\htdocs\angular\angularja\secciones\oficina\html\componentes\table" />
-      <recent name="C:\xampp\htdocs\angular\angularja\secciones\oficina\html\componentes\footer" />
-      <recent name="C:\xampp\htdocs\angular\angularja\assets\plantillas\admin\fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\angular\angularja\secciones\oficina\html\componentes\widget" />
@@ -578,9 +573,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3372973" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4054054" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -588,7 +584,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -626,262 +621,28 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/componentes/articulos/articulos.drct.js">
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/app-b4caa657.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3329493">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/componentes/listadoarticulos/articulos.drct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18952063">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/menu/menu.directive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8862876">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/directivas/sidebar/sidebar.drct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.696767">
-          <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/directivas/tabla/tabla.drct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55172414">
-          <caret line="27" column="93" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/elements/examples/table-advanced.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="9" selection-start-line="29" selection-start-column="8" selection-end-line="46" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/appja-08-10-15.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10083037">
-          <caret line="5" column="62" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.4528303">
-          <caret line="586" column="12" selection-start-line="586" selection-start-column="12" selection-end-line="586" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/directivas/tabla/tabla.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.153847">
-          <caret line="40" column="136" selection-start-line="40" selection-start-column="111" selection-end-line="40" selection-end-column="136" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Usuarios.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.0">
-          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="-0.03448276">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/table-advanced.tmpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.884615">
-          <caret line="35" column="95" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/cms.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8241379">
-          <caret line="8278" column="20" selection-start-line="8278" selection-start-column="20" selection-end-line="8278" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/todo/layouts/todo-panel.tmpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27324915">
-          <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/todo/todo.module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13266444">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/todo/todo.module.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08056872">
-          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/todo/add-todo-dialog.tmpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54513067">
-          <caret line="27" column="63" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/todo/todo.tmpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19517796">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/todo/fab-button.tmpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.058553386">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/todo/fab-button.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09476031">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/todo/todo.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11371238">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/todo/todo.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="58" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/general/general.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1270902">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/admin.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.942029">
-          <caret line="6" column="73" selection-start-line="6" selection-start-column="73" selection-end-line="6" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/app-b4caa657.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5793103">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plantillas/solido/css/solido.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plantillas/solido/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plantillas/solido/css/font-awesome.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/todo/dialog.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3411371">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/appja-09-10-15.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11724138">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="215" column="54" selection-start-line="215" selection-start-column="54" selection-end-line="215" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.22119816">
+          <caret line="174" column="20" selection-start-line="174" selection-start-column="20" selection-end-line="174" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/app.coreoficina.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49275362">
-          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-47.076923">
-          <caret line="72" column="103" selection-start-line="72" selection-start-column="97" selection-end-line="72" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/app.rutas.js">
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/scss/_material-overrides.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -889,47 +650,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/servicios/usuarios.fct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="72" selection-start-line="54" selection-start-column="72" selection-end-line="54" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/usuarios-BK.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.192308">
-          <caret line="94" column="89" selection-start-line="94" selection-start-column="83" selection-end-line="94" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/table-cell-image.filter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11371238">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/table-start-from.filter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28428093">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/dialogo.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.836364">
-          <caret line="116" column="39" selection-start-line="116" selection-start-column="39" selection-end-line="116" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/editar-BK.tpl.html">
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/scss/_material-icons.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -937,10 +658,210 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.tpl.html">
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/scss/_material-backgrounds.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="42" selection-end-column="6" />
+        <state vertical-scroll-proportion="-3.293915">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/scss/_dialogs.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/scss/_default.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.03444317">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/icons/scss/material-design-iconic-font.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/icons/scss/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/icons/scss/_stacked.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/icons/scss/_spinned.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/icons/scss/_sizes.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/icons/scss/_icons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/icons/scss/_fixed-width.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/icons/scss/_aliases.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/icons/scss/_core.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/icons/scss/_border.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/icons/dist/css/material-design-iconic-font.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.03341014">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/icons/dist/css/material-design-iconic-font.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.03448276">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/main.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/theming.provider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/config.triangular.settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/layouts.provider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0051281">
+          <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/config.triangular.themes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="69.93104">
+          <caret line="67" column="33" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/_vista.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52698046">
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/editar.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.538462">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/skins.provider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8104794">
+          <caret line="80" column="51" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/oficina/opciones/opciones.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846">
+          <caret line="4" column="61" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="1" column="68" selection-start-line="1" selection-start-column="54" selection-end-line="1" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.drct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.4827585">
+          <caret line="23" column="60" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -948,66 +869,214 @@
     <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.ctrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="39" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
+          <caret line="78" column="16" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.4404764">
+          <caret line="102" column="80" selection-start-line="102" selection-start-column="80" selection-end-line="102" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../yiiportalja/portal/console/migrations/m150801_083152_config_portal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="83.53846">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
-            <element signature="e#2351#3117#0" expanded="false" />
-            <element signature="e#6513#6572#0" expanded="false" />
+            <marker date="1438611973587" expanded="true" signature="-1:-1" placeholder="ALTER TABLE menu..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/editar.tpl.html">
+    <entry file="file://$PROJECT_DIR$/../../yiiportalja/portal/console/migrations/m150803_124043_vistas.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.038462">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.8727272">
+          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.drct.js">
+    <entry file="file://$PROJECT_DIR$/../../yiiportalja/portal/frontend/controllers/SiteController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="42.103447">
-          <caret line="23" column="74" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.33254156">
+          <caret line="27" column="51" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/footer/footer.drct.js">
+    <entry file="file://$PROJECT_DIR$/../../yiiportalja/portal/frontend/views/site/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37904125">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        <state vertical-scroll-proportion="-2.1664753">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../yiiportalja/portal/common/components/Navegacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.115385">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+          <folding>
+            <element signature="e#36#44#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../yiiportalja/portal/common/models/Menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.076923">
+          <caret line="75" column="36" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="36" />
+          <folding>
+            <marker date="1438691246545" expanded="true" signature="1349:1381" placeholder="SELECT * FRO..v_getmenudetallado..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../yiiportalja/portal/frontend/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.019517796">
+          <caret line="274" column="62" selection-start-line="217" selection-start-column="49" selection-end-line="217" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.769231">
-          <caret line="181" column="57" selection-start-line="181" selection-start-column="57" selection-end-line="181" selection-end-column="57" />
+        <state vertical-scroll-proportion="-9.943397">
+          <caret line="124" column="39" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.tpl.html">
+    <entry file="file://$PROJECT_DIR$/lib/app.rutas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="115" column="40" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.tmpl.scss">
+    <entry file="file://$PROJECT_DIR$/db/appja-14-10-15.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3222749">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.95966786">
+          <caret line="143" column="11" selection-start-line="143" selection-start-column="11" selection-end-line="143" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/cms.scss">
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Usuarios.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15402843">
-          <caret line="26" column="2" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+        <state vertical-scroll-proportion="-24.846153">
+          <caret line="43" column="24" selection-start-line="40" selection-start-column="8" selection-end-line="43" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/componentes/menusecundario/menu.drct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/oficina/admin.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.0384617">
+          <caret line="639" column="14" selection-start-line="639" selection-start-column="14" selection-end-line="639" selection-end-column="14" />
+          <folding>
+            <element signature="e#3371#4408#0#PHP" expanded="false" />
+            <element signature="e#4691#5203#0#PHP" expanded="false" />
+            <element signature="e#5211#8452#0#PHP" expanded="false" />
+            <element signature="e#8456#10967#0#PHP" expanded="false" />
+            <element signature="e#10971#11882#0#PHP" expanded="false" />
+            <element signature="e#11886#12032#0#PHP" expanded="false" />
+            <element signature="e#12042#13162#0#PHP" expanded="false" />
+            <element signature="e#13166#14212#0#PHP" expanded="false" />
+            <element signature="e#14216#15305#0#PHP" expanded="false" />
+            <element signature="e#15319#15942#0#PHP" expanded="false" />
+            <element signature="e#16116#17065#0#PHP" expanded="false" />
+            <element signature="e#18007#18294#0#PHP" expanded="false" />
+            <element signature="e#18296#19079#0#PHP" expanded="false" />
+            <element signature="e#19081#20243#0#PHP" expanded="false" />
+            <element signature="e#20245#20714#0#PHP" expanded="false" />
+            <element signature="e#20932#21150#0#PHP" expanded="false" />
+            <element signature="e#21156#21420#0#PHP" expanded="false" />
+            <element signature="e#21426#21663#0#PHP" expanded="false" />
+            <element signature="e#21669#21753#0#PHP" expanded="false" />
+            <element signature="e#21759#21849#0#PHP" expanded="false" />
+            <element signature="e#21855#22384#0#PHP" expanded="false" />
+            <element signature="e#22390#22919#0#PHP" expanded="false" />
+            <marker date="1444837468524" expanded="true" signature="4740:4754" placeholder="Select * fro..." />
+            <marker date="1444837468524" expanded="true" signature="5487:5501" placeholder="SELECT * FRO..." />
+            <marker date="1444837468524" expanded="true" signature="6038:6143" placeholder="SELECT meta_..wsp_paginasmeta..." />
+            <marker date="1444837468524" expanded="true" signature="6272:6379" placeholder="SELECT meta_..wsp_paginasmeta..." />
+            <marker date="1444837468524" expanded="true" signature="8529:8543" placeholder="SELECT * FRO..." />
+            <marker date="1444837468524" expanded="true" signature="9080:9185" placeholder="SELECT meta_..wsp_paginasmeta..." />
+            <marker date="1444837468524" expanded="true" signature="9314:9421" placeholder="SELECT meta_..wsp_paginasmeta..." />
+            <marker date="1444837468524" expanded="true" signature="11054:11083" placeholder="SELECT * FRO..." />
+            <marker date="1444837468524" expanded="true" signature="12347:12378" placeholder="INSERT INTO ..." />
+            <marker date="1444837468524" expanded="true" signature="16170:16184" placeholder="SELECT * FRO..." />
+            <marker date="1444837468524" expanded="true" signature="17138:17152" placeholder="SELECT * FRO..." />
+            <marker date="1444837468524" expanded="true" signature="18099:18113" placeholder="SELECT * FRO..." />
+            <marker date="1444837468524" expanded="true" signature="18447:18478" placeholder="INSERT INTO ..." />
+            <marker date="1444837468524" expanded="true" signature="20293:20305" placeholder="DELETE FROM ..." />
+            <marker date="1444837468524" expanded="true" signature="22036:22067" placeholder="INSERT INTO ..." />
+            <marker date="1444837468524" expanded="true" signature="22439:22451" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servicios/menu.fct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/componentes/menu/menu.drct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/componentes/menu/menu.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.423077">
+          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.0384617">
+          <caret line="380" column="32" selection-start-line="380" selection-start-column="25" selection-end-line="380" selection-end-column="32" />
+          <folding>
+            <element signature="e#25#47#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39494833">
+          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
           <folding />
         </state>
       </provider>

@@ -561,7 +561,12 @@ abstract class Modelo{
 
 
 
-
+	protected function seleccion()
+	{
+		$resultado = $this->_cnx->prepare($this->query);
+		$resultado->execute();
+		return $resultado->fetchAll(PDO::FETCH_ASSOC);
+	}
 	protected function buscar($tabla){
 		try {
 			$sql = "SELECT * FROM " . $tabla . " ";
@@ -632,7 +637,7 @@ abstract class Modelo{
 
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
-            return json_encode($stmt->fetch(PDO::FETCH_ASSOC), JSON_NUMERIC_CHECK);
+            //return json_encode($stmt->fetch(PDO::FETCH_ASSOC), JSON_NUMERIC_CHECK);
 
         } catch (PDOException $exception) {
 
@@ -754,13 +759,13 @@ abstract class Modelo{
 		return $this->resultado;
 	}
 
-    public function query($statement) {
+    /*public function query($statement) {
         try {
             return self::$PDO->query($statement);
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
-    }
+    }*/
 
     public function row_count($statement) {
         try {
@@ -813,8 +818,6 @@ abstract class Modelo{
             die($exception->getMessage());
         }
     }
-
-
 
     public function delete($table) {
         $sql = "DELETE FROM " . $table . " ";

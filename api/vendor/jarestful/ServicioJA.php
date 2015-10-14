@@ -16,6 +16,7 @@ namespace Api;
     use Api\Modelos\Usuarios;
     use Api\Modelos\Categorias;
     use Api\Modelos\Paginas;
+    use Api\Modelos\Menu;
 
 	class ServicioJA { //REST
         public $data      = "";
@@ -28,6 +29,7 @@ namespace Api;
         private $modelUsuarios = NULL;
         private $modelCategorias = NULL;
         private $modelPaginas = NULL;
+        private $modelMenu = NULL;
 
         /**
          * Inicialización objetos
@@ -40,6 +42,7 @@ namespace Api;
             $this->modelUsuarios = Usuarios::getInstance();
             $this->modelCategorias = Categorias::getInstance();
             $this->modelPaginas = Paginas::getInstance();
+            $this->modelMenu = Menu::getInstance();
         }
 
         /**
@@ -184,6 +187,7 @@ namespace Api;
             }
 
             if(isset($nombre))     { $valores['nombre']     = $nombre; }
+            if(isset($apellidos))  { $valores['apellidos']     = $apellidos; }
             if(isset($correo))     { $valores['correo']     = $correo; }
             if(isset($tel))        { $valores['telefono']   = $tel; }
             if(isset($clave))      { $valores['clave']      = $this->helper->encriptar($clave); }
@@ -191,7 +195,7 @@ namespace Api;
             if(isset($ciudad))     { $valores['ciudad']     = $ciudad; }
             if(isset($pais))       { $valores['pais']       = $pais; }
 
-            $this->modelUsuarios->atributos = array('uid'=>$id);
+            $this->modelUsuarios->atributos = array('id'=>$id);
             $this->modelUsuarios->setatributos = $valores;
             $resultado = $this->modelUsuarios->actualizarUsuario();
 
@@ -369,6 +373,38 @@ namespace Api;
                 $this->rest->response($id.'',204);	// If no records "No Content" status
             }
         }
+
+        /**
+         * MENU
+         */
+
+        private function getMenu(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            $enlace = $this->modelMenu->enlacesMenu();
+            if(isset($enlace)){
+                $this->rest->response($this->helper->json(array('resultado'=>$enlace)), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
+        private function getMenuDetallado(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            $id = (int)$this->rest->_request['id'];
+
+            $this->modelMenu->atributos = array('id'=>$id);
+            $enlace = $this->modelMenu->getMenuDetallado();
+            if(isset($enlace)){
+                $this->rest->response($this->helper->json(array('resultado'=>$enlace)), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
 
 
         /**

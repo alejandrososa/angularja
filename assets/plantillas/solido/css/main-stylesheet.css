@@ -211,8 +211,8 @@ h6 {
 
 img {
 	max-width: 100%;
-	height: auto;
-	width: auto;
+	/*height: auto;*/
+	/*width: auto;*/
 }
 
 /* #2 Main header */
@@ -856,7 +856,7 @@ img {
 }
 
 .widget .article-block .item .item-content-category {
-	color: #fff!important;
+	color: #fff !important;
 	font-weight: bold;
 	font-size: 10px;
 	padding: 3px 7px;

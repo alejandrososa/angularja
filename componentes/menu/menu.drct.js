@@ -14,10 +14,14 @@ function menu() {  //ShowService
         }
     };
     return directive;
-    function controller($scope) {
-        //$scope.genres = [];
-        //ShowService.get($scope.menu.id).then(function(response){
-        //    $scope.genres = response.genres;
-        //});
+    function controller($scope, Menu) {
+
+        var vm = this;
+
+        vm.menuPrincipal = [];
+
+        Menu.principal().then(function(datos){
+            vm.menuPrincipal = datos.resultado;
+        });
     }
 }

@@ -23,11 +23,6 @@
         function link($scope, $element) {
 
             //var themes = triSkins.elements['sidebar'];
-
-            //console.log(themes);
-
-
-
             $mdTheming($element);
             var $mdTheme = $element.controller('mdTheme'); //eslint-disable-line
 
@@ -56,15 +51,6 @@
 
             //vm.skinSidebar = triSkins.elements['sidebar'];
 
-        /*
-        triMenu.addMenu({
-            name: 'MENU.MENU.DYNAMIC-MENU',
-            icon: 'zmdi zmdi-flower-alt',
-            type: 'link',
-            priority: 0.0,
-            route: 'triangular.admin-default.menu-dynamic-dummy-page'
-        });
-        */
 
         var triMenuController = this;
         // get the menu and order it

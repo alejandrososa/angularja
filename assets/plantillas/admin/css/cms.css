@@ -7659,11 +7659,11 @@ table.md-data-table td {
   .md-data-table-toolbar input:focus {
     outline: none; }
 
-.elements-image-table-example .thumb-cell {
+.tabla-listado .imagen-cell {
   max-width: 104px;
   width: 104px;
   padding: 16px 32px; }
-  .elements-image-table-example .thumb-cell div {
+  .tabla-listado .imagen-cell div {
     overflow: hidden;
     width: 40px;
     height: 40px;

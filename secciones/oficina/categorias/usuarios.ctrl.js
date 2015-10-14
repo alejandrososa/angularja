@@ -41,10 +41,12 @@ angular
 
         vm.usuario = {};
         vm.usuarios = [];
+        //vm.tblsortType = 'nombre'; // set the default sort type
+        //vm.tblsortReverse = false;  // set the default sort order
+        //vm.tblsearchFish = [];     //
 
         vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
         vm.botonTexto = (vm.idUsuario > 0) ? 'Actualizar' : 'Agregar';
-        vm.tituloVista = (vm.idUsuario > 0) ? 'Actualizar Usuario' : 'Agregar Usuario';
         vm.tipo = (vm.idUsuario > 0) ? true : false;
 
         //usuarios
@@ -72,11 +74,11 @@ angular
                 field: 'imagen',
                 sortable: false,
                 filter: 'tableImage'
-            },/*{
+            },{
                 title: 'Id',
                 field: 'id',
                 sortable: true
-            },*/{
+            },{
                 title: 'Usuario',
                 field: 'usuario',
                 sortable: true
@@ -126,38 +128,68 @@ angular
         };
 
         //acciones
-        vm.editar = function (frmValido) {
-            if (frmValido) {
-                var resultado = Usuarios.actualizar(vm.usuario);
-                $log.info(resultado);
+        vm.procesar = function (isValid, tipo) {
+            if (!isValid) {
+                console.log('no es valido');
+                return;
+            }
+
+            if (!tipo) {
+                vm.crear();
+            } else {
+                vm.editar()
             }
         }
 
-        vm.cancelar = function($event) {
-            $rootScope.$broadcast('cancelar', $event);
+        vm.crear = function () {
+            var resultado = Usuarios.crear(vm.usuario);
+            $location.path('/admin/usuarios');
+            //$log.info( resultado);
         }
 
-        vm.agregar = function agregar($event) {
-            $rootScope.$broadcast('agregar', $event);
+        vm.editar = function () {
+            var resultado = Usuarios.actualizar(vm.usuario);
+            //$log.info( resultado);
         }
 
-        vm.actualizardatos = function actualizardatos() {
+        vm.eliminar = function (id, index) {
+            var resultado = Usuarios.eliminar(id);
+            if (resultado){
+                $log.info( index);
+                vm.usuarios.splice(index, 1);
+            }
+        }
+
+
+        /**
+         * End sidebar
+         */
+        vm.actualizardatos = actualizardatos;
+        function actualizardatos() {
             vm.tablacontenido = [];
             Usuarios.todos().then(function(datos){
-                if(angular.isDefined(datos)){
-                    console.log(datos);
-                    vm.tblcontenido = datos.data.resultado;
-                }
-            });
+                    if(angular.isDefined(datos)){
+                        console.log(datos);
+                        vm.tblcontenido = datos.data.resultado;
+                    }
+                });
             console.log(vm.tablacontenido);
         }
 
 
-        //observadores
+        //DIALOGO
+        //////////
+        vm.agregar = agregar;
 
-        $scope.$on('cancelar', function( ev ){
-            $location.path('/admin/usuarios');
-        });
+        function agregar($event) {
+            $rootScope.$broadcast('agregar', $event);
+        }
+
+
+        //////////////////////////
+
+
+        // watches
 
         $scope.$on('agregar', function( ev ){
             $mdDialog.show({
@@ -192,6 +224,7 @@ angular
                 }
             }
         });
+
 
 
 

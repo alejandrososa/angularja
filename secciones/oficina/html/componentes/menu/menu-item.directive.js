@@ -27,7 +27,7 @@
     }
 
     /* @ngInject */
-    function triMenuItemController($scope, $mdSidenav, $route,$location, $filter, triBreadcrumbsService) {
+    function triMenuItemController($scope, $mdSidenav, $route, $location, $filter, triBreadcrumbsService) {
         var triMenuItem = this;
         // load a template for this directive based on the type ( link | dropdown )
        // console.log(triMenuItem.item.type);
@@ -63,12 +63,25 @@
                 checkItemActive($route.current.name, $route.params);
 
                 $scope.$on('$routeChangeSuccess', function(event, toState, toParams) {
-                    checkItemActive(toState.name, toParams);
+                    checkItemActive(toState.name, toParams); //checkItemActive(current.name, pre);
                 });
                 break;
         }
 
         function checkItemActive() {
+
+            $scope.esActual = function (param1, param2) {
+                if (param1 === param2) {
+                    return true;
+                }
+                return false;
+            };
+
+            var rutamenu = '/'+triMenuItem.item.route;
+            var rutaactual = $location.path();
+
+            triMenuItem.item.active = $scope.esActual(rutamenu, rutaactual)
+
             // first check if the state is the same
             //triMenuItem.item.active = $route.includes(triMenuItem.item.route, triMenuItem.item.params);
             // if we are now the active item reset the breadcrumbs and open all parent dropdown items
