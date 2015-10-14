@@ -142,3 +142,10 @@ BEGIN
 	   END;
 $$
 DELIMITER ;
+
+
+
+insert into ja_menu values (1,'Portada', '','/','interno','_self', 0);
+insert into ja_menu values (2,'Demo','','demo', 'interno','_self',1);
+insert into ja_menu values (3, 'Jovenes','','demo','interno','_self',0);
+insert into ja_menu values (4,'Sub nivel','','subdemo','interno','_self',1);

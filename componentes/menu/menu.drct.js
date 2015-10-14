@@ -7,6 +7,8 @@ angular
 function menu() {  //ShowService
     var directive = {
         controller: controller,
+        controllerAs: 'vm',
+        bindToController: true,
         templateUrl: 'componentes/menu/menu.tpl.html',
         restrict: 'E',
         scope: {
@@ -22,6 +24,7 @@ function menu() {  //ShowService
 
         Menu.principal().then(function(datos){
             vm.menuPrincipal = datos.resultado;
+            console.log(vm.menuPrincipal);
         });
     }
 }

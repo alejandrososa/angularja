@@ -30,6 +30,38 @@ class Menu extends Modelo
 
     public function enlacesMenu(){
         $this->query = 'call '.self::$procidimiento.';';
+        $array = [];
+
+        foreach($this->seleccion() as $key => $enlace){
+
+            //1 = nivel base
+            if($enlace['nivel'] == 1) {
+
+                $enlaces[] = array(
+                    'id' => $enlace['id'],
+                    'nombre' => $enlace['nombre'],
+                    'enlace' => $enlace['enlace'],
+                    'clase' => $enlace['clase'],
+                    'tipp' => $enlace['tipo_enlace'],
+                    'target' => $enlace['target'],
+                    'nivel' => $enlace['nivel'],
+                    'items' => $this->getItem($enlace['hijos'])
+                );
+            }
+
+        }
+
+        return $enlaces;
+    }
+
+
+    private function getItem($id) {
+        //$this->where = array('id'=>$id);
+        if(empty($id)){
+            return null;
+        }
+
+        $this->query = 'select * from '.self::$vista.' where id in('.$id.')';
         return $this->seleccion();
     }
 

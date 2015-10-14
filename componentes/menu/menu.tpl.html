@@ -75,6 +75,17 @@
 		</div>
 		<ul class="load-responsive" rel="Main Menu">
 			<li class="ot-showmenu"><a href="#">Menu<span class="cmn-toggle-switch cmn-toggle-switch__htx active"><span>toggle menu</span></span></a></li>
+
+
+
+			<li ng-repeat="link in vm.menuPrincipal track by $index">
+				<a href="{{link.enlace}}" target="{{link.target}}" style="border-bottom: 2px solid #efc94c;"><span>{{link.nombre}}<span class="m-d-arrow"></span></span></a>
+				<ul ng-show="link.items">
+					<li ng-repeat="item in link.items"><a href="{{item.enlace}}">{{item.nombre}}</a></li>
+				</ul>
+			</li>
+
+
 			<li><a href="index.html" style="border-bottom: 2px solid #45b29d;"><span>Home<span class="m-d-arrow"></span></span></a>
 				<ul class="sub-menu">
 					<li><a href="blog.html">Blog page</a></li>

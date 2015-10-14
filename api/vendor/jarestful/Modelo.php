@@ -561,8 +561,57 @@ abstract class Modelo{
 
 
 
+	protected function seleccion()
+	{
+		$resultado = $this->_cnx->prepare($this->query);
+		$resultado->execute();
+		return $resultado->fetchAll(PDO::FETCH_ASSOC);
+	}
+	protected function buscar($tabla){
+		try {
+			$sql = "SELECT * FROM " . $tabla . " ";
+			$counter = 0;
+			$columnas = array();
+
+			if(!empty($this->where)){
+				foreach ($this->where as $key => $value) {
+					if ($counter == 0) {
+						$sql .= "WHERE {$key} LIKE CONCAT('%', :{$key}, '%') "; //like :{$key} ";
+					} else {
+						$sql .= "OR {$key} LIKE CONCAT('%', :{$key}, '%') ";
+					}
+					$counter++;
+				}
+			}
+
+			$stmt = $this->pdo->prepare($sql);
+
+			if(!empty($this->where)) {
+				foreach ($this->where as $key => $value) {
+					$stmt->bindValue(':' . $key, $value);
+				}
+			}
+
+			$stmt->execute();
 
 
+			while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) {
+				$columnas[] = $row;
+			}
+
+			if (isset($columnas)){
+				$this->resultado = $columnas;
+				return $this->resultado;
+			}
+
+			//return json_encode($stmt->fetch(PDO::FETCH_ASSOC), JSON_NUMERIC_CHECK);
+
+		} catch (PDOException $exception) {
+
+			die($exception->getMessage());
+
+		}
+	}
 	protected function unico($tabla){
 
 
@@ -588,7 +637,7 @@ abstract class Modelo{
 
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
-            return json_encode($stmt->fetch(PDO::FETCH_ASSOC), JSON_NUMERIC_CHECK);
+            //return json_encode($stmt->fetch(PDO::FETCH_ASSOC), JSON_NUMERIC_CHECK);
 
         } catch (PDOException $exception) {
 
@@ -710,13 +759,13 @@ abstract class Modelo{
 		return $this->resultado;
 	}
 
-    public function query($statement) {
+    /*public function query($statement) {
         try {
             return self::$PDO->query($statement);
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
-    }
+    }*/
 
     public function row_count($statement) {
         try {
@@ -769,8 +818,6 @@ abstract class Modelo{
             die($exception->getMessage());
         }
     }
-
-
 
     public function delete($table) {
         $sql = "DELETE FROM " . $table . " ";

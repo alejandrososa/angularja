@@ -17,38 +17,20 @@
 
 
         <!-- scrollable content -->
-        <md-content ng-class="layout.contentClass"  flex tri-default-content  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
-
-            {{vm.contenido}} <br><br>
-
-            {{vm.usuarios }}
-
+        <md-content ng-class="layout.contentClass"  flex  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
 
            <div class="padded-content-page ng-scope">
                 <md-card>
-                    <tri-table class="elements-image-table-example" columns="vm.columns" contents="vm.contenido" page-size="5"></tri-table>
+                    <cms-data-tabla class="tabla-listado" identidad="usuarios" columns="vm.columns" contents="vm.tblcontenido" datosproveedor="vm.datosproveedor" page-size="5"></cms-data-tabla>
                 </md-card>
-            </div>
-
-
-            <md-card flex="50">
-                <img src="assets/plantillas/admin/img/backgrounds/material-backgrounds/mb-bg-03.jpg" alt="Card Image">
-                <md-card-content>
-                    <div class="content-padded">
-                        <h2 class="md-title">Card Title</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, distinctio minus nostrum aut magni ipsam, eius ipsa eos voluptate natus excepturi qui numquam velit non explicabo molestias quasi sunt veniam.</p>
-                    </div>
-                    <md-divider></md-divider>
-                    <div class="button-toolbar" layout="row" layout-align="start center">
-                        <md-button class="md-accent">Share</md-button>
-                        <md-button class="md-primary">Explore</md-button>
-                    </div>
-                </md-card-content>
-            </md-card>
-
-
+           </div>
 
         </md-content>
+
+        <md-button ng-click="vm.agregar($event)" class="md-fab md-hue-1 md-fab-bottom-right" aria-label="{{'TODO.ADD-TODO'}}">
+            <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+        </md-button>
+
 
         <cms-pie-pagina md-theme="{{triSkin.elements.toolbar}}"></cms-pie-pagina>
 
