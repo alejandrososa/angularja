@@ -612,7 +612,7 @@ abstract class Modelo{
 
 		}
 	}
-	protected function unico($tabla){
+	protected function unico($tabla, $multiple = null){
 
 
 
@@ -636,7 +636,16 @@ abstract class Modelo{
                 $stmt->bindValue(':' . $key, $value);
 
             $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
+
+			if(!empty($multiple) && $multiple == true){
+				while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) {
+					$columnas[] = $row;
+				}
+				return $columnas;
+			}else{
+				return $stmt->fetch(PDO::FETCH_ASSOC);
+			}
+
             //return json_encode($stmt->fetch(PDO::FETCH_ASSOC), JSON_NUMERIC_CHECK);
 
         } catch (PDOException $exception) {

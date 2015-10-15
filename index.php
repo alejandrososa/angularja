@@ -114,6 +114,7 @@
 			<script src="secciones/oficina/usuarios/usuarios.ctrl.js"></script>
 			<script src="secciones/oficina/categorias/categorias.ctrl.js"></script>
 			<script src="secciones/oficina/paginas/paginas.ctrl.js"></script>
+			<script src="secciones/oficina/menu/menu.ctrl.js"></script>
 	    <!-- / -->
 	    <!-- SERVICES -->
 	        <script src="servicios/show.fct.js"></script>
@@ -128,10 +129,7 @@
 	    	<script src="directivas/ngCargando.drct.js"></script>
 			<script src="directivas/ngEnter.drct.js"></script>
 	    	<script src="componentes/logo/logo.drct.js"></script>
-	    	<script src="componentes/menutop/menu.drct.js"></script>	    	
 	    	<script src="componentes/menu/menu.drct.js"></script>
-	    	<script src="componentes/menusecundario/menu.drct.js"></script>
-	    	<script src="componentes/menuinferior/menu.drct.js"></script>
 	    	<script src="componentes/slider/slider.drct.js"></script>
 	    	<script src="componentes/etiquetas/etiquetas.drct.js"></script>	    	
 	    	<script src="componentes/articulos/articulos.drct.js"></script>	    	
@@ -188,6 +186,8 @@
 		<script src="secciones/oficina/html/componentes/table/table-start-from.filter.js"></script>
 
 		<script src="secciones/oficina/html/directivas/tema-fondo.drct.js"></script>
+
+
 		
 		
 		

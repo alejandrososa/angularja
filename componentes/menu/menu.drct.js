@@ -3,28 +3,31 @@
  */
 angular
     .module('app.core')
-    .directive('portalMenu', menu);
-function menu() {  //ShowService
+    .directive('portalMenu', portalMenu);
+function portalMenu() {  //ShowService
+    var tipo = '';
     var directive = {
         controller: controller,
         controllerAs: 'vm',
         bindToController: true,
-        templateUrl: 'componentes/menu/menu.tpl.html',
+        templateUrl: plantilla,
         restrict: 'E',
         scope: {
-            menu: '='
+            tipo: '@tipo'
         }
     };
     return directive;
-    function controller($scope, Menu) {
 
+    function plantilla(elem, attr){
+        return 'componentes/menu/menu-'+attr.tipo+'.tpl.html';
+    }
+
+    function controller(Menu) {
         var vm = this;
-
         vm.menuPrincipal = [];
 
-        Menu.principal().then(function(datos){
+        Menu.seleccionar(vm.tipo).then(function(datos){
             vm.menuPrincipal = datos.resultado;
-            console.log(vm.menuPrincipal);
         });
     }
 }

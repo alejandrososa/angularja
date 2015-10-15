@@ -2,6 +2,16 @@
 	<div class="wrapper">
 		<ul class="left load-responsive" rel="Top Menu">
 			<li><a href="/"><i class="fa fa-home"></i></a></li>
+
+			<li ng-repeat="link in vm.menuPrincipal track by $index">
+				<a href="{{link.enlace}}" class="{{link.clase}}"><span>{{link.nombre}}</span></a>
+				<ul ng-show="link.items">
+					<li ng-repeat="item in link.items"><a href="{{item.enlace}}">{{item.nombre}}</a></li>
+				</ul>
+			</li>
+
+
+
 			<li><a href="blog"><span>Blog page</span></a>
 				<ul>
 					<li><a href="blog2.html">Blog page #2</a></li>
@@ -9,15 +19,12 @@
 				</ul>
 			</li>
 			<li><a href="features">Features</a></li>
-			<li><a href="/admin/">Admin</a></li>
 			<li><a href="shortcodes">Shortcodes</a></li>
 			<li><a href="category">Category</a></li>
 
 			<li ng-if="vm.isAuthenticated()"><a href="/admin">Admin</a></li>
-
 			<li ng-if="!vm.isAuthenticated()"><a href="/login">Acceder</a></li>
 			<li ng-if="!vm.isAuthenticated()"><a href="/signup">Registrarse</a></li>
-
 			<li ng-if="vm.isAuthenticated()"><a href="/logout">Salir</a></li>
 
 		</ul>

@@ -383,9 +383,25 @@ namespace Api;
                 $this->rest->response('',406);
             }
 
-            $enlace = $this->modelMenu->enlacesMenu();
-            if(isset($enlace)){
-                $this->rest->response($this->helper->json(array('resultado'=>$enlace)), 200);
+            $tipo = $this->rest->_request['tipo'];
+
+            $enlaces = $this->modelMenu->enlacesMenu($tipo);
+            if(isset($enlaces)){
+                $this->rest->response($this->helper->json(array('resultado'=>$enlaces)), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
+        private function getTodosEnlacesMenu(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            $tipo = $this->rest->_request['tipo'];
+
+            $enlaces = $this->modelMenu->todosEnlacesMenu($tipo);
+            if(isset($enlaces)){
+                $this->rest->response($this->helper->json(array('resultado'=>$enlaces)), 200);
             }
             $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
         }
@@ -404,6 +420,19 @@ namespace Api;
             }
             $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
         }
+
+        private function getMenuCategorias(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            $categorias = $this->modelMenu->getCategorias();
+            if(isset($categorias)){
+                $this->rest->response($this->helper->json(array('resultado'=>$categorias)), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
 
 
 

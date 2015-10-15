@@ -11,6 +11,9 @@
 @import url("animate.css");
 @import url("dat-menu.css");
 
+/*sass*/
+@import url("web.css");
+
 
 md-card>:not(md-card-content) img, md-card>img {
     width: auto !important;

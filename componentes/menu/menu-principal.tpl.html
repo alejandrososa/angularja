@@ -79,13 +79,13 @@
 
 
 			<li ng-repeat="link in vm.menuPrincipal track by $index">
-				<a href="{{link.enlace}}" target="{{link.target}}" style="border-bottom: 2px solid #efc94c;"><span>{{link.nombre}}<span class="m-d-arrow"></span></span></a>
+				<a href="{{link.enlace}}" class="{{link.clase}}"><span>{{link.nombre}}<span class="m-d-arrow" ng-show="link.items"></span></span></a>
 				<ul ng-show="link.items">
 					<li ng-repeat="item in link.items"><a href="{{item.enlace}}">{{item.nombre}}</a></li>
 				</ul>
 			</li>
 
-
+			<!--
 			<li><a href="index.html" style="border-bottom: 2px solid #45b29d;"><span>Home<span class="m-d-arrow"></span></span></a>
 				<ul class="sub-menu">
 					<li><a href="blog.html">Blog page</a></li>
@@ -99,15 +99,7 @@
 					</li>
 				</ul>
 			</li>
-			<li><a href="features.html" style="border-bottom: 2px solid #efc94c;"><span>Features<span class="m-d-arrow"></span></span></a>
-				<ul>
-					<li><a href="shortcodes.html">Shortcodes</a></li>
-					<li><a href="error-404.html">Error 404 page</a></li>
-					<li><a href="full-width.html">Full width page</a></li>
-					<li><a href="shop.html">Shop Page</a></li>
-				</ul>
-			</li>
-			<li><a href="shortcodes.html" style="border-bottom: 2px solid #589fc8;">Shortcodes</a></li>
+			-->
 			<li class="has-ot-mega-menu"><a href="#" style="border-bottom: 2px solid #e27a3f;"><span>Widget Menu<span class="m-d-arrow"></span></span></a>
 				<ul class="ot-mega-menu">
 					<li>
@@ -169,12 +161,6 @@
 							</div>
 						</div>
 					</li>
-				</ul>
-			</li>
-			<li><a href="photo-gallery.html"><span>Gallery<span class="m-d-arrow"></span></span></a>
-				<ul>
-					<li><a href="photo-gallery-single.html">Photo gallery single</a></li>
-					<li><a href="photo-gallery-lightbox.html">Photo gallery lightbox</a></li>
 				</ul>
 			</li>
 			<li><a href="contact-us.html" style="border-bottom: 2px solid #df5a49;">Contacts</a></li>

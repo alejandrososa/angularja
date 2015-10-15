@@ -9,7 +9,11 @@ CREATE TABLE `ja_menu` (
   `padre` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `ix_hierarchy_parent` (`padre`,`id`)
-); 
+);
+
+
+ALTER TABLE ja_menu
+ADD COLUMN `categoria` ENUM('1', '2', '3', '4', '5', '6') NULL DEFAULT '6' COMMENT '' AFTER `padre`;
 
 
 DROP FUNCTION IF EXISTS f_getMenuHijos;
@@ -100,48 +104,87 @@ DELIMITER ;
 
 DROP VIEW IF EXISTS v_getMenuDetallado;
 CREATE VIEW v_getMenuDetallado AS
-SELECT id, nombre, clase, enlace, tipo_enlace, target, padre, f_getMenuHijos(id) as hijos FROM ja_menu;
+SELECT id, nombre, clase, enlace, tipo_enlace, target, padre, f_getMenuHijos(id) as hijos, categoria as categoria FROM ja_menu;
 
 
 DROP PROCEDURE IF EXISTS sp_getMenuJerarquia;
 DELIMITER $$ 
-CREATE PROCEDURE sp_getMenuJerarquia()
-BEGIN
-	SELECT  CONCAT(REPEAT('', level - 1), CAST(mj.id AS CHAR)) as id, 
-		md.nombre, md.enlace, md.clase, md.tipo_enlace, md.target, 
-		mj.padre, md.hijos,  mj.level as nivel
-	FROM    (
-			SELECT  id, padre, IF(ancestry, @cl := @cl + 1, level + @cl) AS level
-			FROM    (
-					SELECT  TRUE AS ancestry, _id AS id, padre, level
-					FROM    (
-							SELECT  @r AS _id,
-									(SELECT  @r := padre
-									FROM    ja_menu
-									WHERE   id = _id
-									) AS padre,
-									@l := @l + 1 AS level
-							FROM    (SELECT  @r := 0, @l := 0, @cl := 0) vars,
-									ja_menu h
-							WHERE   @r <> 0
-							ORDER BY level DESC
-							) qi
-					UNION ALL
-					SELECT  FALSE, hi.id, padre, level
-					FROM    (
-							SELECT  f_getMenuJerarquia_by_padre(id) AS id, @level AS level
-							FROM    (SELECT  @start_with := 0, @id := @start_with, @level := 0) vars, ja_menu
-							WHERE   @id IS NOT NULL
-							) ho
-					JOIN    ja_menu hi ON hi.id = ho.id
-					) q
-			) mj
-			
-			inner join v_getmenudetallado md on mj.id = md.id
-			order by id;
-	   END;
-$$
-DELIMITER ;
+CREATE PROCEDURE `sp_getMenuJerarquia`(IN categoria int(4))
+  BEGIN
+
+    IF categoria IS NOT NULL THEN
+      SELECT  CONCAT(REPEAT('', level - 1), CAST(mj.id AS CHAR)) as id,
+        md.nombre, md.enlace, md.clase, md.tipo_enlace, md.target,
+        mj.padre, md.hijos,  mj.level as nivel, md.categoria
+      FROM    (
+                SELECT  id, padre, IF(ancestry, @cl := @cl + 1, level + @cl) AS level
+                FROM    (
+                          SELECT  TRUE AS ancestry, _id AS id, padre, level
+                          FROM    (
+                                    SELECT  @r AS _id,
+                                            (SELECT  @r := padre
+                                             FROM    ja_menu
+                                             WHERE   id = _id
+                                            ) AS padre,
+                                            @l := @l + 1 AS level
+                                    FROM    (SELECT  @r := 0, @l := 0, @cl := 0) vars,
+                                      ja_menu h
+                                    WHERE   @r <> 0
+                                    ORDER BY level DESC
+                                  ) qi
+                          UNION ALL
+                          SELECT  FALSE, hi.id, padre, level
+                          FROM    (
+                                    SELECT  f_getMenuJerarquia_by_padre(id) AS id, @level AS level
+                                    FROM    (SELECT  @start_with := 0, @id := @start_with, @level := 0) vars, ja_menu
+                                    WHERE   @id IS NOT NULL
+                                  ) ho
+                            JOIN    ja_menu hi ON hi.id = ho.id
+                        ) q
+              ) mj
+
+        inner join v_getmenudetallado md on mj.id = md.id
+      where md.categoria = categoria
+      order by id;
+
+    ELSE
+
+      SELECT  CONCAT(REPEAT('', level - 1), CAST(mj.id AS CHAR)) as id,
+        md.nombre, md.enlace, md.clase, md.tipo_enlace, md.target,
+        mj.padre, md.hijos,  mj.level as nivel
+      FROM    (
+                SELECT  id, padre, IF(ancestry, @cl := @cl + 1, level + @cl) AS level
+                FROM    (
+                          SELECT  TRUE AS ancestry, _id AS id, padre, level
+                          FROM    (
+                                    SELECT  @r AS _id,
+                                            (SELECT  @r := padre
+                                             FROM    ja_menu
+                                             WHERE   id = _id
+                                            ) AS padre,
+                                            @l := @l + 1 AS level
+                                    FROM    (SELECT  @r := 0, @l := 0, @cl := 0) vars,
+                                      ja_menu h
+                                    WHERE   @r <> 0
+                                    ORDER BY level DESC
+                                  ) qi
+                          UNION ALL
+                          SELECT  FALSE, hi.id, padre, level
+                          FROM    (
+                                    SELECT  f_getMenuJerarquia_by_padre(id) AS id, @level AS level
+                                    FROM    (SELECT  @start_with := 0, @id := @start_with, @level := 0) vars, ja_menu
+                                    WHERE   @id IS NOT NULL
+                                  ) ho
+                            JOIN    ja_menu hi ON hi.id = ho.id
+                        ) q
+              ) mj
+
+        inner join v_getmenudetallado md on mj.id = md.id
+      order by id;
+
+    END IF;
+
+  END
 
 
 
@@ -149,3 +192,21 @@ insert into ja_menu values (1,'Portada', '','/','interno','_self', 0);
 insert into ja_menu values (2,'Demo','','demo', 'interno','_self',1);
 insert into ja_menu values (3, 'Jovenes','','demo','interno','_self',0);
 insert into ja_menu values (4,'Sub nivel','','subdemo','interno','_self',1);
+
+UPDATE ja_menu SET `clase`='borde-verde' WHERE `id`='1';
+UPDATE ja_menu SET `clase`='borde-azul' WHERE `id`='3';
+UPDATE ja_menu SET `clase`='borde-amarillo' WHERE `id`='6';
+
+UPDATE `appja`.`ja_menu` SET `categoria`='1' WHERE `id`='1';
+UPDATE `appja`.`ja_menu` SET `categoria`='1' WHERE `id`='2';
+UPDATE `appja`.`ja_menu` SET `categoria`='1' WHERE `id`='3';
+UPDATE `appja`.`ja_menu` SET `categoria`='1' WHERE `id`='4';
+UPDATE `appja`.`ja_menu` SET `categoria`='1' WHERE `id`='5';
+UPDATE `appja`.`ja_menu` SET `categoria`='1' WHERE `id`='6';
+
+
+UPDATE `appja`.`ja_menu` SET `enlace`='/demo' WHERE `id`='2';
+UPDATE `appja`.`ja_menu` SET `enlace`='/demo' WHERE `id`='3';
+UPDATE `appja`.`ja_menu` SET `enlace`='/subdemo' WHERE `id`='4';
+UPDATE `appja`.`ja_menu` SET `enlace`='/subsubdemo' WHERE `id`='5';
+UPDATE `appja`.`ja_menu` SET `enlace`='/demo' WHERE `id`='6';

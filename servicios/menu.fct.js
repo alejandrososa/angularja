@@ -11,6 +11,10 @@ angular
 
 function servicio($http, API_URL, $log, toastr) {
     var data = {
+        'seleccionar': seleccionar,
+        'todos': todos,
+        'categorias': categorias,
+        'buscador': buscador,
         'principal': menuPrincipal,
     };
 
@@ -37,6 +41,25 @@ function servicio($http, API_URL, $log, toastr) {
         return $http.get(API_URL + 'getMenu', {}).then(function (datos) {
             return datos.data;
          });
+    }
+
+    function seleccionar(tipo){
+        return $http.get(API_URL + 'getMenu?tipo='+tipo, {}).then(function (datos) {
+            return datos.data;
+        });
+    }
+    function todos(tipo){
+        return $http.get(API_URL + 'getTodosEnlacesMenu?tipo='+tipo, {}).then(function (datos) {
+            return datos.data;
+        });
+    }
+
+    function categorias(){
+        return $http.get(API_URL + 'getMenuCategorias', {});
+    }
+
+    function buscador(query){
+        return $http.post(API_URL + 'buscadorUsuarios', {filtro:query});
     }
 
     return data;

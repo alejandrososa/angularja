@@ -78,7 +78,7 @@
             function getDatos() {
                 Servicio.buscador(vm.query.filter).then(function(datos){
                     //vm.tablacontenido = users.data;
-                    $scope.contents = datos.data;
+                    //$scope.contents = datos.data;
                 });
             }
 
