@@ -377,6 +377,40 @@ namespace Api;
         /**
          * MENU
          */
+        public function buscadorMenu(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $post = json_decode(file_get_contents("php://input"),true);
+            $filtro     = isset($post['filtro']) ? $post['filtro'] : '';
+            $categoria  = isset($post['tipo']) ? $post['tipo'] : '';
+
+
+            $this->modelMenu->atributos = array('id'=> $filtro,'nombre'=> $filtro,'enlace'=> $filtro,'tipo_enlace'=> $filtro,'target'=> $filtro);
+
+            $resultado = $this->modelMenu->buscadorEnlaces($categoria);
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json($resultado), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+        }
+
+        public function buscadorMenuCategoria(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $post = json_decode(file_get_contents("php://input"),true);
+            $filtro     = isset($post['filtro']) ? $post['filtro'] : '';
+            $categoria  = isset($post['tipo']) ? $post['tipo'] : '';
+
+            $resultado = $this->modelMenu->buscadorEnlacesPorCategoria($categoria);
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json($resultado), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+        }
 
         private function getMenu(){
             if($this->rest->get_request_method() != "GET"){
@@ -433,7 +467,59 @@ namespace Api;
             $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
         }
 
+        public function unicoEnlace(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
 
+            $post = json_decode(file_get_contents("php://input"),true);
+            $id         = isset($post['id']) ? (int)$post['id'] : 0;
+
+            if(empty($id) || $id == 0){
+                $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),204);
+            }
+
+            $this->modelMenu->atributos = array('id'=> $id);
+            $resultado = $this->modelMenu->unicoEnlace();
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json($resultado), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
+        private function crearEnlace(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $datos      = json_decode(file_get_contents("php://input"),true);
+            $nombre     = isset($datos['enlace']['nombre']) ? $datos['enlace']['nombre'] : '';
+            $clase      = isset($datos['enlace']['clase']) ? $datos['enlace']['clase'] : '';
+            $enlace     = isset($datos['enlace']['ruta']) ? $datos['enlace']['ruta'] : '';
+            $target     = isset($datos['enlace']['target']) ? $datos['enlace']['target'] : '';
+            $padre      = isset($datos['enlace']['padre']) ? $datos['enlace']['padre'] : '';
+            $categoria  = isset($datos['enlace']['categoria']) ? $datos['enlace']['categoria'] : '';
+
+            $valores = [];
+
+            if(empty($datos)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            }
+
+            if(isset($nombre))      { $valores['nombre']     = $nombre; }
+            if(isset($clase))       { $valores['clase']      = $clase; }
+            if(isset($enlace))      { $valores['enlace']     = $enlace; }
+            if(isset($target))      { $valores['target']     = $target; }
+            if(isset($padre))       { $valores['padre']      = $padre; }
+            if(isset($categoria))   { $valores['categoria']  = $this->modelMenu->getIdCategoria($categoria); }
+
+            $this->modelMenu->atributos = $valores;
+            $resultado = $this->modelMenu->crearEnlace();
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'Se ha creado el enlace con exito')), 200);
+            }
+            $this->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+        }
 
 
         /**

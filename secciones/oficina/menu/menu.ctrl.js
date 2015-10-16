@@ -25,8 +25,28 @@ angular
         }
 
         vm.menus = [];
+        vm.enlace = {};
         vm.categoriasMenu = {};
         vm.categoriaDefault = 'principal';
+        vm.datosproveedor = {};
+
+        vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
+        vm.botonTexto = (vm.idUsuario > 0) ? 'Actualizar' : 'Agregar';
+        vm.tituloVista = (vm.idUsuario > 0) ? 'Actualizar Enlace' : 'Agregar Enlace';
+        vm.tipo = (vm.idUsuario > 0) ? true : false;
+
+        //enlace
+        vm.enlace = {
+            id: _datos.id,
+            nombre: _datos.nombre,
+            clase: _datos.clase,
+            enlace: _datos.enlace,
+            target: _datos.target,
+            padre: _datos.padre,
+            categoria: _datos.categoria,
+        };
+
+
 
         Menu.categorias().then(function(datos){
             if(angular.isDefined(datos)){
@@ -41,78 +61,7 @@ angular
         });
 
 
-        vm.getMenu = function(){
-            //return $timeout(function() {
-            console.log(vm.categoriaDefault);
-                Menu.todos(vm.categoriaDefault).then(function(datos){
-                    if(angular.isDefined(datos.resultado)){
-                        vm.menus = datos.resultado;
-                        vm.tblcontenido = datos.resultado;
-                    }else{
-                        vm.menus = [];
-                        vm.tblcontenido = [];
-                    }
-                });
-            //}, 650);
-        }
 
-
-
-        //observadores
-        var id_categoria;
-        $scope.$watch('vm.categoriaSeleccionada', function (newValue, oldValue) {
-            if(!oldValue) {
-                id_categoria = vm.categoriaDefault;
-            }
-
-            if(newValue !== oldValue) {
-                vm.categoriaDefault = newValue;
-            }
-
-            if(!newValue) {
-                vm.categoriaDefault = id_categoria;
-            }
-
-            vm.getMenu();
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-        vm.usuario = {};
-        vm.usuarios = [];
-
-        vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
-        vm.botonTexto = (vm.idUsuario > 0) ? 'Actualizar' : 'Agregar';
-        vm.tituloVista = (vm.idUsuario > 0) ? 'Actualizar Usuario' : 'Agregar Usuario';
-        vm.tipo = (vm.idUsuario > 0) ? true : false;
-
-        //usuarios
-
-
-
-*/
 
 
         vm.columns = [
@@ -147,6 +96,7 @@ angular
             servicio: Menu,
             identidad : 'menu',
             titulo: 'Listado de enlaces',
+            categoria: vm.categoriaDefault,
             //datos : vm.contenido, //vm.usuarios,
             columnas : vm.columns,//vm.columnas,
             pordefecto: 'nombre',
@@ -157,7 +107,7 @@ angular
         //acciones
         vm.editar = function (frmValido) {
             if (frmValido) {
-                var resultado = Usuarios.actualizar(vm.usuario);
+                var resultado = Usuarios.actualizar(vm.enlace);
                 $log.info(resultado);
             }
         }
@@ -181,39 +131,126 @@ angular
             console.log(vm.tablacontenido);
         }
 
+        vm.getMenu = function(){
+            //return $timeout(function() {
+            console.log(vm.categoriaDefault);
+            Menu.todos(vm.categoriaDefault).then(function(datos){
+                if(angular.isDefined(datos.resultado)){
+                    vm.menus = datos.resultado;
+                    vm.tblcontenido = datos.resultado;
+                }else{
+                    vm.menus = [];
+                    vm.tblcontenido = [];
+                }
+            });
+            //}, 650);
+        }
+
 
         //observadores
+
+        var id_categoria;
+        $scope.$watch('vm.categoriaSeleccionada', function (newValue, oldValue) {
+            if(!oldValue) {
+                id_categoria = vm.categoriaDefault;
+            }
+
+            if(newValue !== oldValue) {
+                vm.categoriaDefault = newValue;
+            }
+
+            if(!newValue) {
+                vm.categoriaDefault = id_categoria;
+            }
+
+            vm.datosproveedor.categoria = vm.categoriaDefault;
+
+            vm.getMenu();
+        });
 
         $scope.$on('cancelar', function( ev ){
             $location.path('/admin/menu');
         });
 
+
         $scope.$on('agregar', function( ev ){
             $mdDialog.show({
-                templateUrl: 'secciones/oficina/usuarios/dialogo.tpl.html',
+                templateUrl: 'secciones/oficina/menu/dialogo.tpl.html',
                 targetEvent: ev,
                 controllerAs: 'vm',
                 controller:  DialogController,
-            }).then(function(usuario) {
+            }).then(function(enlace) {
                 //vm.persona.push(usuario);
                 //vm.usuario = usuario;
-                //vm.tblcontenido.push(usuario);
-                //var resultado = Usuarios.crear(usuario);
-                //var nuevousuario;
+                vm.tblcontenido.push(enlace);
+                var resultado = Menu.crear(enlace);
+
 
                 vm.actualizardatos();
             });
 
-            function DialogController($mdDialog) {
+            function DialogController($scope, $mdDialog, Menu) {
                 var vm = this;
                 vm.cancelar = cancelar;
                 vm.ocultar = ocultar;
+                vm.actualizar = actualizar;
+                vm.query = {
+                    filtro: 'principal',
+                    tipo:'principal',
+                };
                 vm.usuario = {};
+                vm.categorias = {};
+                vm.enlace = {};
+                vm.enlaces = [];
+                vm.target = [
+                    { clave:'_self', valor: 'Interno' },
+                    { clave:'_blank', valor:'Externo' },
+                    { clave:'_top', valor:'Top' }
+                ];
+
+                Menu.categorias().then(function(datos){
+                    if(angular.isDefined(datos)){
+                        vm.categorias = datos.data.resultado;
+                    }
+                });
+
+                Menu.todos(vm.filtro).then(function(datos){
+                    if(angular.isDefined(datos)){
+                        vm.enlaces = datos.resultado;
+                    }
+                });
+
+                //observador
+                var id_categoria;
+                $scope.$watch('vm.enlace.categoria', function (nuevo, anterior) {
+                    if(!anterior) {
+                        id_categoria = vm.query.filtro;
+                    }
+
+                    if(nuevo !== anterior) {
+                        vm.query.filtro = nuevo;
+                        vm.query.tipo = nuevo;
+                    }
+
+                    if(!nuevo) {
+                        vm.query.filtro = id_categoria;
+                        vm.query.tipo = id_categoria;
+                    }
+
+                    vm.actualizar();
+                });
 
                 /////////////////////////
 
+                function actualizar(){
+                    vm.query.tipo = vm.enlace.categoria;
+                    Menu.buscadorporcategorias(vm.query).then(function(datos){
+                        vm.enlaces = datos.data;
+                    });
+                }
+
                 function ocultar() {
-                    $mdDialog.hide(vm.usuario);
+                    $mdDialog.hide(vm.enlace);
                 }
 
                 function cancelar() {

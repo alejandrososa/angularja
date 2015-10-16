@@ -1,8 +1,8 @@
-<md-dialog aria-label="Mango (Fruit)" flex="40" flex-sm="40">
+<md-dialog aria-label="Mango (Fruit)" flex="50" flex-sm="50">
     <md-toolbar md-theme="{{triSkin.elements.content}}">
         <div class="md-toolbar-tools">
             <h2>
-                <span translate>Agregar Usuario</span>
+                <span translate>Agregar Enlace</span>
             </h2>
         </div>
     </md-toolbar>
@@ -11,21 +11,11 @@
 
     <md-dialog-content class="sticky-container">
         <div>
-            <form name="taskForm" novalidate>
-                <md-input-container>
-                    <label>Usuario</label>
-                    <input type="text" name="usuario" ng-model="vm.usuario.usuario" class="dialog-close" required>
-                    <div ng-messages="taskForm.usuario.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Nombre requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
+            <form name="frm" novalidate>
                 <md-input-container>
                     <label>Nombre</label>
-                    <input type="text" name="nombre" ng-model="vm.usuario.nombre" class="dialog-close" required>
-                    <div ng-messages="taskForm.nombre.$dirty">
+                    <input type="text" name="nombre" ng-model="vm.enlace.nombre" class="dialog-close" required>
+                    <div ng-messages="frm.nombre.$dirty">
                         <div ng-message when="required">
                             <span translate>Nombre requerido</span>
                         </div>
@@ -33,87 +23,46 @@
                 </md-input-container>
 
                 <md-input-container>
-                    <label>Apellido</label>
-                    <input type="text" name="apellidos" ng-model="vm.usuario.apellidos" class="dialog-close" required>
-                    <div ng-messages="taskForm.apellidos.$dirty">
+                    <label>Enlace</label>
+                    <input type="text" name="ruta" ng-model="vm.enlace.ruta" class="dialog-close" required>
+                    <div ng-messages="frm.ruta.$dirty">
                         <div ng-message when="required">
-                            <span translate>Apellido requerido</span>
+                            <span translate>Ruta requerida</span>
                         </div>
                     </div>
                 </md-input-container>
 
                 <md-input-container>
-                    <label>Correo</label>
-                    <input type="text" name="correo" ng-model="vm.usuario.correo" class="dialog-close" required>
-                    <div ng-messages="taskForm.correo.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Correo requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Telefono</label>
-                    <input type="text" name="telefono" ng-model="vm.usuario.tel" class="dialog-close" required>
-                    <div ng-messages="taskForm.telefono.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Telefono requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Clave</label>
-                    <input type="text" name="clave" ng-model="vm.usuario.clave" class="dialog-close" required>
-                    <div ng-messages="taskForm.clave.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Clave requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Dirección</label>
-                    <input type="text" name="direccion" ng-model="vm.usuario.direccion" class="dialog-close" required>
-                    <div ng-messages="taskForm.direccion.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Direcci&oacute;n requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Ciudad</label>
-                    <input type="text" name="ciudad" ng-model="vm.usuario.ciudad" class="dialog-close" required>
-                    <div ng-messages="taskForm.ciudad.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Ciudad requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <md-select placeholder="{{'MENU.TODO.DIALOG.PRIORITY'}}" ng-model="vm.usuario.pais">
-                        <md-option value="repdominicana" translate>Rep. Dominicana</md-option>
-                        <md-option value="espana" translate>España</md-option>
+                    <md-select placeholder="Seleccionar Target" ng-model="vm.enlace.target">
+                        <md-option ng-repeat="opcion in vm.target" value="{{opcion.clave}}">{{opcion.valor}}</md-option>
                     </md-select>
                 </md-input-container>
 
-
-
                 <md-input-container>
-                    <label>Imagen</label>
-                    <input type="file" id="imagen" file-model="vm.usuario.imagen" class="dialog-close">
+                    <md-select placeholder="Seleccionar Categoria" ng-model="vm.enlace.categoria">
+                        <md-option ng-repeat="opcion in vm.categorias" value="{{opcion.clave}}">{{opcion.valor}}</md-option>
+                    </md-select>
                 </md-input-container>
 
+                <md-input-container ng-show="vm.enlaces">
+                    <md-select placeholder="Seleccionar Padre" ng-model="vm.enlace.padre">
+                        <md-option ng-repeat="opcion in vm.enlaces" value="{{opcion.id}}">{{opcion.nombre}}</md-option>
+                    </md-select>
+                </md-input-container>
 
+                <md-input-container>
+                    <label>Clase</label>
+                    <input type="text" name="clase" ng-model="vm.enlace.clase" class="dialog-close" required>
+                </md-input-container>
 
             </form>
         </div>
+
+        {{vm.enlace}}
     </md-dialog-content>
     <div class="md-actions" layout="row">
         <span flex></span>
         <md-button ng-click="vm.cancelar()">Cancel</md-button>
-        <md-button ng-click="vm.ocultar()" class="md-primary" ng-disabled="taskForm.$invalid">Ok</md-button>
+        <md-button ng-click="vm.ocultar()" class="md-primary" ng-disabled="frm.$invalid">Ok</md-button>
     </div>
 </md-dialog>

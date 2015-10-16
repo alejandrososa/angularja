@@ -7600,6 +7600,7 @@ chart-legend ul {
   .md-table thead tr {
     height: 56px; }
     .md-table thead tr th {
+      /*padding: 0 15px;*/
       vertical-align: middle;
       border-bottom: 1px solid #EEEEEE;
       color: rgba(0, 0, 0, 0.54); }
@@ -7621,6 +7622,7 @@ chart-legend ul {
     .md-table tbody tr:hover {
       background: #EEEEEE; }
     .md-table tbody tr td {
+      /*padding: 0 15px;*/
       color: rgba(0, 0, 0, 0.87);
       font-size: 13px;
       vertical-align: middle;

@@ -12,10 +12,13 @@ angular
 function servicio($http, API_URL, $log, toastr) {
     var data = {
         'seleccionar': seleccionar,
+        'unico': unico,
         'todos': todos,
         'categorias': categorias,
         'buscador': buscador,
+        'buscadorporcategorias': buscadorPorCategoria,
         'principal': menuPrincipal,
+        'crear': crear
     };
 
     function ejecutar(tipo, url, params) {
@@ -48,6 +51,13 @@ function servicio($http, API_URL, $log, toastr) {
             return datos.data;
         });
     }
+
+    function unico(id){
+        return $http.post(API_URL + 'unicoEnlace', {id:id}).then(function (datos) {
+            return datos.data;
+        });
+    }
+
     function todos(tipo){
         return $http.get(API_URL + 'getTodosEnlacesMenu?tipo='+tipo, {}).then(function (datos) {
             return datos.data;
@@ -59,7 +69,22 @@ function servicio($http, API_URL, $log, toastr) {
     }
 
     function buscador(query){
-        return $http.post(API_URL + 'buscadorUsuarios', {filtro:query});
+        return $http.post(API_URL + 'buscadorMenu', {filtro:query, tipo: query.tipo});
+    }
+    function buscadorPorCategoria(query){
+        return $http.post(API_URL + 'buscadorMenuCategoria', {filtro:query, tipo: query.tipo});
+    }
+
+    function crear(enlace){
+        return $http.post(API_URL + 'crearEnlace', {
+            id: enlace.id,
+            enlace:enlace,
+            transformRequest: angular.indentity,
+            headers: { 'Content-Type': undefined }
+        }).then(function (datos) {
+            toastr.success(datos.data.mensaje);
+            return datos.data;
+        });
     }
 
     return data;

@@ -28,6 +28,7 @@
         function controller($scope, $location, $mdDialog){
             var vm = this;
             vm.query = {
+                tipo:'',
                 filter: '',
                 limit: '10',
                 order: '-id',
@@ -48,6 +49,7 @@
             //vm.tblColumnas  = 'columnas' in vm.datosproveedor ? vm.datosproveedor.columnas : null
             vm.tblIdentidad = angular.isDefined($scope.datosproveedor.identidad) ? $scope.datosproveedor.identidad : null;
             vm.tblAcciones = angular.isDefined($scope.datosproveedor.acciones) ? $scope.datosproveedor.acciones : false;
+            vm.tblCategoria = angular.isDefined($scope.datosproveedor.categoria) ? $scope.datosproveedor.categoria : null;
             vm.tblServicio = angular.isDefined($scope.datosproveedor.servicio) ? $scope.datosproveedor.servicio : null;
             vm.tblTitulo = angular.isDefined($scope.datosproveedor.titulo) ? $scope.datosproveedor.titulo : 'Listado';
             var Servicio = vm.tblServicio;
@@ -58,6 +60,9 @@
 
             function activate() {
                 var bookmark;
+
+                vm.query.tipo = vm.tblCategoria;
+
                 $scope.$watch('vm.query.filter', function (newValue, oldValue) {
                     if(!oldValue) {
                         bookmark = vm.query.page;
@@ -78,7 +83,7 @@
             function getDatos() {
                 Servicio.buscador(vm.query.filter).then(function(datos){
                     //vm.tablacontenido = users.data;
-                    //$scope.contents = datos.data;
+                    $scope.contents = datos.data;
                 });
             }
 

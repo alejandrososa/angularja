@@ -184,14 +184,16 @@ CREATE PROCEDURE `sp_getMenuJerarquia`(IN categoria int(4))
 
     END IF;
 
-  END
+  END;
 
 
 
-insert into ja_menu values (1,'Portada', '','/','interno','_self', 0);
-insert into ja_menu values (2,'Demo','','demo', 'interno','_self',1);
-insert into ja_menu values (3, 'Jovenes','','demo','interno','_self',0);
-insert into ja_menu values (4,'Sub nivel','','subdemo','interno','_self',1);
+Insert into ja_menu values('1', 'Portada', '', '/', 'interno', '_self', '0');
+Insert into ja_menu values('2', 'Demo', '', 'demo', 'interno', '_self', '1');
+Insert into ja_menu values('3', 'Jovenes', '', 'demo', 'interno', '_self', '0');
+Insert into ja_menu values('4', 'Sub nivel', '', 'subdemo', 'interno', '_self', '2');
+Insert into ja_menu values('5', 'Sub sub nivel', '', 'subsubdemo', 'interno', '_self', '2');
+Insert into ja_menu values('6', 'Iglesias', '', 'demo', 'interno', '_self', '0');
 
 UPDATE ja_menu SET `clase`='borde-verde' WHERE `id`='1';
 UPDATE ja_menu SET `clase`='borde-azul' WHERE `id`='3';
@@ -210,3 +212,7 @@ UPDATE `appja`.`ja_menu` SET `enlace`='/demo' WHERE `id`='3';
 UPDATE `appja`.`ja_menu` SET `enlace`='/subdemo' WHERE `id`='4';
 UPDATE `appja`.`ja_menu` SET `enlace`='/subsubdemo' WHERE `id`='5';
 UPDATE `appja`.`ja_menu` SET `enlace`='/demo' WHERE `id`='6';
+
+ALTER TABLE `appja`.`ja_menu`
+CHANGE COLUMN `tipo_enlace` `tipo_enlace` ENUM('interno','externo','_top') CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT 'interno' COMMENT '' ;
+

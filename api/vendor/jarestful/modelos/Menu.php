@@ -38,6 +38,69 @@ class Menu extends Modelo
         // Aquí realizaríamos la conexión a la BBDD con el método que queramos
     }
 
+    public function buscadorEnlaces($tipo){
+        $categoria = array_key_exists($tipo, $this->categorias) ? $this->categorias[$tipo] : 0;
+        $categorias = $this->getCategorias();
+
+        $this->where = $this->atributos + array('categoria'=>$categoria);
+        $menu = $this->buscar(self::$vista);
+
+        foreach($menu as $key => $enlace){
+
+            $hijos = '';
+            $hijos = !empty($enlace['hijos']) ? count(explode(",", $enlace['hijos'])) : '';
+
+            $enlaces[] = array(
+                'id' => $enlace['id'],
+                'idcategoria' => $enlace['categoria'],
+                'clavecategoria' => $categorias[$enlace['categoria']]['clave'],
+                'categoria' => $categorias[$enlace['categoria']]['valor'],
+                'nombre' => $enlace['nombre'],
+                'enlace' => $enlace['enlace'],
+                'clase' => $enlace['clase'],
+                'padre' => $enlace['padre'],
+                //'tipo' => $enlace['tipo_enlace'],
+                'target' => $enlace['target'],
+                //'nivel' => $enlace['nivel'],
+                'hijos' => $hijos,
+                //'items' => $this->getItem($enlace['hijos'])
+            );
+
+        }
+
+        return $enlaces;
+    }
+
+    public function buscadorEnlacesPorCategoria($tipo){
+        $categoria = array_key_exists($tipo, $this->categorias) ? $this->categorias[$tipo] : 0;
+        $categorias = $this->getCategorias();
+
+        $this->where = array('categoria'=>$categoria);
+        $menu = $this->buscar(self::$vista);
+
+        foreach($menu as $key => $enlace){
+
+            $hijos = '';
+            $hijos = !empty($enlace['hijos']) ? count(explode(",", $enlace['hijos'])) : '';
+
+            $enlaces[] = array(
+                'id' => $enlace['id'],
+                'idcategoria' => $enlace['categoria'],
+                'clavecategoria' => $categorias[$enlace['categoria']]['clave'],
+                'categoria' => $categorias[$enlace['categoria']]['valor'],
+                'nombre' => $enlace['nombre'],
+                'enlace' => $enlace['enlace'],
+                'clase' => $enlace['clase'],
+                'padre' => $enlace['padre'],
+                'target' => $enlace['target'],
+                'hijos' => $hijos,
+            );
+
+        }
+
+        return $enlaces;
+    }
+
     public function getCategorias(){
         $categorias = array();
         $cats1 = array('sinasignar','piepagina');
@@ -50,6 +113,10 @@ class Menu extends Modelo
             );
         }
         return $categorias;
+    }
+
+    public function getIdCategoria($nombre){
+        return !empty($nombre) ? $this->categorias[$nombre] : 0;
     }
 
     public function enlacesMenu($tipo){
@@ -88,15 +155,11 @@ class Menu extends Modelo
     public function todosEnlacesMenu($tipo){
         $categoria = array_key_exists($tipo, $this->categorias) ? $this->categorias[$tipo] : 0;
         $categorias = $this->getCategorias();
-        $menu = array();
+        //$menu = array();
         //$this->query = 'call sp_getMenuJerarquia('.$categoria.');';
 
         $this->where = array('categoria'=>$categoria);
-        //if($categoria == 0){
-            //$menu = $this->todos(self::$vista);
-        //}else{
-            $menu = $this->unico(self::$vista, true);
-        //}
+        $menu = $this->unico(self::$vista, true);
 
         foreach($menu as $key => $enlace){
 
@@ -122,6 +185,9 @@ class Menu extends Modelo
         }
 
         return $enlaces;
+    }
+
+    private function procesar($array){
     }
 
 
@@ -155,5 +221,37 @@ class Menu extends Modelo
             }
         }
         return $resultado;
+    }
+
+    public function unicoEnlace(){
+        $categorias = $this->getCategorias();
+        $this->where = $this->atributos;
+        $datos = $this->unico(self::$modelo, true);
+        $enlaces = array();
+
+        foreach($datos as $key => $enlace){
+
+            $hijos = '';
+            $hijos = !empty($enlace['hijos']) ? count(explode(",", $enlace['hijos'])) : '';
+
+            $enlaces = array(
+                'id' => $enlace['id'],
+                'idcategoria' => $enlace['categoria'],
+                'clavecategoria' => $categorias[$enlace['categoria']]['clave'],
+                'categoria' => $categorias[$enlace['categoria']]['valor'],
+                'nombre' => $enlace['nombre'],
+                'enlace' => $enlace['enlace'],
+                'clase' => $enlace['clase'],
+                'padre' => $enlace['padre'],
+                'target' => $enlace['target'],
+                'hijos' => $hijos,
+            );
+        }
+
+        return $enlaces;
+    }
+
+    public function crearEnlace(){
+        return $this->insertar(self::$modelo, $this->atributos);
     }
 }

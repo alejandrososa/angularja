@@ -599,6 +599,9 @@ abstract class Modelo{
 				$columnas[] = $row;
 			}
 
+			//print_r($stmt);
+			//die();
+
 			if (isset($columnas)){
 				$this->resultado = $columnas;
 				return $this->resultado;
