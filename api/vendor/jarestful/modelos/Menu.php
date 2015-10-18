@@ -108,6 +108,7 @@ class Menu extends Modelo
 
         foreach($this->categorias as $k => $v){
             $categorias[$v] = array(
+                'id'=>$v,
                 'clave'=>$k,
                 'valor'=>ucfirst(strtolower(str_replace($cats1,$cats2,$k)))
             );
@@ -187,6 +188,33 @@ class Menu extends Modelo
         return $enlaces;
     }
 
+    public function todosEnlaces(){
+        $categorias = $this->getCategorias();
+        $menu = $this->todos(self::$vista);
+
+        foreach($menu as $key => $enlace){
+
+            $hijos = '';
+            $hijos = !empty($enlace->hijos) ? count(explode(",", $enlace->hijos)) : '';
+
+            $enlaces[] = array(
+                'id' => $enlace->id,
+                'idcategoria' => $enlace->categoria,
+                'clavecategoria' => $categorias[$enlace->categoria]['clave'],
+                'categoria' => $categorias[$enlace->categoria]['valor'],
+                'nombre' => $enlace->nombre,
+                'enlace' => $enlace->enlace,
+                'clase' => $enlace->clase,
+                'padre' => $enlace->padre,
+                'target' => $enlace->target,
+                'hijos' => $hijos,
+            );
+
+        }
+
+        return $enlaces;
+    }
+
     private function procesar($array){
     }
 
@@ -253,5 +281,15 @@ class Menu extends Modelo
 
     public function crearEnlace(){
         return $this->insertar(self::$modelo, $this->atributos);
+    }
+
+    public function actualizarEnlace(){
+        $this->where = $this->atributos;
+        return $this->actualizar(self::$modelo, $this->setatributos);
+    }
+
+    public function eliminarEnlace(){
+        $this->where = $this->atributos;
+        return $this->eliminar(self::$modelo);
     }
 }

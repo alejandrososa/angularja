@@ -14,11 +14,15 @@ function servicio($http, API_URL, $log, toastr) {
         'seleccionar': seleccionar,
         'unico': unico,
         'todos': todos,
+        'todostipo': todostipo,
         'categorias': categorias,
         'buscador': buscador,
         'buscadorporcategorias': buscadorPorCategoria,
         'principal': menuPrincipal,
-        'crear': crear
+        'crear': crear,
+        'actualizar': actualizar,
+        'eliminar': eliminar,
+        'targets':targets
     };
 
     function ejecutar(tipo, url, params) {
@@ -58,7 +62,13 @@ function servicio($http, API_URL, $log, toastr) {
         });
     }
 
-    function todos(tipo){
+    function todos(){
+        return $http.get(API_URL + 'getTodosEnlaces', {}).then(function (datos) {
+            return datos.data;
+        });
+    }
+
+    function todostipo(tipo){
         return $http.get(API_URL + 'getTodosEnlacesMenu?tipo='+tipo, {}).then(function (datos) {
             return datos.data;
         });
@@ -85,6 +95,33 @@ function servicio($http, API_URL, $log, toastr) {
             toastr.success(datos.data.mensaje);
             return datos.data;
         });
+    }
+
+    function actualizar(enlace){
+        return $http.put(API_URL + 'actualizarEnlace', {
+            id: enlace.id,
+            enlace:enlace,
+            transformRequest: angular.indentity,
+            headers: { 'Content-Type': undefined }
+        }).then(function (datos) {
+            toastr.success(datos.data.mensaje);
+            return datos.data;
+        });
+    }
+
+    function eliminar(id){
+        return $http.delete(API_URL + 'eliminarEnlace?id='+id, {}).then(function (datos) {
+            toastr.success(datos.data.mensaje);
+            return datos.data;
+        });
+    }
+
+    function targets(){
+        return [
+            { clave:'_self', valor: 'Interno' },
+            { clave:'_blank', valor:'Externo' },
+            { clave:'_top', valor:'Top' }
+        ];
     }
 
     return data;

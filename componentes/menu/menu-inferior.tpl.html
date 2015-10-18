@@ -1,10 +1,8 @@
 <div class="footer-menu">
-	<a href="#top" class="right">Back to top <i class="fa fa-chevron-up"></i></a>
+	<a href="#top" class="right">Subir <i class="fa fa-chevron-up"></i></a>
 	<ul>
-		<li><a href="#" style="border-bottom: 2px solid #43b3bd;">Business</a></li>
-		<li><a href="#" style="border-bottom: 2px solid #9e005d;">Fashion</a></li>
-		<li><a href="#" style="border-bottom: 2px solid #575cc0;">Gadgets</a></li>
-		<li><a href="#" style="border-bottom: 2px solid #007236;">Design</a></li>
-		<li><a href="#" style="border-bottom: 2px solid #aba000;">Computers</a></li>
+		<li ng-repeat="link in vm.datosmenu track by $index">
+			<a href="{{link.enlace}}" class="{{link.clase}}">{{link.nombre}}</a>
+		</li>
 	</ul>
 </div>

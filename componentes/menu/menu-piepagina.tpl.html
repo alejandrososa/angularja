@@ -1,8 +1,5 @@
 <ul>
-	<li><a href="index.html">Site map</a></li>
-	<li><a href="#">Contact</a></li>
-	<li><a href="#">Newsletter sign up</a></li>
-	<li><a href="#">Press Center</a></li>
-	<li><a href="#">Customer Service</a></li>
-	<li><a href="#">Advertising</a></li>
+	<li ng-repeat="link in vm.datosmenu track by $index">
+		<a href="{{link.enlace}}" class="{{link.clase}}">{{link.nombre}}</a>
+	</li>
 </ul>

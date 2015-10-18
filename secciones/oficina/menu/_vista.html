@@ -1,21 +1,10 @@
 <md-card flex>
     <md-card-content>
-        <div class="card card-user">
-
-            <div class="content">
-                <div class="author">
-                    <a href="#">
-                        <h4 class="title"><br />
-                            <small>{{vm.usuario.usuario}}</small>
-                        </h4>
-                    </a>
-                </div>
-                <p class="description text-center">
-                    {{vm.enlace.nombre}}
-
-                    {{vm.usuario.notas}}</p>
-            </div>
-            <hr>
-        </div>
+        <b>{{vm.enlace.nombre}}</b><br>
+        {{vm.enlace.enlace}}<br>
+        {{vm.enlace.target}}<br>
+        {{vm.enlace.categoria}}<br>
+        <div ng-show="vm.enlace.enlace">{{vm.enlace.padre}}</div><br>
+        {{vm.enlace.clase}}
     </md-card-content>
 </md-card>

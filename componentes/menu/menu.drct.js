@@ -24,10 +24,10 @@ function portalMenu() {  //ShowService
 
     function controller(Menu) {
         var vm = this;
-        vm.menuPrincipal = [];
+        vm.datosmenu = [];
 
         Menu.seleccionar(vm.tipo).then(function(datos){
-            vm.menuPrincipal = datos.resultado;
+            vm.datosmenu = datos.resultado;
         });
     }
 }

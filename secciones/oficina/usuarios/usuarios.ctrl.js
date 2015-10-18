@@ -168,6 +168,7 @@ angular
             }).then(function(usuario) {
                 //vm.persona.push(usuario);
                 vm.usuario = usuario;
+                console.log(usuario);
                 //vm.tblcontenido.push(usuario);
                 var resultado = Usuarios.crear(usuario);
                 var nuevousuario;

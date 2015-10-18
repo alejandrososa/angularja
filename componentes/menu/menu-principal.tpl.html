@@ -78,7 +78,7 @@
 
 
 
-			<li ng-repeat="link in vm.menuPrincipal track by $index">
+			<li ng-repeat="link in vm.datosmenu track by $index">
 				<a href="{{link.enlace}}" class="{{link.clase}}"><span>{{link.nombre}}<span class="m-d-arrow" ng-show="link.items"></span></span></a>
 				<ul ng-show="link.items">
 					<li ng-repeat="item in link.items"><a href="{{item.enlace}}">{{item.nombre}}</a></li>

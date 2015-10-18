@@ -1,5 +1,3 @@
-{{vm.enlace}}
-
 <md-card flex>
     <md-card-content>
         <div>
@@ -18,7 +16,7 @@
 
                 <md-input-container>
                     <label>enlace</label>
-                    <input type="text" name="enlace" ng-model="vm.enlace.enlace" class="dialog-close" required>
+                    <input type="text" name="enlace" ng-model="vm.enlace.ruta" class="dialog-close" required>
                     <div ng-messages="frm.enlace.$dirty">
                         <div ng-message when="required">
                             <span translate>enlace requerido</span>
@@ -27,8 +25,12 @@
                 </md-input-container>
 
                 <md-input-container>
-                    <label>target</label>
-                    <input type="text" name="target" ng-model="vm.enlace.target" class="dialog-close" required>
+                    <md-select placeholder="Seleccionar target" ng-model="vm.enlace.target">
+                        <md-option ng-repeat="opcion in vm.targets"
+                                   ng-selected="opcion.clave == vm.enlace.target ? true:false"
+                                   value="{{opcion.clave}}">{{opcion.valor}}</md-option>
+                    </md-select>
+
                     <div ng-messages="frm.target.$dirty">
                         <div ng-message when="required">
                             <span translate>target requerido</span>
@@ -36,60 +38,28 @@
                     </div>
                 </md-input-container>
 
-                <md-input-container>
-                    <label>Telefono</label>
-                    <input type="text" name="telefono" ng-model="vm.enlace.tel" class="dialog-close" required>
-                    <div ng-messages="frm.telefono.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Telefono requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Clave</label>
-                    <input type="text" name="clave" ng-model="vm.enlace.clave" class="dialog-close">
-                    <div ng-messages="frm.clave.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Clave requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Dirección</label>
-                    <input type="text" name="direccion" ng-model="vm.enlace.direccion" class="dialog-close" required>
-                    <div ng-messages="frm.direccion.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Direcci&oacute;n requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Ciudad</label>
-                    <input type="text" name="ciudad" ng-model="vm.enlace.ciudad" class="dialog-close" required>
-                    <div ng-messages="frm.ciudad.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Ciudad requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <md-select placeholder="{{'MENU.TODO.DIALOG.PRIORITY'}}" ng-model="vm.enlace.pais">
-                        <md-option value="repdominicana" translate>Rep. Dominicana</md-option>
-                        <md-option value="espana" translate>España</md-option>
+                <md-input-container ng-show="vm.enlace.padre">
+                    <md-select placeholder="Seleccionar Padre" ng-model="vm.enlace.padre">
+                        <md-option ng-repeat="opcion in vm.enlaces"
+                                   ng-selected="opcion.id == vm.enlace.padre ? true:false"
+                                   value="{{opcion.id}}">{{opcion.nombre}}</md-option>
                     </md-select>
                 </md-input-container>
 
-
-
                 <md-input-container>
-                    <label>Imagen</label>
-                    <input type="file" id="imagen" file-model="vm.enlace.imagen" class="dialog-close">
+                    <md-input-container style="margin-right: 10px;">
+                        <md-select placeholder="Seleccionar Categoria" ng-model="vm.enlace.categoria" aria-disabled="true">
+                            <md-option ng-repeat="opcion in vm.categoriasMenu"
+                                       ng-selected="opcion.id == vm.enlace.idcategoria ? true:false"
+                                       value="{{opcion.clave}}">{{opcion.valor}}</md-option>
+                        </md-select>
+                    </md-input-container>
                 </md-input-container>
 
+                <md-input-container>
+                    <label>Clase</label>
+                    <input type="text" name="direccion" ng-model="vm.enlace.clase" class="dialog-close">
+                </md-input-container>
 
                 <div layout="row" layout-align="end center">
                     <md-button ng-click="vm.cancelar()" class="md-warn">Cancelar</md-button>

@@ -426,6 +426,18 @@ namespace Api;
             $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
         }
 
+        private function getTodosEnlaces(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            $enlaces = $this->modelMenu->todosEnlaces();
+            if(isset($enlaces)){
+                $this->rest->response($this->helper->json(array('resultado'=>$enlaces)), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
         private function getTodosEnlacesMenu(){
             if($this->rest->get_request_method() != "GET"){
                 $this->rest->response('',406);
@@ -521,6 +533,58 @@ namespace Api;
             $this->response($this->helper->json(array('mensaje'=>'sin valor')),204);
         }
 
+        private function actualizarEnlace(){
+            if($this->rest->get_request_method() != "PUT"){
+                $this->rest->response('',406);
+            }
+
+            $datos      = json_decode(file_get_contents("php://input"),true);
+            $id         = isset($datos['enlace']['nombre']) ? $datos['enlace']['id'] : '';
+            $nombre     = isset($datos['enlace']['nombre']) ? $datos['enlace']['nombre'] : '';
+            $clase      = isset($datos['enlace']['clase']) ? $datos['enlace']['clase'] : '';
+            $enlace     = isset($datos['enlace']['ruta']) ? $datos['enlace']['ruta'] : '';
+            $target     = isset($datos['enlace']['target']) ? $datos['enlace']['target'] : '';
+            $padre      = isset($datos['enlace']['padre']) ? $datos['enlace']['padre'] : '';
+            $categoria  = isset($datos['enlace']['categoria']) ? $datos['enlace']['categoria'] : '';
+
+            $valores = [];
+
+            if(empty($datos)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            }
+
+            if(isset($id))          { $valores['id']         = $id; }
+            if(isset($nombre))      { $valores['nombre']     = $nombre; }
+            if(isset($clase))       { $valores['clase']      = $clase; }
+            if(isset($enlace))      { $valores['enlace']     = $enlace; }
+            if(isset($target))      { $valores['target']     = $target; }
+            if(isset($padre))       { $valores['padre']      = $padre; }
+            if(isset($categoria))   { $valores['categoria']  = $this->modelMenu->getIdCategoria($categoria); }
+
+            $this->modelMenu->atributos = array('id'=>$id);
+            $this->modelMenu->setatributos = $valores;
+            $resultado = $this->modelMenu->actualizarEnlace();
+
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'Se ha actualizado con exito')), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+        }
+
+        private function eliminarEnlace(){
+            if($this->rest->get_request_method() != "DELETE"){
+                $this->rest->response('',406);
+            }
+            $id = isset($this->rest->_request['id']) ? (int)$this->rest->_request['id'] : 0;
+            if($id > 0){
+                $this->modelMenu->atributos = array('id' => $id);
+                $this->modelMenu->eliminarEnlace();
+                $success = array('status' => "Success", "mensaje" => "Eliminado con éxito");
+                $this->rest->response($this->helper->json($success),200);
+            }else{
+                $this->rest->response($id.'',204);	// If no records "No Content" status
+            }
+        }
 
         /**
          * PAGINAS

@@ -25,9 +25,11 @@ angular
         }
 
         vm.menus = [];
+        vm.enlaces = [];
         vm.enlace = {};
         vm.categoriasMenu = {};
         vm.categoriaDefault = 'principal';
+        vm.targets = []
         vm.datosproveedor = {};
 
         vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
@@ -40,11 +42,24 @@ angular
             id: _datos.id,
             nombre: _datos.nombre,
             clase: _datos.clase,
-            enlace: _datos.enlace,
+            ruta: _datos.enlace,
             target: _datos.target,
             padre: _datos.padre,
             categoria: _datos.categoria,
+            clavecategoria: _datos.clavecategoria,
+            idcategoria: _datos.idcategoria,
         };
+
+        //enlaces vista editar
+        if(angular.isDefined(vm.enlace.clavecategoria)){
+            Menu.todos().then(function(datos){
+                vm.enlaces = datos.resultado;
+            });
+            console.log(vm.enlaces);
+        }
+
+        //targets
+        vm.targets = Menu.targets();
 
 
 
@@ -54,7 +69,7 @@ angular
             }
         });
 
-        Menu.todos(vm.categoriaDefault).then(function(datos){
+        Menu.todostipo(vm.categoriaDefault).then(function(datos){
             if(angular.isDefined(datos)){
                 vm.menus = datos.resultado;
             }
@@ -105,9 +120,9 @@ angular
         };
 
         //acciones
-        vm.editar = function (frmValido) {
-            if (frmValido) {
-                var resultado = Usuarios.actualizar(vm.enlace);
+        vm.editar = function (frm) {
+            if (frm) {
+                var resultado = Menu.actualizar(vm.enlace);
                 $log.info(resultado);
             }
         }
@@ -134,7 +149,7 @@ angular
         vm.getMenu = function(){
             //return $timeout(function() {
             console.log(vm.categoriaDefault);
-            Menu.todos(vm.categoriaDefault).then(function(datos){
+            Menu.todostipo(vm.categoriaDefault).then(function(datos){
                 if(angular.isDefined(datos.resultado)){
                     vm.menus = datos.resultado;
                     vm.tblcontenido = datos.resultado;
@@ -148,7 +163,7 @@ angular
 
 
         //observadores
-
+        //select categorias de menu - vista menu
         var id_categoria;
         $scope.$watch('vm.categoriaSeleccionada', function (newValue, oldValue) {
             if(!oldValue) {
@@ -166,6 +181,14 @@ angular
             vm.datosproveedor.categoria = vm.categoriaDefault;
 
             vm.getMenu();
+        });
+
+        $scope.$watch('vm.enlace.padre', function (newValue, oldValue) {
+            if(newValue !== oldValue) {
+                 Menu.unico(newValue).then(function(datos){
+                    vm.enlace.idcategoria = datos.idcategoria;
+                });
+            }
         });
 
         $scope.$on('cancelar', function( ev ){
@@ -202,11 +225,7 @@ angular
                 vm.categorias = {};
                 vm.enlace = {};
                 vm.enlaces = [];
-                vm.target = [
-                    { clave:'_self', valor: 'Interno' },
-                    { clave:'_blank', valor:'Externo' },
-                    { clave:'_top', valor:'Top' }
-                ];
+                vm.target = Menu.targets();
 
                 Menu.categorias().then(function(datos){
                     if(angular.isDefined(datos)){
@@ -214,7 +233,7 @@ angular
                     }
                 });
 
-                Menu.todos(vm.filtro).then(function(datos){
+                Menu.todostipo(vm.filtro).then(function(datos){
                     if(angular.isDefined(datos)){
                         vm.enlaces = datos.resultado;
                     }
