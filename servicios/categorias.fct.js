@@ -11,6 +11,7 @@ angular
 
 function categoria($http, API_URL, $log, toastr) {
     var data = {
+        'buscador': buscador,
         'unico': unico,
         'todos': todos,
         'crear': crear,
@@ -38,6 +39,10 @@ function categoria($http, API_URL, $log, toastr) {
         }).catch(dataServiceError);
     }
 
+    function buscador(query){
+        return $http.post(API_URL + 'buscadorCategorias', {filtro:query, tipo: query.tipo});
+    }
+
     function unico(id){
         return $http.post(API_URL + 'unicaCategoria', {id:id}).then(function (datos) {
             return datos.data;
@@ -52,6 +57,7 @@ function categoria($http, API_URL, $log, toastr) {
     }
 
     function actualizar(categoria){
+        console.log(categoria);
         return $http.put(API_URL + 'actualizarCategoria', {
             id: categoria.id,
             categoria:categoria,
@@ -82,47 +88,10 @@ function categoria($http, API_URL, $log, toastr) {
         });
     }
 
-    function guardarImagen(){
-        return $http.post(API_URL + 'eliminarCategoria?id='+id, {
-            transformRequest: angular.indentity,
-            headers: { 'Content-Type': undefined }
-        }).then(function (datos) {
-            toastr.success(datos.data.mensaje);
-            return datos.data;
-        });
-    }
-
     function demo(id){
         $log.info('desde servicio id'+id);
     }
-    
 
-    /*
-    function getPremieres() {
-        //Get first day of the current month
-        var date = new Date();
-        date.setDate(1);
-        return makeRequest('discover/tv', {'first_air_date.gte': moment(date).format('DD-MM-YYYY'), append_to_response: 'genres'}).then(function(data){
-            return data.results;
-        });
-    }
-    function get(id) {
-        return makeRequest('tv/' + id, {});
-    }
-    function getCast(id) {
-        return makeRequest('tv/' + id + '/credits', {});
-    }
-    function search(query) {
-        return makeRequest('search/tv', {query: query}).then(function(data){
-            return data.results;
-        });
-    }
-    function getPopular() {
-        return makeRequest('tv/popular', {}).then(function(data){
-            return data.results;
-        });
-    }
-    */
     return data;
 
     function dataServiceError(errorResponse) {

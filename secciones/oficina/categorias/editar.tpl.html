@@ -1,35 +1,56 @@
-<div ng-cloak> <!-- ng-controller="MasterController as vm" -->
+<div layout="row" class="full-height">
+    <!-- left sidebar -->
+    <cms-sidebar></cms-sidebar>
 
-    <div id="page-wrapper" ng-class="{'open': menu}" ng-cloak>
-        <!-- Sidebar -->
-        <!--<div ng-include="'html/_menulateral.html'"></div>-->
-        <cms-menu></cms-menu>
-        <!-- End Sidebar -->
+    <!-- main content -->
+    <div id="admin-panel" layout="column" flex>
+        <!-- loading animation -->
+        <tri-loader></tri-loader>
 
-        <div id="content-wrapper">
-            <div class="page-content">
-
-                <!-- Header Bar -->
-                <cms-barra-superior></cms-barra-superior>
-                <!-- End Header Bar -->
-
-                <!-- Main Content -->
+        <!-- top toolbar ui-view="toolbar" -->
+        <md-toolbar class="admin-toolbar"
+                    ng-if="vm.layout.showToolbar"
+                    md-theme="{{triSkin.elements.toolbar}}"
+                    ng-class="[vm.layout.toolbarSize,vm.layout.toolbarClass]">
+            <cms-toolbar></cms-toolbar>
+        </md-toolbar>
 
 
+        <!-- scrollable content -->
+        <md-content ng-class="layout.contentClass"  flex  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
 
-                <div class="row">
-                    <div class="col-md-8">
+            {{layout.contentClass}}
+
+            <div class="padded-content-page ng-scope">
+                <!-- Contenido -->
+
+                <div layout="row" layout-wrap>
+                    <div flex="70">
                         <div ng-include="'secciones/oficina/categorias/_form.html'"></div>
                     </div>
-                    <div class="col-md-4">
-                        <div ng-include="'secciones/oficina/categorias/_vista.html'"></div>
+
+                    <div flex="30">
+
+                                <div ng-include="'secciones/oficina/categorias/_vista.html'"></div>
+                            </md-card-content>
+                        </md-card>
                     </div>
                 </div>
 
-<!-- END MAIN CONTENT -->
 
-</div><!-- End Page Content -->
-</div><!-- End Content Wrapper -->
-</div><!-- End Page Wrapper -->
 
+
+                <!-- Fin Contenido -->
+            </div>
+
+        </md-content>
+
+        <cms-pie-pagina md-theme="{{triSkin.elements.toolbar}}"></cms-pie-pagina>
+
+    </div>
+
+    <!-- right sidebar -->
+    <md-sidenav layout layout-fill class="md-sidenav-right md-whiteframe-z2"
+                md-component-id="notifications"
+                ui-view="sidebarRight"></md-sidenav>
 </div>

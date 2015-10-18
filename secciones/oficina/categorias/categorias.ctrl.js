@@ -4,92 +4,170 @@
 'use strict';
 angular
     .module('app.coreoficina')
-    .controller('CategoriasController', function($scope, $rootScope, PageValues, $cookieStore,
-                                             $q, $location, $auth, $log, toastr, $window,
-                                             $routeParams, Categorias, _datos) {
+    .controller('CategoriasController', function ($scope, $rootScope, PageValues, $cookieStore,
+                                                  $q, $location, $auth, $log, toastr, $window,
+                                                  $routeParams, Categorias, _datos,
+                                                  triLayout, $mdDialog,
+                                                  $timeout) {
 
         var vm = this;
 
+        // we need to use the scope here because otherwise the expression in md-is-locked-open doesnt work
+        $scope.layout = triLayout.layout; //eslint-disable-line
+        vm.layout = triLayout.layout; //eslint-disable-line
+
+
         vm.vista = $auth.isAuthenticated();
         vm.menu = $rootScope.menu;
-
 
         if (!$auth.isAuthenticated()) {
             $location.path('/login');
         }
 
-        vm.idCategoria = ($routeParams.id) ? parseInt($routeParams.id) : 0;
-        vm.titulo = (vm.idCategoria > 0) ? 'Actualizar categoria' : 'Agregar nueva categoria';
-        vm.botonTexto = (vm.idCategoria > 0) ? 'Actualizar' : 'Agregar';
-        vm.tipoProceso = (vm.idCategoria > 0) ? true : false;
-
-
         vm.categorias = [];
         vm.categoria = {};
+        vm.categoriaDefault = 'principal';
+        vm.datosproveedor = {};
 
-        //categorias
-        vm.categorias = angular.isDefined(_datos.data) ? _datos.data.resultado : {};
+        vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
+        vm.botonTexto = (vm.idUsuario > 0) ? 'Actualizar' : 'Agregar';
+        vm.tituloVista = (vm.idUsuario > 0) ? 'Actualizar categoria' : 'Agregar Enlace';
+        vm.tipo = (vm.idUsuario > 0) ? true : false;
 
-        console.log(_datos);
-        //categoria
+        //enlace
         vm.categoria = {
             id: _datos.id,
             titulo: _datos.titulo,
             slug: _datos.slug
         };
 
+        Categorias.todos().then(function(datos){
+            if(angular.isDefined(datos)){
+                vm.categorias = datos.resultado;
+            }
+        });
 
-        vm.columnas =  [
-            { "key": "id", "nombre": "id", "style": {"width": "35%"} },
-            { "key": "titulo", "nombre": "Titulo", "style": {"width": "50%"} },
-            { "key": "slug", "nombre": "Slug", "style": {"width": "15%"} }
-        ];
 
+
+
+
+        vm.columns = [
+            /*{
+                title: 'Id',
+                field: 'id',
+                sortable: false
+            },*/{
+                title: 'Titulo',
+                field: 'titulo',
+                sortable: true
+            },{
+                title: 'Slug',
+                field: 'slug',
+                sortable: true
+            }];
+        vm.tblcontenido = [];
+
+
+
+        //dataprovider
         vm.datosproveedor = {
             servicio: Categorias,
             identidad : 'categoria',
-            datos : vm.categorias,
-            columnas : vm.columnas,
-            pordefecto: 'titulo',
+            titulo: 'Listado de categorias',
+            categoria: vm.categoriaDefault,
+            //datos : vm.contenido, //vm.usuarios,
+            columnas : vm.columns,//vm.columnas,
+            pordefecto: 'id',
             acciones: true,
-            ordenAsc: false,
-            demo:"hola mundo"
+            ordenAsc: false
         };
 
-        //vm.columnas = ['id','nombre','slug','acciones'];
-
         //acciones
-        vm.procesar = function (isValid, tipo) {
-            if (!isValid) {
-                console.log('no es valido');
-                return;
-            }
-
-            if (!tipo) {
-                vm.crear();
-            } else {
-                vm.editar()
+        vm.editar = function (frm) {
+            if (frm) {
+                var resultado = Categorias.actualizar(vm.categoria);
+                $log.info(resultado);
             }
         }
 
-        vm.crear = function () {
-            var resultado = Categorias.crear(vm.categoria);
-            $location.path('/admin/categoria');
-            //$log.info( resultado);
+        vm.cancelar = function($event) {
+            $rootScope.$broadcast('cancelar', $event);
         }
 
-        vm.editar = function () {
-            var resultado = Categorias.actualizar(vm.categoria);
-            //$log.info( resultado);
+        vm.agregar = function agregar($event) {
+            $rootScope.$broadcast('agregar', $event);
         }
 
-        vm.eliminar = function (id, index) {
-            var resultado = Categorias.eliminar(id);
-            if (resultado){
-                $log.info( index);
-                vm.categoria.splice(index, 1);
+        vm.actualizardatos = function actualizardatos() {
+        }
+
+        vm.getCategorias = function(){
+            //return $timeout(function() {
+            console.log(vm.categoriaDefault);
+            Categorias.todos(vm.categoriaDefault).then(function(datos){
+                if(angular.isDefined(datos.resultado)){
+                    vm.categorias = datos.resultado;
+                    vm.tblcontenido = datos.resultado;
+                }else{
+                    vm.categorias = [];
+                    vm.tblcontenido = [];
+                }
+            });
+            //}, 650);
+        }
+
+
+        //observadores
+
+        $scope.$on('cancelar', function( ev ){
+            $location.path('/admin/categorias');
+        });
+
+
+        $scope.$on('agregar', function( ev ){
+            $mdDialog.show({
+                templateUrl: 'secciones/oficina/categorias/dialogo.tpl.html',
+                targetEvent: ev,
+                controllerAs: 'vm',
+                controller:  DialogController,
+            }).then(function(categoria) {
+                vm.tblcontenido.push(categoria);
+                var resultado = Categorias.crear(categoria);
+
+                vm.actualizardatos();
+            });
+
+            function DialogController($scope, $mdDialog, Menu) {
+                var vm = this;
+                vm.cancelar = cancelar;
+                vm.ocultar = ocultar;
+                vm.actualizar = actualizar;
+                vm.query = {
+                    filtro: 'principal',
+                    tipo:'principal',
+                };
+                vm.categoria = {};
+                vm.categorias = [];
+
+                /////////////////////////
+
+                function actualizar(){
+                    Categorias.todos().then(function(datos){
+                        vm.categorias = datos.data;
+                    });
+                }
+
+                function ocultar() {
+                    $mdDialog.hide(vm.categoria);
+                }
+
+                function cancelar() {
+                    $mdDialog.cancel();
+                }
             }
-        }
+        });
+
+
 
 
     });

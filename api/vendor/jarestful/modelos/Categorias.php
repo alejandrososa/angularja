@@ -26,6 +26,11 @@ class Categorias extends Modelo
         // Aquí realizaríamos la conexión a la BBDD con el método que queramos
     }
 
+    public function buscadorCategorias(){
+        $this->where = $this->atributos;
+        return $this->buscar(self::$modelo);
+    }
+
     public function todasCategorias(){
         return $this->todos(self::$modelo);
     }

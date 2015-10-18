@@ -268,6 +268,22 @@ namespace Api;
          * CATEGORIAS
          */
 
+        public function buscadorCategorias(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $post = json_decode(file_get_contents("php://input"),true);
+            $filtro     = isset($post['filtro']) ? $post['filtro'] : '';
+
+            $this->modelCategorias->atributos = array('id'=> $filtro,'titulo'=> $filtro,'slug'=> $filtro);
+            $resultado = $this->modelCategorias->buscadorCategorias();
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json($resultado), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
         public function unicaCategoria(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
@@ -306,15 +322,12 @@ namespace Api;
             }
 
             $datos      = json_decode(file_get_contents("php://input"),true);
-            $id         = isset($datos['usuario ']['id']) ? (int)$datos['usuario']['id'] : 0;
-            $titulo     = isset($datos['usuario']['titulo']) ? $datos['usuario']['titulo'] : '';
-            $slug       = isset($datos['usuario']['slug']) ? $datos['usuario']['slug'] : '';
+            $id         = isset($datos['categoria']['id']) ? (int)$datos['categoria']['id'] : 0;
+            $titulo     = isset($datos['categoria']['titulo']) ? $datos['categoria']['titulo'] : '';
+            $slug       = isset($datos['categoria']['slug']) ? $datos['categoria']['slug'] : '';
 
             $valores = [];
 
-            $filename = $_FILES['file']['name'];
-            $destination = '../images/' . $filename;
-            move_uploaded_file( $_FILES['file']['tmp_name'] , $destination );
 
             if(empty($datos)){
                 $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);

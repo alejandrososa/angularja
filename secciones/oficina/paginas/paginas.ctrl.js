@@ -4,94 +4,279 @@
 'use strict';
 angular
     .module('app.coreoficina')
-    .controller('PaginasController', function($scope, $rootScope, PageValues, $cookieStore,
-                                             $q, $location, $auth, $log, toastr, $window,
-                                             $routeParams, Paginas, _datos) {
+    .controller('PaginasController', function ($scope, $rootScope, PageValues, $cookieStore,
+                                                $q, $location, $auth, $log, toastr, $window,
+                                                $routeParams, Menu, _datos,
+                                                triLayout, $mdDialog,
+                                                $timeout) {
 
         var vm = this;
 
+        // we need to use the scope here because otherwise the expression in md-is-locked-open doesnt work
+        $scope.layout = triLayout.layout; //eslint-disable-line
+        vm.layout = triLayout.layout; //eslint-disable-line
+
+
         vm.vista = $auth.isAuthenticated();
         vm.menu = $rootScope.menu;
-
 
         if (!$auth.isAuthenticated()) {
             $location.path('/login');
         }
 
-        vm.idPagina = ($routeParams.id) ? parseInt($routeParams.id) : 0;
-        vm.titulo = (vm.idPagina > 0) ? 'Actualizar categoria' : 'Agregar nueva categoria';
-        vm.botonTexto = (vm.idPagina > 0) ? 'Actualizar' : 'Agregar';
-        vm.tipoProceso = (vm.idPagina > 0) ? true : false;
+        vm.menus = [];
+        vm.enlaces = [];
+        vm.enlace = {};
+        vm.categoriasMenu = {};
+        vm.categoriaDefault = 'principal';
+        vm.targets = []
+        vm.datosproveedor = {};
 
+        vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
+        vm.botonTexto = (vm.idUsuario > 0) ? 'Actualizar' : 'Agregar';
+        vm.tituloVista = (vm.idUsuario > 0) ? 'Actualizar Enlace' : 'Agregar Enlace';
+        vm.tipo = (vm.idUsuario > 0) ? true : false;
 
-        vm.paginas = [];
-        vm.pagina = {};
-
-        //categorias
-        vm.paginas = angular.isDefined(_datos.data) ? _datos.data.resultado : {};
-
-        console.log(_datos);
-        //categoria
-        vm.pagina = {
+        //enlace
+        vm.enlace = {
             id: _datos.id,
-            titulo: _datos.titulo,
-            slug: _datos.slug
+            nombre: _datos.nombre,
+            clase: _datos.clase,
+            ruta: _datos.enlace,
+            target: _datos.target,
+            padre: _datos.padre,
+            categoria: _datos.categoria,
+            clavecategoria: _datos.clavecategoria,
+            idcategoria: _datos.idcategoria,
         };
 
+        //enlaces vista editar
+        if(angular.isDefined(vm.enlace.clavecategoria)){
+            Menu.todos().then(function(datos){
+                vm.enlaces = datos.resultado;
+            });
+            console.log(vm.enlaces);
+        }
 
-        vm.columnas =  [
-            { "key": "id", "nombre": "id", "style": {"width": "35%"} },
-            { "key": "nombre", "nombre": "Nombre", "style": {"width": "50%"} },
-            //{ "key": "slug", "nombre": "Slug", "style": {"width": "15%"} },
-            { "key": "tipo", "nombre": "Tipo", "style": {"width": "15%"} },
-            { "key": "fecha", "nombre": "Fecha", "style": {"width": "15%"} }
-        ];
+        //targets
+        vm.targets = Menu.targets();
 
+
+
+        Menu.categorias().then(function(datos){
+            if(angular.isDefined(datos)){
+                vm.categoriasMenu = datos.data.resultado;
+            }
+        });
+
+        Menu.todostipo(vm.categoriaDefault).then(function(datos){
+            if(angular.isDefined(datos)){
+                vm.menus = datos.resultado;
+            }
+        });
+
+
+
+
+
+        vm.columns = [
+            {
+                title: 'Id',
+                field: 'id',
+                sortable: false
+            },{
+                title: 'Nombre',
+                field: 'nombre',
+                sortable: true
+            },{
+                title: 'Enlace',
+                field: 'enlace',
+                sortable: true
+            },{
+                title: 'Categoria',
+                field: 'categoria',
+                sortable: true
+            },{
+                title: 'Total',
+                field: 'hijos',
+                sortable: false
+                //filter: 'tablaFecha'
+            },];
+        vm.tblcontenido = [];
+
+
+
+        //dataprovider
         vm.datosproveedor = {
-            servicio: Paginas,
-            identidad : 'pagina',
-            datos : vm.paginas,
-            columnas : vm.columnas,
-            pordefecto: 'titulo',
+            servicio: Menu,
+            identidad : 'menu',
+            titulo: 'Listado de paginas',
+            categoria: vm.categoriaDefault,
+            //datos : vm.contenido, //vm.usuarios,
+            columnas : vm.columns,//vm.columnas,
+            pordefecto: 'nombre',
             acciones: true,
-            ordenAsc: false,
-            demo:"hola mundo"
+            ordenAsc: false
         };
-
-        //vm.columnas = ['id','nombre','slug','acciones'];
 
         //acciones
-        vm.procesar = function (isValid, tipo) {
-            if (!isValid) {
-                console.log('no es valido');
-                return;
-            }
-
-            if (!tipo) {
-                vm.crear();
-            } else {
-                vm.editar()
+        vm.editar = function (frm) {
+            if (frm) {
+                var resultado = Menu.actualizar(vm.enlace);
+                $log.info(resultado);
             }
         }
 
-        vm.crear = function () {
-            var resultado = Paginas.crear(vm.pagina);
+        vm.cancelar = function($event) {
+            $rootScope.$broadcast('cancelar', $event);
+        }
+
+        vm.agregar = function agregar($event) {
+            $rootScope.$broadcast('agregar', $event);
+        }
+
+        vm.actualizardatos = function actualizardatos() {
+            //vm.tablacontenido = [];
+            //Menu.todos(vm.categoriaDefault).then(function(datos){
+              //  if(angular.isDefined(datos)){
+               //     vm.tblcontenido = datos.resultado;
+                //}
+            ///});
+
+            console.log(vm.tablacontenido);
+        }
+
+        vm.getMenu = function(){
+            //return $timeout(function() {
+            console.log(vm.categoriaDefault);
+            Menu.todostipo(vm.categoriaDefault).then(function(datos){
+                if(angular.isDefined(datos.resultado)){
+                    vm.menus = datos.resultado;
+                    vm.tblcontenido = datos.resultado;
+                }else{
+                    vm.menus = [];
+                    vm.tblcontenido = [];
+                }
+            });
+            //}, 650);
+        }
+
+
+        //observadores
+        //select categorias de menu - vista menu
+        var id_categoria;
+        $scope.$watch('vm.categoriaSeleccionada', function (newValue, oldValue) {
+            if(!oldValue) {
+                id_categoria = vm.categoriaDefault;
+            }
+
+            if(newValue !== oldValue) {
+                vm.categoriaDefault = newValue;
+            }
+
+            if(!newValue) {
+                vm.categoriaDefault = id_categoria;
+            }
+
+            vm.datosproveedor.categoria = vm.categoriaDefault;
+
+            vm.getMenu();
+        });
+
+        $scope.$watch('vm.enlace.padre', function (newValue, oldValue) {
+            if(newValue !== oldValue) {
+                 Menu.unico(newValue).then(function(datos){
+                    vm.enlace.idcategoria = datos.idcategoria;
+                });
+            }
+        });
+
+        $scope.$on('cancelar', function( ev ){
             $location.path('/admin/paginas');
-            //$log.info( resultado);
-        }
+        });
 
-        vm.editar = function () {
-            var resultado = Paginas.actualizar(vm.pagina);
-            //$log.info( resultado);
-        }
 
-        vm.eliminar = function (id, index) {
-            var resultado = Paginas.eliminar(id);
-            if (resultado){
-                $log.info( index);
-                vm.paginas.splice(index, 1);
+        $scope.$on('agregar', function( ev ){
+            $mdDialog.show({
+                templateUrl: 'secciones/oficina/paginas/dialogo.tpl.html',
+                targetEvent: ev,
+                controllerAs: 'vm',
+                controller:  DialogController,
+            }).then(function(enlace) {
+                vm.tblcontenido.push(enlace);
+                var resultado = Menu.crear(enlace);
+
+
+                vm.actualizardatos();
+            });
+
+            function DialogController($scope, $mdDialog, Menu) {
+                var vm = this;
+                vm.cancelar = cancelar;
+                vm.ocultar = ocultar;
+                vm.actualizar = actualizar;
+                vm.query = {
+                    filtro: 'principal',
+                    tipo:'principal',
+                };
+                vm.usuario = {};
+                vm.categorias = {};
+                vm.enlace = {};
+                vm.enlaces = [];
+                vm.target = Menu.targets();
+
+                Menu.categorias().then(function(datos){
+                    if(angular.isDefined(datos)){
+                        vm.categorias = datos.data.resultado;
+                    }
+                });
+
+                Menu.todostipo(vm.filtro).then(function(datos){
+                    if(angular.isDefined(datos)){
+                        vm.enlaces = datos.resultado;
+                    }
+                });
+
+                //observador
+                var id_categoria;
+                $scope.$watch('vm.enlace.categoria', function (nuevo, anterior) {
+                    if(!anterior) {
+                        id_categoria = vm.query.filtro;
+                    }
+
+                    if(nuevo !== anterior) {
+                        vm.query.filtro = nuevo;
+                        vm.query.tipo = nuevo;
+                    }
+
+                    if(!nuevo) {
+                        vm.query.filtro = id_categoria;
+                        vm.query.tipo = id_categoria;
+                    }
+
+                    vm.actualizar();
+                });
+
+                /////////////////////////
+
+                function actualizar(){
+                    vm.query.tipo = vm.enlace.categoria;
+                    Menu.buscadorporcategorias(vm.query).then(function(datos){
+                        vm.enlaces = datos.data;
+                    });
+                }
+
+                function ocultar() {
+                    $mdDialog.hide(vm.enlace);
+                }
+
+                function cancelar() {
+                    $mdDialog.cancel();
+                }
             }
-        }
+        });
+
+
 
 
     });

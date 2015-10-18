@@ -1,35 +1,38 @@
-{{vm.categoria}}
-
-<div class="card">
-    <div class="header">
-        <h4 class="title">{{vm.titulo}}</h4>
-    </div>
-    <div class="content">
-        <form role="form" name="frmCategoria" ng-submit="vm.procesar(frmCategoria.$valid, vm.tipoProceso)" novalidate>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Titulo</label>
-                        <input type="text" class="form-control" placeholder="Titulo" ng-model="vm.categoria.titulo" value="">
+<md-card flex>
+    <md-card-content>
+        <div>
+            <h2>{{vm.tituloVista}}</h2>
+            <br>
+            <form name="frm" novalidate>
+                <md-input-container>
+                    <label>Titulo</label>
+                    <input type="text" name="titulo" ng-model="vm.categoria.titulo" class="dialog-close" required>
+                    <div ng-messages="frm.titulo.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Titulo requerido</span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
+                </md-input-container>
 
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Dirección</label>
-                        <input type="text" class="form-control" placeholder="slug" id="slug" ng-model="vm.categoria.slug" value="">
+                <md-input-container>
+                    <label>Slug</label>
+                    <input type="text" name="enlace" ng-model="vm.categoria.slug" class="dialog-close" required>
+                    <div ng-messages="frm.enlace.$dirty">
+                        <div ng-message when="required">
+                            <span translate>enlace requerido</span>
+                        </div>
                     </div>
+                </md-input-container>
+
+                <div layout="row" layout-align="end center">
+                    <md-button ng-click="vm.cancelar()" class="md-warn">Cancelar</md-button>
+                    <md-button ng-click="vm.editar(frm.$valid)" class="md-accent md-hue-3" ng-disabled="frm.$invalid">{{vm.botonTexto}}</md-button>
                 </div>
-            </div>
+
+                
 
 
-            <button type="submit" class="btn btn-success btn-fill pull-right">{{vm.botonTexto}}</button>
-            <div class="clearfix"></div>
-        </form>
-    </div>
-</div>
+            </form>
+        </div>
+    </md-card-content>
+</md-card>

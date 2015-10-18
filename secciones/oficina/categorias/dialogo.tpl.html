@@ -1,8 +1,8 @@
-<md-dialog aria-label="Mango (Fruit)" flex="40" flex-sm="40">
+<md-dialog aria-label="Mango (Fruit)" flex="50" flex-sm="50">
     <md-toolbar md-theme="{{triSkin.elements.content}}">
         <div class="md-toolbar-tools">
             <h2>
-                <span translate>Agregar Usuario</span>
+                <span translate>Agregar Categoria</span>
             </h2>
         </div>
     </md-toolbar>
@@ -11,109 +11,30 @@
 
     <md-dialog-content class="sticky-container">
         <div>
-            <form name="taskForm" novalidate>
+            <form name="frm" novalidate>
+
                 <md-input-container>
-                    <label>Usuario</label>
-                    <input type="text" name="usuario" ng-model="vm.usuario.usuario" class="dialog-close" required>
-                    <div ng-messages="taskForm.usuario.$dirty">
+                    <label>Titulo</label>
+                    <input type="text" name="titulo" ng-model="vm.categoria.titulo" class="dialog-close" required>
+                    <div ng-messages="frm.titulo.$dirty">
                         <div ng-message when="required">
-                            <span translate>Nombre requerido</span>
+                            <span translate>Titulo requerido</span>
                         </div>
                     </div>
                 </md-input-container>
 
                 <md-input-container>
-                    <label>Nombre</label>
-                    <input type="text" name="nombre" ng-model="vm.usuario.nombre" class="dialog-close" required>
-                    <div ng-messages="taskForm.nombre.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Nombre requerido</span>
-                        </div>
-                    </div>
+                    <label>Slug</label>
+                    <input type="text" name="slug" ng-model="vm.categoria.slug" class="dialog-close" required>
                 </md-input-container>
-
-                <md-input-container>
-                    <label>Apellido</label>
-                    <input type="text" name="apellidos" ng-model="vm.usuario.apellidos" class="dialog-close" required>
-                    <div ng-messages="taskForm.apellidos.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Apellido requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Correo</label>
-                    <input type="text" name="correo" ng-model="vm.usuario.correo" class="dialog-close" required>
-                    <div ng-messages="taskForm.correo.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Correo requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Telefono</label>
-                    <input type="text" name="telefono" ng-model="vm.usuario.tel" class="dialog-close" required>
-                    <div ng-messages="taskForm.telefono.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Telefono requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Clave</label>
-                    <input type="text" name="clave" ng-model="vm.usuario.clave" class="dialog-close" required>
-                    <div ng-messages="taskForm.clave.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Clave requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Dirección</label>
-                    <input type="text" name="direccion" ng-model="vm.usuario.direccion" class="dialog-close" required>
-                    <div ng-messages="taskForm.direccion.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Direcci&oacute;n requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Ciudad</label>
-                    <input type="text" name="ciudad" ng-model="vm.usuario.ciudad" class="dialog-close" required>
-                    <div ng-messages="taskForm.ciudad.$dirty">
-                        <div ng-message when="required">
-                            <span translate>Ciudad requerido</span>
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container>
-                    <md-select placeholder="{{'MENU.TODO.DIALOG.PRIORITY'}}" ng-model="vm.usuario.pais">
-                        <md-option value="repdominicana" translate>Rep. Dominicana</md-option>
-                        <md-option value="espana" translate>España</md-option>
-                    </md-select>
-                </md-input-container>
-
-
-
-                <md-input-container>
-                    <label>Imagen</label>
-                    <input type="file" id="imagen" file-model="vm.usuario.imagen" class="dialog-close">
-                </md-input-container>
-
-
 
             </form>
         </div>
+
     </md-dialog-content>
     <div class="md-actions" layout="row">
         <span flex></span>
         <md-button ng-click="vm.cancelar()">Cancel</md-button>
-        <md-button ng-click="vm.ocultar()" class="md-primary" ng-disabled="taskForm.$invalid">Ok</md-button>
+        <md-button ng-click="vm.ocultar()" class="md-primary" ng-disabled="frm.$invalid">Ok</md-button>
     </div>
 </md-dialog>
