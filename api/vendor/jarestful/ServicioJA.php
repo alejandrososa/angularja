@@ -178,9 +178,7 @@ namespace Api;
 
             $valores = [];
 
-            $filename = $_FILES['file']['name'];
-            $destination = '../images/' . $filename;
-            move_uploaded_file( $_FILES['file']['tmp_name'] , $destination );
+
 
             if(empty($datos)){
                 $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
@@ -210,17 +208,19 @@ namespace Api;
                 $this->rest->response('',406);
             }
 
-            $datos      = json_decode(file_get_contents("php://input"),true);
+            //$datos      = json_decode(file_get_contents("php://input"),true);
+            $datos      = $this->rest->_request;
             $usuario    = isset($datos['usuario']['usuario']) ? $datos['usuario']['usuario'] : '';
-            $imagen     = isset($datos['usuario']['imagen']) ? $datos['usuario']['imagen'] : '';
-            $nombre     = isset($datos['usuario']['nombre']) ? $datos['usuario']['nombre'] : '';
-            $apellidos  = isset($datos['usuario']['apellidos']) ? $datos['usuario']['apellidos'] : '';
-            $correo     = isset($datos['usuario']['correo']) ? $datos['usuario']['correo'] : '';
-            $clave      = isset($datos['usuario']['clave']) ? $datos['usuario']['clave'] : '';
-            $tel        = isset($datos['usuario']['tel']) ? $datos['usuario']['tel'] : '';
-            $direccion  = isset($datos['usuario']['direccion']) ? $datos['usuario']['direccion'] : '';
-            $ciudad     = isset($datos['usuario']['ciudad']) ? $datos['usuario']['ciudad'] : '';
-            $pais       = isset($datos['usuario']['pais']) ? $datos['usuario']['pais'] : '';
+            $login      = isset($usuario['usuario']) ? $usuario['usuario'] : '';
+            $imagen     = !empty( $_FILES ) ? $_FILES : '';
+            $nombre     = isset($usuario['nombre']) ? $usuario['nombre'] : '';
+            $apellidos  = isset($usuario['apellidos']) ? $usuario['apellidos'] : '';
+            $correo     = isset($usuario['correo']) ? $usuario['correo'] : '';
+            $clave      = isset($usuario['clave']) ? $usuario['clave'] : '';
+            $tel        = isset($usuario['tel']) ? $usuario['tel'] : '';
+            $direccion  = isset($usuario['direccion']) ? $usuario['direccion'] : '';
+            $ciudad     = isset($usuario['ciudad']) ? $usuario['ciudad'] : '';
+            $pais       = isset($usuario['pais']) ? $usuario['pais'] : '';
 
             $valores = [];
 
@@ -228,8 +228,8 @@ namespace Api;
                 $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
             }
 
-            if(isset($usuario))    { $valores['usuario']    = $usuario; }
-            if(isset($imagen))     { $valores['imagen']     = $imagen; }
+            if(isset($login))      { $valores['usuario']    = $login; }
+            //if(isset($imagen))     { $valores['imagen']     = $imagen; }
             if(isset($nombre))     { $valores['nombre']     = $nombre; }
             if(isset($apellidos))  { $valores['apellidos']  = $apellidos; }
             if(isset($correo))     { $valores['correo']     = $correo; }
@@ -242,9 +242,17 @@ namespace Api;
             $this->modelUsuarios->atributos = $valores;
             $resultado = $this->modelUsuarios->crearUsuario();
             if(isset($resultado)){
+                $nombre_imagen = 'usuario_'.$resultado;
+                $archivo = $this->helper->guardarImagen($imagen, $nombre_imagen, 'usuarios');
+
+                $this->modelUsuarios->atributos = array('id'=>$resultado);
+                $this->modelUsuarios->setatributos = array('imagen'=>$archivo);
+                $this->modelUsuarios->actualizarUsuario();
+
                 $this->rest->response($this->helper->json(array('mensaje'=>'Se ha creado el usuario con exito')), 200);
+                //$this->rest->response($this->helper->json(array('resultado'=> $valores, 'mensaje'=>'Se ha creado el usuario con exito')), 200);
             }
-            $this->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
         }
 
         private function eliminarUsuario(){

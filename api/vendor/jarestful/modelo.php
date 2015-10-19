@@ -688,9 +688,11 @@ abstract class Modelo{
 
 				if($param){ $stmt->bindValue(':' . $key,$valor,$param); }
 			}
-
+			//print_r($stmt);
+			//die();
 			$stmt->execute();
-			$this->resultado = $this->_cnx->lastInsertId();
+			return $this->_cnx->lastInsertId();
+			//$this->resultado = $this->_cnx->lastInsertId();
 
 		} catch (PDOException $exception) {
 			$this->resultado = false;

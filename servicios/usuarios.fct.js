@@ -68,12 +68,35 @@ function servicio($http, API_URL, $log, toastr) {
     }
 
     function crear(usuario){
-        return $http.post(API_URL + 'crearUsuario', {
-            id: usuario.id,
-            usuario:usuario,
+
+
+
+
+        var fd = new FormData();
+        if(angular.isDefined(usuario.archivo._file)) {
+            fd.append('file', usuario.archivo._file);
+        }
+
+        for (var key in usuario) {
+            if(key != 'archivo') {
+                fd.append('usuario[usuario]['+ key +']', usuario[key]);
+            }
+        }
+
+        console.log(fd);
+
+        //fd.append('usuario[]', _usuario);
+
+        //console.log(usuario.archivo._file);
+
+        return $http.post(API_URL + 'crearUsuario', fd, {
+            //file: fd,
+            //id: usuario.id,
+            //usuario:usuario,
             transformRequest: angular.indentity,
             headers: { 'Content-Type': undefined }
         }).then(function (datos) {
+            console.log(datos);
             toastr.success(datos.data.mensaje);
             return datos.data;
         });

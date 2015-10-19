@@ -86,10 +86,9 @@
 	        <script src="bower_components/moment/moment.js"></script>
 	        <script src="bower_components/angular-moment/angular-moment.min.js"></script>
 	        <script src="bower_components/angular-truncate/angular-truncate.js"></script>
-	        <script src="bower_components/angular-preload/angular-preload-image.min.js"></script>
 			<script src="bower_components/angular-css/angular-css.js"></script>
 			<script src="bower_components/angular-css/angular-css.min.js"></script>
-			<script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+			<script src="bower_components/angular-file-upload/angular-file-upload.min.js"></script>
 			<script src="bower_components/angular-animate/angular-animate.min.js"></script>
 			<script src="bower_components/angular-aria/angular-aria.min.js"></script>
 			<script src="bower_components/angular-material/angular-material.min.js"></script>
@@ -186,6 +185,10 @@
 		<script src="secciones/oficina/html/componentes/table/table-start-from.filter.js"></script>
 
 		<script src="secciones/oficina/html/directivas/tema-fondo.drct.js"></script>
+
+
+		<script src="secciones/oficina/html/directivas/imagenvista/cargarimagen.drct.js"></script>
+		<script src="secciones/oficina/html/directivas/imagenvista/imagen.drct.js"></script>
 
 
 		

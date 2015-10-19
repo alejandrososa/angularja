@@ -15,6 +15,33 @@ class Helper {
         }
     }
 
+    public function guardarImagen($archivo, $nombre, $carpeta = null){
+        if ( !empty( $archivo ) ) {
+            $tempPath = $archivo[ 'file' ][ 'tmp_name' ];
+            $temp = explode(".", $archivo["file"]["name"]);
+            $foto = $nombre . '.' . end($temp);
+            //$foto = round(microtime(true)) . '.' . end($temp);
+
+            $carpeta_destino = '';
+            if(!empty($carpeta)){
+                $carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/assets/archivos/'.$carpeta.'/'.$foto;
+            }else{
+                $carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/assets/archivos/'.$foto;
+            }
+            //$uploadPath =  $_SERVER['DOCUMENT_ROOT'] . '/assets/archivos/'.$foto; //. $archivo[ 'file' ][ 'name' ];
+            move_uploaded_file( $tempPath, $carpeta_destino );
+
+            return $foto;
+
+            //$answer = array( 'answer' => 'File transfer completed' );
+            //$json = json_encode( $answer );
+            //echo $json;
+            //$respo = $json;
+        } else {
+            //$respo = 'No files';
+        }
+    }
+
     public function encriptar($string){
         $hash = '';
         if(isset($string)){

@@ -4,6 +4,7 @@
 'use strict';
 angular
     .module('app.coreoficina')
+    .constant('RUTA_IMAGENES', 'assets/archivos/usuarios/')
     .filter('custom', function () {
         return function (input, search) {
             if (!input) return input;
@@ -22,7 +23,7 @@ angular
     .controller('UsuariosController', function ($scope, $rootScope, PageValues, $cookieStore,
                                                 $q, $location, $auth, $log, toastr, $window,
                                                 $routeParams, Usuarios, _datos,
-                                                triLayout, $mdDialog) {
+                                                triLayout, $mdDialog, FileUploader, RUTA_IMAGENES) {
 
         var vm = this;
 
@@ -53,7 +54,7 @@ angular
         //usuario
         vm.usuario = {
             id: _datos.id,
-            imagen: _datos.imagen,
+            imagen: angular.isDefined(_datos.imagen) ? RUTA_IMAGENES + _datos.imagen : _datos.imagen,
             usuario: _datos.usuario,
             nombre: _datos.nombre,
             apellidos: _datos.apellidos,
@@ -72,11 +73,11 @@ angular
                 field: 'imagen',
                 sortable: false,
                 filter: 'tableImage'
-            },/*{
+            },{
                 title: 'Id',
                 field: 'id',
                 sortable: true
-            },*/{
+            },{
                 title: 'Usuario',
                 field: 'usuario',
                 sortable: true
@@ -100,8 +101,10 @@ angular
         if(angular.isDefined(vm.usuarios)){
             angular.forEach(vm.usuarios, function(d){
 
+                console.log(RUTA_IMAGENES + d.imagen);
+
                 vm.tblcontenido.push({
-                    imagen: d.imagen,
+                    imagen: angular.isDefined(d.imagen) ? RUTA_IMAGENES + d.imagen : d.imagen,
                     id: d.id,
                     usuario: d.usuario,
                     correo: d.correo,
@@ -125,6 +128,13 @@ angular
             ordenAsc: false
         };
 
+
+
+
+
+
+
+
         //acciones
         vm.editar = function (frmValido) {
             if (frmValido) {
@@ -145,11 +155,9 @@ angular
             vm.tablacontenido = [];
             Usuarios.todos().then(function(datos){
                 if(angular.isDefined(datos)){
-                    console.log(datos);
                     vm.tblcontenido = datos.data.resultado;
                 }
             });
-            console.log(vm.tablacontenido);
         }
 
 
@@ -168,7 +176,6 @@ angular
             }).then(function(usuario) {
                 //vm.persona.push(usuario);
                 vm.usuario = usuario;
-                console.log(usuario);
                 //vm.tblcontenido.push(usuario);
                 var resultado = Usuarios.crear(usuario);
                 var nuevousuario;
@@ -176,13 +183,60 @@ angular
                 vm.actualizardatos();
             });
 
-            function DialogController($mdDialog) {
+            function DialogController($mdDialog, FileUploader) {
                 var vm = this;
                 vm.cancelar = cancelar;
                 vm.ocultar = ocultar;
+                //vm.cargarimagen = cargarimagen;
                 vm.usuario = {};
 
+
+                ///imagen
+                var _name = 'defecto.jpg';
+                vm.procesarArchivo = {
+                    getImagen: function(nombre){
+                        var archivo = arguments.length ? (_name = nombre) : _name;
+                        vm.usuario.archivo = archivo;
+                        return 'Cargado: '+ archivo.file.name;
+                    }
+                }
+                var uploader = vm.uploader = new FileUploader({
+                    url: 'upload.php'
+                });
+
+
+
+
+                // FILTERS
+
+                uploader.filters.push({
+                    name: 'imageFilter',
+                    fn: function(item /*{File|FileLikeObject}*/, options) {
+                        var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+                        return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+                    }
+                });
+
+                var controller = vm.controller = {
+                    isImage: function(item) {
+                        var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+                        return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+                    }
+                };
+
+
+                ///fin imagen
+
+
+
+
+
+
                 /////////////////////////
+
+                function cargarimagen(imagen){
+                    console.log(imagen);
+                }
 
                 function ocultar() {
                     $mdDialog.hide(vm.usuario);
