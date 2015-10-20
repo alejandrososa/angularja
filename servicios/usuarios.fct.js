@@ -15,8 +15,9 @@ function servicio($http, API_URL, $log, toastr) {
         'todos': todos,
         'buscador': buscador,
         'crear': crear,
-        'eliminar': eliminar,
         'actualizar': actualizar,
+        'eliminar': eliminar,
+        'existedatousuario': existedatousuario
     };
 
     function ejecutar(tipo, url, params) {
@@ -68,10 +69,6 @@ function servicio($http, API_URL, $log, toastr) {
     }
 
     function crear(usuario){
-
-
-
-
         var fd = new FormData();
         if(angular.isDefined(usuario.archivo._file)) {
             fd.append('file', usuario.archivo._file);
@@ -82,12 +79,6 @@ function servicio($http, API_URL, $log, toastr) {
                 fd.append('usuario[usuario]['+ key +']', usuario[key]);
             }
         }
-
-        console.log(fd);
-
-        //fd.append('usuario[]', _usuario);
-
-        //console.log(usuario.archivo._file);
 
         return $http.post(API_URL + 'crearUsuario', fd, {
             //file: fd,
@@ -109,13 +100,9 @@ function servicio($http, API_URL, $log, toastr) {
         });
     }
 
-    function guardarImagen(){
-        return $http.post(API_URL + 'eliminarUsuario?id='+id, {
-            transformRequest: angular.indentity,
-            headers: { 'Content-Type': undefined }
-        }).then(function (datos) {
-            toastr.success(datos.data.mensaje);
-            return datos.data;
+    function existedatousuario(clave, valor){
+        return $http.post(API_URL + 'existeDatoUsuario', {clave:clave, valor:valor}).then(function (datos) {
+            return datos.data.existe;
         });
     }
     

@@ -160,47 +160,24 @@ namespace Api;
             $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
         }
 
-        private function actualizarUsuario(){
-            if($this->rest->get_request_method() != "PUT"){
+        public function existeDatoUsuario(){
+            if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
 
-            $datos      = json_decode(file_get_contents("php://input"),true);
-            $id         = isset($datos['usuario']['id']) ? (int)$datos['usuario']['id'] : 0;
-            $nombre     = isset($datos['usuario']['nombre']) ? $datos['usuario']['nombre'] : '';
-            $apellidos  = isset($datos['usuario']['apellidos']) ? $datos['usuario']['apellidos'] : '';
-            $correo     = isset($datos['usuario']['correo']) ? $datos['usuario']['correo'] : '';
-            $clave      = isset($datos['usuario']['clave']) ? $datos['usuario']['clave'] : '';
-            $tel        = isset($datos['usuario']['tel']) ? $datos['usuario']['tel'] : '';
-            $direccion  = isset($datos['usuario']['direccion']) ? $datos['usuario']['direccion'] : '';
-            $ciudad     = isset($datos['usuario']['ciudad']) ? $datos['usuario']['ciudad'] : '';
-            $pais       = isset($datos['usuario']['pais']) ? $datos['usuario']['pais'] : '';
+            //$post       = $this->rest->_request;
+            $post = json_decode(file_get_contents("php://input"),true);
 
-            $valores = [];
+            $clave      = isset($post['clave']) ? $post['clave'] : '';
+            $valor      = isset($post['valor']) ? $post['valor'] : '';
 
-
-
-            if(empty($datos)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            if(empty($clave) || empty($valor)){
+                $this->rest->response($this->helper->json(array('mensaje'=>$post['clave'])), 200);
             }
 
-            if(isset($nombre))     { $valores['nombre']     = $nombre; }
-            if(isset($apellidos))  { $valores['apellidos']     = $apellidos; }
-            if(isset($correo))     { $valores['correo']     = $correo; }
-            if(isset($tel))        { $valores['telefono']   = $tel; }
-            if(isset($clave))      { $valores['clave']      = $this->helper->encriptar($clave); }
-            if(isset($direccion))  { $valores['direccion']  = $direccion; }
-            if(isset($ciudad))     { $valores['ciudad']     = $ciudad; }
-            if(isset($pais))       { $valores['pais']       = $pais; }
-
-            $this->modelUsuarios->atributos = array('id'=>$id);
-            $this->modelUsuarios->setatributos = $valores;
-            $resultado = $this->modelUsuarios->actualizarUsuario();
-
-            if(isset($resultado)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'Se ha actualizado con exito')), 200);
-            }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->modelUsuarios->atributos = array($clave => $valor);
+            $resultado = $this->modelUsuarios->existeUsuario();
+            $this->rest->response($this->helper->json(array('existe'=>$resultado)), 200);
         }
 
         private function crearUsuario(){
@@ -255,6 +232,49 @@ namespace Api;
             $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
         }
 
+        private function actualizarUsuario(){
+            if($this->rest->get_request_method() != "PUT"){
+                $this->rest->response('',406);
+            }
+
+            $datos      = json_decode(file_get_contents("php://input"),true);
+            $id         = isset($datos['usuario']['id']) ? (int)$datos['usuario']['id'] : 0;
+            $nombre     = isset($datos['usuario']['nombre']) ? $datos['usuario']['nombre'] : '';
+            $apellidos  = isset($datos['usuario']['apellidos']) ? $datos['usuario']['apellidos'] : '';
+            $correo     = isset($datos['usuario']['correo']) ? $datos['usuario']['correo'] : '';
+            $clave      = isset($datos['usuario']['clave']) ? $datos['usuario']['clave'] : '';
+            $tel        = isset($datos['usuario']['tel']) ? $datos['usuario']['tel'] : '';
+            $direccion  = isset($datos['usuario']['direccion']) ? $datos['usuario']['direccion'] : '';
+            $ciudad     = isset($datos['usuario']['ciudad']) ? $datos['usuario']['ciudad'] : '';
+            $pais       = isset($datos['usuario']['pais']) ? $datos['usuario']['pais'] : '';
+
+            $valores = [];
+
+
+
+            if(empty($datos)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            }
+
+            if(isset($nombre))     { $valores['nombre']     = $nombre; }
+            if(isset($apellidos))  { $valores['apellidos']     = $apellidos; }
+            if(isset($correo))     { $valores['correo']     = $correo; }
+            if(isset($tel))        { $valores['telefono']   = $tel; }
+            if(isset($clave))      { $valores['clave']      = $this->helper->encriptar($clave); }
+            if(isset($direccion))  { $valores['direccion']  = $direccion; }
+            if(isset($ciudad))     { $valores['ciudad']     = $ciudad; }
+            if(isset($pais))       { $valores['pais']       = $pais; }
+
+            $this->modelUsuarios->atributos = array('id'=>$id);
+            $this->modelUsuarios->setatributos = $valores;
+            $resultado = $this->modelUsuarios->actualizarUsuario();
+
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'Se ha actualizado con exito')), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+        }
+
         private function eliminarUsuario(){
             if($this->rest->get_request_method() != "DELETE"){
                 $this->rest->response('',406);
@@ -263,7 +283,7 @@ namespace Api;
             if($id > 0){
                 $this->modelUsuarios->atributos = array('id' => $id);
                 $resultado = $this->modelUsuarios->eliminarUsuario();
-                $success = array('status' => "Success", "mensaje" => $id." Successfully deleted one record.".$resultado);
+                $success = array('status' => "Success", "mensaje" => "Se ha eliminado el usuario ".$id);
                 $this->rest->response($this->helper->json($success),200);
             }else{
                 $this->rest->response($id.'',204);	// If no records "No Content" status

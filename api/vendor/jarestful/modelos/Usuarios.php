@@ -14,8 +14,10 @@ class Usuarios extends Modelo
 {
 
     private static $modelo = 'ja_usuarios';
+    private static $vista = 'v_getusuarios';
     public static $atributos = array();
     public static $setatributos = array();
+    private static $ruta = 'assets/archivos/usuarios/';
 
 
     /**
@@ -28,18 +30,19 @@ class Usuarios extends Modelo
 
     public function buscadorUsuarios(){
         $this->where = $this->atributos;
-        $usuarios = $this->buscar(self::$modelo);
+        $usuarios = $this->buscar(self::$vista);
         //unset($usuarios['clave']);
+
         return $usuarios;
     }
 
     public function todosUsuarios(){
-        return $this->todos(self::$modelo);
+        return $this->todos(self::$vista);
     }
 
     public function unicoUsuario(){
         $this->where = $this->atributos;
-        $usuario = $this->unico(self::$modelo);
+        $usuario = $this->unico(self::$vista);
         unset($usuario['clave']);
         return $usuario;
     }
@@ -59,6 +62,12 @@ class Usuarios extends Modelo
         $this->where = $this->atributos;
         $resultado = $this->eliminar(self::$modelo);
         return $resultado;
+    }
+
+    public function existeUsuario(){
+        $this->where = $this->atributos;
+        $usuario = $this->unico(self::$vista);
+        return empty($usuario) ? true : false;
     }
 
 }

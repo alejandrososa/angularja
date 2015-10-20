@@ -111,10 +111,22 @@
 
                 <md-input-container>
                     <label>Usuario</label>
-                    <input type="text" name="usuario" ng-model="vm.usuario.usuario" class="dialog-close" required>
-                    <div ng-messages="taskForm.usuario.$dirty">
+                    <input type="text" name="usuario" ng-model="vm.usuario.usuario" class="dialog-close"
+                           required
+                           usuario-dato-unico="{propiedad: 'usuario'}"
+                           ng-model-options="{
+                                updateOn: 'default blur',
+                                debounce: {
+                                  'default': 500,
+                                  'blur': 0
+                                }
+                              }">
+                    <div ng-messages="taskForm.usuario.$dirty && taskForm.usuario.$error">
                         <div ng-message when="required">
                             <span translate>Nombre requerido</span>
+                        </div>
+                        <div ng-message when="unico">
+                            <span translate>Elija otro usuario</span>
                         </div>
                     </div>
                 </md-input-container>
@@ -141,10 +153,15 @@
 
                 <md-input-container>
                     <label>Correo</label>
-                    <input type="text" name="correo" ng-model="vm.usuario.correo" class="dialog-close" required>
-                    <div ng-messages="taskForm.correo.$dirty">
+                    <input type="text" name="correo" ng-model="vm.usuario.correo" class="dialog-close"
+                           required
+                           usuario-dato-unico="{propiedad: 'correo'}">
+                    <div ng-messages="taskForm.correo.$dirty && taskForm.correo.$error">
                         <div ng-message when="required">
                             <span translate>Correo requerido</span>
+                        </div>
+                        <div ng-message when="unico">
+                            <span translate>Elija otro correo</span>
                         </div>
                     </div>
                 </md-input-container>

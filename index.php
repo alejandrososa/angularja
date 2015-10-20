@@ -142,6 +142,7 @@
 	        <script src="componentes/videos/videos.drct.js"></script>	        
 	        <script src="componentes/publicidad/publicidad.drct.js"></script>
 	        <script src="componentes/piedepagina/pie.drct.js"></script>
+			<script src="secciones/oficina/usuarios/datosusuario.drct.js"></script>
 
 		<script src="lib/app.layout.js"></script>
 		<script src="lib/layouts.provider.js"></script>

@@ -4,7 +4,34 @@
 'use strict';
 angular
     .module('app.coreoficina')
-    .constant('RUTA_IMAGENES', 'assets/archivos/usuarios/')
+    .directive('usuarioDatoUnico', function(Usuarios) {
+        return {
+            restrict: 'A',
+            require: 'ngModel',
+            link: function(scope, element, attrs, ngModel) {
+                element.bind('blur', function (e) {
+                    if (!ngModel || !element.val()) return;
+                    var campo = scope.$eval(attrs.usuarioDatoUnico);
+                    var valor = element.val();
+
+
+
+                    Usuarios.existedatousuario(campo.propiedad, valor)
+                        .then(function (existe) {
+                            //aseguramos que el valor no ha cambiado
+                            //desde la llamada realizada
+                            if (valor == element.val()) {
+                                ngModel.$setValidity('unico', existe);
+                            }
+                        }, function () {
+                            //Probably want a more robust way to handle an error
+                            //For this demo we'll set unique to true though
+                            ngModel.$setValidity('unico', true);
+                        });
+                }); //fin link
+            }
+        };
+    })
     .filter('custom', function () {
         return function (input, search) {
             if (!input) return input;
@@ -23,7 +50,7 @@ angular
     .controller('UsuariosController', function ($scope, $rootScope, PageValues, $cookieStore,
                                                 $q, $location, $auth, $log, toastr, $window,
                                                 $routeParams, Usuarios, _datos,
-                                                triLayout, $mdDialog, FileUploader, RUTA_IMAGENES) {
+                                                triLayout, $mdDialog) {
 
         var vm = this;
 
@@ -54,7 +81,7 @@ angular
         //usuario
         vm.usuario = {
             id: _datos.id,
-            imagen: angular.isDefined(_datos.imagen) ? RUTA_IMAGENES + _datos.imagen : _datos.imagen,
+            imagen: _datos.imagen,
             usuario: _datos.usuario,
             nombre: _datos.nombre,
             apellidos: _datos.apellidos,
@@ -73,11 +100,11 @@ angular
                 field: 'imagen',
                 sortable: false,
                 filter: 'tableImage'
-            },{
+            },/*{
                 title: 'Id',
                 field: 'id',
                 sortable: true
-            },{
+            },*/{
                 title: 'Usuario',
                 field: 'usuario',
                 sortable: true
@@ -98,13 +125,13 @@ angular
         vm.tblcontenido = [];
 
 
-        if(angular.isDefined(vm.usuarios)){
+        /*if(angular.isDefined(vm.usuarios)){
             angular.forEach(vm.usuarios, function(d){
 
-                console.log(RUTA_IMAGENES + d.imagen);
+                console.log(angular.isString(d.imagen) && d.imagen != '' ? RUTA_IMAGENES + d.imagen : d.imagen);
 
                 vm.tblcontenido.push({
-                    imagen: angular.isDefined(d.imagen) ? RUTA_IMAGENES + d.imagen : d.imagen,
+                    imagen: angular.isString(d.imagen) && d.imagen != '' ? RUTA_IMAGENES + d.imagen : d.imagen,
                     id: d.id,
                     usuario: d.usuario,
                     correo: d.correo,
@@ -113,7 +140,9 @@ angular
                 });
 
             });
-        }
+        }*/
+
+
 
         //dataprovider
         vm.datosproveedor = {
@@ -191,6 +220,21 @@ angular
                 vm.usuario = {};
 
 
+/*
+                $scope.$watch('vm.usuario.usuario', function (newValue, oldValue) {
+                        if(newValue !== oldValue) {
+                            vm.query.page = 1;
+                        }
+
+                        if(!newValue) {
+                            vm.query.page = bookmark;
+                        }
+
+                        vm.getDatos();
+                });*/
+
+
+
                 ///imagen
                 var _name = 'defecto.jpg';
                 vm.procesarArchivo = {
@@ -203,9 +247,6 @@ angular
                 var uploader = vm.uploader = new FileUploader({
                     url: 'upload.php'
                 });
-
-
-
 
                 // FILTERS
 
