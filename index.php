@@ -92,6 +92,7 @@
 			<script src="bower_components/angular-animate/angular-animate.min.js"></script>
 			<script src="bower_components/angular-aria/angular-aria.min.js"></script>
 			<script src="bower_components/angular-material/angular-material.min.js"></script>
+			<script src="bower_components/angular-image-crop/ng-img-crop.js"></script>
 	    <!-- / -->
 	    <!-- endbuild -->
 	    <!-- build:js app.min.js -->

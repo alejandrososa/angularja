@@ -3,8 +3,7 @@
 namespace Api;
 
 
-	use Token\JWT\Builder;
-    use Token\JWT\ValidationData;
+
 
 	use Api\Demo;
 	use Api\RestJA;
@@ -60,6 +59,7 @@ namespace Api;
                 $this->rest->response('',404); // If the method not exist with in this class "Page not found".
         }
 
+        /*
         private function getToken($usuario){
             $token = '';
             $token = (new Builder())->setIssuer('http://ja.dev') // Configures the issuer (iss claim)
@@ -75,29 +75,22 @@ namespace Api;
 
 
             return (string)$token;
-        }
+        }*/
 
         /**
          * Login
          * @param string correo, clave
          * @return response json
          */
-        private function login(){
+        private function credenciales(){
             if($this->rest->get_request_method() == "POST"){
-                $dato       = json_decode(file_get_contents('php://input'));  //get user from
-                //$correo     = isset($user->correo) ? $user->correo : '';
-                //$pass       = isset($user->pass) ? $user->pass : '';
-                //$usuario    = $this->seleccionar_by('usuario', array('email' => $correo, 'password' => $pass));
+                $credencial   = json_decode(file_get_contents('php://input'));  //get user from
 
-                $usuario    = isset($dato->usuario) ? $dato->usuario : '';
-                $clave      = isset($dato->clave) ? $dato->clave : '';
-                $usuariodb  = array('id'=> 1,'usuario' => 'admin', 'clave' => '1234', 'rol'=>'lector');
+                $resultado = $this->modelUsuarios->verificaCredenciales($credencial);
 
-                if($usuario == $usuariodb['usuario'] && $clave == $usuariodb['clave']){
-                    //$uid = $this->sesion->sesion_init();
-                    $token = $this->getToken(array('usuario' => 'admin', 'clave' => '1234', 'rol'=>'lector'));
-                    $this->rest->_token = $token;
-                    $this->rest->response($this->helper->json(array('tokenja'=> $token, 'msg'=>'autorizado', 'uid'=> $dato)), 200);
+                if($resultado['estado']){
+                    $this->rest->_token = $resultado['token'];
+                    $this->rest->response($this->helper->json(array('tokenja'=> $resultado['token'], 'msg'=>'autorizado')), 200);
                 }
                 $this->rest->response($this->helper->json(array('tokenja'=>'invalido','message'=>'Usuario o clave incorrecto')), 401);
 
@@ -1021,9 +1014,9 @@ namespace Api;
             return $this->resultado;
         }
         private function seleccionar_all(){
-            $this->where = $parametros;
-            $this->model_get(tbl_usuarios);
-            return $this->resultado;
+            //$this->where = $parametros;
+            //$this->model_get(tbl_usuarios);
+            //return $this->resultado;
         }
         /*
         private function insertar($tipo= '', $valores = '', $meta = ''){

@@ -64,3 +64,6 @@ ADD COLUMN `meta_title` VARCHAR(80) NULL COMMENT '' AFTER `meta_keyword`;
 
 ALTER TABLE `appja`.`ja_paginas`
 CHANGE COLUMN `estado` `estado` ENUM('publicado', 'pendiente', 'programado') NOT NULL DEFAULT 'publicado' COMMENT '' ;
+
+
+

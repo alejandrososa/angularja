@@ -14,8 +14,6 @@ angular
                     var campo = scope.$eval(attrs.usuarioDatoUnico);
                     var valor = element.val();
 
-
-
                     Usuarios.existedatousuario(campo.propiedad, valor)
                         .then(function (existe) {
                             //aseguramos que el valor no ha cambiado
@@ -29,6 +27,7 @@ angular
                             ngModel.$setValidity('unico', true);
                         });
                 }); //fin link
+
             }
         };
     })
@@ -212,26 +211,12 @@ angular
                 vm.actualizardatos();
             });
 
-            function DialogController($mdDialog, FileUploader) {
+            function DialogController($scope, $mdDialog, FileUploader) {
                 var vm = this;
                 vm.cancelar = cancelar;
                 vm.ocultar = ocultar;
-                //vm.cargarimagen = cargarimagen;
                 vm.usuario = {};
 
-
-/*
-                $scope.$watch('vm.usuario.usuario', function (newValue, oldValue) {
-                        if(newValue !== oldValue) {
-                            vm.query.page = 1;
-                        }
-
-                        if(!newValue) {
-                            vm.query.page = bookmark;
-                        }
-
-                        vm.getDatos();
-                });*/
 
 
 
@@ -241,12 +226,10 @@ angular
                     getImagen: function(nombre){
                         var archivo = arguments.length ? (_name = nombre) : _name;
                         vm.usuario.archivo = archivo;
-                        return 'Cargado: '+ archivo.file.name;
+                        console.log(archivo);
                     }
                 }
-                var uploader = vm.uploader = new FileUploader({
-                    url: 'upload.php'
-                });
+                var uploader = vm.uploader = new FileUploader({});
 
                 // FILTERS
 
@@ -266,18 +249,51 @@ angular
                 };
 
 
+                //crop imagen
+                //TODO
+                /*
+                $scope.myImage='';
+                $scope.myCroppedImage='';
+                vm.myImage='';
+                vm.myCroppedImage='';
+                $scope.$watch('vm.usuario.archivo', function () {
+                    console.log(vm.usuario.archivo);
+                    if(angular.isDefined(vm.usuario.archivo)){
+                        vm.myImage=vm.usuario.archivo._file.name;
+                    }
+
+                    $scope.$apply(function($scope){
+                        $scope.myImage=vm.usuario.archivo;
+                        console.log($scope.myImage);
+                    });
+                });
+
+                var handleFileSelect=function(evt) {
+                    var file=evt.currentTarget.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function (evt) {
+                        $scope.$apply(function($scope){
+                            $scope.myImage=evt.target.result;
+                            console.log(evt.target.result)
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                };
+                var demo = function(evt){
+                    console.log('cambio');
+                }
+                //angular.element(document.querySelector('#fileInput2')).on('change',handleFileSelect);
+                angular.element(document.querySelector('#fileInput2')).on('change',demo);
+                */
+                //fin crop imagen
+
+
+
                 ///fin imagen
 
 
 
-
-
-
                 /////////////////////////
-
-                function cargarimagen(imagen){
-                    console.log(imagen);
-                }
 
                 function ocultar() {
                     $mdDialog.hide(vm.usuario);
@@ -286,6 +302,7 @@ angular
                 function cancelar() {
                     $mdDialog.cancel();
                 }
+
             }
         });
 

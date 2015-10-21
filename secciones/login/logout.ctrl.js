@@ -4,7 +4,7 @@
 'use strict';
 angular
     .module('app.core')
-    .controller('LoginController', function($q, $rootScope, $location, $auth, $log, toastr, $window) {
+    .controller('LoginController', function($q, $rootScope, $location, $auth, $log, toastr) {
         var vm = this;
 
         vm.logout = function() {
