@@ -1,4 +1,9 @@
- CREATE  TABLE IF NOT EXISTS `ja_acl_perfiles` (
+DROP TABLE IF EXISTS ja_acl_usuarios_perfiles;
+DROP TABLE IF EXISTS ja_acl_perfiles_recursos;
+DROP TABLE IF EXISTS ja_acl_perfiles;
+DROP TABLE IF EXISTS ja_acl_recursos;
+
+CREATE  TABLE IF NOT EXISTS `ja_acl_perfiles` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT 'llave primaria de la tabla' ,
   `nombre` VARCHAR(45) NULL COMMENT 'Descripción del perfil' ,
   `fecha_registro` DATETIME NULL COMMENT 'fecha de registro' ,
@@ -39,7 +44,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `perfiles_recursos`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `perfiles_recursos` (
+CREATE  TABLE IF NOT EXISTS `ja_acl_perfiles_recursos` (
   `consultar` TINYINT(1) NULL DEFAULT 0 ,
   `agregar` TINYINT(1) NULL DEFAULT 0 ,
   `editar` TINYINT(1) NULL DEFAULT 0 ,
@@ -50,12 +55,12 @@ CREATE  TABLE IF NOT EXISTS `perfiles_recursos` (
   INDEX `fk_perfiles_recursos_perfiles1_idx` (`perfil_id` ASC) ,
   CONSTRAINT `fk_perfiles_recursos_recursos1`
     FOREIGN KEY (`recurso_id` )
-    REFERENCES `recursos` (`id` )
+    REFERENCES `ja_acl_recursos` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_perfiles_recursos_perfiles1`
     FOREIGN KEY (`perfil_id` )
-    REFERENCES `perfiles` (`id` )
+    REFERENCES `ja_acl_perfiles` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

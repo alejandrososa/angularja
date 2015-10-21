@@ -656,6 +656,32 @@ namespace Api;
             $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
         }
 
+        private function crearPagina(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $datos      = json_decode(file_get_contents("php://input"),true);
+            $titulo     = isset($datos['categoria']['titulo']) ? $datos['categoria']['titulo'] : '';
+            $slug       = isset($datos['categoria']['slug']) ? $datos['categoria']['slug'] : '';
+
+            $valores = [];
+
+            if(empty($datos)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            }
+
+            if(isset($titulo))     { $valores['titulo']     = $titulo; }
+            if(isset($slug))       { $valores['slug']       = $slug; }
+
+            $this->modelPaginas->atributos = $valores;
+            $resultado = $this->modelPaginas->crearPagina();
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'Se ha creado el usuario con exito')), 200);
+            }
+            $this->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+        }
+
         private function actualizarPagina(){
             if($this->rest->get_request_method() != "PUT"){
                 $this->rest->response('',406);
@@ -689,32 +715,6 @@ namespace Api;
             $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
         }
 
-        private function crearPagina(){
-            if($this->rest->get_request_method() != "POST"){
-                $this->rest->response('',406);
-            }
-
-            $datos      = json_decode(file_get_contents("php://input"),true);
-            $titulo     = isset($datos['categoria']['titulo']) ? $datos['categoria']['titulo'] : '';
-            $slug       = isset($datos['categoria']['slug']) ? $datos['categoria']['slug'] : '';
-
-            $valores = [];
-
-            if(empty($datos)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
-            }
-
-            if(isset($titulo))     { $valores['titulo']     = $titulo; }
-            if(isset($slug))       { $valores['slug']       = $slug; }
-
-            $this->modelPaginas->atributos = $valores;
-            $resultado = $this->modelPaginas->crearPagina();
-            if(isset($resultado)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'Se ha creado el usuario con exito')), 200);
-            }
-            $this->response($this->helper->json(array('mensaje'=>'sin valor')),204);
-        }
-
         private function eliminarPagina(){
             if($this->rest->get_request_method() != "DELETE"){
                 $this->rest->response('',406);
@@ -729,6 +729,20 @@ namespace Api;
                 $this->rest->response($id.'',204);	// If no records "No Content" status
             }
         }
+
+        private function getPaginasCategorias(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            $categorias = $this->modelPaginas->getCategorias();
+            if(isset($categorias)){
+                $this->rest->response($this->helper->json(array('resultado'=>$categorias)), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
+
 
 
         /**

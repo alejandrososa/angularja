@@ -11,6 +11,10 @@ html, body {
 .alert-warning {
   color: #FF9800; }
 
+.layout {
+  height: inherit;
+}
+
 .mobile-fullwidth-dialog {
   max-width: none; }
 

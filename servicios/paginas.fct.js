@@ -11,11 +11,13 @@ angular
 
 function categoria($http, API_URL, $log, toastr) {
     var data = {
+        'buscador': buscador,
         'unico': unico,
         'todos': todos,
         'crear': crear,
         'eliminar': eliminar,
         'actualizar': actualizar,
+        'categorias': categorias,
         'demo': demo
     };
 
@@ -36,6 +38,10 @@ function categoria($http, API_URL, $log, toastr) {
         }).then(function(response){
             return response.data;
         }).catch(dataServiceError);
+    }
+
+    function buscador(query){
+        return $http.post(API_URL + 'buscadorMenu', {filtro:query, tipo: query.tipo});
     }
 
     function unico(id){
@@ -90,6 +96,10 @@ function categoria($http, API_URL, $log, toastr) {
             toastr.success(datos.data.mensaje);
             return datos.data;
         });
+    }
+
+    function categorias(){
+        return $http.get(API_URL + 'getPaginasCategorias', {});
     }
 
     function demo(id){

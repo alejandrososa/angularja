@@ -6,7 +6,7 @@ angular
     .module('app.coreoficina')
     .controller('PaginasController', function ($scope, $rootScope, PageValues, $cookieStore,
                                                 $q, $location, $auth, $log, toastr, $window,
-                                                $routeParams, Menu, _datos,
+                                                $routeParams, Paginas, _datos,
                                                 triLayout, $mdDialog,
                                                 $timeout) {
 
@@ -27,7 +27,7 @@ angular
         vm.menus = [];
         vm.enlaces = [];
         vm.enlace = {};
-        vm.categoriasMenu = {};
+        vm.categoriasPaginas = {};
         vm.categoriaDefault = 'principal';
         vm.targets = []
         vm.datosproveedor = {};
@@ -52,24 +52,24 @@ angular
 
         //enlaces vista editar
         if(angular.isDefined(vm.enlace.clavecategoria)){
-            Menu.todos().then(function(datos){
+            Paginas.todos().then(function(datos){
                 vm.enlaces = datos.resultado;
             });
             console.log(vm.enlaces);
         }
 
         //targets
-        vm.targets = Menu.targets();
+        //vm.targets = Paginas.targets();
 
 
 
-        Menu.categorias().then(function(datos){
+        Paginas.categorias().then(function(datos){
             if(angular.isDefined(datos)){
-                vm.categoriasMenu = datos.data.resultado;
+                vm.categoriasPaginas = datos.data.resultado;
             }
         });
 
-        Menu.todostipo(vm.categoriaDefault).then(function(datos){
+        Paginas.todos(vm.categoriaDefault).then(function(datos){
             if(angular.isDefined(datos)){
                 vm.menus = datos.resultado;
             }
@@ -108,7 +108,7 @@ angular
 
         //dataprovider
         vm.datosproveedor = {
-            servicio: Menu,
+            servicio: Paginas,
             identidad : 'menu',
             titulo: 'Listado de paginas',
             categoria: vm.categoriaDefault,
@@ -122,7 +122,7 @@ angular
         //acciones
         vm.editar = function (frm) {
             if (frm) {
-                var resultado = Menu.actualizar(vm.enlace);
+                var resultado = Paginas.actualizar(vm.enlace);
                 $log.info(resultado);
             }
         }
@@ -137,7 +137,7 @@ angular
 
         vm.actualizardatos = function actualizardatos() {
             //vm.tablacontenido = [];
-            //Menu.todos(vm.categoriaDefault).then(function(datos){
+            //Paginas.todos(vm.categoriaDefault).then(function(datos){
               //  if(angular.isDefined(datos)){
                //     vm.tblcontenido = datos.resultado;
                 //}
@@ -146,10 +146,10 @@ angular
             console.log(vm.tablacontenido);
         }
 
-        vm.getMenu = function(){
+        vm.getPaginas = function(){
             //return $timeout(function() {
             console.log(vm.categoriaDefault);
-            Menu.todostipo(vm.categoriaDefault).then(function(datos){
+            Paginas.todos(vm.categoriaDefault).then(function(datos){
                 if(angular.isDefined(datos.resultado)){
                     vm.menus = datos.resultado;
                     vm.tblcontenido = datos.resultado;
@@ -180,12 +180,12 @@ angular
 
             vm.datosproveedor.categoria = vm.categoriaDefault;
 
-            vm.getMenu();
+            vm.getPaginas();
         });
 
         $scope.$watch('vm.enlace.padre', function (newValue, oldValue) {
             if(newValue !== oldValue) {
-                 Menu.unico(newValue).then(function(datos){
+                 Paginas.unico(newValue).then(function(datos){
                     vm.enlace.idcategoria = datos.idcategoria;
                 });
             }
@@ -204,13 +204,13 @@ angular
                 controller:  DialogController,
             }).then(function(enlace) {
                 vm.tblcontenido.push(enlace);
-                var resultado = Menu.crear(enlace);
+                var resultado = Paginas.crear(enlace);
 
 
                 vm.actualizardatos();
             });
 
-            function DialogController($scope, $mdDialog, Menu) {
+            function DialogController($scope, $mdDialog, Paginas) {
                 var vm = this;
                 vm.cancelar = cancelar;
                 vm.ocultar = ocultar;
@@ -223,15 +223,15 @@ angular
                 vm.categorias = {};
                 vm.enlace = {};
                 vm.enlaces = [];
-                vm.target = Menu.targets();
+                //vm.target = Paginas.targets();
 
-                Menu.categorias().then(function(datos){
+                Paginas.categorias().then(function(datos){
                     if(angular.isDefined(datos)){
                         vm.categorias = datos.data.resultado;
                     }
                 });
 
-                Menu.todostipo(vm.filtro).then(function(datos){
+                Paginas.todos(vm.filtro).then(function(datos){
                     if(angular.isDefined(datos)){
                         vm.enlaces = datos.resultado;
                     }
@@ -261,9 +261,9 @@ angular
 
                 function actualizar(){
                     vm.query.tipo = vm.enlace.categoria;
-                    Menu.buscadorporcategorias(vm.query).then(function(datos){
+                    /*Paginas.buscadorporcategorias(vm.query).then(function(datos){
                         vm.enlaces = datos.data;
-                    });
+                    });*/
                 }
 
                 function ocultar() {

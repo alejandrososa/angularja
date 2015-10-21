@@ -14,6 +14,7 @@ class Paginas extends Modelo
 {
 
     private static $modelo = 'ja_paginas';
+    private static $modelo_categorias = 'ja_categorias';
     public static $atributos = array();
     public static $setatributos = array();
 
@@ -52,6 +53,19 @@ class Paginas extends Modelo
     public function eliminarPaginas(){
         $this->where = $this->atributos;
         return $this->eliminar(self::$modelo);
+    }
+
+    public function getCategorias(){
+        $categorias = array();
+        foreach($this->todos(self::$modelo_categorias) as $k => $v){
+            $categorias[$v->id] = array(
+                'id'=>$v->id,
+                'clave'=>str_replace(" ", "-", strtolower($v->titulo)),
+                'valor'=>ucfirst($v->titulo),
+                'slug'=>$v->slug
+            );
+        }
+        return $categorias;
     }
 
 }

@@ -6,22 +6,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95f37b84-ea85-42ea-9843-7850d7bf8278" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/Modelo.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/Modelo.php" />
+      <change type="MOVED" beforePath="C:\xampp\htdocs\angularja\api\vendor\jarestful\Modelo.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/modelo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/modelos/Usuarios.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/modelos/Usuarios.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/html/directivas/imagenvista/_imagenvista.scss" afterPath="$PROJECT_DIR$/secciones/oficina/html/directivas/imagenvista/_imagenvista.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/app.coreoficina.js" afterPath="$PROJECT_DIR$/lib/app.coreoficina.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/app.satellizer.js" afterPath="$PROJECT_DIR$/lib/app.satellizer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/appja-20-09-15.sql" afterPath="$PROJECT_DIR$/db/appja-20-09-15.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plantillas/admin/css/cms.css.map" afterPath="$PROJECT_DIR$/assets/plantillas/admin/css/cms.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/appja-21-10-15..sql" afterPath="$PROJECT_DIR$/db/appja-21-10-15..sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plantillas/admin/css/cms.css" afterPath="$PROJECT_DIR$/assets/plantillas/admin/css/cms.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/usuarios/dialogo.tpl.html" afterPath="$PROJECT_DIR$/secciones/oficina/usuarios/dialogo.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/html/directivas/imagenvista/imagen.drct.js" afterPath="$PROJECT_DIR$/secciones/oficina/html/directivas/imagenvista/imagen.drct.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/login/logout.ctrl.js" afterPath="$PROJECT_DIR$/secciones/login/logout.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.ctrl.js" afterPath="$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.ctrl.js" />
-      <change type="MODIFICATION" beforePath="C:\xampp\htdocs\angular\angularja\secciones\oficina\usuarios\usuarios.tpl.html" afterPath="$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/paginas/crear.tpl.html" afterPath="$PROJECT_DIR$/secciones/oficina/paginas/crear.tpl.html" />
+      <change type="MODIFICATION" beforePath="C:\xampp\htdocs\angularja\secciones\oficina\usuarios\dialogo.tpl.html" afterPath="$PROJECT_DIR$/secciones/oficina/usuarios/dialogo.tpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/paginas/paginas.ctrl.js" afterPath="$PROJECT_DIR$/secciones/oficina/paginas/paginas.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/servicios/paginas.fct.js" afterPath="$PROJECT_DIR$/servicios/paginas.fct.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/oficina/paginas/paginas.tpl.html" afterPath="$PROJECT_DIR$/secciones/oficina/paginas/paginas.tpl.html" />
+      <change type="MODIFICATION" beforePath="C:\xampp\htdocs\angularja\secciones\oficina\usuarios\usuarios.tpl.html" afterPath="$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.tpl.html" />
     </list>
     <ignored path="angularja.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,44 +42,49 @@
       <file leaf-file-name="ServicioJA.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.307692">
-              <caret line="88" column="16" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+            <state vertical-scroll-proportion="-8.884615">
+              <caret line="732" column="45" selection-start-line="732" selection-start-column="25" selection-end-line="732" selection-end-column="45" />
               <folding>
                 <element signature="e#27#40#0#PHP" expanded="true" />
                 <element signature="e#3602#4385#0#PHP" expanded="false" />
+                <element signature="e#4395#5238#0#PHP" expanded="false" />
                 <element signature="e#5248#5748#0#PHP" expanded="false" />
+                <element signature="e#5758#6581#0#PHP" expanded="false" />
                 <element signature="e#6591#9576#0#PHP" expanded="false" />
                 <element signature="e#9586#11934#0#PHP" expanded="false" />
                 <element signature="e#11944#12671#0#PHP" expanded="false" />
+                <element signature="e#12730#13478#0#PHP" expanded="false" />
+                <element signature="e#13488#14339#0#PHP" expanded="false" />
+                <element signature="e#14349#14861#0#PHP" expanded="false" />
+                <element signature="e#14871#16185#0#PHP" expanded="false" />
+                <element signature="e#16195#17332#0#PHP" expanded="false" />
+                <element signature="e#17342#18094#0#PHP" expanded="false" />
+                <element signature="e#18144#18960#0#PHP" expanded="false" />
+                <element signature="e#18970#19659#0#PHP" expanded="false" />
+                <element signature="e#19669#20211#0#PHP" expanded="false" />
+                <element signature="e#20221#20715#0#PHP" expanded="false" />
+                <element signature="e#20725#21284#0#PHP" expanded="false" />
+                <element signature="e#21294#21903#0#PHP" expanded="false" />
+                <element signature="e#21913#22419#0#PHP" expanded="false" />
+                <element signature="e#22429#23262#0#PHP" expanded="false" />
+                <element signature="e#23272#25095#0#PHP" expanded="false" />
+                <element signature="e#25105#27163#0#PHP" expanded="false" />
+                <element signature="e#27173#27865#0#PHP" expanded="false" />
+                <element signature="e#27919#28758#0#PHP" expanded="false" />
+                <element signature="e#28768#29271#0#PHP" expanded="false" />
+                <element signature="e#29281#30406#0#PHP" expanded="false" />
+                <element signature="e#30416#31884#0#PHP" expanded="false" />
+                <element signature="e#31894#32634#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Usuarios.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Usuarios.php">
+      <file leaf-file-name="Paginas.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6291619">
-              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-              <folding>
-                <element signature="e#122#137#0#PHP" expanded="true" />
-                <element signature="e#1279#1414#0#PHP" expanded="false" />
-                <element signature="e#1420#1606#0#PHP" expanded="false" />
-                <element signature="e#1612#1773#0#PHP" expanded="false" />
-                <element signature="e#1779#1952#0#PHP" expanded="false" />
-                <marker date="1445441869425" expanded="true" signature="3099:3164" placeholder="SELECT IF(SU..ja_acl_perfiles_recursos..." />
-                <marker date="1445441869425" expanded="true" signature="3454:3473" placeholder="select nombr..." />
-                <marker date="1445441869425" expanded="true" signature="3454:3508" placeholder="select nombr..self..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Helper.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/Helper.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.230769">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="21" />
+            <state vertical-scroll-proportion="-10.576923">
+              <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -92,30 +93,28 @@
       <file leaf-file-name="Menu.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.576923">
-              <caret line="123" column="7" selection-start-line="123" selection-start-column="7" selection-end-line="129" selection-end-column="55" />
-              <folding>
-                <marker date="1445240913072" expanded="true" signature="7323:7374" placeholder="select * fro..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appja-21-10-15..sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/appja-21-10-15..sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.722222">
-              <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.730769">
+              <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="116" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="usuarios.ctrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.ctrl.js">
+      <file leaf-file-name="paginas.ctrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/secciones/oficina/paginas/paginas.ctrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="238" column="74" selection-start-line="238" selection-start-column="74" selection-end-line="238" selection-end-column="74" />
+            <state vertical-scroll-proportion="-8.5">
+              <caret line="276" column="11" selection-start-line="276" selection-start-column="11" selection-end-line="276" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="paginas.tpl.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/secciones/oficina/paginas/paginas.tpl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.192307">
+              <caret line="28" column="83" selection-start-line="28" selection-start-column="83" selection-end-line="28" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -125,25 +124,53 @@
         <entry file="file://$PROJECT_DIR$/lib/app.rutas.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="127" column="63" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="63" />
+              <caret line="204" column="30" selection-start-line="204" selection-start-column="30" selection-end-line="204" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="usuarios.fct.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/servicios/usuarios.fct.js">
+      <file leaf-file-name="crear.tpl.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/secciones/oficina/paginas/crear.tpl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3649374">
+              <caret line="25" column="56" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="56" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cms.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/cms.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.444445">
+              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.coreoficina.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/app.coreoficina.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
-              <folding>
-                <element signature="n#!!block;n#unico#0;n#!!block;n#servicio#0" expanded="false" />
-                <element signature="n#!!block;n#todos#0;n#!!block;n#servicio#0" expanded="false" />
-                <element signature="n#!!block;n#buscador#0;n#!!block;n#servicio#0" expanded="false" />
-                <element signature="n#!!block;n#actualizar#0;n#!!block;n#servicio#0" expanded="false" />
-                <element signature="n#!!block;n#crear#0;n#!!block;n#servicio#0" expanded="false" />
-                <element signature="n#!!block;n#eliminar#0;n#!!block;n#servicio#0" expanded="false" />
-              </folding>
+              <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="paginas.fct.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/servicios/paginas.fct.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="101" column="46" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -170,10 +197,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/componentes/menu/menu-superior.tpl.html" />
-        <option value="$PROJECT_DIR$/componentes/menu/menu-secundario.tpl.html" />
-        <option value="$PROJECT_DIR$/secciones/oficina/menu/_form.html" />
-        <option value="$PROJECT_DIR$/secciones/oficina/menu/menu.ctrl.js" />
         <option value="$PROJECT_DIR$/componentes/menu/menu-piepagina.tpl.html" />
         <option value="$PROJECT_DIR$/componentes/menu/menu-inferior.tpl.html" />
         <option value="$PROJECT_DIR$/api/vendor/jarestful/modelos/Menu.php" />
@@ -188,11 +211,9 @@
         <option value="$PROJECT_DIR$/secciones/oficina/categorias/categorias.ctrl.js" />
         <option value="$PROJECT_DIR$/servicios/categorias.fct.js" />
         <option value="$PROJECT_DIR$/secciones/oficina/categorias/_vista.html" />
-        <option value="$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php" />
         <option value="$PROJECT_DIR$/secciones/oficina/paginas/dialogo.tpl.html" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/directivas/header/header.tpl.html" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/toolbars/toolbar.tmpl.html" />
-        <option value="$PROJECT_DIR$/secciones/oficina/paginas/paginas.ctrl.js" />
         <option value="$PROJECT_DIR$/../imagenes/examples/image-preview/index.html" />
         <option value="$PROJECT_DIR$/assets/plantillas/admin/css/cms.scss" />
         <option value="$PROJECT_DIR$/../adminja/source/src/app/examples/elements/examples/button-fab.tmpl.html" />
@@ -215,12 +236,18 @@
         <option value="$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.ctrl.js" />
         <option value="$PROJECT_DIR$/secciones/oficina/usuarios/dialogo.tpl.html" />
         <option value="$PROJECT_DIR$/lib/app.satellizer.js" />
-        <option value="$PROJECT_DIR$/lib/app.coreoficina.js" />
         <option value="$PROJECT_DIR$/secciones/login/logout.ctrl.js" />
         <option value="$PROJECT_DIR$/db/appja-20-09-15.sql" />
+        <option value="$PROJECT_DIR$/api/vendor/jarestful/modelos/Usuarios.php" />
         <option value="$PROJECT_DIR$/db/appja-21-10-15..sql" />
         <option value="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
-        <option value="$PROJECT_DIR$/api/vendor/jarestful/modelos/Usuarios.php" />
+        <option value="$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php" />
+        <option value="$PROJECT_DIR$/servicios/paginas.fct.js" />
+        <option value="$PROJECT_DIR$/secciones/oficina/paginas/paginas.tpl.html" />
+        <option value="$PROJECT_DIR$/secciones/oficina/paginas/paginas.ctrl.js" />
+        <option value="$PROJECT_DIR$/lib/app.coreoficina.js" />
+        <option value="$PROJECT_DIR$/secciones/oficina/paginas/crear.tpl.html" />
+        <option value="$PROJECT_DIR$/assets/plantillas/admin/css/cms.css" />
       </list>
     </option>
   </component>
@@ -238,8 +265,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -264,7 +291,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -307,7 +333,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="secciones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -321,7 +347,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
+              <option name="myItemId" value="secciones" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oficina" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -335,7 +365,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
+              <option name="myItemId" value="secciones" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oficina" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paginas" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -349,33 +387,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jarestful" />
+              <option name="myItemId" value="plantillas" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -389,25 +405,62 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
+              <option name="myItemId" value="plantillas" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="jarestful" />
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modelos" />
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plantillas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -421,10 +474,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\angularja\secciones\oficina\paginas" />
       <recent name="C:\xampp\htdocs\angular\angularja\secciones\oficina\usuarios" />
       <recent name="C:\xampp\htdocs\angular\angularja\assets\archivos\usuarios" />
       <recent name="C:\xampp\htdocs\angular\angularja\secciones\oficina\html\directivas\imagenvista" />
-      <recent name="C:\xampp\htdocs\angularja\secciones\oficina\paginas" />
       <recent name="C:\xampp\htdocs\angularja\secciones\oficina\categorias" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -483,10 +536,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19863014" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19791667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -544,59 +597,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../imagenes/examples/without-bootstrap/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/elements/examples/button-fab.tmpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27324915">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/directivas/tabla/tabla.drct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/directivas/sidebar/sidebar.drct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.32664436">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/directivas/menu/menu.drct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.26978818">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/directivas/header/header.drct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -604,7 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20847268">
           <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -612,7 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -620,9 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="15.24138">
           <caret line="1116" column="29" selection-start-line="1116" selection-start-column="23" selection-end-line="1116" selection-end-column="29" />
-          <folding>
-            <marker date="1444029891396" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -630,7 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -638,7 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32218507">
           <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="38" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -646,9 +643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.965517">
           <caret line="459" column="32" selection-start-line="457" selection-start-column="16" selection-end-line="459" selection-end-column="32" />
-          <folding>
-            <marker date="1444029891391" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -656,7 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41330168">
           <caret line="131" column="8" selection-start-line="131" selection-start-column="8" selection-end-line="131" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,7 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -672,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="33" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -680,15 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20847268">
           <caret line="11" column="23" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/appja-19-10-15..sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81850535">
-          <caret line="48" column="15" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -696,7 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29276693">
           <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -704,7 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.653847">
           <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -712,7 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="80" column="13" selection-start-line="65" selection-start-column="15" selection-end-line="80" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -720,7 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="40" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -728,7 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17056856">
           <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -736,7 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,7 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11371238">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,7 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.65384614">
           <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -760,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -772,19 +745,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/app.rutas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="63" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../adminja/source/src/app/examples/authentication/login/login.tmpl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.576923">
           <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -792,7 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46327013">
           <caret line="94" column="86" selection-start-line="94" selection-start-column="86" selection-end-line="94" selection-end-column="86" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -800,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5660161">
           <caret line="29" column="48" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -808,9 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41694537">
           <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -818,7 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.5119047">
           <caret line="91" column="17" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -826,7 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -838,27 +795,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="238" column="74" selection-start-line="238" selection-start-column="74" selection-end-line="238" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/app.coreoficina.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7012263">
-          <caret line="62" column="20" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/secciones/login/logout.ctrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11371238">
           <caret line="6" column="90" selection-start-line="6" selection-start-column="90" selection-end-line="6" selection-end-column="90" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -866,7 +806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28428093">
           <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,7 +813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -886,17 +824,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php">
+    <entry file="file://$PROJECT_DIR$/db/appja-20-09-15.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.94188035">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/appja-21-10-15..sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="11" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/appja-19-10-15..sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78673834">
+          <caret line="50" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/Helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Usuarios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+          <folding>
+            <element signature="e#122#137#0#PHP" expanded="true" />
+            <element signature="e#1279#1414#0#PHP" expanded="false" />
+            <element signature="e#1420#1606#0#PHP" expanded="false" />
+            <element signature="e#1612#1773#0#PHP" expanded="false" />
+            <element signature="e#1779#1952#0#PHP" expanded="false" />
+            <marker date="1445453902598" expanded="true" signature="-1:-1" placeholder="select nombr..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/servicios/usuarios.fct.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="1.3111111">
           <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
           <folding>
             <element signature="n#!!block;n#unico#0;n#!!block;n#servicio#0" expanded="false" />
@@ -909,94 +886,160 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/oficina/usuarios/usuarios.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85470086">
+          <caret line="238" column="74" selection-start-line="238" selection-start-column="74" selection-end-line="238" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servicios/menu.fct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="5" selection-start-line="80" selection-start-column="4" selection-end-line="82" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923">
-          <caret line="123" column="7" selection-start-line="123" selection-start-column="7" selection-end-line="129" selection-end-column="55" />
-          <folding>
-            <marker date="1445240913072" expanded="true" signature="7323:7374" placeholder="select * fro..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/Helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.230769">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="21" />
+        <state vertical-scroll-proportion="-9.730769">
+          <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="116" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/appja-20-09-15.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.578313">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/appja-21-10-15..sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.722222">
-          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/Modelo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="13.444317">
-          <caret line="689" column="13" selection-start-line="689" selection-start-column="13" selection-end-line="689" selection-end-column="13" />
-          <folding>
-            <element signature="e#22#38#0#PHP" expanded="true" />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="Select * fro..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="SELECT meta_..wsp_paginasmeta..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="SELECT meta_..wsp_paginasmeta..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="SELECT meta_..wsp_paginasmeta..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="SELECT meta_..wsp_paginasmeta..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1445337906160" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.307692">
-          <caret line="88" column="16" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+        <state vertical-scroll-proportion="-8.884615">
+          <caret line="732" column="45" selection-start-line="732" selection-start-column="25" selection-end-line="732" selection-end-column="45" />
           <folding>
             <element signature="e#27#40#0#PHP" expanded="true" />
             <element signature="e#3602#4385#0#PHP" expanded="false" />
+            <element signature="e#4395#5238#0#PHP" expanded="false" />
             <element signature="e#5248#5748#0#PHP" expanded="false" />
+            <element signature="e#5758#6581#0#PHP" expanded="false" />
             <element signature="e#6591#9576#0#PHP" expanded="false" />
             <element signature="e#9586#11934#0#PHP" expanded="false" />
             <element signature="e#11944#12671#0#PHP" expanded="false" />
+            <element signature="e#12730#13478#0#PHP" expanded="false" />
+            <element signature="e#13488#14339#0#PHP" expanded="false" />
+            <element signature="e#14349#14861#0#PHP" expanded="false" />
+            <element signature="e#14871#16185#0#PHP" expanded="false" />
+            <element signature="e#16195#17332#0#PHP" expanded="false" />
+            <element signature="e#17342#18094#0#PHP" expanded="false" />
+            <element signature="e#18144#18960#0#PHP" expanded="false" />
+            <element signature="e#18970#19659#0#PHP" expanded="false" />
+            <element signature="e#19669#20211#0#PHP" expanded="false" />
+            <element signature="e#20221#20715#0#PHP" expanded="false" />
+            <element signature="e#20725#21284#0#PHP" expanded="false" />
+            <element signature="e#21294#21903#0#PHP" expanded="false" />
+            <element signature="e#21913#22419#0#PHP" expanded="false" />
+            <element signature="e#22429#23262#0#PHP" expanded="false" />
+            <element signature="e#23272#25095#0#PHP" expanded="false" />
+            <element signature="e#25105#27163#0#PHP" expanded="false" />
+            <element signature="e#27173#27865#0#PHP" expanded="false" />
+            <element signature="e#27919#28758#0#PHP" expanded="false" />
+            <element signature="e#28768#29271#0#PHP" expanded="false" />
+            <element signature="e#29281#30406#0#PHP" expanded="false" />
+            <element signature="e#30416#31884#0#PHP" expanded="false" />
+            <element signature="e#31894#32634#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Usuarios.php">
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6291619">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33207548">
+          <caret line="169" column="28" selection-start-line="169" selection-start-column="23" selection-end-line="169" selection-end-column="28" />
           <folding>
-            <element signature="e#122#137#0#PHP" expanded="true" />
-            <element signature="e#1279#1414#0#PHP" expanded="false" />
-            <element signature="e#1420#1606#0#PHP" expanded="false" />
-            <element signature="e#1612#1773#0#PHP" expanded="false" />
-            <element signature="e#1779#1952#0#PHP" expanded="false" />
-            <marker date="1445441869425" expanded="true" signature="3099:3164" placeholder="SELECT IF(SU..ja_acl_perfiles_recursos..." />
-            <marker date="1445441869425" expanded="true" signature="3454:3473" placeholder="select nombr..." />
-            <marker date="1445441869425" expanded="true" signature="3454:3508" placeholder="select nombr..self..." />
+            <element signature="e#22#38#0#PHP" expanded="true" />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="Select * fro..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="SELECT meta_..wsp_paginasmeta..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="SELECT meta_..wsp_paginasmeta..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="SELECT meta_..wsp_paginasmeta..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="SELECT meta_..wsp_paginasmeta..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1445453902588" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.576923">
+          <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servicios/paginas.fct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="101" column="46" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/oficina/paginas/paginas.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.192307">
+          <caret line="28" column="83" selection-start-line="28" selection-start-column="83" selection-end-line="28" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/oficina/paginas/paginas.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="276" column="11" selection-start-line="276" selection-start-column="11" selection-end-line="276" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/app.rutas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="204" column="30" selection-start-line="204" selection-start-column="30" selection-end-line="204" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/app.coreoficina.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plantillas/admin/css/cms.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.444445">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/oficina/paginas/crear.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3649374">
+          <caret line="25" column="56" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
