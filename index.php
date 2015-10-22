@@ -93,6 +93,9 @@
 			<script src="bower_components/angular-aria/angular-aria.min.js"></script>
 			<script src="bower_components/angular-material/angular-material.min.js"></script>
 			<script src="bower_components/angular-image-crop/ng-img-crop.js"></script>
+			<script src="bower_components/textAngular/dist/textAngular-rangy.min.js"></script>
+			<script src="bower_components/textAngular/dist/textAngular-sanitize.min.js"></script>
+			<script src="bower_components/textAngular/dist/textAngular.min.js"></script>
 	    <!-- / -->
 	    <!-- endbuild -->
 	    <!-- build:js app.min.js -->

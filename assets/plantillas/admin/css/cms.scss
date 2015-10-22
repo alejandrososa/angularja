@@ -17,6 +17,10 @@ html, body {
 @import "scss/_utilities.scss";
 @import "scss/_default.scss";
 
+
+// secciones
+@import "../../../../secciones/oficina/paginas/_paginas.scss";
+
 // components
 
 @import "../../../../secciones/oficina/html/componentes/loader/_loader.scss";

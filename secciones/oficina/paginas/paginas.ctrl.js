@@ -4,6 +4,39 @@
 'use strict';
 angular
     .module('app.coreoficina')
+    .filter('reemplazarespacios',function() {
+        return function(input) {
+            if (input) {
+                return input.replace(/\s+/g, '-');
+            }
+        }
+    })
+    .directive('reemplazarespacioss', function(Usuarios) {
+        return {
+            restrict: 'A',
+            require: 'ngModel',
+            link: function(scope, element, attrs, ngModel) {
+                element.bind('blur', function (e) {
+                    if (!ngModel || !element.val()) return;
+                    var campo = scope.$eval(attrs.reemplazarespacioss);
+                    var valor = element.val();
+
+                    console.log(campo.campo);
+                    /*
+                    scope.$watch(angular.element('#'+campo.campo), function(value) {
+                        console.log(value);
+                        //updateTime();
+                    });
+                    */
+
+
+                    console.log(valor);
+                    console.log(campo.titulo);
+                }); //fin link
+            }
+        };
+    })
+
     .controller('PaginasController', function ($scope, $rootScope, PageValues, $cookieStore,
                                                 $q, $location, $auth, $log, toastr, $window,
                                                 $routeParams, Paginas, _datos,
@@ -29,13 +62,16 @@ angular
         vm.enlace = {};
         vm.categoriasPaginas = {};
         vm.categoriaDefault = 'principal';
-        vm.targets = []
+        vm.targets = [];
         vm.datosproveedor = {};
+        vm.editor = [];
 
         vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
         vm.botonTexto = (vm.idUsuario > 0) ? 'Actualizar' : 'Agregar';
         vm.tituloVista = (vm.idUsuario > 0) ? 'Actualizar Enlace' : 'Agregar Enlace';
         vm.tipo = (vm.idUsuario > 0) ? true : false;
+
+
 
         //enlace
         vm.enlace = {
@@ -60,6 +96,49 @@ angular
 
         //targets
         //vm.targets = Paginas.targets();
+
+        //['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+
+        vm.editor = [
+            ['undo','redo'],
+            ['p','bold','italics','pre','ul','ol','quote','clear'],
+            ['h2','h3','h4'],
+            ['justifyLeft','justifyCenter','justifyRight'], //justifyFull
+            ['insertLink', 'insertVideo'],
+            ['html']
+        ];
+
+        vm.tags = [];
+        vm.readonly = false;
+        // Lists of fruit names and Vegetable objects
+        vm.fruitNames = ['Apple', 'Banana', 'Orange'];
+        vm.roFruitNames = angular.copy(vm.fruitNames);
+        vm.tags = [];
+        vm.vegObjs = [
+            {
+                'name' : 'Broccoli',
+                'type' : 'Brassica'
+            },
+            {
+                'name' : 'Cabbage',
+                'type' : 'Brassica'
+            },
+            {
+                'name' : 'Carrot',
+                'type' : 'Umbelliferous'
+            }
+        ];
+        vm.newVeg = function(chip) {
+            return {
+                name: chip,
+                type: 'unknown'
+            };
+        };
+
+
+
+
+
 
 
 

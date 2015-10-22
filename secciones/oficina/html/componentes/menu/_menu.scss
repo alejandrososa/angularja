@@ -76,6 +76,16 @@ tri-menu {
   }
 }
 
+//FIX  NIVEL MENU
+.fix-menu-nivel {
+  md-icon {
+    height: 50% !important;
+  }
+  .menu-toggle-icon {
+    margin-top: 8px !important;
+  }
+}
+
 // Side menu levels
 .drop-down-list {
   list-style-type: none;

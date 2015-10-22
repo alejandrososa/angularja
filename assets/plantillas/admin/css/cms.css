@@ -11,10 +11,6 @@ html, body {
 .alert-warning {
   color: #FF9800; }
 
-.layout {
-  height: inherit;
-}
-
 .mobile-fullwidth-dialog {
   max-width: none; }
 
@@ -7016,6 +7012,13 @@ md-icon[md-font-icon]:focus {
   .admin-toolbar .md-button {
     height: 48px; }
 
+.md-chips .md-chip-input-container {
+  display: block;
+  line-height: 32px;
+  margin: 8px 8px 0 0;
+  padding: 0 8px 0 3px;
+  float: left; }
+
 .loader {
   background-color: #FFF;
   position: absolute;
@@ -7127,6 +7130,11 @@ tri-menu {
   transition: all .5s; }
   .menu-toggle-icon.open {
     transform: rotate(90deg); }
+
+.fix-menu-nivel md-icon {
+  height: 50% !important; }
+.fix-menu-nivel .menu-toggle-icon {
+  margin-top: 8px !important; }
 
 .drop-down-list {
   list-style-type: none;
@@ -7971,7 +7979,7 @@ table.md-data-table td {
     border-left: 5px solid #eee; }
 
 .email-dialog-editor-toolbar button {
-  font-size: 18px;
+  font-size: 12px;
   min-width: 4rem; }
   .email-dialog-editor-toolbar button i {
     transition: all .2s;

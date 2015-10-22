@@ -624,6 +624,22 @@ namespace Api;
          * PAGINAS
          */
 
+        public function buscadorPaginas(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $post = json_decode(file_get_contents("php://input"));
+            $filtro     = isset($post->filtro) ? $post->filtro : '';
+
+            $this->modelPaginas->atributos = array('id'=> $filtro,'titulo'=> $filtro, 'nombre'=> $filtro,'slug'=> $filtro, 'stado'=> $filtro, 'autor'=> $filtro, 'fecha'=> $filtro);
+            $resultado = $this->modelPaginas->buscadorPaginas();
+            if(isset($resultado)){
+                $this->rest->response($this->helper->json($resultado), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
         public function unicaPagina(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
@@ -661,7 +677,7 @@ namespace Api;
                 $this->rest->response('',406);
             }
 
-            $datos      = json_decode(file_get_contents("php://input"),true);
+            $datos      = json_decode(file_get_contents("php://input"));
             $titulo     = isset($datos['categoria']['titulo']) ? $datos['categoria']['titulo'] : '';
             $slug       = isset($datos['categoria']['slug']) ? $datos['categoria']['slug'] : '';
 
