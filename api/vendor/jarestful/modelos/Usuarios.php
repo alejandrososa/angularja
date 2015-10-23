@@ -95,7 +95,8 @@ class Usuarios extends Modelo
             $credencialusuario = new \stdClass();
             $credencialusuario->usuario = $persona['usuario'];
             $credencialusuario->rol = $this->getPerfilUsuario($persona['id'], true);
-            $resultado = array('estado'=>true,  'token'=> $this->getToken($credencialusuario));
+            $usuarioactual = array('id'=>$persona['id'],'nombre'=>$persona['nombre'].' '.$persona['apellidos']);
+            $resultado = array('usuario'=>$usuarioactual, 'estado'=>true, 'token'=> $this->getToken($credencialusuario));
         }else{
             $resultado = array('estado'=>false);
         }

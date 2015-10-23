@@ -65,6 +65,9 @@ angular
         vm.targets = [];
         vm.datosproveedor = {};
         vm.editor = [];
+        vm.pagina = {};
+        vm.pagina.seo = {};
+        vm.pagina.seo.palabrasclave = [];
 
         vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
         vm.botonTexto = (vm.idUsuario > 0) ? 'Actualizar' : 'Agregar';
@@ -94,6 +97,8 @@ angular
             console.log(vm.enlaces);
         }
 
+
+
         //targets
         //vm.targets = Paginas.targets();
 
@@ -108,8 +113,9 @@ angular
             ['html']
         ];
 
-        vm.tags = [];
+
         vm.readonly = false;
+
         // Lists of fruit names and Vegetable objects
         vm.fruitNames = ['Apple', 'Banana', 'Orange'];
         vm.roFruitNames = angular.copy(vm.fruitNames);
@@ -134,6 +140,8 @@ angular
                 type: 'unknown'
             };
         };
+
+
 
 
 
@@ -188,7 +196,7 @@ angular
         //dataprovider
         vm.datosproveedor = {
             servicio: Paginas,
-            identidad : 'menu',
+            identidad : 'pagina',
             titulo: 'Listado de paginas',
             categoria: vm.categoriaDefault,
             //datos : vm.contenido, //vm.usuarios,
@@ -273,7 +281,6 @@ angular
         $scope.$on('cancelar', function( ev ){
             $location.path('/admin/paginas');
         });
-
 
         $scope.$on('agregar', function( ev ){
             $mdDialog.show({

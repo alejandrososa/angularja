@@ -36,6 +36,9 @@
 }
 
 // Button
+.admin-toolbar .md-button {
+  height: auto !important;
+}
 .toolbar-button {
   md-icon {
     position: relative;

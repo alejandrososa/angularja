@@ -53,6 +53,20 @@ class Helper {
         }
         return $resultado;
     }
+
+    public function convertirArrayAString($array){
+        if(empty($array)){
+            return null;
+        }
+        $string = '';
+        $i = 0;
+        foreach($array as $clave => $valor){
+            $string .= $i != 0 ? ', ' . $valor : $valor;
+            $i++;
+        }
+
+        return $string;
+    }
     
     /**
      * Get Nombre tabla

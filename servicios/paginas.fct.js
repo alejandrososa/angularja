@@ -58,7 +58,7 @@ function categoria($http, API_URL, $log, toastr) {
     }
 
     function actualizar(categoria){
-        return $http.put(API_URL + 'actualizarCategoria', {
+        return $http.put(API_URL + 'actualizarPagina', {
             id: categoria.id,
             categoria:categoria,
             transformRequest: angular.indentity,
@@ -69,27 +69,29 @@ function categoria($http, API_URL, $log, toastr) {
         });
     }
 
-    function crear(categoria){
-        return $http.post(API_URL + 'crearCategoria', {
-            id: categoria.id,
-            categoria:categoria,
+    function crear(pagina){
+        //pagina.fechacreado = moment().format("YYYY-MM-DD hh:mm:ss");
+        console.log('enviado');
+        return $http.post(API_URL + 'crearPagina', {
+            pagina:pagina,
             transformRequest: angular.indentity,
             headers: { 'Content-Type': undefined }
         }).then(function (datos) {
             toastr.success(datos.data.mensaje);
+            console.log(datos);
             return datos.data;
         });
     }
 
     function eliminar(id){
-        return $http.delete(API_URL + 'eliminarCategoria?id='+id, {}).then(function (datos) {
+        return $http.delete(API_URL + 'eliminarPagina?id='+id, {}).then(function (datos) {
             toastr.success(datos.data.mensaje);
             return datos.data;
         });
     }
 
     function guardarImagen(){
-        return $http.post(API_URL + 'eliminarCategoria?id='+id, {
+        return $http.post(API_URL + 'eliminarPagina?id='+id, {
             transformRequest: angular.indentity,
             headers: { 'Content-Type': undefined }
         }).then(function (datos) {

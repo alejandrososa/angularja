@@ -41,7 +41,7 @@ class Paginas extends Modelo
         return $this->unico(self::$modelo);
     }
 
-    public function crearPaginas(){
+    public function crearPagina(){
         return $this->insertar(self::$modelo, $this->atributos);
     }
 

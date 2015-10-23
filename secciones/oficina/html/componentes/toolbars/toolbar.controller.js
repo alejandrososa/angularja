@@ -11,7 +11,10 @@
             templateUrl: 'secciones/oficina/html/componentes/toolbars/toolbar.tmpl.html',
             restrict: 'E',
             scope: {
-                menu: '=?menu'
+                menu: '=?menu',
+                tipo: '@?tipo',
+                datos: '=?datos',
+                proveedor: '=?proveedor'
             }
         };
         return directive;
@@ -27,10 +30,42 @@
         vm.hideMenuButton = hideMenuButton;
         vm.switchLanguage = switchLanguage;
         vm.toggleNotificationsTab = toggleNotificationsTab;
+        vm.guardar = guardar;
+        vm.visible = false;
+        vm.tblServicio = angular.isDefined(vm.proveedor) ? vm.proveedor.servicio : null;
+        var Servicio = vm.tblServicio;
+
+
+
+
+
+
+
+        if(angular.isDefined(vm.tipo)) {
+            switch (vm.tipo) {
+                case 'paginas':
+                    vm.visible = true;
+                    break;
+                case 'categorias':
+                    vm.visible = true;
+                    break;
+                case 'menu':
+                    vm.visible = true;
+                    break;
+                default:
+                    vm.visible = false;
+            }
+        }
+
+
 
         // initToolbar();
 
         ////////////////
+
+        function guardar(){
+            Servicio.crear(vm.datos);
+        }
 
         function openSideNav(navID) {
             $mdUtil.debounce(function(){

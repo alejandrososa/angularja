@@ -7056,6 +7056,9 @@ md-icon[md-font-icon]:focus {
   border-radius: 50%;
   vertical-align: middle; }
 
+.admin-toolbar .md-button {
+  height: auto !important; }
+
 .toolbar-button md-icon {
   position: relative; }
 

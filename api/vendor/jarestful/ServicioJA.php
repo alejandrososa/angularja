@@ -84,13 +84,13 @@ namespace Api;
          */
         private function credenciales(){
             if($this->rest->get_request_method() == "POST"){
-                $credencial   = json_decode(file_get_contents('php://input'));  //get user from
+                $credencial= json_decode(file_get_contents('php://input'));  //get user from
 
                 $resultado = $this->modelUsuarios->verificaCredenciales($credencial);
 
                 if($resultado['estado']){
                     $this->rest->_token = $resultado['token'];
-                    $this->rest->response($this->helper->json(array('tokenja'=> $resultado['token'], 'msg'=>'autorizado')), 200);
+                    $this->rest->response($this->helper->json(array('usuario'=> $resultado['usuario'], 'tokenja'=> $resultado['token'], 'msg'=>'autorizado')), 200);
                 }
                 $this->rest->response($this->helper->json(array('tokenja'=>'invalido','message'=>'Usuario o clave incorrecto')), 401);
 
@@ -678,8 +678,19 @@ namespace Api;
             }
 
             $datos      = json_decode(file_get_contents("php://input"));
-            $titulo     = isset($datos['categoria']['titulo']) ? $datos['categoria']['titulo'] : '';
-            $slug       = isset($datos['categoria']['slug']) ? $datos['categoria']['slug'] : '';
+            $titulo     = isset($datos->pagina->titulo) ? $datos->pagina->titulo : '';
+            $contenido  = isset($datos->pagina->contenido) ? $datos->pagina->contenido : '';
+            $leermas    = isset($datos->pagina->leermas) ? $datos->pagina->leermas : '';
+            $estado     = isset($datos->pagina->estado) ? $datos->pagina->estado : '';
+            $tipo       = isset($datos->pagina->tipo) ? $datos->pagina->tipo : '';
+            $autor      = isset($datos->pagina->autor) ? $datos->pagina->autor : '';
+            $padre      = isset($datos->pagina->padre) ? $datos->pagina->padre : '';
+            $slug       = isset($datos->pagina->slug) ? $datos->pagina->slug : '';
+            $meta_titulo        = isset($datos->pagina->seo->titulo) ? $datos->pagina->seo->titulo : '';
+            $meta_descripcion   = isset($datos->pagina->seo->descripcion) ? $datos->pagina->seo->descripcion : '';
+            $meta_palabras      = isset($datos->pagina->seo->palabrasclave) ? $datos->pagina->seo->palabrasclave : '';
+            $fecha_creado       = isset($datos->pagina->fechacreado) ? $datos->pagina->fechacreado : '';
+            $fecha_modificado   = isset($datos->pagina->fechamodificado) ? $datos->pagina->fechamodificado : '';
 
             $valores = [];
 
@@ -687,13 +698,25 @@ namespace Api;
                 $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
             }
 
-            if(isset($titulo))     { $valores['titulo']     = $titulo; }
-            if(isset($slug))       { $valores['slug']       = $slug; }
+            if(isset($titulo))          { $valores['titulo']        = $titulo; }
+            if(isset($contenido))       { $valores['contenido']     = $contenido; }
+            if(isset($leermas))         { $valores['leermas']       = $leermas; }
+            if(isset($estado))          { $valores['estado']        = $estado; }
+            if(isset($tipo))            { $valores['tipo']          = $tipo; }
+            if(isset($autor))           { $valores['autor']         = $autor; }
+            if(isset($padre))           { $valores['padre']         = $padre; }
+            if(isset($slug))            { $valores['slug']          = $slug; }
+            if(isset($meta_titulo))     { $valores['meta_titulo']   = $meta_titulo; }
+            if(isset($meta_descripcion)){ $valores['meta_descripcion'] = $meta_descripcion; }
+            if(isset($meta_palabras))   { $valores['meta_palabras'] = $this->helper->convertirArrayAString($meta_palabras); }
+            if(isset($fecha_creado))    { $valores['fecha_creado']  = $fecha_creado; }
+            if(isset($fecha_modificado)){ $valores['fecha_modificado'] = $fecha_modificado; }
+            //if(isset($categoria))   { $valores['categoria']  = $this->modelMenu->getIdCategoria($categoria); }
 
             $this->modelPaginas->atributos = $valores;
             $resultado = $this->modelPaginas->crearPagina();
             if(isset($resultado)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'Se ha creado el usuario con exito')), 200);
+                $this->rest->response($this->helper->json(array('mensaje'=>$resultado.'Se ha creado la pagina con exito')), 200);
             }
             $this->response($this->helper->json(array('mensaje'=>'sin valor')),204);
         }
