@@ -8,14 +8,15 @@ function listadoarticulos(Contenido) {  //ShowService
     var directive = {
         controller: controller,
         controllerAs: 'list',
-        bindToController: true, //required in 1.3+ with controllerAs
+        //bindToController: true, //required in 1.3+ with controllerAs
         //templateUrl: 'componentes/listadoarticulos/articulos.tpl.html',
         templateUrl: function(elem, attr){
             return 'componentes/listadoarticulos/'+attr.categoria+'.tpl.html';
         },
         restrict: 'E',
         scope: {
-            categoria: '@categoria'
+            categoria: '@categoria',
+			proveedor: '=?proveedor'
         },
         
     };

@@ -14,6 +14,7 @@ function categoria($http, API_URL, $log, toastr) {
         'buscador': buscador,
         'unico': unico,
         'todos': todos,
+        'todostipo':todostipo,
         'crear': crear,
         'eliminar': eliminar,
         'actualizar': actualizar,
@@ -52,9 +53,10 @@ function categoria($http, API_URL, $log, toastr) {
 
     function todos(){
         return $http.get(API_URL + 'todasPaginas', {});
-            /*.then(function (datos) {
-            return datos.data.resultado;
-        });*/
+    }
+
+    function todostipo(categoria){
+        return $http.post(API_URL + 'PaginasPorCategoria', {categoria:categoria});
     }
 
     function actualizar(categoria){
@@ -70,8 +72,7 @@ function categoria($http, API_URL, $log, toastr) {
     }
 
     function crear(pagina){
-        //pagina.fechacreado = moment().format("YYYY-MM-DD hh:mm:ss");
-        console.log('enviado');
+        pagina.fechacreado = moment().format("YYYY-MM-DD hh:mm:ss");
         return $http.post(API_URL + 'crearPagina', {
             pagina:pagina,
             transformRequest: angular.indentity,

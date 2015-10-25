@@ -68,6 +68,7 @@ angular
         vm.pagina = {};
         vm.pagina.seo = {};
         vm.pagina.seo.palabrasclave = [];
+        vm.pagina.autor = Utilidades.LocalStorage.getIdUsuarioActual();
 
         vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
         vm.botonTexto = (vm.idUsuario > 0) ? 'Actualizar' : 'Agregar';
@@ -106,7 +107,7 @@ angular
 
         vm.editor = [
             ['undo','redo'],
-            ['p','bold','italics','pre','ul','ol','quote','clear'],
+            ['p','bold','italics','ul','ol','quote','clear'],
             ['h2','h3','h4'],
             ['justifyLeft','justifyCenter','justifyRight'], //justifyFull
             ['insertLink', 'insertVideo'],
@@ -144,7 +145,7 @@ angular
 
 
 
-
+        console.log('id usuario:' + Utilidades.LocalStorage.getIdUsuarioActual());
 
 
 

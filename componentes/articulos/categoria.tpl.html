@@ -1,0 +1,82 @@
+<div class="ot-panel-block">
+	<div class="title-block">
+		<h2 style="background-color: #e14f55;">{{vm.titulo}}</h2>
+	</div>
+	<div class="article-grid articles-long">
+
+		<div class="item" ng-repeat="art in vm.contenido">
+				<div class="item-header">
+					<a href="{{art.categoria | lowercase}}/{{art.slug}}">
+						<span class="item-header-category"><i class="fa fa-folder-open"></i><span>{{art.categoria}}</span></span>
+						<img imagen ng-src="{{art.imagen}}" alt="{{art.titulo}}" />
+					</a>
+				</div>
+				<div class="item-content">
+					<div class="item-content-head">
+						<div class="item-content-date">
+							<strong>16</strong>
+							<span>Oct</span>
+							<span>2015</span>
+						</div>
+						<h3><a href="{{art.categoria | lowercase}}/{{art.slug}}">{{art.titulo}}</a></h3>
+					</div>
+					<p style="height: 57px;" ng-bind-html="art.contenido | limiteTexto:true:150:'...'"></>
+				</div>
+				<div class="item-footer">
+					<button class="article-more-arrow right"><i class="fa fa-caret-right"></i><i class="show-hover">Read more</i></button>
+					<div class="item-meta">
+						<a href="{{art.categoria | lowercase}}/{{art.slug}}"><i class="fa fa-pencil"></i>{{art.autor}}</a>
+						<a href="{{art.categoria | lowercase}}/{{art.slug}}"><i class="fa fa-comment"></i>{{art.comentarios}}</a>
+					</div>
+				</div>
+
+
+		</div>
+
+	</div>
+</div>
+
+
+
+<div class="pagination">
+	<a class="prev page-numbers" href="#" ng-disabled="vm.page == 0" ng-click="vm.page = vm.page - 1"><i class="fa fa-caret-left"></i>Previous Page</a>
+	<a class="page-numbers" href="#" ng-click="vm.goToPage(0)">
+		<span class="page-numbers current" ng-show="vm.page==0">1</span>
+		<span class="" ng-hide="vm.page==0">1</span></a>
+	</a>
+	<a class="page-numbers" href="#" ng-repeat="pagina in vm.paginas" ng-click="vm.goToPage(pagina)">
+		<span class="page-numbers current" ng-show="pagina==vm.page">{{pagina + 1}}</span>
+		<span class="" ng-hide="pagina==vm.page">{{pagina + 1}}</span></a>
+	<a class="next page-numbers" href="#" ng-disabled="vm.page == vm.numberOfPages() - 1" ng-click="vm.page = vm.page + 1">Next Page<i class="fa fa-caret-right"></i></a>
+</div>
+--{{vm.paginas}}--
+
+<div class="md-table-footer" layout="row" layout-align="end center">
+	<div class="md-table-page-select" layout="row" layout-align="center center">
+		<span>Filas por p&aacute;gina:</span>
+		<select ng-model="vm.pageSize" ng-change="vm.refresh(true)">
+			<option value="5">5</option>
+			<option value="10">10</option>
+			<option value="25">25</option>
+			<option value="50">50</option>
+			<option value="100">100</option>
+		</select>
+	</div>
+                    <span class="md-table-info">
+                        {{vm.pageStart()}}
+                        -
+                        {{vm.pageEnd()}}
+                        <span>de</span> <!--  | translate -->
+                        {{vm.totalItems()}}
+                    </span>
+	<div class="md-table-page-nav">
+		<md-button ng-disabled="vm.page == 0" ng-click="vm.page = vm.page - 1" aria-label="TABLES.PREV" class="md-icon-button md-accent">
+			<md-icon md-font-icon="zmdi zmdi-chevron-left"></md-icon>
+			<md-tooltip>Anterior</md-tooltip>
+		</md-button>
+		<md-button ng-disabled="vm.page == vm.numberOfPages() - 1" ng-click="vm.page = vm.page + 1" aria-label="TABLES.NEXT" class="md-icon-button md-accent">
+			<md-icon md-font-icon="zmdi zmdi-chevron-right"></md-icon>
+			<md-tooltip>Siguiente</md-tooltip>
+		</md-button>
+	</div>
+</div>

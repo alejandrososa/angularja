@@ -19,28 +19,14 @@
 		<!-- Estilos General
 
 		-->
-		<link type="text/css" rel="stylesheet" href="assets/general/general.css" />
-		<link type="text/css" rel="stylesheet" href="assets/general/angular-toastr.css" />
-		<link type="text/css" rel="stylesheet" href="assets/general/angular-spinkit.min.css" />
 
-
+		<!--
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/admin/css/admin.css" />
-		<!--<link type="text/css" href="https://material.angularjs.org/HEAD/angular-material.css" />-->
+		<link type="text/css" href="https://material.angularjs.org/HEAD/angular-material.css" />-->
 
-		<!-- Stylesheets
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/reset.css" />
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/font-awesome.min.css" />
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/main-stylesheet.css" />
-		<!-- For white edition style
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/white-edition.css" />
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/lightbox.css" />
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/shortcodes.css" />
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/custom-fonts.css" />
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/custom-colors.css" />
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/owl.carousel.css" />
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/responsive.css" />
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/animate.css" />
-		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/dat-menu.css" />-->
+		<link type="text/css" rel="stylesheet" href="assets/plantillas/solido/css/solido.css" />
+
+		<!-- -->
 
         <!--[if lte IE 8]>
 		<link type="text/css" rel="stylesheet" href="css/ie-ancient.css" />
@@ -110,6 +96,7 @@
 	    <!-- / -->
 	    <!-- CONTROLLERS -->
 	        <script src="secciones/portada/portada.ctrl.js"></script>
+			<script src="secciones/categoria/categoria.ctrl.js"></script>
 			<script src="secciones/error/error.ctrl.js"></script>
 			<script src="secciones/login/login.ctrl.js"></script>
 			<script src="secciones/oficina/admin.ctrl.js"></script>
@@ -196,12 +183,12 @@
 		<script src="secciones/oficina/html/directivas/imagenvista/imagen.drct.js"></script>
 
 
-		
+		<script src="utilidades/utilidad.js"></script>
 		
 		
 
 		<!-- Scripts -->
-		<!--<script type="text/javascript" src="assets/plantillas/solido/jscript/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="assets/plantillas/solido/jscript/jquery-latest.min.js"></script>
 		<script type="text/javascript" src="assets/plantillas/solido/jscript/elementQuery.min.js"></script>
 		<script type="text/javascript" src="assets/plantillas/solido/jscript/theme-scripts.js"></script>
 		<script type="text/javascript" src="assets/plantillas/solido/jscript/lightbox.js"></script>
@@ -255,7 +242,7 @@
 					}
 				});
 			});
-		</script> -->
+		</script>
 		<!-- Demo Only 
 		<script type="text/javascript" src="assets/plantillas/solido/jscript/demo-settings.js"></script>
 		-->

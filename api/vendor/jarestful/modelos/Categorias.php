@@ -9,6 +9,7 @@
 namespace Api\Modelos;
 
 use Api\Modelo;
+use Api\Helper;
 
 class Categorias extends Modelo
 {
@@ -52,6 +53,27 @@ class Categorias extends Modelo
     public function eliminarCategoria(){
         $this->where = $this->atributos;
         return $this->eliminar(self::$modelo);
+    }
+
+    public function existeCategoria(){
+        $this->where = $this->atributos;
+        $datos = $this->unico(self::$modelo);
+        $helper = new Helper();
+        $resultado = array('existe'=>false);
+
+        if($helper->contieneDatos($datos)){
+            $resultado = array('existe'=>true, 'id'=>$datos['id'], 'titulo'=>$datos['titulo']);
+        }
+        return $resultado;
+    }
+
+    public function getNombreCategoria($id){
+        if(empty($id)){
+            return null;
+        }
+        $this->where = array('id'=>$id);
+        $categoria = $this->unico(self::$modelo);
+        return $categoria['titulo'];
     }
 
 }

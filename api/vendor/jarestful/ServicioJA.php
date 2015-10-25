@@ -408,6 +408,7 @@ namespace Api;
             }
         }
 
+
         /**
          * MENU
          */
@@ -670,6 +671,49 @@ namespace Api;
                 $this->rest->response($this->helper->json(array('resultado'=>$categorias)), 200);
             }
             $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
+        private function todasPaginasPorCategoria(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            $id = $this->rest->_request['categoria'];
+
+            $this->modelPaginas->atributos = array('categoria'=> $id);
+            $categorias = $this->modelPaginas->todasPaginasCategoria();
+            if(isset($categorias)){
+                $this->rest->response($this->helper->json(array('resultado'=>$categorias)), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
+        public function PaginasPorCategoria(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $post = json_decode(file_get_contents("php://input"));
+            $categoria         = isset($post->categoria) ? $post->categoria : '';
+
+            if(empty($categoria)){
+                $this->rest->response($this->helper->json(array('mensaje'=>$categoria.'estás perdido?')),204);
+            }
+
+            $this->modelCategorias->atributos = array('slug'=> $categoria);
+            $resultado = $this->modelCategorias->existeCategoria();
+            if(isset($resultado) && $resultado['existe'] == true){
+                $this->modelPaginas->atributos = array('categoria'=> $resultado['id']);
+                $datos = $this->modelPaginas->todasPaginasCategoria();
+                $resultado['total'] = count($datos);
+                $resultado['listado'] = $datos;
+                $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
+            }else{
+                $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+
+
         }
 
         private function crearPagina(){

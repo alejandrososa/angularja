@@ -17,6 +17,7 @@ function categoria($http, API_URL, $log, toastr) {
         'crear': crear,
         'eliminar': eliminar,
         'actualizar': actualizar,
+        'existe': existe,
         'demo': demo
     };
 
@@ -84,6 +85,12 @@ function categoria($http, API_URL, $log, toastr) {
     function eliminar(id){
         return $http.delete(API_URL + 'eliminarCategoria?id='+id, {}).then(function (datos) {
             toastr.success(datos.data.mensaje);
+            return datos.data;
+        });
+    }
+
+    function existe(categoria){
+        return $http.post(API_URL + 'existeCategoria', {categoria:categoria}).then(function (datos) {
             return datos.data;
         });
     }

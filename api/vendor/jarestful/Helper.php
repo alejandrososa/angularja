@@ -67,6 +67,14 @@ class Helper {
 
         return $string;
     }
+
+    public function contieneDatos($array){
+        $resultado = true;
+        if(empty($array)){
+            $resultado = false;
+        }
+        return $resultado;
+    }
     
     /**
      * Get Nombre tabla

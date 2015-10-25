@@ -36,6 +36,41 @@ class Paginas extends Modelo
         return $this->todos(self::$modelo);
     }
 
+    public function todasPaginasCategoria(){
+        $autor      = Usuarios::getInstance();
+        $categoria  = Categorias::getInstance();
+
+        $clave = [];
+
+        $this->where = $this->atributos;
+        foreach($this->unico(self::$modelo, true) as $c => $v){
+            $clave[$c] = $v['id'];
+
+            $paginas[] = array(
+                'id'=> $v['id'],
+                'titulo'=>$v['titulo'],
+                'categoria'=>$categoria->getNombreCategoria($v['categoria']),
+                'contenido'=>$v['contenido'],
+                'imagen'=>empty($v['imagen']) ? '' : $v['imagen'],
+                'leermas'=>$v['leermas'],
+                'estado'=>$v['estado'],
+                'tipo'=>$v['tipo'],
+                'autor'=>$autor->getAutor($v['autor']),
+                'padre'=>$v['padre'],
+                'slug'=>$v['slug'],
+                'meta_descripcion'=>$v['meta_descripcion'],
+                'meta_palabras'=>$v['meta_palabras'],
+                'meta_titulo'=>$v['meta_titulo'],
+                'fecha_creado'=>$v['fecha_creado'],
+                'fecha_modificado'=>$v['fecha_modificado'],
+            );
+        }
+
+        array_multisort($clave, SORT_DESC, $paginas);
+
+        return $paginas;
+    }
+
     public function unicaPagina(){
         $this->where = $this->atributos;
         return $this->unico(self::$modelo);

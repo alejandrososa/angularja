@@ -70,6 +70,8 @@ class Usuarios extends Modelo
         return $resultado;
     }
 
+
+
     public function existeUsuario(){
         $this->where = $this->atributos;
         $usuario = $this->unico(self::$vista);
@@ -134,6 +136,15 @@ class Usuarios extends Modelo
             $resultado = $perfiles;
         }
         return $resultado;
+    }
+
+    public function getAutor($id){
+        if(empty($id)){
+            return null;
+        }
+        $this->where = array('id'=>$id);
+        $usuario = $this->unico(self::$vista);
+        return $usuario['nombre'].' '.$usuario['apellidos'];
     }
 
 
