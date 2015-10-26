@@ -2,12 +2,16 @@
 
 angular
     .module('app.core')
+    .constant('REDES', {
+        facebook: '189032664771759'
+    })
     .directive('fbLike',fb)
     .directive('tweet',tweet)
     .directive('googlePlus',goog)
     .directive('pinIt',pinIt);
 
-function fb($window, $rootScope) {
+function fb($window, REDES) {
+
     return {
         restrict: 'A',
         scope: {
@@ -17,12 +21,16 @@ function fb($window, $rootScope) {
             if (!$window.FB) {
                 // Load Facebook SDK if not already loaded
                 $.getScript('//connect.facebook.net/en_US/sdk.js', function () {
-                    $window.FB.init({
-                        appId: $rootScope.facebookAppId,
-                        xfbml: true,
-                        version: 'v2.0'
-                    });
-                    renderLikeButton();
+
+                    if(angular.isDefined(REDES)) {
+                        console.log('entreo');
+                        $window.FB.init({
+                            appId: REDES.facebook,
+                            xfbml: true,
+                            version: 'v2.5'
+                        });
+                        renderLikeButton();
+                    }
                 });
             } else {
                 renderLikeButton();
@@ -44,7 +52,7 @@ function fb($window, $rootScope) {
                     });
                     return;
                 } else {
-                    element.html('<div class="fb-like"' + (!!scope.fbLike ? ' data-href="' + scope.fbLike + '"' : '') + ' data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>');
+                    element.html('asdf<div class="fb-like"' + (!!scope.fbLike ? ' data-href="' + scope.fbLike + '"' : '') + ' data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>');
                     $window.FB.XFBML.parse(element.parent()[0]);
                 }
             }
@@ -124,7 +132,8 @@ function tweet($window, $location) {
                     });
                     return;
                 } else {
-                    element.html('<a href="https://twitter.com/share" class="twitter-share-button" data-text="' + scope.tweet + '" data-url="' + (scope.tweetUrl || $location.absUrl()) + '">Tweet</a>');
+                    //socialize-icon twitter ot-tweet
+                    element.html('<a href="https://twitter.com/share" class="twitter-share-button" data-text="' + scope.tweet + '" data-url="' + (scope.tweetUrl || $location.absUrl()) + '"><strong><i class="fa fa-twitter"></i>Twitter</strong></a>');
                     $window.twttr.widgets.load(element.parent()[0]);
                 }
             }

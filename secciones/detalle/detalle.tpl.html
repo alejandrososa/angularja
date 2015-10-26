@@ -114,7 +114,15 @@
 						<h1>{{detalle.pagina.titulo}}</h1>
 					</div>
 
+
 					<div tweet="detalle.pagina.titulo" tweet-url="vm.url"></div>
+					<div
+							fb-like="vm.url"
+							class="fb-like"
+							data-share="true"
+							data-width="450"
+							data-show-faces="false">
+					</div>
 
 					<div ng-bind-html="detalle.pagina.contenido"></div>
 
