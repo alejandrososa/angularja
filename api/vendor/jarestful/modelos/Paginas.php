@@ -71,6 +71,51 @@ class Paginas extends Modelo
         return $paginas;
     }
 
+    public function detallePagina(){
+        $pagina     = array('existe' => false);
+        $autor      = Usuarios::getInstance();
+        $categoria  = Categorias::getInstance();
+
+        $categoria->atributos = array('titulo'=>$this->atributos['categoria']);
+        $existecategoria = $categoria->existeCategoria();
+
+
+        if(!isset($existecategoria) || $existecategoria['existe'] == false){
+            return $pagina;
+        }
+
+        $atributos = array(
+            'categoria'=>$existecategoria['id'],
+            'slug'=>$this->atributos['slug']
+        );
+
+        $this->where = $atributos;
+        $v = $this->unico(self::$modelo);
+        if(!empty($v)) {
+            $pagina = array(
+                'existe' => true,
+                'id' => $v['id'],
+                'titulo' => $v['titulo'],
+                'categoria' => $categoria->getNombreCategoria($v['categoria']),
+                'contenido' => $v['contenido'],
+                'imagen' => empty($v['imagen']) ? '' : $v['imagen'],
+                'leermas' => $v['leermas'],
+                'estado' => $v['estado'],
+                'tipo' => $v['tipo'],
+                'autor' => $autor->getBiografiaAutor($v['autor']),
+                'padre' => $v['padre'],
+                'slug' => $v['slug'],
+                'meta_descripcion' => $v['meta_descripcion'],
+                'meta_palabras' => $v['meta_palabras'],
+                'meta_titulo' => $v['meta_titulo'],
+                'fecha_creado' => $v['fecha_creado'],
+                'fecha_modificado' => $v['fecha_modificado'],
+            );
+        }
+
+        return $pagina;
+    }
+
     public function unicaPagina(){
         $this->where = $this->atributos;
         return $this->unico(self::$modelo);

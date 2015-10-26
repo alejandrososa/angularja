@@ -1,17 +1,35 @@
 <HTML>
 <!-- BEGIN html -->
-<html lang = "es">
+<html lang="en">
 	<!-- BEGIN head -->
 	<head>
-	<base href="/">
-    <meta charset="UTF-8">
-    <meta name="fragment" content="!" />
-		<title>JA | Oficina</title>
+		<base href="/">
+		<meta charset="UTF-8">
+		<meta name="fragment" content="!" />
 
-		<!-- Meta Tags -->
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="description" content="" />
+		<meta charset="utf-8" />
+		<title>JA | Oficina</title>
+		<meta http-equiv="Content-Language" content="en" />
+		<meta name="description" content="Pagina cristiana adventista" />
+		<meta name="keywords" content="">
+		<meta name="robots" content="index, follow">
+		<meta name="author" content="Alex Sosa">
+		<meta name="copyright" content="JA 2015 | Todos los derechos reservados">
+
+		<meta property="og:title" content="JA" />
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Pagina cristiana adventista" />
+		<meta property="og:url" content="http://ja.dev/" />
+		<meta property="og:description" content="" />
+		<meta property="og:site_name" content="ja" />
+		<meta name="twitter:card" content="Pagina cristiana adventista" />
+		<meta name="twitter:title" content="Portada" />
+		<meta name="twitter:description" content="" />
+		<meta property="dynamicMeta" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="assets/plantillas/solido/images/favicon.ico" type="image/x-icon" />
@@ -28,16 +46,18 @@
 
 		<!-- -->
 
-        <!--[if lte IE 8]>
+		<!--[if lte IE 8]>
 		<link type="text/css" rel="stylesheet" href="css/ie-ancient.css" />
 		<![endif]-->
 
 
-        <style>
-            [ng-cloak] {
-                display: none;
-            }
-        </style>
+		<style>
+			[ng-cloak] {
+				display: none;
+			}
+		</style>
+
+
 
 	<!-- END head -->
 	</head>
@@ -97,6 +117,7 @@
 	    <!-- CONTROLLERS -->
 	        <script src="secciones/portada/portada.ctrl.js"></script>
 			<script src="secciones/categoria/categoria.ctrl.js"></script>
+			<script src="secciones/detalle/detalle.ctrl.js"></script>
 			<script src="secciones/error/error.ctrl.js"></script>
 			<script src="secciones/login/login.ctrl.js"></script>
 			<script src="secciones/oficina/admin.ctrl.js"></script>
@@ -133,6 +154,8 @@
 	        <script src="componentes/videos/videos.drct.js"></script>	        
 	        <script src="componentes/publicidad/publicidad.drct.js"></script>
 	        <script src="componentes/piedepagina/pie.drct.js"></script>
+			<script src="componentes/seo/seo.drct.js"></script>
+			<script src="componentes/redessociales/redessociales.drct.js"></script>
 			<script src="secciones/oficina/usuarios/datosusuario.drct.js"></script>
 
 		<script src="lib/app.layout.js"></script>
@@ -184,8 +207,8 @@
 
 
 		<script src="utilidades/utilidad.js"></script>
-		
-		
+
+
 
 		<!-- Scripts -->
 		<script type="text/javascript" src="assets/plantillas/solido/jscript/jquery-latest.min.js"></script>

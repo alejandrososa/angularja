@@ -716,6 +716,30 @@ namespace Api;
 
         }
 
+        public function detallePagina(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $post = json_decode(file_get_contents("php://input"));
+            $categoria         = isset($post->categoria) ? $post->categoria : '';
+            $slug              = isset($post->slug) ? $post->slug : '';
+
+            if(empty($categoria) || empty($slug)){
+                $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),200);
+            }
+
+            $this->modelPaginas->atributos = array('categoria'=> $categoria, 'slug'=>$slug);
+            $resultado = $this->modelPaginas->detallePagina();
+            $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
+            if(isset($resultado) && $resultado['existe'] == true){
+                $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
+            }else{
+                $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
+            }
+            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+        }
+
         private function crearPagina(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);

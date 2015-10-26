@@ -78,6 +78,31 @@ class Usuarios extends Modelo
         return empty($usuario) ? true : false;
     }
 
+    public function getAutor($id){
+        if(empty($id)){
+            return null;
+        }
+        $this->where = array('id'=>$id);
+        $usuario = $this->unico(self::$vista);
+        return $usuario['nombre'].' '.$usuario['apellidos'];
+    }
+
+    public function getBiografiaAutor($id){
+        if(empty($id)){
+            return null;
+        }
+        $this->where = array('id'=>$id);
+        $usuario = $this->unico(self::$vista);
+        $bio = array(
+            'nombre'=> $usuario['nombre'].' '.$usuario['apellidos'],
+            'autor'=> $usuario['nombre'].' '.$usuario['apellidos'],
+            'biografia'=> $usuario['biografia'],
+            'imagen'=> $usuario['imagen'],
+            'redessociales'=> $usuario['redessociales']
+        );
+        return $bio;
+    }
+
     public function verificaCredenciales($credencial){
         $usuario    = isset($credencial->usuario) ? $credencial->usuario : '';
         $clave      = isset($credencial->clave) ? $credencial->clave : '';
@@ -137,16 +162,6 @@ class Usuarios extends Modelo
         }
         return $resultado;
     }
-
-    public function getAutor($id){
-        if(empty($id)){
-            return null;
-        }
-        $this->where = array('id'=>$id);
-        $usuario = $this->unico(self::$vista);
-        return $usuario['nombre'].' '.$usuario['apellidos'];
-    }
-
 
     private function getToken($usuario){
         $token = '';

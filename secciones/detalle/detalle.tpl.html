@@ -1,0 +1,731 @@
+<seo-meta title="{{detalle.pagina.meta_titulo}}"></seo-meta>
+<seo-meta charset="ISO-8859-1"></seo-meta>
+<seo-meta http-equiv="Content-Language" content="es"></seo-meta>
+<seo-meta name="description" content="{{detalle.pagina.meta_descripcion}}"></seo-meta>
+<seo-meta name="keywords" content="{{detalle.pagina.meta_palabras}}"></seo-meta>
+<seo-meta name="author" content="{{detalle.pagina.autor.nombre}}"></seo-meta>
+<seo-meta name="robots" content="index, follow"></seo-meta>
+
+<meta property="og:type" content="article">
+<seo-meta property="og:title" content="{{detalle.pagina.meta_titulo}}"></seo-meta>
+<seo-meta property="og:url" content="http://ja.dev/{{detalle.pagina.categoria | lowercase}}/{{detalle.pagina.slug}}"></seo-meta>
+<seo-meta property="og:description" content="{{detalle.pagina.meta_descripcion}}"></seo-meta>
+<seo-meta property="og:site_name" content="ja"></seo-meta>
+<seo-meta name="twitter:card" content="{{detalle.pagina.meta_descripcion}}"></seo-meta>
+<seo-meta name="twitter:title" content="{{detalle.pagina.titulo}}"></seo-meta>
+<seo-meta name="twitter:description" content="{{detalle.pagina.meta_descripcion}}"></seo-meta>
+<!--<seo-meta property="dynamicMeta" content="{{ dynamicMeta }}"></seo-meta>-->
+
+
+
+<!-- BEGIN .boxed.active -->
+<div class="boxed">
+
+	<!-- BEGIN .header -->
+	<header class="header">
+
+		<portal-menu tipo="superior"></portal-menu>
+
+		<!-- BEGIN .wrapper -->
+		<div class="wrapper">
+
+			<portal-logo></portal-logo>
+
+			<!-- <nav id="main-menu"> -->
+			<portal-menu tipo="principal"></portal-menu>
+			<!-- END .wrapper -->
+		</div>
+
+		<portal-menu tipo="secundario"></portal-menu>
+
+		<!-- END .header -->
+	</header>
+
+
+	<!-- BEGIN .content -->
+	<section class="content">
+
+
+
+
+<!-- BEGIN .wrapper -->
+<div class="wrapper">
+
+	<!-- BEGIN .full-block
+	<div class="full-block">
+		<div class="ot-panel-block">
+			<div class="post-image">
+				<img src="images/photos/image-43.jpg" alt="" />
+			</div>
+		</div>
+	</div><!-- END .full-block -->
+
+	<!-- BEGIN .split-block -->
+	<div class="split-block">
+		
+		<!-- BEGIN .main-content -->
+		<div class="main-content ot-scrollnimate" data-animation="fadeInUpSmall">
+
+			<div class="ot-panel-block panel-light">
+				<div class="shortcode-content">
+
+					<div class="article-header">
+						<img ng-show="detalle.pagina.imagen" ng-src="detalle.imagen" class="article-header-photo" alt="" />
+						<div class="article-header-meta">
+							<a href="#" class="meta-item">
+								<i class="fa fa-clock-o"></i>
+								<span ng-bind="detalle.pagina.fecha_creado"></span>
+							</a>
+							<div class="meta-item" ng-show="detalle.autor">
+								<i class="fa fa-pencil"></i>
+								<span>{{detalle.pagina.autor}}</span>
+								<a href="blog.html">(12 articles)</a>
+							</div>
+							<div class="meta-item">
+								<i class="fa fa-comment-o"></i>
+								<span>12 Comments</span>
+							</div>
+							<a href="#article-share" class="meta-share-button meta-item">
+								<i class="fa fa-share"></i>
+								<span>Share</span>
+							</a>
+						</div>
+						<div class="share-popup-block">
+							<a href="#" class="socialize-icon facebook ot-share">
+								<strong><i class="fa fa-facebook"></i>Facebook</strong>
+								<span class="count">0</span>
+							</a>
+
+							<a href="#" class="socialize-icon twitter ot-tweet">
+								<strong><i class="fa fa-twitter"></i>Twitter</strong>
+								<span class="count">1</span>
+							</a>
+
+							<a href="#" class="socialize-icon google ot-pluss">
+								<strong><i class="fa fa-google-plus"></i>Google+</strong>
+								<span class="count">1</span>
+							</a>
+
+							<a href="#" class="socialize-icon linkedin ot-link">
+								<strong><i class="fa fa-linkedin"></i>LinkedIn</strong>
+								<span class="count">0</span>
+							</a>
+						</div>
+						<h1>{{detalle.pagina.titulo}}</h1>
+					</div>
+
+					<div tweet="detalle.pagina.titulo" tweet-url="vm.url"></div>
+
+					<div ng-bind-html="detalle.pagina.contenido"></div>
+
+					<div class="tags-cats" ng-show="detalle.pagina.tags">
+						<span><i class="fa fa-tags"></i> Tags</span>
+						<a href="#">Automotive</a>,
+						<a href="#">Fashion</a>,
+						<a href="#">Tourism</a>,
+						<a href="#">Creative</a>,
+						<a href="#">Gadgets</a>
+					</div>
+
+					<div class="about-author" ng-show="detalle.pagina.autor">
+						<div class="author-header">
+							<img ng-show="detalle.pagina.autor.imagen" src="{{detalle.pagina.autor.imagen}}" alt="{{detalle.pagina.autor.nombre}}" />
+						</div>
+						<div class="author-content">
+							<div class="author-socials right" ng-show="detalle.pagina.autor.redessociales">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-google-plus"></i></a>
+								<a href="#"><i class="fa fa-linkedin"></i></a>
+								<a href="#"><i class="fa fa-youtube"></i></a>
+								<a href="#"><i class="fa fa-dribbble"></i></a>
+								<a href="#"><i class="fa fa-flickr"></i></a>
+							</div>
+							<h4>{{detalle.pagina.autor.nombre}}</h4>
+							<p ng-bind-html="detalle.pagina.autor.biografia"></p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- BEGIN .ot-panel-block -->
+			<div class="ot-panel-block dark-scheme">
+				<div class="title-block">
+					<h2>Articulos que te pueden interesar</h2>
+				</div>
+				<div class="reviews-block lets-do-3">
+
+					<div class="item">
+						<div class="item-header">
+							<a href="#"><img src="images/photos/image-29.jpg" alt="" /></a>
+						</div>
+						<div class="item-content">
+							<h3><a href="#">Quadrum - Multipurpose News &amp; Magazine theme</a></h3>
+						</div>
+					</div>
+
+					<div class="item">
+						<div class="item-header">
+							<a href="#"><img src="images/photos/image-30.jpg" alt="" /></a>
+						</div>
+						<div class="item-content">
+							<h3><a href="#">Quadrum - Multipurpose News &amp; Magazine theme</a></h3>
+						</div>
+					</div>
+
+					<div class="item">
+						<div class="item-header">
+							<a href="#"><img src="images/photos/image-31.jpg" alt="" /></a>
+						</div>
+						<div class="item-content">
+							<h3><a href="#">Quadrum - Multipurpose News &amp; Magazine theme</a></h3>
+						</div>
+					</div>
+
+				</div>
+				<!-- END .ot-panel-block -->
+			</div>
+
+			<div class="ot-panel-block panel-light">
+				<div class="title-block">
+					<h2 style="background-color: #3181b5;">Comments</h2>
+				</div>
+
+				<div class="comments-block">
+
+					<div class="big-message">
+						<div>
+							<i class="fa fa-comments"></i>
+							<strong>No Comments Yet!</strong>
+							<span>You can be first to <a href="#writecomment">comment this post!</a></span>
+							<div class="clear-float"></div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="ot-panel-block">
+				<div class="title-block">
+					<h2 style="background-color: #636363;">Write comment</h2>
+				</div>
+
+				<div id="writecomment" class="writecomment">
+
+					<form action="#" method="get">
+
+						<p class="comment-info">
+							<i class="fa fa-info"></i>
+							<strong>Your data will be safe!</strong>
+							<span>Your e-mail address will not be published. Also other data will not be shared with third person. Required fields marked as <span class="c_required">*</span></span>
+						</p>
+
+						<div class="coloralert" style="background: #CA2E1A;">
+							<i class="fa fa-warning"></i>
+							<p>Oh noooes!<br>Something gone wrong!</p>
+							<a href="#close-alert" class="close-alert"><i class="fa fa-times-circle"></i></a>
+						</div>
+						<!-- <div class="coloralert" style="background: #68a117;">
+                            <i class="fa fa-check"></i>
+                            <p>Great Success<br>Your comment went through!</p>
+                            <a href="#close-alert" class="close-alert"><i class="fa fa-times-circle"></i></a>
+                        </div> -->
+
+						<p class="contact-form-user">
+							<label for="c_name">Name<span class="c_required">*</span></label>
+							<input type="text" class="error" placeholder="Name" name="c_name" id="c_name" />
+						</p>
+						<p class="contact-form-email">
+							<label for="c_email">E-mail<span class="c_required">*</span></label>
+							<input type="text" placeholder="E-mail" name="c_email" id="c_email" />
+						</p>
+						<p class="contact-form-website">
+							<label for="c_website">WWW</label>
+							<input type="text" placeholder="Website" name="c_website" id="c_website" />
+						</p>
+						<p class="contact-form-message">
+							<label for="c_message">Text<span class="c_required">*</span></label>
+							<textarea name="c_message" placeholder="Comment text.." id="c_message"></textarea>
+						</p>
+						<p class="contact-form-submit">
+							<button type="submit"><i class="fa fa-check"></i>Submit</button>
+						</p>
+					</form>
+
+				</div>
+
+			</div>
+
+
+			<portal-publicidad posicion="izquierda"></portal-publicidad>
+
+		<!-- END .main-content -->
+		</div>
+		
+		<!-- BEGIN #sidebar -->
+		<aside id="sidebar-small" class="ot-scrollnimate small-sidebar" data-animation="fadeInUpSmall">
+
+			<!-- BEGIN .widget -->
+			<portal-listadoarticulos categoria="articulos"></portal-listadoarticulos>
+
+			<!-- BEGIN .widget -->
+			<portal-listadoarticulos categoria="noticias"></portal-listadoarticulos>
+
+			<!-- BEGIN .widget -->
+			<portal-publicidad posicion="centro"></portal-publicidad>
+
+		<!-- END #sidebar -->
+		</aside>
+		
+		<!-- BEGIN #sidebar -->
+		<aside id="sidebar" class="ot-scrollnimate" data-animation="fadeInUpSmall">
+
+			<!-- BEGIN .widget -->			
+			<portal-publicidad posicion="derecha"></portal-publicidad>
+
+			<!-- BEGIN .widget -->
+			<portal-eventos></portal-eventos>
+
+			<!-- BEGIN .widget -->
+			<div class="widget" style="background-color: #232327;">
+				<div class="title-block">
+					<h2 style="background-color: #7f1e7d;">Chillout mix</h2>
+				</div>
+				<div class="ot-widget-music">
+					<a href="#" class="item"><i class="fa fa-play-circle"></i><span>Summer Memories (La Belle Mixtape) - Henri Pfr</span></a>
+					<a href="#" class="item"><i class="fa fa-play-circle"></i><span>1 Hour Unbelievable Chillstep Mega Mix - DJ Await</span></a>
+					<a href="#" class="item"><i class="fa fa-play-circle"></i><span>Summer Memories (La Belle Mixtape) - Henri Pfr</span></a>
+					<a href="#" class="item"><i class="fa fa-play-circle"></i><span>1 Hour Unbelievable Chillstep Mega Mix - DJ Await</span></a>
+					<a href="#" class="item"><i class="fa fa-play-circle"></i><span>Summer Memories (La Belle Mixtape) - Henri Pfr</span></a>
+				</div>
+			<!-- END .widget -->
+			</div>
+
+			<!-- BEGIN .widget -->
+			<div class="widget" style="background-color: #3c3b41;">
+				<div class="title-block">
+					<h2 style="background-color: #f05c5c;">Reviews</h2>
+				</div>
+				<div class="article-block">
+					<div class="item">
+						<div class="item-header">
+							<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-2.jpg" alt="" /></a>
+						</div>
+						<div class="item-content">
+							<span class="article-meta">
+								<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+								<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+							</span>
+							<h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
+							<span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-header">
+							<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-3.jpg" alt="" /></a>
+						</div>
+						<div class="item-content">
+							<span class="article-meta">
+								<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+								<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+							</span>
+							<h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
+							<span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-header">
+							<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-4.jpg" alt="" /></a>
+						</div>
+						<div class="item-content">
+							<span class="article-meta">
+								<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+								<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+							</span>
+							<h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
+							<span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-header">
+							<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-5.jpg" alt="" /></a>
+						</div>
+						<div class="item-content">
+							<span class="article-meta">
+								<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+								<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+							</span>
+							<h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
+							<span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
+						</div>
+					</div>
+					<a href="blog.html" class="item-button">Load more ...</a>
+				</div>
+			<!-- END .widget -->
+			</div>
+
+			<!-- BEGIN .widget -->
+			<portal-comentarios></portal-comentarios>
+
+			<portal-galeria></portal-galeria>
+
+			<!-- BEGIN .widget -->
+			<portal-videos></portal-videos>
+
+			<!-- <div class="widget">
+				<div class="title-block">
+					<h2>Editors Choice</h2>
+				</div>
+				<div class="article-block">
+					<div class="item">
+						<div class="item-header">
+							<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-2.jpg" alt="" /></a>
+						</div>
+						<div class="item-content">
+							<h4><a href="post.html">3 Steps to the Perfect Modern Smoky Eye</a></h4>
+							<span class="article-meta">
+								<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+								<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+							</span>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-header">
+							<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-3.jpg" alt="" /></a>
+						</div>
+						<div class="item-content">
+							<h4><a href="post.html">How to Meditate in 5 Minutes or Less</a></h4>
+							<span class="article-meta">
+								<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+								<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+							</span>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-header">
+							<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-4.jpg" alt="" /></a>
+						</div>
+						<div class="item-content">
+							<h4><a href="post.html">Are Flyaways and Frizz a New Hair Trend?</a></h4>
+							<span class="article-meta">
+								<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+								<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+							</span>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-header">
+							<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-5.jpg" alt="" /></a>
+						</div>
+						<div class="item-content">
+							<h4><a href="post.html">3 Steps to Getting Perfect Eyebrows</a></h4>
+							<span class="article-meta">
+								<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+								<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+							</span>
+						</div>
+					</div>
+					<a href="blog.html" class="item-button">Load more ...</a>
+				</div>
+			</div>
+
+			<div class="widget">
+				<div class="title-block">
+					<h2>Tag Cloud</h2>
+				</div>
+				<div class="tagcloud">
+					<a href="blog.html">Comprehensam</a><a href="blog.html">Consequuntur</a><a href="blog.html">Denique</a><a href="blog.html">Elaboraret scribentur</a><a href="blog.html">Et elaboraret</a><a href="blog.html">Fierent inimicus</a><a href="blog.html">Incorrupte</a><a href="blog.html">Mediocritatem</a><a href="blog.html">Nostrud accusam</a><a href="blog.html">Tation luptatum</a><a href="blog.html">Voluptatum et</a>
+				</div>
+			</div>
+
+			<div class="widget">
+				<div class="title-block">
+					<h2>Instagram</h2>
+				</div>
+				<div class="ot-instagram-widget">
+					<a href="#" class="image-hover"><img src="assets/plantillas/solido/http://photos-h.ak.instagram.com/hphotos-ak-xfa1/10535010_683097738427391_625675609_n.jpg" alt="" /></a>
+					<a href="#" class="image-hover"><img src="assets/plantillas/solido/http://photos-g.ak.instagram.com/hphotos-ak-xaf1/10624006_752440578131198_1670454288_n.jpg" alt="" /></a>
+					<a href="#" class="image-hover"><img src="assets/plantillas/solido/http://photos-b.ak.instagram.com/hphotos-ak-xaf1/10554270_1534188016802489_332958319_n.jpg" alt="" /></a>
+					<a href="#" class="image-hover"><img src="assets/plantillas/solido/http://photos-a.ak.instagram.com/hphotos-ak-xpa1/927731_1451405488476912_513078210_n.jpg" alt="" /></a>
+				</div>
+			</div>
+
+			<div class="widget">
+				<div class="title-block">
+					<h2>ABOUT SOLIDUS</h2>
+				</div>
+				<div class="ot-about-widget">
+					<p>Deserunt posuere pellentesque porta ridiculus fugiat. Tempus ad per consectetur maecenas penatibus. Aliquip amet phasellus nam sociosqu.</p>
+					<p>Deserunt posuere pellentesque porta ridiculus fugiat. Tempus ad per consectetur maecenas penatibus. Aliquip amet phasellus nam sociosqu.</p>
+				</div>
+			</div>
+
+			<div class="widget">
+				<div class="title-block">
+					<h2>Subscribe Newsletter</h2>
+				</div>
+				<div class="ot-subscribe-widget">
+					<p>Deserunt posuere pellentesque porta ridiculus fugiat. Tempus ad per consectetur maecenas penatibus.</p>
+					<div class="ot-subscribe-widget-inner">
+						<div class="alert-box">
+							<a href="#" class="close-alert right"><i class="fa fa-times"></i></a>
+							<i class="fa fa-warning"></i>
+							<p>Damn! We encountered an error!</p>
+						</div>
+						<div class="alert-box" style="background-color: #81B030;">
+							<a href="#" class="close-alert right"><i class="fa fa-times"></i></a>
+							<i class="fa fa-thumbs-up"></i>
+							<p>Success! We did it!</p>
+						</div>
+						<div class="alert-box loading-box">
+							<img src="assets/plantillas/solido/images/loading.gif" class="loading-gif" alt="" />
+							<p>Loading.. Please wait!</p>
+						</div>
+						<form action="#">
+							<p>
+								<label for="aweber-name">Name:</label>
+								<input type="text" id="aweber-name" placeholder="Name.." value="" />
+							</p>
+							<p>
+								<label for="aweber-email">E-mail:</label>
+								<input type="text" id="aweber-email" placeholder="E-mail.." value="" />
+							</p>
+							<p>
+								<input type="submit" value="Subscribe" />
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="sidebar-fixed">
+
+				<div class="widget">
+					<div class="title-block">
+						<h2>Stay Connected</h2>
+					</div>
+					<div class="ot-social-widget">
+						<a href="#" class="soc-flipper">
+							<span class="card">
+								<span class="front"><i class="fa fa-facebook"></i></span>
+								<span class="back"><strong>2k</strong><i>Shares</i></span>
+							</span>
+						</a>
+						<a href="#" class="soc-flipper flip-google">
+							<span class="card">
+								<span class="front"><i class="fa fa-google-plus"></i></span>
+								<span class="back"><strong>203</strong><i>Shares</i></span>
+							</span>
+						</a>
+						<a href="#" class="soc-flipper flip-twitter">
+							<span class="card">
+								<span class="front"><i class="fa fa-twitter"></i></span>
+								<span class="back"><strong>1.5k</strong><i>Tweets</i></span>
+							</span>
+						</a>
+						<a href="#" class="soc-flipper flip-youtube">
+							<span class="card">
+								<span class="front"><i class="fa fa-youtube"></i></span>
+								<span class="back"><strong>620</strong><i>Shares</i></span>
+							</span>
+						</a>
+						<a href="#" class="soc-flipper flip-instagram">
+							<span class="card">
+								<span class="front"><i class="fa fa-instagram"></i></span>
+								<span class="back"><strong>200</strong><i>Followers</i></span>
+							</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="widget">
+					<div class="title-block">
+						<h2>Advertisement</h2>
+					</div>
+					<div class="ot-widget-banner">
+						<a href="#" target="_blank"><img src="assets/plantillas/solido/images/no-banner-300x250.jpg" alt="" /></a>
+					</div>
+				</div>
+				
+			</div> -->
+
+		<!-- END #sidebar -->
+		</aside>
+
+	<!-- END .split-block -->
+	</div>
+
+
+
+	
+<!-- END .wrapper -->
+</div>
+
+
+
+
+
+		<!-- BEGIN .content -->
+	</section>
+
+	<!-- BEGIN .footer -->
+	<footer class="footer">
+
+		<!-- BEGIN .wrapper -->
+		<div class="wrapper">
+
+			<portal-menu tipo="inferior"></portal-menu>
+
+			<!-- BEGIN .footer-widgets -->
+			<div class="footer-widgets">
+
+				<div class="footer-widget-wrapper">
+
+					<!-- BEGIN .footer-widget-left -->
+					<div class="footer-widget-left">
+
+						<portal-quienesomos></portal-quienesomos>
+
+						<!-- END .footer-widget-left -->
+					</div>
+
+					<!-- BEGIN .footer-widget-middle -->
+					<div class="footer-widget-middle">
+
+						<!-- BEGIN .widget -->
+						<div class="widget">
+							<div class="title-block">
+								<h2>Reviews</h2>
+							</div>
+							<div class="article-block">
+								<div class="item">
+									<div class="item-header">
+										<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-2.jpg" alt="" /></a>
+									</div>
+									<div class="item-content">
+												<span class="article-meta">
+													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+												</span>
+										<h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
+										<span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item-header">
+										<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-3.jpg" alt="" /></a>
+									</div>
+									<div class="item-content">
+												<span class="article-meta">
+													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+												</span>
+										<h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
+										<span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item-header">
+										<a href="post.html" class="image-hover"><img src="assets/plantillas/solido/images/photos/image-4.jpg" alt="" /></a>
+									</div>
+									<div class="item-content">
+												<span class="article-meta">
+													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+												</span>
+										<h4><a href="post.html">Quadrum - multipurpose news &amp; magazine theme</a></h4>
+										<span class="item-stars" style="color: #f05c5c;"><span class="stars-inner" style="width: 90%;"></span></span>
+									</div>
+								</div>
+								<a href="blog.html" class="item-button">Load more ...</a>
+							</div>
+							<!-- END .widget -->
+						</div>
+
+						<!-- END .footer-widget-middle -->
+					</div>
+
+					<!-- BEGIN .footer-widget-right -->
+					<div class="footer-widget-right">
+
+						<!-- BEGIN .widget -->
+						<div class="widget">
+							<div class="title-block">
+								<h2>Latest News</h2>
+							</div>
+							<div class="article-block without-images">
+
+								<div class="item">
+									<div class="item-content">
+										<a href="#" style="background: #0076a3;" class="item-content-category left">Fashion</a>
+												<span class="article-meta left">
+													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+												</span>
+										<div class="clear-float"></div>
+										<h4><a href="post.html">Solidus - best selling wordpress theme</a></h4>
+										<p>His at everti appetere, vitae utamur eum in, ea ubique vidisse duo.</p>
+									</div>
+								</div>
+
+								<div class="item">
+									<div class="item-content">
+										<a href="#" style="background: #9e2929;" class="item-content-category left">Cars</a>
+												<span class="article-meta left">
+													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+												</span>
+										<div class="clear-float"></div>
+										<h4><a href="post.html">Solidus - best selling wordpress theme</a></h4>
+										<p>His at everti appetere, vitae utamur eum in, ea ubique vidisse duo.</p>
+									</div>
+								</div>
+
+								<div class="item">
+									<div class="item-content">
+										<a href="#" style="background: #00a651;" class="item-content-category left">Fashion</a>
+												<span class="article-meta left">
+													<a href="blog.html" class="meta-date"><i class="fa fa-clock-o"></i>21 nov 21:34</a>
+													<a href="post.html#comments" class="meta-comments"><i class="fa fa-comment"></i>34</a>
+												</span>
+										<div class="clear-float"></div>
+										<h4><a href="post.html">Solidus - best selling wordpress theme</a></h4>
+										<p>His at everti appetere, vitae utamur eum in, ea ubique vidisse duo.</p>
+									</div>
+								</div>
+
+							</div>
+							<!-- END .widget -->
+						</div>
+
+
+						<!-- END .footer-widget-right -->
+					</div>
+
+					<!-- BEGIN .footer-widget-right -->
+					<div class="footer-widget-right">
+
+						<portal-etiquetas></portal-etiquetas>
+						<portal-listadocategorias></portal-listadocategorias>
+
+						<!-- END .footer-widget-right -->
+					</div>
+
+				</div>
+
+				<!-- END .footer-widgets -->
+			</div>
+
+			<!-- END .wrapper -->
+		</div>
+
+		<!-- BEGIN .footer-copy -->
+		<portal-piedepagina></portal-piedepagina>
+
+		<!-- END .footer -->
+	</footer>
+
+	<!-- END .boxed -->
+</div>

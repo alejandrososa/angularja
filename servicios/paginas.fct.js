@@ -13,12 +13,14 @@ function categoria($http, API_URL, $log, toastr) {
     var data = {
         'buscador': buscador,
         'unico': unico,
+        'detalle': detalle,
         'todos': todos,
         'todostipo':todostipo,
         'crear': crear,
         'eliminar': eliminar,
         'actualizar': actualizar,
         'categorias': categorias,
+
         'demo': demo
     };
 
@@ -49,6 +51,10 @@ function categoria($http, API_URL, $log, toastr) {
         return $http.post(API_URL + 'unicaPagina', {id:id}).then(function (datos) {
             return datos.data;
          });
+    }
+
+    function detalle(categoria, slug){
+        return $http.post(API_URL + 'detallePagina', {categoria:categoria, slug:slug});
     }
 
     function todos(){
