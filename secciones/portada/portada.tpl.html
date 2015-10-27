@@ -48,12 +48,12 @@
 		<div class="main-content ot-scrollnimate" data-animation="fadeInUpSmall">
 
 			<!-- BEGIN .ot-panel-block -->
-			<portal-articulos categoria="articulos" estilo="defecto"></portal-articulos>
+			{{vm.bloque1}}
+			<!--<portal-articulos categoria="portada.bloque1.categoria" estilo="portada.bloque1.estilo"></portal-articulos>-->
+			<portal-articulos categoria="vm.bloque1.categoria" estilo="defecto" bloquecategoria="vm.bloque1.categoria"></portal-articulos>
 
-			<!-- BEGIN .ot-panel-block -->
+			<!--
 			<portal-articulos categoria="eventos" estilo="destacadaconlistado"></portal-articulos>
-
-			<!-- BEGIN .ot-panel-block -->
 			<div class="ot-panel-block dark-scheme">
 				<div class="title-block">
 					<h2 style="background-color: #dc8c00;">Reviews</h2>
@@ -130,13 +130,11 @@
 					</div>
 
 				</div>
-			<!-- END .ot-panel-block -->
 			</div>
-
-			<!-- BEGIN .ot-panel-block -->
 			<portal-articulos categoria="articulos" estilo="articuloconlistado"></portal-articulos>
-
 			<portal-articulos categoria="musica" estilo="horizontal"></portal-articulos>
+
+			-->
 
 			<!--
 			<div class="ot-panel-block">
@@ -511,7 +509,7 @@
 	<div class="full-block ot-scrollnimate" data-animation="fadeInUpSmall">
 	
 		<!-- BEGIN .ot-panel-block -->
-		<portal-articulos categoria="recientes" estilo="grande"></portal-articulos>
+		<!--<portal-articulos categoria="recientes" estilo="grande"></portal-articulos>-->
 	<!-- END .full-block -->
 	</div>
 

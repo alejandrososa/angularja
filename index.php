@@ -126,6 +126,7 @@
 			<script src="secciones/oficina/categorias/categorias.ctrl.js"></script>
 			<script src="secciones/oficina/paginas/paginas.ctrl.js"></script>
 			<script src="secciones/oficina/menu/menu.ctrl.js"></script>
+			<script src="secciones/oficina/inicio/inicio.ctrl.js"></script>
 	    <!-- / -->
 	    <!-- SERVICES -->
 	        <script src="servicios/show.fct.js"></script>

@@ -1,0 +1,33 @@
+<div layout="row" layout-fill>
+    <!-- left sidebar -->
+    <cms-sidebar></cms-sidebar>
+
+    <!-- main content -->
+    <div id="admin-panel" layout="column" flex>
+        <!-- loading animation -->
+        <tri-loader></tri-loader>
+
+        <!-- top toolbar ui-view="toolbar" -->
+        <md-toolbar class="admin-toolbar"
+                    ng-if="vm.layout.showToolbar"
+                    md-theme="{{triSkin.elements.toolbar}}"
+                    ng-class="[vm.layout.toolbarSize,vm.layout.toolbarClass]">
+            <cms-toolbar tipo="paginas" datos="vm.pagina" proveedor="vm.datosproveedor"></cms-toolbar>
+        </md-toolbar>
+
+
+        <!-- scrollable content -->
+        <md-content ng-class="layout.contentClass"  flex  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
+            <div ng-include="'secciones/oficina/inicio/_form.html'"></div>
+        </md-content>
+
+
+        <cms-pie-pagina md-theme="{{triSkin.elements.toolbar}}"></cms-pie-pagina>
+
+    </div>
+
+    <!-- right sidebar -->
+    <md-sidenav layout layout-fill class="md-sidenav-right md-whiteframe-z2"
+                md-component-id="notifications"
+                ui-view="sidebarRight"></md-sidenav>
+</div>

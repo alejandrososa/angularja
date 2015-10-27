@@ -8,6 +8,7 @@
 
 namespace Api\Modelos;
 
+use Api\Helper;
 use Api\Modelo;
 
 class Menu extends Modelo
@@ -150,7 +151,9 @@ class Menu extends Modelo
 
         }
 
-        return $enlaces;
+        //return $enlaces;
+        $helper = new Helper();
+        return $helper->existeCarpeta('articulos');
     }
 
     public function todosEnlacesMenu($tipo){

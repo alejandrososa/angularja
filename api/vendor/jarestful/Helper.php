@@ -3,6 +3,8 @@
 namespace Api;
 
 class Helper {
+
+    private static $base = './vendor/jarestful/data/';
        
     /**
      * Codificar en JSON
@@ -75,7 +77,22 @@ class Helper {
         }
         return $resultado;
     }
-    
+
+
+    public function existeCarpeta($ruta){
+        $directorio = self::$base . $ruta;
+        if (!file_exists(self::$base)) {
+            mkdir(self::$base, 0777);
+        }
+
+        if (!file_exists($directorio)) {
+            mkdir($directorio, 0777);
+            return true;
+            exit;
+        } else {
+            return true;
+        }
+    }
     /**
      * Get Nombre tabla
      * @param string $nombre
