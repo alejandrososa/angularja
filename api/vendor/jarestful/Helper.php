@@ -5,7 +5,9 @@ namespace Api;
 class Helper {
 
     private static $base = './vendor/jarestful/data/';
-       
+    public $categoriaJson;
+    public $nombreJson;
+
     /**
      * Codificar en JSON
      * @param array $data
@@ -79,7 +81,7 @@ class Helper {
     }
 
 
-    public function existeCarpeta($ruta){
+    private function existeCarpeta($ruta){
         $directorio = self::$base . $ruta;
         if (!file_exists(self::$base)) {
             mkdir(self::$base, 0777);
@@ -93,6 +95,45 @@ class Helper {
             return true;
         }
     }
+    public function existeJson($archivo){
+        $directorio = $this->categoriaJson;
+        $this->existeCarpeta($directorio);
+        $directorio = self::$base . $directorio .'/'. $archivo .'.json';
+        if (file_exists($directorio)) {
+            return true;
+        }
+        return false;
+    }
+    public function crearJson($datos){
+        if(empty($this->nombreJson) || empty($datos)){
+            return null;
+        }
+        $nombre = $this->nombreJson;
+        $directorio = $this->categoriaJson;
+        $archivo = self::$base . $directorio .'/'. $nombre .'.json';
+        file_put_contents($archivo, json_encode($datos), FILE_APPEND | LOCK_EX);
+    }
+    public function leerJson($array = false){
+        if(empty($this->nombreJson)){
+            return null;
+        }
+        $nombre = $this->nombreJson;
+        $directorio = $this->categoriaJson;
+        $archivo = self::$base . $directorio .'/'. $nombre .'.json';
+        if($array){
+            return json_decode(file_get_contents($archivo, true), true);
+        }else{
+            return file_get_contents($archivo, true);
+        }
+
+    }
+
+    /*
+     * $fp = fopen('results.json', 'w');
+fwrite($fp, json_encode($response));
+fclose($fp);
+     * */
+
     /**
      * Get Nombre tabla
      * @param string $nombre

@@ -25,6 +25,7 @@ class Menu extends Modelo
         'piepagina' =>5,
         'sinasignar'=>6
     );
+    private $categoriaJson;
     public static $atributos = array();
     public static $setatributos = array();
     public static $categoria = 'null';
@@ -32,11 +33,11 @@ class Menu extends Modelo
 
 
         /**
-     * Inicialización Base de datos
+     * Inicializaciï¿½n Base de datos
      * @abstract Modelo
      */
     protected static function initModelo() {
-        // Aquí realizaríamos la conexión a la BBDD con el método que queramos
+        // Aquï¿½ realizarï¿½amos la conexiï¿½n a la BBDD con el mï¿½todo que queramos
     }
 
     public function buscadorEnlaces($tipo){
@@ -125,35 +126,39 @@ class Menu extends Modelo
         $categoria = array_key_exists($tipo, $this->categorias) ? $this->categorias[$tipo] : 0;
         $categorias = $this->getCategorias();
 
-        $this->query = 'call sp_getMenuJerarquia('.$categoria.');';
+        $helper = new Helper();
+        $helper->categoriaJson = 'menu';
+        $helper->nombreJson = $tipo;
+        $existeJson = $helper->existeJson($tipo);
 
-
-        foreach($this->seleccion() as $key => $enlace){
-
-            //1 = nivel base
-            if($enlace['nivel'] == 1) {
-
-                $enlaces[] = array(
-                    'id' => $enlace['id'],
-                    'idcategoria' => $enlace['categoria'],
-                    'clavecategoria' => $categorias[$enlace['categoria']]['clave'],
-                    'categoria' => $categorias[$enlace['categoria']]['valor'],
-                    'nombre' => $enlace['nombre'],
-                    'enlace' => $enlace['enlace'],
-                    'clase' => $enlace['clase'],
-                    'tipo' => $enlace['tipo_enlace'],
-                    'target' => $enlace['target'],
-                    'nivel' => $enlace['nivel'],
-                    'hijos' => (string)count($this->getItem($enlace['hijos'])),
-                    'items' => $this->getItem($enlace['hijos'])
-                );
+        if($existeJson){
+            return $helper->leerJson(true);
+        }else{
+            $this->query = 'call sp_getMenuJerarquia('.$categoria.');';
+            foreach($this->seleccion() as $key => $enlace){
+                //1 = nivel base
+                if($enlace['nivel'] == 1) {
+                    $enlaces[] = array(
+                        'id' => $enlace['id'],
+                        'idcategoria' => $enlace['categoria'],
+                        'clavecategoria' => $categorias[$enlace['categoria']]['clave'],
+                        'categoria' => $categorias[$enlace['categoria']]['valor'],
+                        'nombre' => $enlace['nombre'],
+                        'enlace' => $enlace['enlace'],
+                        'clase' => $enlace['clase'],
+                        'tipo' => $enlace['tipo_enlace'],
+                        'target' => $enlace['target'],
+                        'nivel' => $enlace['nivel'],
+                        'hijos' => (string)count($this->getItem($enlace['hijos'])),
+                        'items' => $this->getItem($enlace['hijos'])
+                    );
+                }
             }
 
+            $helper->crearJson($enlaces);
+            return $helper->leerJson(true);
         }
 
-        //return $enlaces;
-        $helper = new Helper();
-        return $helper->existeCarpeta('articulos');
     }
 
     public function todosEnlacesMenu($tipo){

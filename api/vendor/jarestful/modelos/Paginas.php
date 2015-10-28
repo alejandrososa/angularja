@@ -9,6 +9,7 @@
 namespace Api\Modelos;
 
 use Api\Modelo;
+use Api\Helper;
 
 class Paginas extends Modelo
 {
@@ -20,11 +21,11 @@ class Paginas extends Modelo
 
 
     /**
-     * Inicialización Base de datos
+     * Inicializaciï¿½n Base de datos
      * @abstract Modelo
      */
     protected static function initModelo() {
-        // Aquí realizaríamos la conexión a la BBDD con el método que queramos
+        // Aquï¿½ realizarï¿½amos la conexiï¿½n a la BBDD con el mï¿½todo que queramos
     }
 
     public function buscadorPaginas(){
@@ -33,7 +34,19 @@ class Paginas extends Modelo
     }
 
     public function todasPaginas(){
-        return $this->todos(self::$modelo);
+        $helper = new Helper();
+        $helper->categoriaJson = 'paginas';
+        $helper->nombreJson = 'todasPaginas';
+        $existeJson = $helper->existeJson('todasPaginas');
+
+        if($existeJson){
+            return $helper->leerJson(true);
+        }else {
+            $this->where = $this->atributos;
+            $datos = $this->todos(self::$modelo);
+            $helper->crearJson($datos);
+            return $helper->leerJson(true);
+        }
     }
 
     public function todasPaginasCategoria(){
@@ -42,33 +55,42 @@ class Paginas extends Modelo
 
         $clave = [];
 
-        $this->where = $this->atributos;
-        foreach($this->unico(self::$modelo, true) as $c => $v){
-            $clave[$c] = $v['id'];
+        $helper = new Helper();
+        $helper->categoriaJson = 'paginas';
+        $helper->nombreJson = 'todasPaginasCategoria';
+        $existeJson = $helper->existeJson('todasPaginasCategoria');
 
-            $paginas[] = array(
-                'id'=> $v['id'],
-                'titulo'=>$v['titulo'],
-                'categoria'=>$categoria->getNombreCategoria($v['categoria']),
-                'contenido'=>$v['contenido'],
-                'imagen'=>empty($v['imagen']) ? '' : $v['imagen'],
-                'leermas'=>$v['leermas'],
-                'estado'=>$v['estado'],
-                'tipo'=>$v['tipo'],
-                'autor'=>$autor->getAutor($v['autor']),
-                'padre'=>$v['padre'],
-                'slug'=>$v['slug'],
-                'meta_descripcion'=>$v['meta_descripcion'],
-                'meta_palabras'=>$v['meta_palabras'],
-                'meta_titulo'=>$v['meta_titulo'],
-                'fecha_creado'=>$v['fecha_creado'],
-                'fecha_modificado'=>$v['fecha_modificado'],
-            );
+        if($existeJson){
+            return $helper->leerJson(true);
+        }else{
+            $this->where = $this->atributos;
+            foreach($this->unico(self::$modelo, true) as $c => $v){
+                $clave[$c] = $v['id'];
+
+                $paginas[] = array(
+                    'id'=> $v['id'],
+                    'titulo'=>$v['titulo'],
+                    'categoria'=>$categoria->getNombreCategoria($v['categoria']),
+                    'contenido'=>$v['contenido'],
+                    'imagen'=>empty($v['imagen']) ? '' : $v['imagen'],
+                    'leermas'=>$v['leermas'],
+                    'estado'=>$v['estado'],
+                    'tipo'=>$v['tipo'],
+                    'autor'=>$autor->getAutor($v['autor']),
+                    'padre'=>$v['padre'],
+                    'slug'=>$v['slug'],
+                    'meta_descripcion'=>$v['meta_descripcion'],
+                    'meta_palabras'=>$v['meta_palabras'],
+                    'meta_titulo'=>$v['meta_titulo'],
+                    'fecha_creado'=>$v['fecha_creado'],
+                    'fecha_modificado'=>$v['fecha_modificado'],
+                );
+            }
+
+            array_multisort($clave, SORT_DESC, $paginas);
+            $helper->crearJson($paginas);
+            return $helper->leerJson(true);
         }
-
-        array_multisort($clave, SORT_DESC, $paginas);
-
-        return $paginas;
     }
 
     public function detallePagina(){
@@ -174,15 +196,26 @@ class Paginas extends Modelo
 
     public function getCategorias(){
         $categorias = array();
-        foreach($this->todos(self::$modelo_categorias) as $k => $v){
-            $categorias[$v->id] = array(
-                'id'=>$v->id,
-                'clave'=>str_replace(" ", "-", strtolower($v->titulo)),
-                'valor'=>ucfirst($v->titulo),
-                'slug'=>$v->slug
-            );
+
+        $helper = new Helper();
+        $helper->categoriaJson = 'paginas';
+        $helper->nombreJson = 'categorias';
+        $existeJson = $helper->existeJson('categorias');
+
+        if($existeJson){
+            return $helper->leerJson(true);
+        }else{
+            foreach($this->todos(self::$modelo_categorias) as $k => $v){
+                $categorias[$v->id] = array(
+                    'id'=>$v->id,
+                    'clave'=>str_replace(" ", "-", strtolower($v->titulo)),
+                    'valor'=>ucfirst($v->titulo),
+                    'slug'=>$v->slug
+                );
+            }
+            $helper->crearJson($categorias);
+            return $helper->leerJson(true);
         }
-        return $categorias;
     }
 
 }

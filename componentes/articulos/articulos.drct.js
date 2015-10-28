@@ -14,7 +14,7 @@ function articulos(Contenido, $filter) {  //ShowService
         bindToController: true, //required in 1.3+ with controllerAs
         //templateUrl: 'componentes/listadoarticulos/articulos.tpl.html',
         templateUrl: function(elem, attr){
-        	//var tpl = attr.estilo || 'defecto';
+        	var tpl = attr.estilo || 'defecto';
             return 'componentes/articulos/'+attr.estilo+'.tpl.html';
         },
         restrict: 'E',

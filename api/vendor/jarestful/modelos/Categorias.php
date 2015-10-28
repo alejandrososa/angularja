@@ -20,11 +20,11 @@ class Categorias extends Modelo
 
 
     /**
-     * Inicialización Base de datos
+     * Inicializaciï¿½n Base de datos
      * @abstract Modelo
      */
     protected static function initModelo() {
-        // Aquí realizaríamos la conexión a la BBDD con el método que queramos
+        // Aquï¿½ realizarï¿½amos la conexiï¿½n a la BBDD con el mï¿½todo que queramos
     }
 
     public function buscadorCategorias(){
@@ -33,7 +33,20 @@ class Categorias extends Modelo
     }
 
     public function todasCategorias(){
-        return $this->todos(self::$modelo);
+        $helper = new Helper();
+        $helper->categoriaJson = 'categorias';
+        $helper->nombreJson = 'categorias';
+        $existeJson = $helper->existeJson('categorias');
+
+        if($existeJson){
+            return $helper->leerJson(true);
+        }else{
+            $categorias = $this->todos(self::$modelo);
+            $helper->crearJson($categorias);
+            return $helper->leerJson(true);
+        }
+
+
     }
 
     public function unicaCategoria(){

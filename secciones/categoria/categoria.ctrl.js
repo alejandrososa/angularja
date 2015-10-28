@@ -16,4 +16,9 @@ angular
             datos: _categoria.lista,
         };
 
+        vm.listado = {
+            categoria: 'musica',
+            estilo: 'categoria'
+        };
+
     });

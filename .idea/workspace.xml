@@ -6,17 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95f37b84-ea85-42ea-9843-7850d7bf8278" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/modelos/Categorias.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/modelos/Categorias.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/Helper.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/Helper.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/modelos/Menu.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/modelos/Menu.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/app.coreoficina.js" afterPath="$PROJECT_DIR$/lib/app.coreoficina.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/app.rutas.js" afterPath="$PROJECT_DIR$/lib/app.rutas.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/componentes/articulos/articulos.drct.js" afterPath="$PROJECT_DIR$/componentes/articulos/articulos.drct.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/portada/portada.ctrl.js" afterPath="$PROJECT_DIR$/secciones/portada/portada.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/portada/portada.tpl.html" afterPath="$PROJECT_DIR$/secciones/portada/portada.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/categoria/categoria.ctrl.js" afterPath="$PROJECT_DIR$/secciones/categoria/categoria.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/categoria/categoria.tpl.html" afterPath="$PROJECT_DIR$/secciones/categoria/categoria.tpl.html" />
     </list>
     <ignored path="angularja.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,11 +34,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="Paginas.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="13.846154">
+              <caret line="59" column="52" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
+              <folding>
+                <element signature="e#122#137#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categoria.ctrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/secciones/categoria/categoria.ctrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="30" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categoria.tpl.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/secciones/categoria/categoria.tpl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33989266">
+              <caret line="61" column="119" selection-start-line="61" selection-start-column="119" selection-end-line="61" selection-end-column="119" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ServicioJA.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.3846154">
-              <caret line="449" column="32" selection-start-line="449" selection-start-column="25" selection-end-line="449" selection-end-column="32" />
+            <state vertical-scroll-proportion="4.576923">
+              <caret line="675" column="49" selection-start-line="675" selection-start-column="25" selection-end-line="675" selection-end-column="49" />
               <folding>
                 <element signature="e#3634#4417#0#PHP" expanded="false" />
                 <element signature="e#4427#5270#0#PHP" expanded="false" />
@@ -59,6 +87,7 @@
                 <element signature="e#17374#18126#0#PHP" expanded="false" />
                 <element signature="e#18177#18993#0#PHP" expanded="false" />
                 <element signature="e#19003#19692#0#PHP" expanded="false" />
+                <element signature="e#19702#20244#0#PHP" expanded="false" />
                 <element signature="e#20254#20748#0#PHP" expanded="false" />
                 <element signature="e#20758#21317#0#PHP" expanded="false" />
                 <element signature="e#21327#21936#0#PHP" expanded="false" />
@@ -68,8 +97,17 @@
                 <element signature="e#25138#27196#0#PHP" expanded="false" />
                 <element signature="e#27206#27898#0#PHP" expanded="false" />
                 <element signature="e#27952#28756#0#PHP" expanded="false" />
-                <element signature="e#29615#30118#0#PHP" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Categorias.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Categorias.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-22.807692">
+              <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,88 +115,16 @@
       <file leaf-file-name="Menu.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-35.96154">
-              <caret line="155" column="48" selection-start-line="155" selection-start-column="48" selection-end-line="155" selection-end-column="48" />
+            <state vertical-scroll-proportion="-30.538462">
+              <caret line="130" column="27" selection-start-line="130" selection-start-column="17" selection-end-line="130" selection-end-column="27" />
               <folding>
                 <element signature="e#122#137#0#PHP" expanded="true" />
-                <element signature="e#862#2092#0#PHP" expanded="false" />
-                <element signature="e#2098#3160#0#PHP" expanded="false" />
-                <element signature="e#3166#3610#0#PHP" expanded="false" />
-                <element signature="e#3616#3727#0#PHP" expanded="false" />
-                <element signature="e#3990#4902#0#PHP" expanded="false" />
-                <marker date="1445956927985" expanded="true" signature="7425:7476" placeholder="select * fro..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Helper.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/Helper.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0923694">
-              <caret line="77" column="12" selection-start-line="77" selection-start-column="12" selection-end-line="77" selection-end-column="12" />
-              <folding>
-                <element signature="e#318#987#0#PHP" expanded="false" />
-                <element signature="e#993#1323#0#PHP" expanded="false" />
-                <element signature="e#1329#1595#0#PHP" expanded="false" />
-                <element signature="e#1601#1908#0#PHP" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../cache/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8214285">
-              <caret line="100" column="34" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="34" />
-              <folding>
-                <element signature="e#481#1470#1#PHP" expanded="false" />
-                <element signature="e#1480#1850#1#PHP" expanded="false" />
-                <element signature="e#1860#2252#1#PHP" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../cache/data/menu.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.rutas.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/app.rutas.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
-              <folding>
-                <element signature="n#!!block;n#run#0" expanded="false" />
-                <element signature="e#1362#1474#0" expanded="false" />
-                <element signature="e#1504#1616#0" expanded="false" />
-                <element signature="e#1640#1892#0" expanded="false" />
-                <element signature="e#1917#2181#0" expanded="false" />
-                <element signature="e#2203#2497#0" expanded="false" />
-                <element signature="e#2520#2671#0" expanded="false" />
-                <element signature="e#2693#3105#0" expanded="false" />
-                <element signature="e#3152#3549#0" expanded="false" />
-                <element signature="e#3591#4018#0" expanded="false" />
-                <element signature="e#4057#4446#0" expanded="false" />
-                <element signature="e#4485#4896#0" expanded="false" />
-                <element signature="e#4947#5354#0" expanded="false" />
-                <element signature="e#5398#5833#0" expanded="false" />
-                <element signature="e#6303#6695#0" expanded="false" />
-                <element signature="e#6730#7135#0" expanded="false" />
-                <element signature="e#7175#7598#0" expanded="false" />
-                <element signature="e#7629#7931#0" expanded="false" />
-                <element signature="e#7962#8264#0" expanded="false" />
-                <element signature="n#!!block;n#esUsuarioAutenticado#0;n#!!block;n#config#0" expanded="false" />
-                <element signature="n#!!block;n#accesoRestringido#0;n#!!block;n#config#0" expanded="false" />
-                <element signature="n#!!block;n#cerrarSesion#0;n#!!block;n#config#0" expanded="false" />
+                <element signature="e#890#2120#0#PHP" expanded="false" />
+                <element signature="e#2126#3188#0#PHP" expanded="false" />
+                <element signature="e#3194#3638#0#PHP" expanded="false" />
+                <element signature="e#3644#3755#0#PHP" expanded="false" />
+                <element signature="e#4269#5250#0#PHP" expanded="false" />
+                <marker date="1445985224436" expanded="true" signature="7759:7810" placeholder="select * fro..." />
               </folding>
             </state>
           </provider>
@@ -167,34 +133,28 @@
       <file leaf-file-name="articulos.drct.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/componentes/articulos/articulos.drct.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="24.555555">
-              <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="portada.ctrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secciones/portada/portada.ctrl.js">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="portada.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secciones/portada/portada.tpl.html">
+      <file leaf-file-name="Helper.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9512196">
-              <caret line="52" column="61" selection-start-line="52" selection-start-column="61" selection-end-line="52" selection-end-column="61" />
+            <state vertical-scroll-proportion="-8.346154">
+              <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding>
-                <element signature="n#header#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#aside#1;n#div#1;n#div#0;n#section#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#1;n#aside#1;n#div#1;n#div#0;n#section#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#footer#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#footer#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="e#362#1031#0#PHP" expanded="false" />
+                <element signature="e#1037#1367#0#PHP" expanded="false" />
+                <element signature="e#1373#1639#0#PHP" expanded="false" />
+                <element signature="e#1645#1952#0#PHP" expanded="false" />
+                <element signature="e#1958#2125#0#PHP" expanded="false" />
+                <element signature="e#2132#2483#0#PHP" expanded="false" />
+                <element signature="e#2488#2788#0#PHP" expanded="false" />
+                <element signature="e#2793#3154#0#PHP" expanded="false" />
+                <element signature="e#3159#3602#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -206,6 +166,22 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="portada.tpl.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/secciones/portada/portada.tpl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.769231">
+              <caret line="52" column="61" selection-start-line="52" selection-start-column="61" selection-end-line="52" selection-end-column="61" />
+              <folding>
+                <element signature="n#header#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#aside#1;n#div#1;n#div#0;n#section#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#1;n#aside#1;n#div#1;n#div#0;n#section#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#footer#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#footer#0;n#div#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -252,10 +228,7 @@
         <option value="$PROJECT_DIR$/servicios/categorias.fct.js" />
         <option value="$PROJECT_DIR$/api/vendor/jarestful/modelo.php" />
         <option value="$PROJECT_DIR$/componentes/listadoarticulos/articulos.drct.js" />
-        <option value="$PROJECT_DIR$/api/vendor/jarestful/modelos/Categorias.php" />
-        <option value="$PROJECT_DIR$/secciones/categoria/categoria.ctrl.js" />
         <option value="$PROJECT_DIR$/assets/plantillas/solido/css/solido.css" />
-        <option value="$PROJECT_DIR$/secciones/categoria/categoria.tpl.html" />
         <option value="$PROJECT_DIR$/componentes/menu/menu-superior.tpl.html" />
         <option value="$PROJECT_DIR$/secciones/login/login.ctrl.js" />
         <option value="$PROJECT_DIR$/componentes/articulos/categoria.tpl.html" />
@@ -274,15 +247,18 @@
         <option value="$PROJECT_DIR$/secciones/oficina/inicio/inicio.tpl.html" />
         <option value="$PROJECT_DIR$/db/appja-27-10-15.sql" />
         <option value="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
-        <option value="$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php" />
         <option value="$PROJECT_DIR$/secciones/portada/portada.ctrl.js" />
         <option value="$PROJECT_DIR$/lib/app.rutas.js" />
         <option value="$PROJECT_DIR$/secciones/portada/portada.tpl.html" />
-        <option value="$PROJECT_DIR$/componentes/articulos/articulos.drct.js" />
         <option value="$PROJECT_DIR$/../cache/data/menu.json" />
         <option value="$PROJECT_DIR$/../cache/index.php" />
         <option value="$PROJECT_DIR$/api/vendor/jarestful/Helper.php" />
         <option value="$PROJECT_DIR$/api/vendor/jarestful/modelos/Menu.php" />
+        <option value="$PROJECT_DIR$/api/vendor/jarestful/modelos/Categorias.php" />
+        <option value="$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php" />
+        <option value="$PROJECT_DIR$/componentes/articulos/articulos.drct.js" />
+        <option value="$PROJECT_DIR$/secciones/categoria/categoria.ctrl.js" />
+        <option value="$PROJECT_DIR$/secciones/categoria/categoria.tpl.html" />
       </list>
     </option>
   </component>
@@ -300,8 +276,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -326,7 +302,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -419,73 +394,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="oficina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="secciones" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oficina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="usuarios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="secciones" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oficina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="paginas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="secciones" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oficina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inicio" />
+              <option name="myItemId" value="categoria" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -593,9 +502,122 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jarestful" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modelos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jarestful" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paginas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jarestful" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jarestful" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -672,17 +694,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2881981" sideWeight="0.49429038" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23363096" sideWeight="0.49429038" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4038877" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40293637" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19717261" sideWeight="0.50570965" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -728,33 +750,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/table-cell-image.filter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41880342">
-          <caret line="31" column="51" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/table-start-from.filter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/oficina/paginas/paginas.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61025643">
-          <caret line="21" column="46" selection-start-line="19" selection-start-column="19" selection-end-line="21" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/secciones/oficina/html/componentes/table/tabla.drct.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2034188">
@@ -769,13 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/categoria/categoria.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46495727">
-          <caret line="16" column="10" selection-start-line="12" selection-start-column="7" selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/layouts.provider.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -787,7 +780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-25.585766">
           <caret line="54" column="58" selection-start-line="54" selection-start-column="53" selection-end-line="54" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,13 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/categoria/categoria.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5469925">
-          <caret line="61" column="111" selection-start-line="61" selection-start-column="111" selection-end-line="61" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/componentes/menu/menu-superior.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -823,7 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -879,19 +863,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/appja-24-10-15.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/app.layout.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -899,7 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14529915">
           <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -907,7 +881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02905983">
           <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -969,7 +942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,7 +949,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -985,7 +956,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -993,25 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-25.5">
           <caret line="39" column="18" selection-start-line="11" selection-start-column="8" selection-end-line="39" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#1;n#form#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Categorias.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.692307">
-          <caret line="34" column="35" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.615385">
-          <caret line="148" column="54" selection-start-line="148" selection-start-column="54" selection-end-line="148" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1019,10 +970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="33" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="33" />
-          <folding>
-            <element signature="e#144#284#0" expanded="false" />
-            <element signature="e#343#1149#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1030,7 +977,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43541202">
           <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1038,15 +984,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.076923">
           <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/appja-27-10-15.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.037037">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1054,7 +991,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,7 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4483945">
           <caret line="23" column="161" selection-start-line="23" selection-start-column="161" selection-end-line="23" selection-end-column="176" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1097,41 +1032,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/portada/portada.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/componentes/articulos/articulos.drct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="24.555555">
-          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/portada/portada.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9512196">
-          <caret line="52" column="61" selection-start-line="52" selection-start-column="61" selection-end-line="52" selection-end-column="61" />
-          <folding>
-            <element signature="n#header#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#aside#1;n#div#1;n#div#0;n#section#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#aside#1;n#div#1;n#div#0;n#section#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#footer#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#footer#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/componentes/menu/menu.drct.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1143,7 +1047,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../cache/data/menu.json">
+    <entry file="file://$PROJECT_DIR$/db/appja-27-10-15.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2437276">
+          <caret line="8" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/appja-24-10-15.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/data/categorias/categorias.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1151,38 +1071,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../cache/index.php">
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/data/menu/secundario.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8214285">
-          <caret line="100" column="34" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="34" />
-          <folding>
-            <element signature="e#481#1470#1#PHP" expanded="false" />
-            <element signature="e#1480#1850#1#PHP" expanded="false" />
-            <element signature="e#1860#2252#1#PHP" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Categorias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.807692">
+          <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.96154">
-          <caret line="155" column="48" selection-start-line="155" selection-start-column="48" selection-end-line="155" selection-end-column="48" />
+        <state vertical-scroll-proportion="-30.538462">
+          <caret line="130" column="27" selection-start-line="130" selection-start-column="17" selection-end-line="130" selection-end-column="27" />
           <folding>
             <element signature="e#122#137#0#PHP" expanded="true" />
-            <element signature="e#862#2092#0#PHP" expanded="false" />
-            <element signature="e#2098#3160#0#PHP" expanded="false" />
-            <element signature="e#3166#3610#0#PHP" expanded="false" />
-            <element signature="e#3616#3727#0#PHP" expanded="false" />
-            <element signature="e#3990#4902#0#PHP" expanded="false" />
-            <marker date="1445956927985" expanded="true" signature="7425:7476" placeholder="select * fro..." />
+            <element signature="e#890#2120#0#PHP" expanded="false" />
+            <element signature="e#2126#3188#0#PHP" expanded="false" />
+            <element signature="e#3194#3638#0#PHP" expanded="false" />
+            <element signature="e#3644#3755#0#PHP" expanded="false" />
+            <element signature="e#4269#5250#0#PHP" expanded="false" />
+            <marker date="1445985224436" expanded="true" signature="7759:7810" placeholder="select * fro..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/data/paginas/todasPaginasCategoria.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.3846154">
-          <caret line="449" column="32" selection-start-line="449" selection-start-column="25" selection-end-line="449" selection-end-column="32" />
+        <state vertical-scroll-proportion="4.576923">
+          <caret line="675" column="49" selection-start-line="675" selection-start-column="25" selection-end-line="675" selection-end-column="49" />
           <folding>
             <element signature="e#3634#4417#0#PHP" expanded="false" />
             <element signature="e#4427#5270#0#PHP" expanded="false" />
@@ -1199,6 +1131,7 @@
             <element signature="e#17374#18126#0#PHP" expanded="false" />
             <element signature="e#18177#18993#0#PHP" expanded="false" />
             <element signature="e#19003#19692#0#PHP" expanded="false" />
+            <element signature="e#19702#20244#0#PHP" expanded="false" />
             <element signature="e#20254#20748#0#PHP" expanded="false" />
             <element signature="e#20758#21317#0#PHP" expanded="false" />
             <element signature="e#21327#21936#0#PHP" expanded="false" />
@@ -1208,21 +1141,81 @@
             <element signature="e#25138#27196#0#PHP" expanded="false" />
             <element signature="e#27206#27898#0#PHP" expanded="false" />
             <element signature="e#27952#28756#0#PHP" expanded="false" />
-            <element signature="e#29615#30118#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="13.846154">
+          <caret line="59" column="52" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
+          <folding>
+            <element signature="e#122#137#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/portada/portada.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37777779">
+          <caret line="13" column="10" selection-start-line="10" selection-start-column="7" selection-end-line="13" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0923694">
-          <caret line="77" column="12" selection-start-line="77" selection-start-column="12" selection-end-line="77" selection-end-column="12" />
+        <state vertical-scroll-proportion="-8.346154">
+          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding>
-            <element signature="e#318#987#0#PHP" expanded="false" />
-            <element signature="e#993#1323#0#PHP" expanded="false" />
-            <element signature="e#1329#1595#0#PHP" expanded="false" />
-            <element signature="e#1601#1908#0#PHP" expanded="false" />
+            <element signature="e#362#1031#0#PHP" expanded="false" />
+            <element signature="e#1037#1367#0#PHP" expanded="false" />
+            <element signature="e#1373#1639#0#PHP" expanded="false" />
+            <element signature="e#1645#1952#0#PHP" expanded="false" />
+            <element signature="e#1958#2125#0#PHP" expanded="false" />
+            <element signature="e#2132#2483#0#PHP" expanded="false" />
+            <element signature="e#2488#2788#0#PHP" expanded="false" />
+            <element signature="e#2793#3154#0#PHP" expanded="false" />
+            <element signature="e#3159#3602#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/portada/portada.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.769231">
+          <caret line="52" column="61" selection-start-line="52" selection-start-column="61" selection-end-line="52" selection-end-column="61" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#aside#1;n#div#1;n#div#0;n#section#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#aside#1;n#div#1;n#div#0;n#section#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#footer#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#footer#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/componentes/articulos/articulos.drct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/categoria/categoria.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secciones/categoria/categoria.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33989266">
+          <caret line="61" column="119" selection-start-line="61" selection-start-column="119" selection-end-line="61" selection-end-column="119" />
+          <folding />
         </state>
       </provider>
     </entry>
