@@ -89,4 +89,13 @@ class Categorias extends Modelo
         return $categoria['titulo'];
     }
 
+    public function getIdCategoria($nombre){
+        if(empty($nombre)){
+            return null;
+        }
+        $this->where = array('titulo'=>$nombre);
+        $categoria = $this->unico(self::$modelo);
+        return $categoria['id'];
+    }
+
 }

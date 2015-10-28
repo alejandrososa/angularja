@@ -52,18 +52,19 @@ class Paginas extends Modelo
     public function todasPaginasCategoria(){
         $autor      = Usuarios::getInstance();
         $categoria  = Categorias::getInstance();
-
+        $_idcategoria = is_int($this->atributos['categoria']) ? $this->atributos['categoria'] : $categoria->getIdCategoria($this->atributos['categoria']);
+        $_nombrecategoria = !is_int($this->atributos['categoria']) ? $this->atributos['categoria'] : $categoria->getNombreCategoria($this->atributos['categoria']);
         $clave = [];
 
         $helper = new Helper();
         $helper->categoriaJson = 'paginas';
-        $helper->nombreJson = 'todasPaginasCategoria';
-        $existeJson = $helper->existeJson('todasPaginasCategoria');
+        $helper->nombreJson = 'todasPaginasCategoria_'.$_nombrecategoria;
+        $existeJson = $helper->existeJson('todasPaginasCategoria_'.$_nombrecategoria);
 
         if($existeJson){
             return $helper->leerJson(true);
         }else{
-            $this->where = $this->atributos;
+            $this->where = array('categoria'=> $_idcategoria);
             foreach($this->unico(self::$modelo, true) as $c => $v){
                 $clave[$c] = $v['id'];
 

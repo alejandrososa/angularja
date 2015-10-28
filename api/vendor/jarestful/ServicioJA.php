@@ -31,7 +31,7 @@ namespace Api;
         private $modelMenu = NULL;
 
         /**
-         * Inicialización objetos
+         * Inicializaciï¿½n objetos
          */
         function __construct(){
             $this->rest      = new RestJA();
@@ -130,7 +130,7 @@ namespace Api;
             $id         = isset($post['id']) ? (int)$post['id'] : 0;
 
             if(empty($id) || $id == 0){
-                $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),204);
+                $this->rest->response($this->helper->json(array('mensaje'=>'estï¿½s perdido?')),204);
             }
 
             $this->modelUsuarios->atributos = array('id'=> $id);
@@ -314,7 +314,7 @@ namespace Api;
             $id         = isset($post['id']) ? (int)$post['id'] : 0;
 
             if(empty($id) || $id == 0){
-                $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),204);
+                $this->rest->response($this->helper->json(array('mensaje'=>'estï¿½s perdido?')),204);
             }
 
             $this->modelCategorias->atributos = array('id'=> $id);
@@ -523,7 +523,7 @@ namespace Api;
             $id         = isset($post['id']) ? (int)$post['id'] : 0;
 
             if(empty($id) || $id == 0){
-                $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),204);
+                $this->rest->response($this->helper->json(array('mensaje'=>'estï¿½s perdido?')),204);
             }
 
             $this->modelMenu->atributos = array('id'=> $id);
@@ -614,7 +614,7 @@ namespace Api;
             if($id > 0){
                 $this->modelMenu->atributos = array('id' => $id);
                 $this->modelMenu->eliminarEnlace();
-                $success = array('status' => "Success", "mensaje" => "Eliminado con éxito");
+                $success = array('status' => "Success", "mensaje" => "Eliminado con ï¿½xito");
                 $this->rest->response($this->helper->json($success),200);
             }else{
                 $this->rest->response($id.'',204);	// If no records "No Content" status
@@ -650,7 +650,7 @@ namespace Api;
             $id         = isset($post['id']) ? (int)$post['id'] : 0;
 
             if(empty($id) || $id == 0){
-                $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),204);
+                $this->rest->response($this->helper->json(array('mensaje'=>'estï¿½s perdido?')),204);
             }
 
             $this->modelPaginas->atributos = array('id'=> $id);
@@ -697,13 +697,13 @@ namespace Api;
             $categoria         = isset($post->categoria) ? $post->categoria : '';
 
             if(empty($categoria)){
-                $this->rest->response($this->helper->json(array('mensaje'=>$categoria.'estás perdido?')),204);
+                $this->rest->response($this->helper->json(array('mensaje'=>$categoria.'estÃ¡s perdido?')),204);
             }
 
             $this->modelCategorias->atributos = array('slug'=> $categoria);
             $resultado = $this->modelCategorias->existeCategoria();
             if(isset($resultado) && $resultado['existe'] == true){
-                $this->modelPaginas->atributos = array('categoria'=> $resultado['id']);
+                $this->modelPaginas->atributos = array('categoria'=> (int)$resultado['id']);
                 $datos = $this->modelPaginas->todasPaginasCategoria();
                 $resultado['total'] = count($datos);
                 $resultado['listado'] = $datos;
@@ -726,7 +726,7 @@ namespace Api;
             $slug              = isset($post->slug) ? $post->slug : '';
 
             if(empty($categoria) || empty($slug)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),200);
+                $this->rest->response($this->helper->json(array('mensaje'=>'estï¿½s perdido?')),200);
             }
 
             $this->modelPaginas->atributos = array('categoria'=> $categoria, 'slug'=>$slug);
@@ -749,7 +749,7 @@ namespace Api;
             $slug         = isset($post->slug) ? $post->slug : '';
 
             if(empty($slug)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),200);
+                $this->rest->response($this->helper->json(array('mensaje'=>'estï¿½s perdido?')),200);
             }
 
             $this->modelPaginas->atributos = array('slug'=>$slug);
@@ -973,7 +973,7 @@ namespace Api;
                 $r1 = $this->insertar_meta($idpost, $metas1);
                 $r2 = $this->insertar_meta($idpost, $metas2);
 
-                $success = array('status' => "éxito",
+                $success = array('status' => "ï¿½xito",
                     'datos' => array($idpost, $valores, $metas1, $metas2));
 
                 $this->rest->response($this->helper->json($success),200);
@@ -1016,7 +1016,7 @@ namespace Api;
                 $this->editar_pagina('paginameta', $where2, $metas2);
                 $this->editar_pagina('pagina', $where0, $valores);
 
-                $success = array('status' => "éxito",
+                $success = array('status' => "ï¿½xito",
                 );
 
                 $this->rest->response($this->helper->json($success),200);
@@ -1112,7 +1112,7 @@ namespace Api;
             if($id > 0){
                 $where = array('customerNumber' => $id);
                 $this->editar($where, $valores);
-                $success = array('status' => "Success", "msg" => "Actualización éxitosa.");
+                $success = array('status' => "Success", "msg" => "Actualizaciï¿½n ï¿½xitosa.");
                 $this->rest->response($this->helper->json($success),200);
             }else{
                 $this->rest->response('',204);	// "No Content" status

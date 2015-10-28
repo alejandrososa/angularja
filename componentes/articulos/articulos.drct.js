@@ -21,7 +21,7 @@ function articulos(Contenido, $filter) {  //ShowService
         scope: {
 			proveedor: '=?proveedor',
             categoria: '=?categoria',
-            estilo: '=?estilo',
+            estilo: '@?estilo',
 			demo: '=?demo',
 			paginacion: '@?paginacion'
         },
@@ -34,8 +34,8 @@ function articulos(Contenido, $filter) {  //ShowService
 		var vm = this;
 		vm.datos = vm.datos2 = {};
 
+
 		if(angular.isDefined(vm.categoria)) {
-			console.log(vm.categoria);
 
 			switch (vm.categoria) {
 				case "articulos":
@@ -52,13 +52,11 @@ function articulos(Contenido, $filter) {  //ShowService
 		if (angular.isDefined(vm.proveedor)) {
 			vm.titulo = vm.proveedor.titulo;
 			vm.datos = vm.proveedor.datos;
-			console.log('entro en proveedor');
 		}
 
 		//vista general
 		if (angular.isUndefined(vm.proveedor)) {
-			console.log('entro en general');
-			/*switch (vm.categoria) {
+			switch (vm.categoria) {
 				case "articulos":
 					Contenido.getArticulosCategoria(4).then(function (respuesta) {
 						vm.datos = respuesta;
@@ -99,7 +97,7 @@ function articulos(Contenido, $filter) {  //ShowService
 						vm.datos = respuesta;
 						vm.datos2 = respuesta;
 					});
-			}*/
+			}
 		}
 
 		//paginacion
@@ -148,11 +146,10 @@ function articulos(Contenido, $filter) {  //ShowService
 		}
 
 
-		if(vm.estilo == 'categoria') {
+		if(vm.estilo == 'listadocategoria') {
 			$scope.$watch('vm.page + vm.pageSize', function () {
 				var begin = vm.pageStart();
 				var end = vm.pageEnd();
-
 				vm.contenido = angular.isDefined(vm.datos) ? vm.datos.slice(begin, end) : [];
 			});
 		}

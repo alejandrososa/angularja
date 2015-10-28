@@ -8,7 +8,7 @@ angular
         //Setup view model object
         var vm = this;
 
-        console.log(_categoria);
+
 
         vm.proveedor = {
             id: _categoria.id,
@@ -17,7 +17,7 @@ angular
         };
 
         vm.listado = {
-            categoria: 'musica',
+            categoria: 'noticias',
             estilo: 'categoria'
         };
 
