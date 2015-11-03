@@ -10,7 +10,8 @@ angular
 
         vm.bloque1 = {
             categoria: 'articulos',
-            estilo: 'defecto'
+            estilo: 'defecto',
+            cantidad: 2,
         };
         vm.bloque2 = {
             categoria: 'articulos',

@@ -22,6 +22,7 @@ function articulos(Contenido, $filter) {  //ShowService
 			proveedor: '=?proveedor',
             categoria: '=?categoria',
             estilo: '@?estilo',
+			cantidad: '=?',
 			demo: '=?demo',
 			paginacion: '@?paginacion'
         },
@@ -34,12 +35,18 @@ function articulos(Contenido, $filter) {  //ShowService
 		var vm = this;
 		vm.datos = vm.datos2 = {};
 
+		console.log(vm.cantidad);
+		var cnt = vm.cantidad || 3;
+
 
 		if(angular.isDefined(vm.categoria)) {
 
 			switch (vm.categoria) {
 				case "articulos":
-					Contenido.getArticulosCategoria(4).then(function (respuesta) {
+
+					console.log(cnt);
+
+					Contenido.getArticulosCategoria(cnt).then(function (respuesta) {
 						vm.datos = respuesta;
 						vm.datos2 = respuesta;
 					});
@@ -58,7 +65,7 @@ function articulos(Contenido, $filter) {  //ShowService
 		if (angular.isUndefined(vm.proveedor)) {
 			switch (vm.categoria) {
 				case "articulos":
-					Contenido.getArticulosCategoria(4).then(function (respuesta) {
+					Contenido.getArticulosCategoria(cnt).then(function (respuesta) {
 						vm.datos = respuesta;
 						vm.datos2 = respuesta;
 					});

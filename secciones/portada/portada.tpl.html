@@ -34,7 +34,7 @@
 	<div class="full-block">
 
 		<!-- BEGIN .ot-slider-new -->
-		<portal-slider></portal-slider>
+		<!--<portal-slider></portal-slider>-->
 		<!-- END .ot-slider -->
 		
 
@@ -50,7 +50,12 @@
 			<!-- BEGIN .ot-panel-block -->
 			{{vm.bloque1}}
 			<!--<portal-articulos categoria="portada.bloque1.categoria" estilo="portada.bloque1.estilo"></portal-articulos>-->
-			<portal-articulos categoria="vm.bloque1.categoria" estilo="defecto" bloquecategoria="vm.bloque1.categoria"></portal-articulos>
+			<portal-articulos
+					categoria="vm.bloque1.categoria"
+					estilo="defecto"
+					cantidad="vm.bloque1.cantidad"
+					bloquecategoria="vm.bloque1.categoria"></portal-articulos>
+
 
 			<!--
 			<portal-articulos categoria="eventos" estilo="destacadaconlistado"></portal-articulos>
