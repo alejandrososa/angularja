@@ -7,5 +7,13 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Token\\JWT\\'  => array($vendorDir . '/token/jwt/src'),
-    'Api\\'       => array($vendorDir . '/jarestful'),
+    'Api\\'         => array($vendorDir . '/jarestful'),
+    'DB\\'          => array($vendorDir . '/orm'),
+    'Symfony\\Component\\Yaml\\'        => array($vendorDir . '/symfony/yaml'),
+    'Symfony\\Component\\Validator\\'   => array($vendorDir . '/symfony/validator'),
+    'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
+    'Symfony\\Component\\Finder\\'      => array($vendorDir . '/symfony/finder'),
+    'Symfony\\Component\\Filesystem\\'  => array($vendorDir . '/symfony/filesystem'),
+    'Symfony\\Component\\Console\\'     => array($vendorDir . '/symfony/console'),
+    'Symfony\\Component\\Config\\'      => array($vendorDir . '/symfony/config'),
 );
