@@ -14,9 +14,7 @@ abstract class Modelo{
 	private static $config;
 	protected $query;
 	protected $tabla;	
-	protected $where;
-	protected $order_by;
-	protected $limit;
+	protected $where;	
 	protected $resultado;
 	protected $filas = array();
 	private $_cnx;
