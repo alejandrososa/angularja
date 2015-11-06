@@ -1,0 +1,8 @@
+{
+    "propel": {
+        "paths": {
+            "schemaDir": "C:\\xampp\\htdocs\\orm\\estructura",
+            "phpDir": "C:\\xampp\\htdocs\\orm\\estructura"
+        }
+    }
+}
