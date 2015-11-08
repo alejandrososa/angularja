@@ -17,6 +17,8 @@ namespace Api;
     use Api\Modelos\Paginas;
     use Api\Modelos\Menu;
 
+    use JaCategorias;
+
 	class ServicioJA { //REST
         public $data      = "";
         private $sesion;
@@ -39,7 +41,7 @@ namespace Api;
             $this->helper    = new Helper();
             $this->demo      = new Demo();
             $this->modelUsuarios = Usuarios::getInstance();
-            $this->modelCategorias = Categorias::getInstance();
+            $this->modelCategorias = new Categorias(); //Categorias::getInstance();
             $this->modelPaginas = Paginas::getInstance();
             $this->modelMenu = Menu::getInstance();
         }
@@ -59,23 +61,7 @@ namespace Api;
                 $this->rest->response('',404); // If the method not exist with in this class "Page not found".
         }
 
-        /*
-        private function getToken($usuario){
-            $token = '';
-            $token = (new Builder())->setIssuer('http://ja.dev') // Configures the issuer (iss claim)
-            ->setAudience('http://ja.dev/') // Configures the audience (aud claim)
-            ->setId('jajwt', true) // Configures the id (jti claim), replicating as a header item
-            ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
-            ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
-            ->setExpiration(time() + 3600) // Configures the expiration time of the token (exp claim)
-            ->set('sub', 1) // Configures a new claim, called "uid"
-            ->set('user', $usuario['usuario'])// Configures a new claim, called "uid"
-            ->set('role', $usuario['rol'])// Configures a new claim, called "uid"
-            ->getToken(); // Retrieves the generated token
 
-
-            return (string)$token;
-        }*/
 
         /**
          * Login
@@ -297,8 +283,10 @@ namespace Api;
             $post = json_decode(file_get_contents("php://input"),true);
             $filtro     = isset($post['filtro']) ? $post['filtro'] : '';
 
-            $this->modelCategorias->atributos = array('id'=> $filtro,'titulo'=> $filtro,'slug'=> $filtro);
-            $resultado = $this->modelCategorias->buscadorCategorias();
+            $categoria = new JaCategorias();
+            $categoria->atributos = array('id'=> $filtro,'titulo'=> $filtro,'slug'=> $filtro);
+            $resultado = $categoria->buscador();
+
             if(isset($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }
@@ -330,7 +318,8 @@ namespace Api;
                 $this->rest->response('',406);
             }
 
-            $categorias = $this->modelCategorias->todasCategorias();
+            $obj = new JaCategorias();
+            $categorias = $obj->todas(); //$this->modelCategorias->todasCategorias();
             if(isset($categorias)){
                 $this->rest->response($this->helper->json(array('resultado'=>$categorias)), 200);
             }
@@ -921,6 +910,21 @@ namespace Api;
 
             if(isset($articulos)){
                 $this->rest->response($this->helper->json($articulos), 200);
+            }
+            $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+        }
+
+        public function demo(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            //$cantidad = (int)$this->rest->_request['cantidad'];
+
+            $articulos = $this->modelCategorias->demo();
+
+            if(isset($articulos)){
+                $this->rest->response($this->helper->json(array('resultado'=>$articulos)), 200);
             }
             $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
         }

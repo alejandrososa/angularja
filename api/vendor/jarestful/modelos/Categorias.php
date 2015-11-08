@@ -11,12 +11,36 @@ namespace Api\Modelos;
 use Api\Modelo;
 use Api\Helper;
 
-class Categorias extends Modelo
+
+
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+//use Propel;
+use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\Propel;
+use JaCategoriasQuery;
+use JaCategorias;
+
+
+class Categorias
 {
 
     private static $modelo = 'ja_categorias';
+    private $db;
+    private $helper;
     public static $atributos = array();
     public static $setatributos = array();
+
+    public function __construct() {
+        $this->db = new JaCategoriasQuery();
+        $this->helper = new Helper();
+
+
+        $base = $this->helper->baseApi();
+        $defaultLogger = new Logger('categorias');
+        $defaultLogger->pushHandler(new StreamHandler($base. '/logs/api.log', Logger::WARNING));
+        Propel::getServiceContainer()->setLogger('categorias', $defaultLogger);
+    }
 
 
     /**
@@ -25,6 +49,42 @@ class Categorias extends Modelo
      */
     protected static function initModelo() {
         // Aqu� realizar�amos la conexi�n a la BBDD con el m�todo que queramos
+    }
+
+    public function demo(){
+
+        $titulo = $this->atributos['titulo'];
+        $id     = $this->atributos['id'];
+        $slug   = $this->atributos['slug'];
+
+        $categoria = JaCategoriasQuery::create()
+            ->condition('id', 'ja_categorias.id = ?', $id)
+            ->condition('titulo', 'ja_categorias.titulo like ?', $titulo.'%')
+            ->condition('slug', 'ja_categorias.slug like ?', $slug.'%')
+            ->combine(array('titulo', 'slug'), 'or', 'textos')
+            ->where(array('id', 'textos'), 'or')
+            ->find();
+
+        return $categoria->toArray(); //array(Propel::getConnection()->getLastExecutedQuery());
+
+        //return Propel::getServiceContainer()->getLogger();
+
+
+        //Propel::log('uh-oh, something went wrong with ' . $df->getTitulo(), Logger::ERROR);
+
+/*
+        $con = Propel::getWriteConnection(JaCategoriasTableMap::DATABASE_NAME);
+        $stmt = $con->prepare('SELECT * FROM my_obj WHERE name = :p1');
+        $stmt->bindValue(':p1', 'foo');
+        $stmt->execute();
+        return $con->getLastExecutedQuery();
+*/
+
+
+
+        //$this->helper->log(__CLASS__ .'->'. __FUNCTION__, 'desde categorias', 'debug');
+        //return 'hola';
+
     }
 
     public function buscadorCategorias(){

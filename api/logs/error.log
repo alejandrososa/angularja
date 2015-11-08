@@ -1,0 +1,7 @@
+[2015-11-06 19:32:52] defaultLogger.WARNING: desde categorias [] []
+[2015-11-06 19:33:48] app.WARNING: desde categorias [] []
+[2015-11-06 19:36:44] demo.WARNING: desde categorias [] []
+[2015-11-06 19:38:17] Api\Modelos\Categorias.demo.WARNING: desde categorias [] []
+[2015-11-06 19:39:15] C:\xampp\htdocs\angularja\api\vendor\jarestful\modelos\Categorias.php.demo.WARNING: desde categorias [] []
+[2015-11-06 19:40:09] Api\Modelos\Categorias->demo.WARNING: desde categorias [] []
+[2015-11-06 19:44:49] Api\Modelos\Categorias->demo.WARNING: desde categorias - log [] []

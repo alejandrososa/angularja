@@ -3,6 +3,7 @@ namespace Api;
 
 use Api\Entorno;
 use \PDO;
+use App\Config;
 
 
 abstract class Modelo{
@@ -75,9 +76,12 @@ abstract class Modelo{
 	
 	
 	private function _conexion(){
-		$entorno = new Entorno();
-		self::$config = $this->config_load($entorno->getEntorno().'app_config');
-		
+		//$entorno = new Entorno();
+		//self::$config = $this->config_load($entorno->getEntorno().'app_config');
+
+		$config = new Config();
+		self::$config = $config->getBaseDatos();
+
 		if (empty(self::$config['driver'])) 
 			die('Por favor, establece un controlador de base de datos v�lido');
 				

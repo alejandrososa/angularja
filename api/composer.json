@@ -4,6 +4,6 @@
     "monolog/monolog": "^1.17"
   },
   "autoload": {
-    "classmap": ["orm/"]
+    "classmap": ["modelo/"]
   }
 }

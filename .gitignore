@@ -2,9 +2,10 @@
 *.buildpath
 *.project
 *.idea
+*.sass-cache
 /server/app.pem
 /server/app.ppk
-/diseño/*.zip
+/diseÃ±o/*.zip
 /log/
 /copia/
 /desing

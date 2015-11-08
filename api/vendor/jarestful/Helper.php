@@ -2,9 +2,14 @@
 
 namespace Api;
 
+use App\Config;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+
 class Helper {
 
-    private static $base = './vendor/jarestful/data/';
+    private static $base = '../api/data/'; //'./vendor/jarestful/data/';
     public $categoriaJson;
     public $nombreJson;
 
@@ -17,6 +22,69 @@ class Helper {
         if(is_array($data)){
             return json_encode($data);
         }
+    }
+
+    private function getFunctionName() {
+        $backtrace = debug_backtrace();
+        return $backtrace[1]['function'];
+    }
+
+    public function baseApi(){
+        $vendorDir = dirname(dirname(__FILE__));
+        return dirname($vendorDir);
+
+    }
+
+    /**
+     * @param null $mensaje
+     * @param string $tipo
+     */
+    public function log($metodo, $mensaje = null, $tipo = null){
+        $vendorDir = dirname(dirname(__FILE__));
+        $baseDir = dirname($vendorDir);
+
+        $var = $this->getFunctionName();
+
+        $metodo     = empty($metodo) ? 'app' : $metodo;
+        $mensaje    = empty($mensaje) ? 'Ha ocurrido una incidencia en el codigo' : $mensaje . ' - '. $var;
+
+        switch($tipo){
+            case 'info':
+                $tipo = Logger::INFO;
+                break;
+            case 'alert':
+                $tipo = Logger::ALERT;
+                break;
+            case 'warning':
+                $tipo = Logger::WARNING;
+                break;
+            case 'debug':
+                $tipo = Logger::DEBUG;
+                break;
+            case 'notice':
+                $tipo = Logger::NOTICE;
+                break;
+            case 'critical':
+                $tipo = Logger::CRITICAL;
+                break;
+            case 'error':
+                $tipo = Logger::ERROR;
+                break;
+            case 'emergency':
+                $tipo = Logger::EMERGENCY;
+                break;
+            default:
+                $tipo = Logger::WARNING;
+
+        }
+
+
+
+        $defaultLogger = new Logger($metodo);
+        $defaultLogger->pushHandler(new StreamHandler( $baseDir . '/logs/error.log', $tipo));
+        $defaultLogger->addWarning($mensaje);
+
+
     }
 
     public function guardarImagen($archivo, $nombre, $carpeta = null){
@@ -82,9 +150,9 @@ class Helper {
 
 
     private function existeCarpeta($ruta){
-        $directorio = self::$base . $ruta;
-        if (!file_exists(self::$base)) {
-            mkdir(self::$base, 0777);
+        $directorio = Config::getBaseData() . $ruta;
+        if (!file_exists(Config::getBaseData())) {
+            mkdir(Config::getBaseData(), 0777);
         }
 
         if (!file_exists($directorio)) {
@@ -98,7 +166,7 @@ class Helper {
     public function existeJson($archivo){
         $directorio = $this->categoriaJson;
         $this->existeCarpeta($directorio);
-        $directorio = self::$base . $directorio .'/'. $archivo .'.json';
+        $directorio = Config::getBaseData() . $directorio .'/'. $archivo .'.json';
         if (file_exists($directorio)) {
             return true;
         }
@@ -110,7 +178,7 @@ class Helper {
         }
         $nombre = $this->nombreJson;
         $directorio = $this->categoriaJson;
-        $archivo = self::$base . $directorio .'/'. $nombre .'.json';
+        $archivo = Config::getBaseData() . $directorio .'/'. $nombre .'.json';
         file_put_contents($archivo, json_encode($datos), FILE_APPEND | LOCK_EX);
     }
     public function leerJson($array = false){
@@ -119,7 +187,7 @@ class Helper {
         }
         $nombre = $this->nombreJson;
         $directorio = $this->categoriaJson;
-        $archivo = self::$base . $directorio .'/'. $nombre .'.json';
+        $archivo = Config::getBaseData() . $directorio .'/'. $nombre .'.json';
         if($array){
             return json_decode(file_get_contents($archivo, true), true);
         }else{
