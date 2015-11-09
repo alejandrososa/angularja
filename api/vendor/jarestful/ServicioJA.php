@@ -873,7 +873,7 @@ namespace Api;
                 $this->rest->response('',406);
             }
 
-            $cantidad = (int)$this->rest->_request['cantidad'];
+            $cantidad = !empty($this->rest->_request['cantidad']) ? (int)$this->rest->_request['cantidad'] : 0;
             $paginas = new JaPaginas();
             $articulos = $paginas->ultimosArticulos(); //$this->demo->getUltimosArticulos($cantidad);
 
@@ -888,7 +888,7 @@ namespace Api;
                 $this->rest->response('',406);
             }
 
-            $cantidad = (int)$this->rest->_request['cantidad'];
+            $cantidad = !empty($this->rest->_request) ? (int)$this->rest->_request['cantidad'] : 0;
 
             $noticias = $this->demo->getUltimasNoticias($cantidad);
 

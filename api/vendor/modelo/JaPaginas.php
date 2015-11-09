@@ -69,18 +69,16 @@ class JaPaginas extends BaseJaPaginas
         if($existeJson){
             return $this->helper->leerJson(true);
         }else{
-
-            //JaCategoriasQuery::create('Categorias');
-
             $articulos =  JaPaginasQuery::create()
                 ->addJoin('ja_paginas.categoria', 'ja_categorias.id', Criteria::INNER_JOIN)
-                ->withColumn('ja_categorias.id', 'categoria')
-                //->recientes()
-                //->setIgnoreCase(true)
-                ->find()
-                ;
+                ->addJoin('ja_paginas.autor', 'ja_usuarios.id', Criteria::INNER_JOIN)
+                ->addAsColumn('autor', "concat(ja_usuarios.Nombre, ' ', ja_usuarios.Apellidos)")
+                ->addAsColumn('categoria', 'ja_categorias.Titulo')
+                //->where("categoria > ?", 0)
+                ->find();
 
-
+            print_r($articulos->toArray());
+            exit();
 
             $this->helper->crearJson($articulos->toArray());
 
