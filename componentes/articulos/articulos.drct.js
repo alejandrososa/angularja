@@ -64,8 +64,16 @@ function articulos(Contenido, $filter) {  //ShowService
 		//vista general
 		if (angular.isUndefined(vm.proveedor)) {
 			switch (vm.categoria) {
+				case "articulosrecientes":
+					Contenido.getUltimosArticulos(cnt).then(function (respuesta) {
+						vm.datos = respuesta;
+						vm.datos2 = respuesta;
+						console.log(respuesta)
+					});
+
+					break;
 				case "articulos":
-					Contenido.getArticulosCategoria(cnt).then(function (respuesta) {
+					Contenido.getUltimosArticulos(cnt).then(function (respuesta) {
 						vm.datos = respuesta;
 						vm.datos2 = respuesta;
 					});

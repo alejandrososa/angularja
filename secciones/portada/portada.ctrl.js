@@ -9,8 +9,8 @@ angular
         var vm = this;
 
         vm.bloque1 = {
-            categoria: 'articulos',
-            estilo: 'defecto',
+            categoria: 'articulosrecientes',
+            estilo: 'recientes',
             cantidad: 2,
         };
         vm.bloque2 = {
@@ -19,3 +19,6 @@ angular
         };
 
     });
+
+
+

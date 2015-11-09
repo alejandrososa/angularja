@@ -19,7 +19,7 @@ class Config
     static $WEBSITE_NAME = 'My New Website';
     static $IMAGE_DIR    = 'img';
     static $DEBUG        = true;
-    static $DEBUG_SQL    = false;
+    static $DEBUG_SQL    = true;
 
     static $DIR_DATA     = '/data/';
 
@@ -75,5 +75,16 @@ class Config
         $config['dbHost']       = "localhost";
         $config['dbpuerto']     = '';
         return $config;
+    }
+
+    /**
+     *  MENSAJES PARA ERRORES GENERICOS
+     */
+    public static function getMensajesErrores(){
+        $mensajes = Array(
+            'Est&aacute;s perdido?',
+            'Uhhh, c&oacute;mo h&aacute;s llegado aqu&iacute;?',
+            'No te has dado cuenta que algo no marcha bien?');
+        return $mensajes[array_rand($mensajes)];
     }
 }

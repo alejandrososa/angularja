@@ -3,14 +3,13 @@
 namespace Api;
 
 
-
-
 	use Api\Demo;
 	use Api\RestJA;
 	use Api\Modelo;
 	use Api\Sesion;
 	use Api\Helper;
 	use Api\Entorno;
+    use App\Config;
 
     use Api\Modelos\Usuarios;
     use Api\Modelos\Categorias;
@@ -18,6 +17,7 @@ namespace Api;
     use Api\Modelos\Menu;
 
     use JaCategorias;
+    use JaPaginas;
 
 	class ServicioJA { //REST
         public $data      = "";
@@ -31,9 +31,10 @@ namespace Api;
         private $modelCategorias = NULL;
         private $modelPaginas = NULL;
         private $modelMenu = NULL;
+        private $mensajeError;
 
         /**
-         * Inicializaci�n objetos
+         * Inicializacion objetos
          */
         function __construct(){
             $this->rest      = new RestJA();
@@ -44,21 +45,20 @@ namespace Api;
             $this->modelCategorias = new Categorias(); //Categorias::getInstance();
             $this->modelPaginas = Paginas::getInstance();
             $this->modelMenu = Menu::getInstance();
+            $this->mensajeError = Config::getMensajesErrores();
         }
 
         /**
-         * Llamadas a metodos dinamicamente
+         * METODO PRINCIPAL
          * @return response
          */
         public function iniciarServicio(){
-            //$this->init_rest();
-
             $req = isset($_REQUEST['x']) ? $_REQUEST['x'] : '';
             $func = strtolower(trim(str_replace("/","",$req)));
             if((int)method_exists($this,$func) > 0)
                 $this->$func();
             else
-                $this->rest->response('',404); // If the method not exist with in this class "Page not found".
+                $this->rest->response($this->mensajeError,404);
         }
 
 
@@ -70,8 +70,7 @@ namespace Api;
          */
         private function credenciales(){
             if($this->rest->get_request_method() == "POST"){
-                $credencial= json_decode(file_get_contents('php://input'));  //get user from
-
+                $credencial= json_decode(file_get_contents('php://input'));
                 $resultado = $this->modelUsuarios->verificaCredenciales($credencial);
 
                 if($resultado['estado']){
@@ -91,7 +90,7 @@ namespace Api;
          * USUARIOS
          */
 
-        public function buscadorUsuarios(){
+        private function buscadorUsuarios(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -104,10 +103,10 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
-        public function unicoUsuario(){
+        private function unicoUsuario(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -124,7 +123,7 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function todosUsuarios(){
@@ -136,10 +135,10 @@ namespace Api;
             if(isset($usuarios)){
                 $this->rest->response($this->helper->json(array('resultado'=>$usuarios)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
-        public function existeDatoUsuario(){
+        private function existeDatoUsuario(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -181,7 +180,7 @@ namespace Api;
             $valores = [];
 
             if(empty($datos)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+                $this->rest->response($this->mensajeError, 204);
             }
 
             if(isset($login))      { $valores['usuario']    = $login; }
@@ -208,7 +207,7 @@ namespace Api;
                 $this->rest->response($this->helper->json(array('mensaje'=>'Se ha creado el usuario con exito')), 200);
                 //$this->rest->response($this->helper->json(array('resultado'=> $valores, 'mensaje'=>'Se ha creado el usuario con exito')), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function actualizarUsuario(){
@@ -232,7 +231,7 @@ namespace Api;
 
 
             if(empty($datos)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+                $this->rest->response($this->mensajeError, 204);
             }
 
             if(isset($nombre))     { $valores['nombre']     = $nombre; }
@@ -251,7 +250,7 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json(array('mensaje'=>'Se ha actualizado con exito')), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function eliminarUsuario(){
@@ -265,7 +264,7 @@ namespace Api;
                 $success = array('status' => "Success", "mensaje" => "Se ha eliminado el usuario ".$id);
                 $this->rest->response($this->helper->json($success),200);
             }else{
-                $this->rest->response($id.'',204);	// If no records "No Content" status
+                $this->rest->response($this->mensajeError, 204);
             }
         }
 
@@ -275,34 +274,34 @@ namespace Api;
          * CATEGORIAS
          */
 
-        public function buscadorCategorias(){
+        private function buscadorCategorias(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
 
-            $post = json_decode(file_get_contents("php://input"),true);
-            $filtro     = isset($post['filtro']) ? $post['filtro'] : '';
+            $post = json_decode(file_get_contents("php://input"));
+            $filtro     = isset($post->filtro) ? $post->filtro : '';
 
             $categoria = new JaCategorias();
             $categoria->atributos = array('id'=> $filtro,'titulo'=> $filtro,'slug'=> $filtro);
             $resultado = $categoria->buscador();
 
-            if(isset($resultado)){
+            if(isset($resultado) && !empty($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError,204);
         }
 
-        public function unicaCategoria(){
+        private function unicaCategoria(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
 
-            $post = json_decode(file_get_contents("php://input"),true);
-            $id         = isset($post['id']) ? (int)$post['id'] : 0;
+            $post = json_decode(file_get_contents("php://input"));
+            $id         = isset($post->id) ? (int)$post->id : 0;
 
             if(empty($id) || $id == 0){
-                $this->rest->response($this->helper->json(array('mensaje'=>'est�s perdido?')),204);
+                $this->rest->response($this->helper->json(array('mensaje'=> $this->mensajeError)),204);
             }
 
             $this->modelCategorias->atributos = array('id'=> $id);
@@ -310,7 +309,7 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError,204);
         }
 
         private function todasCategorias(){
@@ -318,12 +317,12 @@ namespace Api;
                 $this->rest->response('',406);
             }
 
-            $obj = new JaCategorias();
-            $categorias = $obj->todas(); //$this->modelCategorias->todasCategorias();
-            if(isset($categorias)){
+            $resultado = new JaCategorias();
+            $categorias = $resultado->todas();
+            if(isset($categorias) && !empty($categorias)){
                 $this->rest->response($this->helper->json(array('resultado'=>$categorias)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError,204);
         }
 
         private function actualizarCategoria(){
@@ -340,7 +339,7 @@ namespace Api;
 
 
             if(empty($datos)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+                $this->rest->response($this->mensajeError, 204);
             }
 
             if(isset($titulo))     { $valores['titulo']     = $titulo; }
@@ -353,7 +352,7 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json(array('mensaje'=>'Se ha actualizado con exito')), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function crearCategoria(){
@@ -368,7 +367,7 @@ namespace Api;
             $valores = [];
 
             if(empty($datos)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+                $this->rest->response($this->mensajeError, 204);
             }
 
             if(isset($titulo))     { $valores['titulo']     = $titulo; }
@@ -379,7 +378,7 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json(array('mensaje'=>'Se ha creado el usuario con exito')), 200);
             }
-            $this->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function eliminarCategoria(){
@@ -393,7 +392,7 @@ namespace Api;
                 $success = array('status' => "Success", "mensaje" => $id." Successfully deleted one record.".$resultado);
                 $this->rest->response($this->helper->json($success),200);
             }else{
-                $this->rest->response($id.'',204);	// If no records "No Content" status
+                $this->rest->response($this->mensajeError, 204);
             }
         }
 
@@ -401,7 +400,7 @@ namespace Api;
         /**
          * MENU
          */
-        public function buscadorMenu(){
+        private function buscadorMenu(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -417,10 +416,10 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
         }
 
-        public function buscadorMenuCategoria(){
+        private function buscadorMenuCategoria(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -433,7 +432,7 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function getMenu(){
@@ -447,7 +446,7 @@ namespace Api;
             if(isset($enlaces)){
                 $this->rest->response($this->helper->json(array('resultado'=>$enlaces)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function getTodosEnlaces(){
@@ -459,7 +458,7 @@ namespace Api;
             if(isset($enlaces)){
                 $this->rest->response($this->helper->json(array('resultado'=>$enlaces)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function getTodosEnlacesMenu(){
@@ -473,7 +472,7 @@ namespace Api;
             if(isset($enlaces)){
                 $this->rest->response($this->helper->json(array('resultado'=>$enlaces)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function getMenuDetallado(){
@@ -488,7 +487,7 @@ namespace Api;
             if(isset($enlace)){
                 $this->rest->response($this->helper->json(array('resultado'=>$enlace)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function getMenuCategorias(){
@@ -500,10 +499,10 @@ namespace Api;
             if(isset($categorias)){
                 $this->rest->response($this->helper->json(array('resultado'=>$categorias)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
-        public function unicoEnlace(){
+        private function unicoEnlace(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -520,7 +519,7 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function crearEnlace(){
@@ -539,7 +538,7 @@ namespace Api;
             $valores = [];
 
             if(empty($datos)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+                $this->rest->response($this->mensajeError, 204);
             }
 
             if(isset($nombre))      { $valores['nombre']     = $nombre; }
@@ -554,7 +553,7 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json(array('mensaje'=>'Se ha creado el enlace con exito')), 200);
             }
-            $this->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function actualizarEnlace(){
@@ -574,7 +573,7 @@ namespace Api;
             $valores = [];
 
             if(empty($datos)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+                $this->rest->response($this->mensajeError, 204);
             }
 
             if(isset($id))          { $valores['id']         = $id; }
@@ -592,7 +591,7 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json(array('mensaje'=>'Se ha actualizado con exito')), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function eliminarEnlace(){
@@ -606,7 +605,7 @@ namespace Api;
                 $success = array('status' => "Success", "mensaje" => "Eliminado con �xito");
                 $this->rest->response($this->helper->json($success),200);
             }else{
-                $this->rest->response($id.'',204);	// If no records "No Content" status
+                $this->rest->response($this->mensajeError, 204);
             }
         }
 
@@ -614,7 +613,7 @@ namespace Api;
          * PAGINAS
          */
 
-        public function buscadorPaginas(){
+        private function buscadorPaginas(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -627,10 +626,10 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
-        public function unicaPagina(){
+        private function unicaPagina(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -647,7 +646,7 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function todasPaginas(){
@@ -659,7 +658,7 @@ namespace Api;
             if(isset($categorias)){
                 $this->rest->response($this->helper->json(array('resultado'=>$categorias)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function todasPaginasPorCategoria(){
@@ -674,10 +673,10 @@ namespace Api;
             if(isset($categorias)){
                 $this->rest->response($this->helper->json(array('resultado'=>$categorias)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
-        public function PaginasPorCategoria(){
+        private function PaginasPorCategoria(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -700,12 +699,12 @@ namespace Api;
             }else{
                 $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
 
 
         }
 
-        public function detallePagina(){
+        private function detallePagina(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -715,7 +714,7 @@ namespace Api;
             $slug              = isset($post->slug) ? $post->slug : '';
 
             if(empty($categoria) || empty($slug)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'est�s perdido?')),200);
+                $this->rest->response($this->mensajeError, 204);
             }
 
             $this->modelPaginas->atributos = array('categoria'=> $categoria, 'slug'=>$slug);
@@ -726,10 +725,10 @@ namespace Api;
             }else{
                 $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
         }
 
-        public function PaginaEstatica(){
+        private function PaginaEstatica(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -738,7 +737,7 @@ namespace Api;
             $slug         = isset($post->slug) ? $post->slug : '';
 
             if(empty($slug)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'est�s perdido?')),200);
+                $this->rest->response($this->mensajeError, 204);
             }
 
             $this->modelPaginas->atributos = array('slug'=>$slug);
@@ -749,7 +748,7 @@ namespace Api;
             }else{
                 $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function crearPagina(){
@@ -775,7 +774,7 @@ namespace Api;
             $valores = [];
 
             if(empty($datos)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+                $this->rest->response($this->mensajeError, 204);
             }
 
             if(isset($titulo))          { $valores['titulo']        = $titulo; }
@@ -798,7 +797,7 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json(array('mensaje'=>$resultado.'Se ha creado la pagina con exito')), 200);
             }
-            $this->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function actualizarPagina(){
@@ -818,7 +817,7 @@ namespace Api;
             move_uploaded_file( $_FILES['file']['tmp_name'] , $destination );
 
             if(empty($datos)){
-                $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+                $this->rest->response($this->mensajeError, 204);
             }
 
             if(isset($titulo))     { $valores['titulo']     = $titulo; }
@@ -831,7 +830,7 @@ namespace Api;
             if(isset($resultado)){
                 $this->rest->response($this->helper->json(array('mensaje'=>'Se ha actualizado con exito')), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function eliminarPagina(){
@@ -845,7 +844,7 @@ namespace Api;
                 $success = array('status' => "Success", "mensaje" => $id." Successfully deleted one record.".$resultado);
                 $this->rest->response($this->helper->json($success),200);
             }else{
-                $this->rest->response($id.'',204);	// If no records "No Content" status
+                $this->rest->response($this->mensajeError, 204);
             }
         }
 
@@ -858,7 +857,7 @@ namespace Api;
             if(isset($categorias)){
                 $this->rest->response($this->helper->json(array('resultado'=>$categorias)), 200);
             }
-            $this->rest->response($this->helper->json(array('mensaje'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
 
@@ -869,22 +868,22 @@ namespace Api;
          */
 
 
-        public function getUltimosArticulos(){
+        private function getUltimosArticulos(){
             if($this->rest->get_request_method() != "GET"){
                 $this->rest->response('',406);
             }
 
             $cantidad = (int)$this->rest->_request['cantidad'];
+            $paginas = new JaPaginas();
+            $articulos = $paginas->ultimosArticulos(); //$this->demo->getUltimosArticulos($cantidad);
 
-            $articulos = $this->demo->getUltimosArticulos($cantidad);
-
-            if(isset($articulos)){
+            if(isset($articulos) && !empty($articulos)){
                 $this->rest->response($this->helper->json($articulos), 200);
             }
-            $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
-        public function getUltimasNoticias(){
+        private function getUltimasNoticias(){
             if($this->rest->get_request_method() != "GET"){
                 $this->rest->response('',406);
             }
@@ -896,10 +895,10 @@ namespace Api;
             if(isset($noticias)){
                 $this->rest->response($this->helper->json($noticias), 200);
             }
-            $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
-        public function getArticulosCategoria(){
+        private function getArticulosCategoria(){
             if($this->rest->get_request_method() != "GET"){
                 $this->rest->response('',406);
             }
@@ -911,10 +910,10 @@ namespace Api;
             if(isset($articulos)){
                 $this->rest->response($this->helper->json($articulos), 200);
             }
-            $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
-        public function demo(){
+        private function demo(){
             if($this->rest->get_request_method() != "GET"){
                 $this->rest->response('',406);
             }
@@ -926,7 +925,7 @@ namespace Api;
             if(isset($articulos)){
                 $this->rest->response($this->helper->json(array('resultado'=>$articulos)), 200);
             }
-            $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
 
@@ -936,7 +935,8 @@ namespace Api;
 
 
         //PAGINAS
-        public function getPortada(){
+        /*
+        private function getPortada(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -945,12 +945,12 @@ namespace Api;
             if(isset($portada)){
                 $this->rest->response($this->helper->json($portada), 200);
             }
-            $this->rest->response($this->helper->json(array('resultado'=>'sin valor')),204);	// If no records "No Content" status
+            $this->rest->response($this->mensajeError, 204);
         }
 
 
 
-        public function crearPaginaDEMO(){
+        private function crearPaginaDEMO(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -986,7 +986,7 @@ namespace Api;
             }
         }
 
-        public function editarPaginaDEMO(){
+        private function editarPaginaDEMO(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
@@ -1166,13 +1166,13 @@ namespace Api;
             //$this->model_get(tbl_usuarios);
             //return $this->resultado;
         }
-        /*
+
         private function insertar($tipo= '', $valores = '', $meta = ''){
             $tabla = $this->helper->tipo_tabla($tipo);
             $tablameta = $this->helper->tipo_tabla('paginameta');
             $this->model_insertar($tabla, $valores);
             return $this->resultado;
-        }*/
+        }
         private function insertar_pagina($tipo= '', $valores = ''){
             $tabla = $this->helper->tipo_tabla($tipo);
             $this->model_insertar($tabla, $valores); //, array('tabla'=>$tablameta, 'valores'=>$meta)
@@ -1191,7 +1191,7 @@ namespace Api;
 
 
         //Meta valores pagina
-        private function insertar_meta($idpost, $meta = ''){
+        /*private function insertar_meta($idpost, $meta = ''){
             $tablameta = $this->helper->tipo_tabla('paginameta');
             $this->model_insertar_meta($idpost, $tablameta, $meta);
             return $this->resultado;
@@ -1206,7 +1206,7 @@ namespace Api;
             $this->where = $parametros;
             $this->model_actualizar(tbl_usuarios, $valores);
             return $this->resultado;
-        }
+        }*/
        /* private function eliminar($parametros = array()){
             $this->where = $parametros;
             $this->model_borrar(tbl_usuarios);

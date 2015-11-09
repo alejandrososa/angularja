@@ -5,7 +5,7 @@
 			<div class="item-header">
 				<a href="#">
 					<span class="item-header-category"><i class="fa fa-folder-open"></i><span>{{art.categoria}}</span></span>
-					<img src="{{art.imagen}}" alt="" />
+					<img src="{{art.imagen}}" alt="" ng-show="art.imagen" />
 				</a>
 			</div>
 			<div class="item-content">
@@ -17,17 +17,17 @@
 					</div>
 					<h3><a href="{{art.enlace}}">{{art.titulo}}</a></h3>
 				</div>
-				<p>{{art.texto}}</p>
+				<p>{{art.contenido}}</p>
 			</div>
 			<div class="item-footer">
-				<button class="article-more-arrow right"><i class="fa fa-caret-right"></i><i class="show-hover">Leer m�s</i></button>
+				<button class="article-more-arrow right"><i class="fa fa-caret-right"></i><i class="show-hover">Leer m&aacute;s</i></button>
 				<div class="item-meta">
 					<a href="#"><i class="fa fa-pencil"></i>{{art.autor}}</a>
-					<a href="#"><i class="fa fa-comment"></i>{{art.comentarios}}</a>
+					<a href="#"><i class="fa fa-comment"></i></a>
 				</div>
 			</div>
 		</div>
 
 	</div>
-<!-- END .ot-panel-block -->
-</div>		
+	<!-- END .ot-panel-block -->
+</div>

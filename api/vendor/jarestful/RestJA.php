@@ -4,12 +4,13 @@ namespace Api;
 class RestJA {
 
     public $_allow = array();
-    public $_content_type = "application/json";
+    public $_content_type = "application/json; charset=utf-8";
     public $_request = array();
     public $_token = "";
 
     private $_method = "";
     private $_code = 200;
+    private $_mensaje = "";
     private $_autorization = "Authorization";
 
     public function __construct(){
@@ -20,8 +21,9 @@ class RestJA {
         return $_SERVER['HTTP_REFERER'];
     }
 
-    public function response($data,$status){
+    public function response($data, $status){
         $this->_code = ($status)?$status:200;
+        $this->_mensaje = ($status) && $status == 204 ? $data : '';
         $this->set_headers();
         echo $data;
         exit;
@@ -35,7 +37,7 @@ class RestJA {
         $status = array(
                     200 => 'OK',
                     201 => 'Created',
-                    204 => 'No Content',
+                    204 => $this->_mensaje,
                     404 => 'Not Found',
                     406 => 'Not Acceptable',
                     401 => 'Unauthorized');
@@ -82,7 +84,7 @@ class RestJA {
     }
 
     private function set_headers(){
-        header("HTTP/1.1 ".$this->_code." ".$this->get_status_message());
+        header("HTTP/1.1 ".$this->_code." ".$this->get_status_message(), true, $this->_code);
         header("Content-Type:".$this->_content_type);
 
         if(!empty($this->_token)){

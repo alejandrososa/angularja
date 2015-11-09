@@ -147,12 +147,11 @@ class JaCategoriasTableMap extends TableMap
     public function buildRelations()
     {
         $this->addRelation('JaPaginaCategorias', '\\JaPaginaCategorias', RelationMap::ONE_TO_MANY, array (
-  0 =>
-  array (
-    0 => ':id_categoria',
-    1 => ':id',
-  ),
-), 'SET NULL', null, 'JaPaginaCategoriass', false);
+            0 =>array (
+                0 => ':id_categoria',
+                1 => ':id',
+                ),
+            ), 'SET NULL', null, 'JaPaginaCategoriass', false);
     } // buildRelations()
     /**
      * Method to invalidate the instance pool of all tables related to ja_categorias     * by a foreign key with ON DELETE CASCADE

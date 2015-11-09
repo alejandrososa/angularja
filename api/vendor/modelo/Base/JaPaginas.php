@@ -1580,7 +1580,7 @@ abstract class JaPaginas implements ActiveRecordInterface
         $alreadyDumpedObjects['JaPaginas'][$this->hashCode()] = true;
         $keys = JaPaginasTableMap::getFieldNames($keyType);
         $result = array(
-            $keys[0] => $this->getId(),
+            $keys[0] => strtolower($this->getId()),
             $keys[1] => $this->getTitulo(),
             $keys[2] => $this->getContenido(),
             $keys[3] => $this->getImagen(),
@@ -1629,7 +1629,9 @@ abstract class JaPaginas implements ActiveRecordInterface
             }
         }
 
-        return $result;
+
+        //return $result;
+        return array_change_key_case($result, CASE_LOWER);
     }
 
     /**

@@ -14,5 +14,13 @@ use Base\JaPaginasQuery as BaseJaPaginasQuery;
  */
 class JaPaginasQuery extends BaseJaPaginasQuery
 {
+    public function recientes($nbDays = 10)
+    {
+        return $this->orderByFechaCreado(array('min' => time() - $nbDays * 24 * 60 * 60));
+    }
 
+    public function masRecientesPrimero()
+    {
+        return $this->orderByFechaCreado('desc');
+    }
 }
