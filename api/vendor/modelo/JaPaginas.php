@@ -66,27 +66,29 @@ class JaPaginas extends BaseJaPaginas
         $this->helper->nombreJson = 'ultimosarticulos';
         $existeJson = $this->helper->existeJson('ultimosarticulos');
 
+        $max    = Config::getMaxCaracteres();
+        $limite = Config::getCantidadArticulosRecientes();
+
         if($existeJson){
             return $this->helper->leerJson(true);
         }else{
             $articulos =  JaPaginasQuery::create()
                 ->addJoin('ja_paginas.categoria', 'ja_categorias.id', Criteria::INNER_JOIN)
                 ->addJoin('ja_paginas.autor', 'ja_usuarios.id', Criteria::INNER_JOIN)
-                ->addAsColumn('autor', "concat(ja_usuarios.Nombre, ' ', ja_usuarios.Apellidos)")
-                ->addAsColumn('categoria', 'ja_categorias.Titulo')
-                //->where("categoria > ?", 0)
+                ->addAsColumn('Autor', "concat(ja_usuarios.Nombre, ' ', ja_usuarios.Apellidos)")
+                ->addAsColumn('Categoria', 'ja_categorias.Titulo')
+                ->addAsColumn('Estado', "if(length(Estado) = 0, 'pendiente', Estado)")
+                ->addAsColumn('Leermas', "f_cortartexto(Leermas, Contenido, ".$max.")")
+                ->filterBy('Categoria', 0, Criteria::NOT_EQUAL)
+                ->orderByFechaCreado(Criteria::DESC)
+                ->limit($limite)
                 ->find();
-
-            print_r($articulos->toArray());
-            exit();
 
             $this->helper->crearJson($articulos->toArray());
 
             if(Config::$DEBUG){
                 $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
             }
-
-            return $articulos->toArray();
             return $this->helper->leerJson(true);
         }
     }

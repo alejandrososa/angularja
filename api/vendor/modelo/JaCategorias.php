@@ -32,6 +32,22 @@ class JaCategorias extends BaseJaCategorias
         $this->debug->useDebug(Config::$DEBUG_SQL);
     }
 
+    public function existe(){
+        $categoria = $this->atributos['categoria'];
+
+        $datos = JaCategoriasQuery::create()
+            ->filterByTitulo($categoria)
+            ->findOne();
+
+        $helper = new Helper();
+        $resultado = array('existe'=>false);
+
+        if($helper->contieneDatos($datos)){
+            $resultado = array('existe'=>true, 'id'=>$datos['id'], 'titulo'=>$datos['titulo']);
+        }
+        return $datos;
+    }
+
     public function buscador(){
         $titulo = $this->atributos['titulo'];
         $id     = $this->atributos['id'];
@@ -53,7 +69,6 @@ class JaCategorias extends BaseJaCategorias
     }
 
     public function todas(){
-
         $this->helper->categoriaJson = 'categorias';
         $this->helper->nombreJson = 'categorias';
         $existeJson = $this->helper->existeJson('categorias');
