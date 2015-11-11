@@ -78,8 +78,48 @@ class JaPaginas extends BaseJaPaginas
                 ->addAsColumn('Autor', "concat(ja_usuarios.Nombre, ' ', ja_usuarios.Apellidos)")
                 ->addAsColumn('Categoria', 'ja_categorias.Titulo')
                 ->addAsColumn('Estado', "if(length(Estado) = 0, 'pendiente', Estado)")
-                ->addAsColumn('Leermas', "f_cortartexto(Leermas, Contenido, ".$max.")")
+                //->addAsColumn('Leermas', "f_cortartexto(Leermas, Contenido, ".$max.")")
                 ->filterBy('Categoria', 0, Criteria::NOT_EQUAL)
+                ->orderByFechaCreado(Criteria::DESC)
+                ->limit($limite)
+                ->find();
+
+            $this->helper->crearJson($articulos->toArray());
+
+            if(Config::$DEBUG){
+                $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
+            }
+            return $this->helper->leerJson(true);
+        }
+    }
+
+    public function articulosPorCategoria(){
+        $_idcategoria = $this->atributos['categoria'];
+        $_nombrecategoria = JaCategorias::getNombre($_idcategoria);
+        $_nombrecategoria = $this->helper->convertirAMinuscula($_nombrecategoria,true);
+        $clave = [];
+
+        $this->helper->categoriaJson = 'articulos';
+        $this->helper->nombreJson = 'articulos_categoria_'.$_nombrecategoria;
+        $existeJson = $this->helper->existeJson('articulos_categoria_'.$_nombrecategoria);
+
+        $max    = Config::getMaxCaracteres();
+        $limite = Config::getCantidadArticulosCategoria();
+
+        if($existeJson){
+            return $this->helper->leerJson(true);
+        }else{
+            $articulos =  JaPaginasQuery::create()
+                ->addJoin('ja_paginas.categoria', 'ja_categorias.id', Criteria::INNER_JOIN)
+                ->addJoin('ja_paginas.autor', 'ja_usuarios.id', Criteria::INNER_JOIN)
+                ->addAsColumn('Autor', "concat(ja_usuarios.Nombre, ' ', ja_usuarios.Apellidos)")
+                ->addAsColumn('Categoria', 'ja_categorias.Titulo')
+                ->addAsColumn('Estado', "if(length(Estado) = 0, 'pendiente', Estado)")
+                ->addAsColumn('Leermas', 'Leermas')
+                //->addAsColumn('Leermas', "f_cortartexto(Leermas, Contenido, ".$max.")")
+                ->filterByCategoria(0, Criteria::NOT_EQUAL)
+                ->filterByCategoria(1, Criteria::NOT_EQUAL)
+                ->filterByCategoria($_idcategoria, Criteria::EQUAL)
                 ->orderByFechaCreado(Criteria::DESC)
                 ->limit($limite)
                 ->find();

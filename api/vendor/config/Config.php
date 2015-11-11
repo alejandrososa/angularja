@@ -19,7 +19,7 @@ class Config
     static $WEBSITE_NAME = 'My New Website';
     static $IMAGE_DIR    = 'img';
     static $DEBUG        = true;
-    static $DEBUG_SQL    = true;
+    static $DEBUG_SQL    = false;
 
     static $DIR_DATA     = '/data/';
 
@@ -86,5 +86,19 @@ class Config
             'Uhhh, c&oacute;mo h&aacute;s llegado aqu&iacute;?',
             'No te has dado cuenta que algo no marcha bien?');
         return $mensajes[array_rand($mensajes)];
+    }
+
+    /**
+     * CONTENIDO
+     */
+
+    public function getMaxCaracteres(){
+        return 140;
+    }
+    public function getCantidadArticulosRecientes(){
+        return 6;
+    }
+    public function getCantidadArticulosCategoria(){
+        return 100;
     }
 }

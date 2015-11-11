@@ -33,7 +33,7 @@ class JaCategorias extends BaseJaCategorias
     }
 
     public function existe(){
-        $categoria = $this->atributos['categoria'];
+        $categoria = $this->atributos['slug'];
 
         $datos = JaCategoriasQuery::create()
             ->filterByTitulo($categoria)
@@ -42,10 +42,18 @@ class JaCategorias extends BaseJaCategorias
         $helper = new Helper();
         $resultado = array('existe'=>false);
 
-        if($helper->contieneDatos($datos)){
-            $resultado = array('existe'=>true, 'id'=>$datos['id'], 'titulo'=>$datos['titulo']);
+        if($helper->contieneDatos($datos->toArray())){
+            $resultado = array('existe'=>true, 'id'=>$datos->getId(), 'titulo'=>$datos->getTitulo());
         }
-        return $datos;
+        return $resultado;
+    }
+
+    public static function getNombre($id){
+        if(empty($id)){
+            return null;
+        }
+        $datos = JaCategoriasQuery::create()->filterById($id)->findOne();
+        return $datos->getTitulo();
     }
 
     public function buscador(){
@@ -83,7 +91,6 @@ class JaCategorias extends BaseJaCategorias
                 $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
             }
 
-            return $categorias->toArray();
             return $this->helper->leerJson(true);
         }
     }

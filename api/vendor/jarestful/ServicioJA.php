@@ -688,11 +688,13 @@ namespace Api;
                 $this->rest->response($this->helper->json(array('mensaje'=>$categoria.'estás perdido?')),204);
             }
 
-            $this->modelCategorias->atributos = array('slug'=> $categoria);
-            $resultado = $this->modelCategorias->existeCategoria();
+            $obj = new JaCategorias();
+            $obj->atributos = array('slug'=> $categoria);
+            $resultado = $obj->existe();
             if(isset($resultado) && $resultado['existe'] == true){
-                $this->modelPaginas->atributos = array('categoria'=> (int)$resultado['id']);
-                $datos = $this->modelPaginas->todasPaginasCategoria();
+                $obj2 = new JaPaginas();
+                $obj2->atributos = array('categoria'=> (int)$resultado['id']);
+                $datos = $obj2->articulosPorCategoria();
                 $resultado['total'] = count($datos);
                 $resultado['listado'] = $datos;
                 $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);

@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f16f3d-7c9e-4bbf-910f-c7acdd0599f4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/api/data/portada/ultimosarticulos.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/logs/api.log" afterPath="$PROJECT_DIR$/api/logs/api.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/config/Config.php" afterPath="$PROJECT_DIR$/api/vendor/config/Config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/Helper.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/Helper.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/modelo/JaCategorias.php" afterPath="$PROJECT_DIR$/api/vendor/modelo/JaCategorias.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/modelo/JaPaginas.php" afterPath="$PROJECT_DIR$/api/vendor/modelo/JaPaginas.php" />
     </list>
     <ignored path="angularja.iws" />
@@ -45,21 +45,34 @@
       <file leaf-file-name="ServicioJA.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2692308">
-              <caret line="875" column="63" selection-start-line="875" selection-start-column="63" selection-end-line="875" selection-end-column="63" />
+            <state vertical-scroll-proportion="-10.461538">
+              <caret line="692" column="40" selection-start-line="692" selection-start-column="40" selection-end-line="692" selection-end-column="40" />
               <folding>
                 <element signature="e#780#1309#0#PHP" expanded="false" />
                 <element signature="e#1861#2631#0#PHP" expanded="false" />
+                <element signature="e#35012#36420#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JaPaginas.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JaCategorias.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaCategorias.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.192308">
+              <caret line="93" column="12" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="12" />
+              <folding>
+                <element signature="e#7#49#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JaPaginas.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaPaginas.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32">
-              <caret line="76" column="18" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
+            <state vertical-scroll-proportion="-11.115385">
+              <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
               <folding>
                 <element signature="e#7#43#0#PHP" expanded="true" />
               </folding>
@@ -67,51 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/46b2af37-aba9-4245-9944-d4fb01e9ccf3/console.sql">
+      <file leaf-file-name="Paginas.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modelo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="86" column="16" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ColumnMap.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/vendor/propel/propel/src/Propel/Runtime/Map/ColumnMap.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="502" column="53" selection-start-line="502" selection-start-column="53" selection-end-line="502" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JaPaginas.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/vendor/modelo/Base/JaPaginas.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1633" column="58" selection-start-line="1633" selection-start-column="58" selection-end-line="1633" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JaPaginasQuery.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaPaginasQuery.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state vertical-scroll-proportion="-0.65384614">
+              <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -120,14 +93,52 @@
       <file leaf-file-name="Helper.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.3076925">
-              <caret line="182" column="31" selection-start-line="182" selection-start-column="31" selection-end-line="182" selection-end-column="31" />
+            <state vertical-scroll-proportion="-4.6545453">
+              <caret line="184" column="5" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
               <folding>
-                <element signature="e#2156#2825#0#PHP" expanded="false" />
-                <element signature="e#2831#3161#0#PHP" expanded="false" />
-                <element signature="e#3167#3433#0#PHP" expanded="false" />
-                <element signature="e#3439#3746#0#PHP" expanded="false" />
+                <element signature="e#255#379#0#PHP" expanded="false" />
+                <element signature="e#530#1902#0#PHP" expanded="false" />
+                <element signature="e#896#1705#0#PHP" expanded="false" />
+                <element signature="e#923#996#0#PHP" expanded="false" />
+                <element signature="e#1009#1084#0#PHP" expanded="false" />
+                <element signature="e#1097#1176#0#PHP" expanded="false" />
+                <element signature="e#1189#1264#0#PHP" expanded="false" />
+                <element signature="e#1277#1354#0#PHP" expanded="false" />
+                <element signature="e#1367#1448#0#PHP" expanded="false" />
+                <element signature="e#1461#1536#0#PHP" expanded="false" />
+                <element signature="e#1549#1632#0#PHP" expanded="false" />
+                <element signature="e#1645#1694#0#PHP" expanded="false" />
+                <element signature="e#1907#2576#0#PHP" expanded="false" />
+                <element signature="e#1982#2570#0#PHP" expanded="false" />
+                <element signature="e#2224#2471#0#PHP" expanded="false" />
+                <element signature="e#2362#2471#0#PHP" expanded="false" />
+                <element signature="e#2936#3202#0#PHP" expanded="false" />
+                <element signature="e#3024#3169#0#PHP" expanded="false" />
+                <element signature="e#3071#3159#0#PHP" expanded="false" />
+                <element signature="e#3430#3811#0#PHP" expanded="false" />
+                <element signature="e#3530#3630#0#PHP" expanded="false" />
+                <element signature="e#3640#3805#0#PHP" expanded="false" />
+                <element signature="e#3764#3805#0#PHP" expanded="false" />
+                <element signature="e#3816#4126#0#PHP" expanded="false" />
+                <element signature="e#4032#4098#0#PHP" expanded="false" />
+                <element signature="e#4131#4648#0#PHP" expanded="false" />
+                <element signature="e#4174#4255#0#PHP" expanded="false" />
+                <element signature="e#4457#4560#0#PHP" expanded="false" />
+                <element signature="e#4653#5142#0#PHP" expanded="false" />
+                <element signature="e#4703#4767#0#PHP" expanded="false" />
+                <element signature="e#4936#5135#0#PHP" expanded="false" />
+                <element signature="e#5066#5135#0#PHP" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Config.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/vendor/config/Config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.48833033">
+              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -161,7 +172,6 @@
         <option value="$PROJECT_DIR$/servicios/contenido.fct.js" />
         <option value="$PROJECT_DIR$/api/api.php" />
         <option value="$PROJECT_DIR$/api/vendor/jarestful/RestJA.php" />
-        <option value="$PROJECT_DIR$/api/vendor/config/Config.php" />
         <option value="$PROJECT_DIR$/api/logs/api.log" />
         <option value="$PROJECT_DIR$/api/vendor/modelo/JaPaginasQuery.php" />
         <option value="$PROJECT_DIR$/componentes/articulos/defecto.tpl.html" />
@@ -173,10 +183,12 @@
         <option value="$PROJECT_DIR$/api/vendor/modelo/Map/JaPaginasTableMap.php" />
         <option value="$PROJECT_DIR$/api/vendor/modelo/Map/JaCategoriasTableMap.php" />
         <option value="$PROJECT_DIR$/api/vendor/modelo/Base/JaPaginas.php" />
-        <option value="$PROJECT_DIR$/api/vendor/jarestful/Helper.php" />
-        <option value="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/46b2af37-aba9-4245-9944-d4fb01e9ccf3/console.sql" />
+        <option value="$PROJECT_DIR$/api/vendor/jarestful/Helper.php" />
+        <option value="$PROJECT_DIR$/api/vendor/modelo/JaCategorias.php" />
+        <option value="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
         <option value="$PROJECT_DIR$/api/vendor/modelo/JaPaginas.php" />
+        <option value="$PROJECT_DIR$/api/vendor/config/Config.php" />
       </list>
     </option>
   </component>
@@ -223,7 +235,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -253,20 +264,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="servicios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -384,125 +381,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="propel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="propel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="propel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="propel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Propel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Runtime" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="propel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="propel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Propel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Runtime" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ActiveQuery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="propel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="propel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Propel" />
+              <option name="myItemId" value="modelo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -542,13 +421,124 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jarestful" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modelos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="categorias" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="articulos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -637,26 +627,47 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25223213" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296131" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19117647" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22875817" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22875817" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25223213" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296131" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -671,36 +682,48 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/vendor/modelo/Base/JaPaginas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1633" column="58" selection-start-line="1633" selection-start-column="58" selection-end-line="1633" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaPaginasQuery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2156#2825#0#PHP" expanded="false" />
-            <element signature="e#2831#3161#0#PHP" expanded="false" />
-            <element signature="e#3167#3433#0#PHP" expanded="false" />
-            <element signature="e#3439#3746#0#PHP" expanded="false" />
+            <element signature="e#255#379#0#PHP" expanded="false" />
+            <element signature="e#530#1902#0#PHP" expanded="false" />
+            <element signature="e#896#1705#0#PHP" expanded="false" />
+            <element signature="e#923#996#0#PHP" expanded="false" />
+            <element signature="e#1009#1084#0#PHP" expanded="false" />
+            <element signature="e#1097#1176#0#PHP" expanded="false" />
+            <element signature="e#1189#1264#0#PHP" expanded="false" />
+            <element signature="e#1277#1354#0#PHP" expanded="false" />
+            <element signature="e#1367#1448#0#PHP" expanded="false" />
+            <element signature="e#1461#1536#0#PHP" expanded="false" />
+            <element signature="e#1549#1632#0#PHP" expanded="false" />
+            <element signature="e#1645#1694#0#PHP" expanded="false" />
+            <element signature="e#1907#2576#0#PHP" expanded="false" />
+            <element signature="e#1982#2570#0#PHP" expanded="false" />
+            <element signature="e#2224#2471#0#PHP" expanded="false" />
+            <element signature="e#2362#2471#0#PHP" expanded="false" />
+            <element signature="e#2936#3202#0#PHP" expanded="false" />
+            <element signature="e#3024#3169#0#PHP" expanded="false" />
+            <element signature="e#3071#3159#0#PHP" expanded="false" />
+            <element signature="e#3430#3811#0#PHP" expanded="false" />
+            <element signature="e#3530#3630#0#PHP" expanded="false" />
+            <element signature="e#3640#3805#0#PHP" expanded="false" />
+            <element signature="e#3764#3805#0#PHP" expanded="false" />
+            <element signature="e#3816#4126#0#PHP" expanded="false" />
+            <element signature="e#4032#4098#0#PHP" expanded="false" />
+            <element signature="e#4131#4648#0#PHP" expanded="false" />
+            <element signature="e#4174#4255#0#PHP" expanded="false" />
+            <element signature="e#4457#4560#0#PHP" expanded="false" />
+            <element signature="e#4653#5142#0#PHP" expanded="false" />
+            <element signature="e#4703#4767#0#PHP" expanded="false" />
+            <element signature="e#4936#5135#0#PHP" expanded="false" />
+            <element signature="e#5066#5135#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -773,7 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3119266">
           <caret line="21" column="28" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -816,16 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="69" column="69" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaCategorias.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.86009175">
-          <caret line="72" column="9" selection-start-line="56" selection-start-column="7" selection-end-line="72" selection-end-column="9" />
-          <folding>
-            <element signature="e#7#49#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -936,26 +948,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/logs/api.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/vendor/propel/propel/src/Propel/Runtime/Formatter/AbstractFormatter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="23" column="29" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/config/Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.461538">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -964,7 +960,7 @@
         <state vertical-scroll-proportion="0.19610092">
           <caret line="141" column="43" selection-start-line="141" selection-start-column="43" selection-end-line="141" selection-end-column="43" />
           <folding>
-            <element signature="e#24#57#0#PHP" expanded="true" />
+            <element signature="e#24#57#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1008,51 +1004,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="16" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/vendor/propel/propel/src/Propel/Runtime/Map/ColumnMap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="502" column="53" selection-start-line="502" selection-start-column="53" selection-end-line="502" selection-end-column="53" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/modelo/Base/JaPaginas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1633" column="58" selection-start-line="1633" selection-start-column="58" selection-end-line="1633" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/Helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.3076925">
-          <caret line="182" column="31" selection-start-line="182" selection-start-column="31" selection-end-line="182" selection-end-column="31" />
-          <folding>
-            <element signature="e#2156#2825#0#PHP" expanded="false" />
-            <element signature="e#2831#3161#0#PHP" expanded="false" />
-            <element signature="e#3167#3433#0#PHP" expanded="false" />
-            <element signature="e#3439#3746#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="875" column="63" selection-start-line="875" selection-start-column="63" selection-end-line="875" selection-end-column="63" />
-          <folding>
-            <element signature="e#780#1309#0#PHP" expanded="false" />
-            <element signature="e#1861#2631#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1064,13 +1020,143 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.040669855">
+          <caret line="86" column="16" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
+          <folding>
+            <marker date="1447004575949" expanded="true" signature="4828:4842" placeholder="Select * fro..${$tabla}..." />
+            <marker date="1447004575949" expanded="true" signature="5575:5589" placeholder="SELECT * FRO..${$tabla}..." />
+            <marker date="1447004575949" expanded="true" signature="6126:6231" placeholder="SELECT meta_..wsp_paginasmeta..." />
+            <marker date="1447004575949" expanded="true" signature="6360:6467" placeholder="SELECT meta_..wsp_paginasmeta..." />
+            <marker date="1447004575949" expanded="true" signature="8617:8631" placeholder="SELECT * FRO..${$tabla}..." />
+            <marker date="1447004575949" expanded="true" signature="9168:9273" placeholder="SELECT meta_..wsp_paginasmeta..." />
+            <marker date="1447004575949" expanded="true" signature="9402:9509" placeholder="SELECT meta_..wsp_paginasmeta..." />
+            <marker date="1447004575949" expanded="true" signature="11142:11171" placeholder="SELECT * FRO..${$tabla}..." />
+            <marker date="1447004575949" expanded="true" signature="12435:12466" placeholder="INSERT INTO ${$tabla}..." />
+            <marker date="1447004575949" expanded="true" signature="16258:16272" placeholder="SELECT * FRO..${$tabla}..." />
+            <marker date="1447004575949" expanded="true" signature="17278:17292" placeholder="SELECT * FRO..${$tabla}..." />
+            <marker date="1447004575949" expanded="true" signature="18402:18416" placeholder="SELECT * FRO..${$tabla}..." />
+            <marker date="1447004575949" expanded="true" signature="18750:18781" placeholder="INSERT INTO ${$tabla}..." />
+            <marker date="1447004575949" expanded="true" signature="20636:20648" placeholder="DELETE FROM ..." />
+            <marker date="1447004575949" expanded="true" signature="22379:22410" placeholder="INSERT INTO ${$table}..." />
+            <marker date="1447004575949" expanded="true" signature="22782:22794" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/modelo/Base/JaPaginas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.030520646">
+          <caret line="1633" column="58" selection-start-line="1633" selection-start-column="58" selection-end-line="1633" selection-end-column="58" />
+          <folding>
+            <marker date="1447104468156" expanded="true" signature="42442:42481" placeholder="INSERT INTO ja_paginas..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/appja-11-11-15.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/Helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6545453">
+          <caret line="184" column="5" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
+          <folding>
+            <element signature="e#255#379#0#PHP" expanded="false" />
+            <element signature="e#530#1902#0#PHP" expanded="false" />
+            <element signature="e#896#1705#0#PHP" expanded="false" />
+            <element signature="e#923#996#0#PHP" expanded="false" />
+            <element signature="e#1009#1084#0#PHP" expanded="false" />
+            <element signature="e#1097#1176#0#PHP" expanded="false" />
+            <element signature="e#1189#1264#0#PHP" expanded="false" />
+            <element signature="e#1277#1354#0#PHP" expanded="false" />
+            <element signature="e#1367#1448#0#PHP" expanded="false" />
+            <element signature="e#1461#1536#0#PHP" expanded="false" />
+            <element signature="e#1549#1632#0#PHP" expanded="false" />
+            <element signature="e#1645#1694#0#PHP" expanded="false" />
+            <element signature="e#1907#2576#0#PHP" expanded="false" />
+            <element signature="e#1982#2570#0#PHP" expanded="false" />
+            <element signature="e#2224#2471#0#PHP" expanded="false" />
+            <element signature="e#2362#2471#0#PHP" expanded="false" />
+            <element signature="e#2936#3202#0#PHP" expanded="false" />
+            <element signature="e#3024#3169#0#PHP" expanded="false" />
+            <element signature="e#3071#3159#0#PHP" expanded="false" />
+            <element signature="e#3430#3811#0#PHP" expanded="false" />
+            <element signature="e#3530#3630#0#PHP" expanded="false" />
+            <element signature="e#3640#3805#0#PHP" expanded="false" />
+            <element signature="e#3764#3805#0#PHP" expanded="false" />
+            <element signature="e#3816#4126#0#PHP" expanded="false" />
+            <element signature="e#4032#4098#0#PHP" expanded="false" />
+            <element signature="e#4131#4648#0#PHP" expanded="false" />
+            <element signature="e#4174#4255#0#PHP" expanded="false" />
+            <element signature="e#4457#4560#0#PHP" expanded="false" />
+            <element signature="e#4653#5142#0#PHP" expanded="false" />
+            <element signature="e#4703#4767#0#PHP" expanded="false" />
+            <element signature="e#4936#5135#0#PHP" expanded="false" />
+            <element signature="e#5066#5135#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/logs/api.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5197256">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaCategorias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.192308">
+          <caret line="93" column="12" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="12" />
+          <folding>
+            <element signature="e#7#49#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/modelos/Paginas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="692" column="40" selection-start-line="692" selection-start-column="40" selection-end-line="692" selection-end-column="40" />
+          <folding>
+            <element signature="e#780#1309#0#PHP" expanded="false" />
+            <element signature="e#1861#2631#0#PHP" expanded="false" />
+            <element signature="e#35012#36420#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaPaginas.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32">
-          <caret line="76" column="18" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
           <folding>
             <element signature="e#7#43#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/config/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48833033">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>

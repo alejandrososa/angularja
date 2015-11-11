@@ -13,32 +13,19 @@ class Helper {
     public $categoriaJson;
     public $nombreJson;
 
-    /**
-     * Codificar en JSON
-     * @param array $data
-     * @return json encode
-     */
-    public function json($data){
-        if(is_array($data)){
-            return json_encode($data);
-        }
-    }
-
+    //METODOS
     private function getFunctionName() {
         $backtrace = debug_backtrace();
         return $backtrace[1]['function'];
     }
 
+    //RUTAS
     public function baseApi(){
         $vendorDir = dirname(dirname(__FILE__));
         return dirname($vendorDir);
-
     }
 
-    /**
-     * @param null $mensaje
-     * @param string $tipo
-     */
+    //LOG
     public function log($metodo, $mensaje = null, $tipo = null){
         $vendorDir = dirname(dirname(__FILE__));
         $baseDir = dirname($vendorDir);
@@ -86,7 +73,6 @@ class Helper {
 
 
     }
-
     public function guardarImagen($archivo, $nombre, $carpeta = null){
         if ( !empty( $archivo ) ) {
             $tempPath = $archivo[ 'file' ][ 'tmp_name' ];
@@ -104,6 +90,7 @@ class Helper {
         }
     }
 
+    //CREDENCIALES
     public function encriptar($string){
         $hash = '';
         if(isset($string)){
@@ -115,7 +102,6 @@ class Helper {
         }
         return $hash;
     }
-
     public function validarEncriptacion($clave, $hash){
         $resultado = false;
         if(isset($clave) && isset($hash)){
@@ -126,29 +112,17 @@ class Helper {
         return $resultado;
     }
 
-    public function convertirArrayAString($array){
-        if(empty($array)){
-            return null;
+    //JSON
+    /**
+     * Codificar en JSON
+     * @param array $data
+     * @return json encode
+     */
+    public function json($data){
+        if(is_array($data)){
+            return json_encode($data);
         }
-        $string = '';
-        $i = 0;
-        foreach($array as $clave => $valor){
-            $string .= $i != 0 ? ', ' . $valor : $valor;
-            $i++;
-        }
-
-        return $string;
     }
-
-    public function contieneDatos($array){
-        $resultado = true;
-        if(empty($array)){
-            $resultado = false;
-        }
-        return $resultado;
-    }
-
-
     private function existeCarpeta($ruta){
         $directorio = Config::getBaseData() . $ruta;
         if (!file_exists(Config::getBaseData())) {
@@ -201,33 +175,40 @@ class Helper {
 
     }
 
-    /*
-     * $fp = fopen('results.json', 'w');
-fwrite($fp, json_encode($response));
-fclose($fp);
-     * */
-
-    /**
-     * Get Nombre tabla
-     * @param string $nombre
-     * @return string nombre
-     */
-    public function tipo_tabla($nombre){
-        $resultado = '';
-        switch ($nombre) {
-            case 'usuario':
-                $resultado = tbl_usuarios;
-                break;
-            case 'pagina':
-                $resultado = tbl_paginas;
-                break;
-            case 'paginameta':
-                $resultado = tbl_paginasmeta;
-                break;
-            case 'configuracion':
-                $resultado = tbl_usuarios;
-                break;
+    //VALIDACIONES
+    public function contieneDatos($array){
+        $resultado = true;
+        if(empty($array)){
+            $resultado = false;
         }
         return $resultado;
     }
+
+    //CONVERSORES
+    public function convertirArrayAString($array){
+        if(empty($array)){
+            return null;
+        }
+        $string = '';
+        $i = 0;
+        foreach($array as $clave => $valor){
+            $string .= $i != 0 ? ', ' . $valor : $valor;
+            $i++;
+        }
+
+        return $string;
+    }
+
+    /**
+     * @param $string
+     * @param bool|false $sinespacio
+     * @return mixed|null|string
+     */
+    public function convertirAMinuscula($string, $sinespacio = false){
+        if(!isset($string)){
+            return null;
+        }
+        return $sinespacio == true ? preg_replace('/\s+/', '', strtolower($string)) : strtolower($string);
+    }
+
 }
