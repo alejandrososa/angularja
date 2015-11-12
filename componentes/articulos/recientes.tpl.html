@@ -3,7 +3,7 @@
 
 		<div class="item" data-ng-repeat="art in vm.datos track by $index">
 			<div class="item-header">
-				<a href="#">
+				<a href="{{art.categoria | lowercase}}/{{art.slug}}">
 					<span class="item-header-category"><i class="fa fa-folder-open"></i><span>{{art.categoria}}</span></span>
 					<img src="{{art.imagen}}" alt="" ng-show="art.imagen" />
 				</a>
@@ -15,9 +15,9 @@
 						<span>Oct</span>
 						<span>2015</span>
 					</div>
-					<h3><a href="{{art.enlace}}">{{art.titulo}}</a></h3>
+					<h3><a href="{{art.categoria | lowercase}}/{{art.slug}}">{{art.titulo}}</a></h3>
 				</div>
-				<p>{{art.contenido}}</p>
+				<p>{{art.leermas}}</p>
 			</div>
 			<div class="item-footer">
 				<button class="article-more-arrow right"><i class="fa fa-caret-right"></i><i class="show-hover">Leer m&aacute;s</i></button>

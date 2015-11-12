@@ -21,7 +21,7 @@ class Config
     static $DEBUG        = true;
     static $DEBUG_SQL    = false;
 
-    static $DIR_DATA     = '/data/';
+    static $DIR_DATA     = '\\data\\';
 
     //LOGS
     static $LOG          = 'defaultLogger';

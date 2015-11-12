@@ -79,7 +79,8 @@ class JaPaginas extends BaseJaPaginas
                 ->addAsColumn('Categoria', 'ja_categorias.Titulo')
                 ->addAsColumn('Estado', "if(length(Estado) = 0, 'pendiente', Estado)")
                 ->addAsColumn('Leermas', "f_cortartexto(Leermas, Contenido, ".$max.")")
-                ->filterBy('Categoria', 0, Criteria::NOT_EQUAL)
+                ->filterByCategoria(0, Criteria::NOT_EQUAL)
+                ->filterByCategoria(1, Criteria::NOT_EQUAL)
                 ->orderByFechaCreado(Criteria::DESC)
                 ->limit($limite)
                 ->find();

@@ -153,12 +153,12 @@ class Helper {
         $nombre = $this->nombreJson;
         $directorio = $this->categoriaJson;
         $archivo = Config::getBaseData() . $directorio .'/'. $nombre .'.json';
-
         //fix claves minusculas
         foreach($datos as $array){
             $_datos[] = array_change_key_case($array, CASE_LOWER);
         }
-        file_put_contents($archivo, json_encode($_datos), FILE_APPEND | LOCK_EX);
+        //$_datos = mb_convert_encoding($datos, 'UTF-8', 'OLD-ENCODING');
+        file_put_contents($archivo, json_encode($_datos), LOCK_EX);
     }
     public function leerJson($array = false){
         if(empty($this->nombreJson)){
@@ -166,9 +166,9 @@ class Helper {
         }
         $nombre = $this->nombreJson;
         $directorio = $this->categoriaJson;
-        $archivo = Config::getBaseData() . $directorio .'/'. $nombre .'.json';
+        $archivo = Config::getBaseData() . $directorio ."\\". $nombre .".json";
         if($array){
-            return array_change_key_case(json_decode(file_get_contents($archivo, true), true), CASE_LOWER);;
+            return array_change_key_case(json_decode(file_get_contents($archivo, true), true), CASE_LOWER);
         }else{
             return file_get_contents($archivo, true);
         }

@@ -875,10 +875,12 @@ namespace Api;
                 $this->rest->response('',406);
             }
 
-            $cantidad = !empty($this->rest->_request['cantidad']) ? (int)$this->rest->_request['cantidad'] : 0;
+            //$cantidad = !empty($this->rest->_request['cantidad']) ? (int)$this->rest->_request['cantidad'] : 0;
             $paginas = new JaPaginas();
             $articulos = $paginas->ultimosArticulos(); //$this->demo->getUltimosArticulos($cantidad);
 
+            //print_r($articulos);
+            //exit();
             if(isset($articulos) && !empty($articulos)){
                 $this->rest->response($this->helper->json($articulos), 200);
             }
