@@ -61,6 +61,43 @@ class JaPaginas extends BaseJaPaginas
         return $categoria->toArray();
     }
 
+    public function existePortada(){
+        $pagina = array('existe' => false);
+        $tipo   = Config::$TIPO_PORTADA;
+
+        $portada =  JaPaginasQuery::create()
+            ->select('Id')
+            ->addAsColumn('Existe', "if(ja_paginas.id > 0, 'true', false)")
+            ->filterByCategoria(0, Criteria::EQUAL)
+            ->filterByTipo($tipo, Criteria::EQUAL)
+            ->find();
+
+        if(Config::$DEBUG){
+            $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
+        }
+
+        return $portada->isEmpty() == false ? $this->helper->convertirKeysMinuscula($portada->getFirst())  : $pagina;
+    }
+
+    public function existeContacto(){
+        $pagina = array('existe' => false);
+        $tipo   = Config::$TIPO_CONTACTO;
+
+        $contacto =  JaPaginasQuery::create()
+            ->select('Id')
+            ->addAsColumn('Existe', "if(ja_paginas.id > 0, 'true', false)")
+            ->filterByCategoria(0, Criteria::EQUAL)
+            ->filterByTipo($tipo, Criteria::EQUAL)
+            ->find();
+
+        if(Config::$DEBUG){
+            $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
+        }
+
+        return $contacto->isEmpty() == false ? $this->helper->convertirKeysMinuscula($contacto->getFirst())  : $pagina;
+    }
+
+
     public function ultimosArticulos(){
         $this->helper->categoriaJson = 'portada';
         $this->helper->nombreJson = 'ultimosarticulos';
@@ -131,6 +168,46 @@ class JaPaginas extends BaseJaPaginas
             }
             return $this->helper->leerJson(true);
         }
+    }
+
+    public function detalleArticulo(){
+        $_idcategoria = 0;
+        $_slugcategoria = $this->atributos['categoria'];
+        $_slugarticulo = $this->atributos['slug'];
+        $pagina = array('existe' => false);
+
+        $obj = new JaCategorias();
+        $obj->atributos = array('slug'=> $_slugcategoria);
+        $resultado = $obj->existe();
+        if(!isset($resultado) && $resultado['existe'] != true){
+            return $pagina;
+        }
+
+        //id categoria
+        $_idcategoria = $resultado['id'];
+
+        $articulos =  JaPaginasQuery::create()
+            ->addJoin('ja_paginas.categoria', 'ja_categorias.id', Criteria::INNER_JOIN)
+            ->addJoin('ja_paginas.autor', 'ja_usuarios.id', Criteria::INNER_JOIN)
+            ->addJoin('ja_paginas.autor', 'v_getusuarios.id', Criteria::INNER_JOIN)
+            ->addAsColumn('Autor', "concat(ja_usuarios.Nombre, ' ', ja_usuarios.Apellidos)")
+            ->addAsColumn('autorimagen', "v_getusuarios.Imagen")
+            ->addAsColumn('autorbiografia', "v_getusuarios.Biografia")
+            ->addAsColumn('autorredessociales', "v_getusuarios.Redessociales")
+            ->addAsColumn('Categoria', 'ja_categorias.Titulo')
+            ->addAsColumn('Estado', "if(length(Estado) = 0, 'pendiente', Estado)")
+            ->addAsColumn('Existe', "if(ja_paginas.id > 0, 'true', false)")
+            ->filterByCategoria(0, Criteria::NOT_EQUAL)
+            ->filterByCategoria(1, Criteria::NOT_EQUAL)
+            ->filterByCategoria($_idcategoria, Criteria::EQUAL)
+            ->filterBySlug($_slugarticulo)
+            ->findOne();
+
+        if(Config::$DEBUG){
+            $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
+        }
+
+        return !empty($articulos) ? $articulos->toArray() : $pagina;
     }
 
 }

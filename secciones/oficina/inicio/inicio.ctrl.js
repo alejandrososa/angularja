@@ -38,7 +38,7 @@ angular
     })
     .controller('InicioController', function ($scope, $rootScope, PageValues, $cookieStore,
                                                 $q, $location, $auth, $log, toastr, $window,
-                                                $routeParams, Paginas, _datos,
+                                                $routeParams, Paginas, _datos, _existe,
                                                 triLayout, $mdDialog,
                                                 $timeout) {
 
@@ -55,6 +55,11 @@ angular
         if (!$auth.isAuthenticated()) {
             $location.path('/login');
         }
+
+        console.log(_existe);
+
+
+        vm.existePortada = angular.isDefined(_existe) ?
 
         vm.menus = [];
         vm.enlaces = [];

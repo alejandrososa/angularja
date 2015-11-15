@@ -211,4 +211,11 @@ class Helper {
         return $sinespacio == true ? preg_replace('/\s+/', '', strtolower($string)) : strtolower($string);
     }
 
+    public function convertirKeysMinuscula($array){
+        if(!$this->contieneDatos($array)){
+            return null;
+        }
+        return array_change_key_case($array, CASE_LOWER);
+    }
+
 }

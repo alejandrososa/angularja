@@ -27,6 +27,18 @@ class Config
     static $LOG          = 'defaultLogger';
     static $RUTA_LOGS    = 'logs/api.log';
 
+    //CONTENIDO ESTATICO
+    static $TIPO_PORTADA = 'portada';
+    static $TIPO_CONTACTO = 'contacto';
+
+    //REDES SOCIALES
+    static $FACEBOOK_API_URL    = 'https://graph.facebook.com/?ids=' ;
+    static $TWITTER_API_URL     = 'https://urls.api.twitter.com/1/urls/count.json?url=' ;
+    static $GOOGLE_API_URL      = 'https://plusone.google.com/_/+1/fastbutton?url=' ;
+    static $LINKEDIN_API_URL    = 'https://www.linkedin.com/countserv/count/share?url=' ;
+    static $PINTEREST_API_URL   = 'https://widgets.pinterest.com/v1/urls/count.json?callback=receiveCount&url=' ;
+    static $XING_API_URL        = 'https://www.xing-share.com/app/share?op=get_share_button;counter=top;lang=de;url=' ;
+
 
     private $entorno;
 

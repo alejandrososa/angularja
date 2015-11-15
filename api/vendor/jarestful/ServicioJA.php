@@ -19,6 +19,8 @@ namespace Api;
     use JaCategorias;
     use JaPaginas;
 
+    use Api\RedesSociales;
+
 	class ServicioJA { //REST
         public $data      = "";
         private $sesion;
@@ -702,9 +704,38 @@ namespace Api;
                 $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
             }
             $this->rest->response($this->mensajeError, 204);
-
-
         }
+
+        private function existePortada(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+            $obj = new JaPaginas();
+            $resultado = $obj->existePortada();
+            $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
+        }
+
+        private function existeContacto(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+            $obj = new JaPaginas();
+            $resultado = $obj->existeContacto();
+            $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
+        }
+
+
+        private function compartir(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+            $redes = new RedesSociales();
+
+            $resultado = $redes->validarUrl();
+            $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
+        }
+
+
 
         private function detallePagina(){
             if($this->rest->get_request_method() != "POST"){
@@ -719,9 +750,9 @@ namespace Api;
                 $this->rest->response($this->mensajeError, 204);
             }
 
-            $this->modelPaginas->atributos = array('categoria'=> $categoria, 'slug'=>$slug);
-            $resultado = $this->modelPaginas->detallePagina();
-            $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
+            $obj = new JaPaginas();
+            $obj->atributos = array('categoria'=> $categoria, 'slug'=>$slug);
+            $resultado = $obj->detalleArticulo();
             if(isset($resultado) && $resultado['existe'] == true){
                 $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
             }else{

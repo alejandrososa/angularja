@@ -1,19 +1,19 @@
-<seo-meta title="{{detalle.pagina.meta_titulo}}"></seo-meta>
+<seo-meta title="{{detalle.pagina.metatitulo}}"></seo-meta>
 <seo-meta charset="ISO-8859-1"></seo-meta>
 <seo-meta http-equiv="Content-Language" content="es"></seo-meta>
-<seo-meta name="description" content="{{detalle.pagina.meta_descripcion}}"></seo-meta>
-<seo-meta name="keywords" content="{{detalle.pagina.meta_palabras}}"></seo-meta>
+<seo-meta name="description" content="{{detalle.pagina.metadescripcion}}"></seo-meta>
+<seo-meta name="keywords" content="{{detalle.pagina.metapalabras}}"></seo-meta>
 <seo-meta name="author" content="{{detalle.pagina.autor.nombre}}"></seo-meta>
 <seo-meta name="robots" content="index, follow"></seo-meta>
 
 <meta property="og:type" content="article">
-<seo-meta property="og:title" content="{{detalle.pagina.meta_titulo}}"></seo-meta>
+<seo-meta property="og:title" content="{{detalle.pagina.metatitulo}}"></seo-meta>
 <seo-meta property="og:url" content="http://ja.dev/{{detalle.pagina.categoria | lowercase}}/{{detalle.pagina.slug}}"></seo-meta>
-<seo-meta property="og:description" content="{{detalle.pagina.meta_descripcion}}"></seo-meta>
+<seo-meta property="og:description" content="{{detalle.pagina.metadescripcion}}"></seo-meta>
 <seo-meta property="og:site_name" content="ja"></seo-meta>
-<seo-meta name="twitter:card" content="{{detalle.pagina.meta_descripcion}}"></seo-meta>
+<seo-meta name="twitter:card" content="{{detalle.pagina.metadescripcion}}"></seo-meta>
 <seo-meta name="twitter:title" content="{{detalle.pagina.titulo}}"></seo-meta>
-<seo-meta name="twitter:description" content="{{detalle.pagina.meta_descripcion}}"></seo-meta>
+<seo-meta name="twitter:description" content="{{detalle.pagina.metadescripcion}}"></seo-meta>
 <!--<seo-meta property="dynamicMeta" content="{{ dynamicMeta }}"></seo-meta>-->
 
 
@@ -137,10 +137,10 @@
 
 					<div class="about-author" ng-show="detalle.pagina.autor">
 						<div class="author-header">
-							<img ng-show="detalle.pagina.autor.imagen" src="{{detalle.pagina.autor.imagen}}" alt="{{detalle.pagina.autor.nombre}}" />
+							<img ng-show="detalle.pagina.autorimagen" src="{{detalle.pagina.autorimagen}}" alt="{{detalle.pagina.autor}}" />
 						</div>
 						<div class="author-content">
-							<div class="author-socials right" ng-show="detalle.pagina.autor.redessociales">
+							<div class="author-socials right" ng-show="detalle.pagina.autorredessociales">
 								<a href="#"><i class="fa fa-facebook"></i></a>
 								<a href="#"><i class="fa fa-twitter"></i></a>
 								<a href="#"><i class="fa fa-google-plus"></i></a>
@@ -149,8 +149,8 @@
 								<a href="#"><i class="fa fa-dribbble"></i></a>
 								<a href="#"><i class="fa fa-flickr"></i></a>
 							</div>
-							<h4>{{detalle.pagina.autor.nombre}}</h4>
-							<p ng-bind-html="detalle.pagina.autor.biografia"></p>
+							<h4>{{detalle.pagina.autor}}</h4>
+							<p ng-bind-html="detalle.pagina.autorbiografia"></p>
 						</div>
 					</div>
 

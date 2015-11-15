@@ -7,9 +7,9 @@ angular
     .module('app.servicios')
     .constant('API_URL', 'http://ja.dev/api/')
     .constant('IMG_URL', 'http://ja.dev/assets/images/')
-    .factory('Paginas', categoria);
+    .factory('Paginas', paginas);
 
-function categoria($http, API_URL, $log, toastr) {
+function paginas($http, API_URL, $log, toastr) {
     var data = {
         'buscador': buscador,
         'unico': unico,
@@ -20,6 +20,8 @@ function categoria($http, API_URL, $log, toastr) {
         'eliminar': eliminar,
         'actualizar': actualizar,
         'categorias': categorias,
+
+        'existePortada': existePortada,
 
         'demo': demo
     };
@@ -109,6 +111,10 @@ function categoria($http, API_URL, $log, toastr) {
 
     function categorias(){
         return $http.get(API_URL + 'getPaginasCategorias', {});
+    }
+
+    function existePortada(){
+        return $http.get(API_URL + 'existePortada', {});
     }
 
     function demo(id){

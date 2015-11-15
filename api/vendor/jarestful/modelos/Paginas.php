@@ -97,9 +97,9 @@ class Paginas extends Modelo
     public function detallePagina(){
         $pagina     = array('existe' => false);
         $autor      = Usuarios::getInstance();
-        $categoria  = Categorias::getInstance();
+        $categoria  = new Categorias(); //::getInstance();
 
-        $categoria->atributos = array('titulo'=>$this->atributos['categoria']);
+        $categoria->atributos = array('slug'=>$this->atributos['categoria']);
         $existecategoria = $categoria->existeCategoria();
 
 

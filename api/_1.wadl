@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="http://ja.dev"/>
+  <resources base="http://ja.dev">
+    <resource path="api/existePortada" id="Api">
+      <doc xml:lang="en" title="Api"/>
+      <method name="POST" id="credenciales">
+        <doc xml:lang="en" title="credenciales"/>
+        <request>
+          <param name="usuario" default="admin" type="xs:string" required="false" style="header" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+          <param name="clave" default="1234" type="xs:string" required="false" style="header" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/x-www-form-urlencoded"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/x-www-form-urlencoded"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+      </method>
+      <method name="POST" id="detallePagina">
+        <doc xml:lang="en" title="detallePagina"/>
+        <request>
+          <param name="categoria" default="noticias" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+          <param name="slug" default="articulo6" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/x-www-form-urlencoded"/>
+        </request>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/x-www-form-urlencoded"/>
+        </response>
+        <response status="200">
+          <representation mediaType="text/html; charset=UTF-8"/>
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+      </method>
+      <method name="GET" id="existePortada">
+        <doc xml:lang="en" title="existePortada"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="text/html; charset=UTF-8"/>
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

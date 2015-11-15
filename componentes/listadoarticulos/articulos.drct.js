@@ -30,13 +30,13 @@ function listadoarticulos(Contenido) {  //ShowService
     	switch(vm.categoria) {
 	        case "articulos":
 	        	Contenido.getUltimosArticulos(5).then(function(respuesta){
-	        		vm.datos = respuesta;    		
+	        		vm.datos = respuesta;
 	        	});
 	        	
 	            break;
 	        case "noticias":
 	        	Contenido.getUltimasNoticias(5).then(function(respuesta){
-	        		vm.datos = respuesta;    		
+	        		vm.datos = respuesta;
 	        	});
 	        	
 	            break;
