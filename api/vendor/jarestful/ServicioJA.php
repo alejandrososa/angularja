@@ -715,10 +715,28 @@ namespace Api;
             $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
         }
 
+        private function crearGuardarPortada(){
+            if($this->rest->get_request_method() != "POST"){
+                $this->rest->response('',406);
+            }
+
+            $portada        = json_decode(file_get_contents("php://input"));
+
+            $pagina = new JaPaginas();
+            $pagina->objecto = $portada;
+            $resultado = $pagina->guardarPortada();
+            $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
+        }
+
+
         private function existeContacto(){
             if($this->rest->get_request_method() != "GET"){
                 $this->rest->response('',406);
             }
+
+            $post = json_decode(file_get_contents("php://input"));
+            $categoria         = isset($post->categoria) ? $post->categoria : '';
+
             $obj = new JaPaginas();
             $resultado = $obj->existeContacto();
             $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);

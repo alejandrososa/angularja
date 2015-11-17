@@ -22,6 +22,7 @@ function paginas($http, API_URL, $log, toastr) {
         'categorias': categorias,
 
         'existePortada': existePortada,
+        'crearGuardarPortada': crearGuardarPortada,
 
         'demo': demo
     };
@@ -115,6 +116,19 @@ function paginas($http, API_URL, $log, toastr) {
 
     function existePortada(){
         return $http.get(API_URL + 'existePortada', {});
+    }
+
+    function crearGuardarPortada(pagina){
+        pagina.fechacreado = moment().format("YYYY-MM-DD hh:mm:ss");
+        return $http.post(API_URL + 'crearGuardarPortada', {
+            pagina:pagina,
+            transformRequest: angular.indentity,
+            headers: { 'Content-Type': undefined }
+        }).then(function (datos) {
+            toastr.success(datos.data.mensaje);
+            console.log(datos);
+            return datos.data;
+        });
     }
 
     function demo(id){

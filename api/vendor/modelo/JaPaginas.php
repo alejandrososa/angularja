@@ -21,6 +21,7 @@ class JaPaginas extends BaseJaPaginas
 {
     public $atributos = array();
     public $setatributos = array();
+    public $objecto;
     private $tabla = 'ja_paginas';
     private $debug;
     private $helper;
@@ -77,6 +78,40 @@ class JaPaginas extends BaseJaPaginas
         }
 
         return $portada->isEmpty() == false ? $this->helper->convertirKeysMinuscula($portada->getFirst())  : $pagina;
+    }
+
+    public function guardarPortada(){
+        $tipo   = Config::$TIPO_PORTADA;
+
+        $titulo         = isset($this->objecto->titulo) ? $this->objecto->titulo : '';
+        $contenido      = isset($this->objecto->contenido) ? $this->objecto->contenido : '';
+        $autor          = isset($this->objecto->autor) ? $this->objecto->autor : '';
+        $configuracion  = isset($this->objecto->configuracion) ? (string)$this->objecto->configuracion : '';
+        $seotitulo      = isset($this->objecto->seo->titulo) ? $this->objecto->seo->titulo : '';
+        $seodescripcion = isset($this->objecto->seo->descripcion) ? $this->objecto->seo->descripcion : '';
+        $seopalabras    = isset($this->objecto->seo->palabrasclave) ? $this->helper->convertirArrayAString($this->objecto->seo->palabrasclave) : '';
+
+        $portada =  JaPaginasQuery::create()
+            //->filterByCategoria(0, Criteria::EQUAL)
+            //->filterByTipo($tipo, Criteria::EQUAL)
+            ->findOneByTipo($tipo);
+
+        $portada->setTitulo($titulo);
+        $portada->setContenido($contenido);
+        $portada->setAutor($autor);
+        $portada->setConfiguracion($configuracion);
+        $portada->setMetaTitulo($seotitulo);
+        $portada->setMetaDescripcion($seodescripcion);
+        $portada->setMetaPalabras($seopalabras);
+        $resultado = $portada->save();
+
+        if(Config::$DEBUG){
+            $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
+        }
+
+        return $resultado;
+
+        //return $portada->isEmpty() == false ? $this->helper->convertirKeysMinuscula($portada->getFirst())  : $pagina;
     }
 
     public function existeContacto(){

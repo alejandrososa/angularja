@@ -56,10 +56,12 @@ angular
             $location.path('/login');
         }
 
-        console.log(_existe);
+
+        vm.existePortada = angular.isDefined(_existe) ? _existe.existe : false;
+        vm.idPortada = angular.isDefined(_existe) ? _existe.id : false;
 
 
-        vm.existePortada = angular.isDefined(_existe) ?
+
 
         vm.menus = [];
         vm.enlaces = [];
