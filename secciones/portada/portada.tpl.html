@@ -1,3 +1,22 @@
+<seo-meta title="{{vm.pagina.metatitulo}}"></seo-meta>
+<seo-meta charset="ISO-8859-1"></seo-meta>
+<seo-meta http-equiv="Content-Language" content="es"></seo-meta>
+<seo-meta name="description" content="{{vm.pagina.metadescripcion}}"></seo-meta>
+<seo-meta name="keywords" content="{{vm.pagina.metapalabras}}"></seo-meta>
+<seo-meta name="author" content="{{vm.pagina.autor.nombre}}"></seo-meta>
+<seo-meta name="robots" content="index, follow"></seo-meta>
+
+<meta property="og:type" content="article">
+<seo-meta property="og:title" content="{{vm.pagina.metatitulo}}"></seo-meta>
+<seo-meta property="og:url" content="http://ja.dev/{{vm.pagina.categoria | lowercase}}/{{vm.pagina.slug}}"></seo-meta>
+<seo-meta property="og:description" content="{{vm.pagina.metadescripcion}}"></seo-meta>
+<seo-meta property="og:site_name" content="ja"></seo-meta>
+<seo-meta name="twitter:card" content="{{vm.pagina.metadescripcion}}"></seo-meta>
+<seo-meta name="twitter:title" content="{{vm.pagina.titulo}}"></seo-meta>
+<seo-meta name="twitter:description" content="{{vm.pagina.metadescripcion}}"></seo-meta>
+<!--<seo-meta property="dynamicMeta" content="{{ dynamicMeta }}"></seo-meta>-->
+
+
 <!-- BEGIN .boxed.active -->
 <div class="boxed">
 
@@ -49,11 +68,11 @@
 
 			<!-- BEGIN .ot-panel-block -->
 			<!--<portal-articulos categoria="portada.bloque1.categoria" estilo="portada.bloque1.estilo"></portal-articulos>-->
+
 			<portal-articulos
 					categoria="vm.bloque1.categoria"
 					estilo="recientes"
-					cantidad="vm.bloque1.cantidad"
-					bloquecategoria="vm.bloque1.categoria"></portal-articulos>
+					cantidad="vm.bloque1.cantidad"></portal-articulos>
 
 
 			<!--

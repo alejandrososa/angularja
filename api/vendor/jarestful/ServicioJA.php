@@ -715,12 +715,23 @@ namespace Api;
             $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
         }
 
-        private function crearGuardarPortada(){
+        private function obtenerPortada(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+            $obj = new JaPaginas();
+            $resultado = $obj->obtenerPortada();
+            $resultado['metapalabras'] = $this->helper->convertirStringAArray($resultado['metapalabras']);
+            $resultado['configuracion'] = $this->helper->convertirJsonAArray($resultado['configuracion']);
+            $this->rest->response($this->helper->json($resultado), 200);
+        }
+
+        private function guardarPortada(){
             if($this->rest->get_request_method() != "POST"){
                 $this->rest->response('',406);
             }
 
-            $portada        = json_decode(file_get_contents("php://input"));
+            $portada = json_decode(file_get_contents("php://input"));
 
             $pagina = new JaPaginas();
             $pagina->objecto = $portada;
@@ -912,6 +923,25 @@ namespace Api;
         }
 
 
+        //frontend
+        private function getUltimosArticulos(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            $cantidad = !empty($this->rest->_request['cantidad']) ? (int)$this->rest->_request['cantidad'] : 0;
+            $paginas = new JaPaginas();
+            $paginas->atributos = $cantidad;
+            $articulos = $paginas->ultimosArticulos();
+
+            $this->rest->response($this->helper->json($articulos), 200);
+
+            if(isset($articulos) && !empty($articulos)){
+                $this->rest->response($this->helper->json($articulos), 200);
+            }
+            $this->rest->response($this->mensajeError, 204);
+        }
+
 
 
         /**
@@ -919,22 +949,7 @@ namespace Api;
          */
 
 
-        private function getUltimosArticulos(){
-            if($this->rest->get_request_method() != "GET"){
-                $this->rest->response('',406);
-            }
 
-            //$cantidad = !empty($this->rest->_request['cantidad']) ? (int)$this->rest->_request['cantidad'] : 0;
-            $paginas = new JaPaginas();
-            $articulos = $paginas->ultimosArticulos(); //$this->demo->getUltimosArticulos($cantidad);
-
-            //print_r($articulos);
-            //exit();
-            if(isset($articulos) && !empty($articulos)){
-                $this->rest->response($this->helper->json($articulos), 200);
-            }
-            $this->rest->response($this->mensajeError, 204);
-        }
 
         private function getUltimasNoticias(){
             if($this->rest->get_request_method() != "GET"){

@@ -43,6 +43,9 @@
 
         if(angular.isDefined(vm.tipo)) {
             switch (vm.tipo) {
+                case 'portada':
+                    vm.visible = true;
+                    break;
                 case 'paginas':
                     vm.visible = true;
                     break;
@@ -64,7 +67,22 @@
         ////////////////
 
         function guardar(){
-            Servicio.crear(vm.datos);
+            if(angular.isDefined(vm.tipo)) {
+                switch (vm.tipo) {
+                    case 'portada':
+                        Servicio.guardarPortada(vm.datos);
+                        break;
+                    case 'paginas':
+                        Servicio.crear(vm.datos);
+                        break;
+                    case 'categorias':
+                        break;
+                    case 'menu':
+                        break;
+                    default:
+                        Servicio.crear(vm.datos);
+                }
+            }
         }
 
         function openSideNav(navID) {

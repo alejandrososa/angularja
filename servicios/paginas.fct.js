@@ -22,7 +22,8 @@ function paginas($http, API_URL, $log, toastr) {
         'categorias': categorias,
 
         'existePortada': existePortada,
-        'crearGuardarPortada': crearGuardarPortada,
+        'guardarPortada': guardarPortada,
+        'obtenerPortada': obtenerPortada,
 
         'demo': demo
     };
@@ -118,9 +119,13 @@ function paginas($http, API_URL, $log, toastr) {
         return $http.get(API_URL + 'existePortada', {});
     }
 
-    function crearGuardarPortada(pagina){
+    function obtenerPortada(){
+        return $http.get(API_URL + 'obtenerPortada', {});
+    }
+
+    function guardarPortada(pagina){
         pagina.fechacreado = moment().format("YYYY-MM-DD hh:mm:ss");
-        return $http.post(API_URL + 'crearGuardarPortada', {
+        return $http.post(API_URL + 'guardarPortada', {
             pagina:pagina,
             transformRequest: angular.indentity,
             headers: { 'Content-Type': undefined }

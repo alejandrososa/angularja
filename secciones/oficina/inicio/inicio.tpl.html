@@ -12,7 +12,7 @@
                     ng-if="vm.layout.showToolbar"
                     md-theme="{{triSkin.elements.toolbar}}"
                     ng-class="[vm.layout.toolbarSize,vm.layout.toolbarClass]">
-            <cms-toolbar tipo="paginas" datos="vm.pagina" proveedor="vm.datosproveedor"></cms-toolbar>
+            <cms-toolbar tipo="portada" datos="vm.pagina" proveedor="vm.datosproveedor"></cms-toolbar>
         </md-toolbar>
 
 
@@ -20,6 +20,8 @@
         <md-content ng-class="layout.contentClass"  flex  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
             <div ng-include="'secciones/oficina/inicio/_form.html'"></div>
         </md-content>
+
+
 
 
         <cms-pie-pagina md-theme="{{triSkin.elements.toolbar}}"></cms-pie-pagina>

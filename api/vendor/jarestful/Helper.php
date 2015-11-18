@@ -120,7 +120,7 @@ class Helper {
      */
     public function json($data){
         if(is_array($data)){
-            return json_encode($data);
+            return json_encode($data, JSON_NUMERIC_CHECK);
         }
     }
     private function existeCarpeta($ruta){
@@ -146,20 +146,6 @@ class Helper {
         }
         return false;
     }
-    public function crearJson($datos){
-        if(empty($this->nombreJson) || empty($datos)){
-            return null;
-        }
-        $nombre = $this->nombreJson;
-        $directorio = $this->categoriaJson;
-        $archivo = Config::getBaseData() . $directorio .'/'. $nombre .'.json';
-        //fix claves minusculas
-        foreach($datos as $array){
-            $_datos[] = array_change_key_case($array, CASE_LOWER);
-        }
-        //$_datos = mb_convert_encoding($datos, 'UTF-8', 'OLD-ENCODING');
-        file_put_contents($archivo, json_encode($_datos), LOCK_EX);
-    }
     public function leerJson($array = false){
         if(empty($this->nombreJson)){
             return null;
@@ -172,7 +158,35 @@ class Helper {
         }else{
             return file_get_contents($archivo, true);
         }
+    }
+    public function crearJson($datos, $multidimensional = true){
+        if(empty($this->nombreJson) || empty($datos)){
+            return null;
+        }
+        $nombre = $this->nombreJson;
+        $directorio = $this->categoriaJson;
+        $archivo = Config::getBaseData() . $directorio .'/'. $nombre .'.json';
 
+        $_datos = array();
+        //fix claves minusculas
+        if(is_array($datos)) {
+            if($multidimensional) {
+                foreach ($datos as $array) {
+                    $_datos[] = array_change_key_case($array, CASE_LOWER);
+                }
+            }else{
+                $_datos = array_change_key_case($datos, CASE_LOWER);;
+            }
+        }
+        //$_datos = mb_convert_encoding($datos, 'UTF-8', 'OLD-ENCODING');
+        file_put_contents($archivo, json_encode($_datos,JSON_NUMERIC_CHECK), LOCK_EX);
+    }
+    public function eliminarJson($archivo){
+        $directorio = $this->categoriaJson;
+        $directorio = Config::getBaseData() . $directorio .'/'. $archivo .'.json';
+        if (file_exists($directorio)) {
+            unlink($directorio);
+        }
     }
 
     //VALIDACIONES
@@ -198,6 +212,34 @@ class Helper {
 
         return $string;
     }
+    public function convertirArrayAJson($array){
+        if(empty($array)){
+            return null;
+        }
+        return json_encode($array, JSON_NUMERIC_CHECK);
+
+    }
+
+    public function convertirJsonAArray($json){
+        if(empty($json)){
+            return null;
+        }
+        return json_decode($json, true);
+    }
+
+    public function convertirStringAArray($string){
+        if(empty($string)){
+            return null;
+        }
+        return explode(',', $string);
+    }
+
+    public function convertirObjectAString($object){
+        if(empty($object)){
+            return null;
+        }
+        return json_encode($object, JSON_NUMERIC_CHECK);
+    }
 
     /**
      * @param $string
@@ -216,6 +258,11 @@ class Helper {
             return null;
         }
         return array_change_key_case($array, CASE_LOWER);
+    }
+
+    //FECHAS Y HORAS
+    public function fechaActual(){
+        return date("Y-m-d H:i:s");
     }
 
 }

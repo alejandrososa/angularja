@@ -20,18 +20,14 @@ angular
                     if (!ngModel || !element.val()) return;
                     var campo = scope.$eval(attrs.reemplazarespacioss);
                     var valor = element.val();
-
-                    console.log(campo.campo);
                     /*
                     scope.$watch(angular.element('#'+campo.campo), function(value) {
                         console.log(value);
                         //updateTime();
                     });
                     */
-
-
-                    console.log(valor);
-                    console.log(campo.titulo);
+                    //console.log(valor);
+                    //console.log(campo.titulo);
                 }); //fin link
             }
         };
@@ -56,9 +52,21 @@ angular
             $location.path('/login');
         }
 
+        var pagina = angular.isDefined(_datos) ? _datos : {};
+
+        vm.pagina = {};
+        //vm.pagina.seo = {};
+        vm.pagina.palabrasclave = [];
+        //vm.palabrasclave = []
+
+        vm.pagina.autor = Utilidades.LocalStorage.getIdUsuarioActual();
+        vm.targets = [];
+        vm.editor = [];
+        vm.datosproveedor = {};
 
         vm.existePortada = angular.isDefined(_existe) ? _existe.existe : false;
         vm.idPortada = angular.isDefined(_existe) ? _existe.id : false;
+        vm.pagina = angular.isDefined(pagina) ? pagina : {};
 
 
 
@@ -68,48 +76,17 @@ angular
         vm.enlace = {};
         vm.categoriasPaginas = {};
         vm.categoriaDefault = 'principal';
-        vm.targets = [];
-        vm.datosproveedor = {};
-        vm.editor = [];
-        vm.pagina = {};
-        vm.pagina.seo = {};
-        vm.pagina.seo.palabrasclave = [];
-        vm.pagina.autor = Utilidades.LocalStorage.getIdUsuarioActual();
+
+
+
+
+
 
         vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
         vm.botonTexto = (vm.idUsuario > 0) ? 'Actualizar' : 'Agregar';
         vm.tituloVista = (vm.idUsuario > 0) ? 'Actualizar Enlace' : 'Agregar Enlace';
         vm.tipo = (vm.idUsuario > 0) ? true : false;
 
-
-
-        //enlace
-        vm.enlace = {
-            id: _datos.id,
-            nombre: _datos.nombre,
-            clase: _datos.clase,
-            ruta: _datos.enlace,
-            target: _datos.target,
-            padre: _datos.padre,
-            categoria: _datos.categoria,
-            clavecategoria: _datos.clavecategoria,
-            idcategoria: _datos.idcategoria,
-        };
-
-        //enlaces vista editar
-        if(angular.isDefined(vm.enlace.clavecategoria)){
-            Paginas.todos().then(function(datos){
-                vm.enlaces = datos.resultado;
-            });
-            console.log(vm.enlaces);
-        }
-
-
-
-        //targets
-        //vm.targets = Paginas.targets();
-
-        //['justifyLeft','justifyCenter','justifyRight','justifyFull'],
 
         vm.editor = [
             ['undo','redo'],
@@ -151,7 +128,7 @@ angular
 
 
 
-        console.log('id usuario:' + Utilidades.LocalStorage.getIdUsuarioActual());
+        //console.log('id usuario:' + Utilidades.LocalStorage.getIdUsuarioActual());
 
 
 
@@ -237,12 +214,12 @@ angular
                 //}
             ///});
 
-            console.log(vm.tablacontenido);
+            //console.log(vm.tablacontenido);
         }
 
         vm.getPaginas = function(){
             //return $timeout(function() {
-            console.log(vm.categoriaDefault);
+            //console.log(vm.categoriaDefault);
             Paginas.todos(vm.categoriaDefault).then(function(datos){
                 if(angular.isDefined(datos.resultado)){
                     vm.menus = datos.resultado;

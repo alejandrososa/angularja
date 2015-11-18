@@ -82,37 +82,81 @@ class JaPaginas extends BaseJaPaginas
 
     public function guardarPortada(){
         $tipo   = Config::$TIPO_PORTADA;
+        $objeto = $this->objecto->pagina;
 
-        $titulo         = isset($this->objecto->titulo) ? $this->objecto->titulo : '';
-        $contenido      = isset($this->objecto->contenido) ? $this->objecto->contenido : '';
-        $autor          = isset($this->objecto->autor) ? $this->objecto->autor : '';
-        $configuracion  = isset($this->objecto->configuracion) ? (string)$this->objecto->configuracion : '';
-        $seotitulo      = isset($this->objecto->seo->titulo) ? $this->objecto->seo->titulo : '';
-        $seodescripcion = isset($this->objecto->seo->descripcion) ? $this->objecto->seo->descripcion : '';
-        $seopalabras    = isset($this->objecto->seo->palabrasclave) ? $this->helper->convertirArrayAString($this->objecto->seo->palabrasclave) : '';
+        $titulo         = isset($objeto->titulo) ? $objeto->titulo : '';
+        $contenido      = isset($objeto->contenido) ? $objeto->contenido : '';
+        $autor          = isset($objeto->autor) ? $objeto->autor : '';
+        $configuracion  = isset($objeto->configuracion) ? $this->helper->convertirObjectAString($objeto->configuracion) : '';
+        $seotitulo      = isset($objeto->metatitulo) ? $objeto->metatitulo : '';
+        $seodescripcion = isset($objeto->metadescripcion) ? $objeto->metadescripcion : '';
+        $seopalabras    = isset($objeto->metapalabras) ? $this->helper->convertirArrayAString($objeto->metapalabras) : '';
 
+        //buscar portada
         $portada =  JaPaginasQuery::create()
-            //->filterByCategoria(0, Criteria::EQUAL)
-            //->filterByTipo($tipo, Criteria::EQUAL)
+            ->filterByCategoria(0, Criteria::EQUAL)
             ->findOneByTipo($tipo);
+
+        //si no existe crea el objecto $portada
+        //si existe actualiza el objecto $portada
+        if(empty($portada)){
+            $portada = new JaPaginas();
+            $portada->setFechaCreado($this->helper->fechaActual());
+        }
 
         $portada->setTitulo($titulo);
         $portada->setContenido($contenido);
         $portada->setAutor($autor);
+        $portada->setCategoria(0);
+        $portada->setTipo($tipo);
         $portada->setConfiguracion($configuracion);
         $portada->setMetaTitulo($seotitulo);
         $portada->setMetaDescripcion($seodescripcion);
         $portada->setMetaPalabras($seopalabras);
+        $portada->setFechaModificado($this->helper->fechaActual());
         $resultado = $portada->save();
+
+        //eliminar json existente
+        $this->helper->categoriaJson = 'portada';
+        $this->helper->eliminarJson('ultimosarticulos');
+        $this->helper->eliminarJson('paginainicio');
+        $this->obtenerPortada();
+
 
         if(Config::$DEBUG){
             $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
         }
 
-        return $resultado;
-
-        //return $portada->isEmpty() == false ? $this->helper->convertirKeysMinuscula($portada->getFirst())  : $pagina;
+        return $resultado != 0 ? true : false;
     }
+
+    public function obtenerPortada(){
+        $tipo   = Config::$TIPO_PORTADA;
+        $this->helper->categoriaJson = 'portada';
+        $this->helper->nombreJson = 'paginainicio';
+        $existeJson = $this->helper->existeJson('paginainicio');
+
+
+        if($existeJson){
+            return $this->helper->leerJson(true);
+        }else{
+            $portada =  JaPaginasQuery::create()
+                ->filterByCategoria(0, Criteria::EQUAL)
+                ->addAsColumn('Existe', "if(ja_paginas.id > 0, 'true', false)")
+                ->filterByCategoria(0, Criteria::EQUAL)
+                ->filterByTipo($tipo, Criteria::EQUAL)
+                ->findOne();
+
+            $this->helper->crearJson($portada->toArray(), false);
+
+            if(Config::$DEBUG){
+                $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
+            }
+
+            return $this->helper->leerJson(true);
+        }
+    }
+
 
     public function existeContacto(){
         $pagina = array('existe' => false);
@@ -139,7 +183,7 @@ class JaPaginas extends BaseJaPaginas
         $existeJson = $this->helper->existeJson('ultimosarticulos');
 
         $max    = Config::getMaxCaracteres();
-        $limite = Config::getCantidadArticulosRecientes();
+        $limite = !empty($this->atributos) ? $this->atributos : Config::getCantidadArticulosRecientes();
 
         if($existeJson){
             return $this->helper->leerJson(true);

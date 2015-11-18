@@ -19,7 +19,7 @@ class Config
     static $WEBSITE_NAME = 'My New Website';
     static $IMAGE_DIR    = 'img';
     static $DEBUG        = true;
-    static $DEBUG_SQL    = false;
+    static $DEBUG_SQL    = true;
 
     static $DIR_DATA     = '\\data\\';
 
@@ -108,7 +108,7 @@ class Config
         return 140;
     }
     public function getCantidadArticulosRecientes(){
-        return 6;
+        return 1;
     }
     public function getCantidadArticulosCategoria(){
         return 100;
