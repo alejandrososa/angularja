@@ -924,6 +924,23 @@ namespace Api;
 
 
         //frontend
+        private function getArticulos(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            $categoria = isset($this->rest->_request['categoria']) ? $this->rest->_request['categoria'] : 0;
+            $cantidad = isset($this->rest->_request['cantidad']) ? (int)$this->rest->_request['cantidad'] : 0;
+
+            $paginas = new JaPaginas();
+            $paginas->atributos = array('cantidad'=>$cantidad, 'categoria'=>$categoria);
+            $articulos = $paginas->articulosPorCategoria();
+
+            if(isset($articulos)){
+                $this->rest->response($this->helper->json($articulos), 200);
+            }
+            $this->rest->response($this->mensajeError, 204);
+        }
         private function getUltimosArticulos(){
             if($this->rest->get_request_method() != "GET"){
                 $this->rest->response('',406);
@@ -941,6 +958,8 @@ namespace Api;
             }
             $this->rest->response($this->mensajeError, 204);
         }
+
+
 
 
 

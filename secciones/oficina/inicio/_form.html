@@ -44,23 +44,55 @@
 
 
     <!-- PRIMER BLOQUE -->
-    <div layout layout-sm="column"  class="md-padding">
+    <div layout="" layout-sm="column" class="md-padding">
         <div flex="20" layout-padding layout-margin>
             <h5>Bloques</h5>
-            <p>Ultimos articulos publicados de todo el portal</p>
+            <p><b>PRIMER BLOQUE</b> Ultimos articulos publicados de todo el portal</p>
         </div>
 
         <md-card layout-padding flex="78" flex-sm="30">
             <md-content class="md-padding">
                 <md-input-container flex>
-                    <label>Ultimos Articulos - Cantidad</label>
-                    <input type="number" id="numarticulos" name="titulo" ng-model="vm.pagina.configuracion.bloque1.numarticulos" class="dialog-close">
+                    <label>Bloque 1 - Cantidad Ultimos Articulos</label>
+                    <input type="number" name="b1numarticulos" ng-model="vm.pagina.configuracion.bloque1.numarticulos" class="dialog-close">
                 </md-input-container>
 
-                <!--<md-input-container flex>
-                    <label>Ultimos Articulos</label>
-                    <input type="text" id="numarticulos" name="titulo" ng-model="vm.pagina.configuracion.bloque1.numarticulos" class="dialog-close">
-                </md-input-container>-->
+                <md-switch class="md-warm md-block"
+                           ng-true-value="'true'"
+                           ng-false-value="'false'"
+                           md-no-ink aria-label="Bloque activo"
+                           ng-model="vm.pagina.configuracion.bloque1.visible">
+                    Bloque visible: {{vm.pagina.configuracion.bloque1.visible}}
+                </md-switch>
+
+                <md-divider></md-divider>
+
+                <md-input-container flex>
+                    <label>Bloque 2 - Categoria </label>
+                    <md-select ng-model="vm.pagina.configuracion.bloque2.categoria" aria-label="Categoria Bloque 2">
+                        <md-option ng-show="categoria.id!=1"
+                                   ng-selected="categoria.id==vm.pagina.configuracion.bloque2.categoria"
+                                   ng-repeat="categoria in vm.categorias" value="{{categoria.id}}">
+                            {{categoria.titulo}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container flex>
+                    <label>Bloque 2 - Cantidad articulos</label>
+                    <input type="number" name="b2numarticulos" ng-model="vm.pagina.configuracion.bloque2.numarticulos" class="dialog-close">
+                </md-input-container>
+
+                <md-switch class="md-warm md-block"
+                           ng-true-value="'true'"
+                           ng-false-value="'false'"
+                           md-no-ink aria-label="Bloque activo"
+                           ng-model="vm.pagina.configuracion.bloque2.visible">
+                    Bloque visible: {{vm.pagina.configuracion.bloque2.visible}}
+                </md-switch>
+
+                <md-divider></md-divider>
+
             </md-content>
         </md-card>
     </div>

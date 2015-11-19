@@ -212,6 +212,7 @@ class JaPaginas extends BaseJaPaginas
 
     public function articulosPorCategoria(){
         $_idcategoria = $this->atributos['categoria'];
+        $_cantidad = $this->atributos['cantidad'];
         $_nombrecategoria = JaCategorias::getNombre($_idcategoria);
         $_nombrecategoria = $this->helper->convertirAMinuscula($_nombrecategoria,true);
         $clave = [];
@@ -221,7 +222,7 @@ class JaPaginas extends BaseJaPaginas
         $existeJson = $this->helper->existeJson('articulos_categoria_'.$_nombrecategoria);
 
         $max    = Config::getMaxCaracteres();
-        $limite = Config::getCantidadArticulosCategoria();
+        $limite = isset($_cantidad) && is_int($_cantidad) ? $_cantidad : Config::getCantidadArticulosCategoria();
 
         if($existeJson){
             return $this->helper->leerJson(true);

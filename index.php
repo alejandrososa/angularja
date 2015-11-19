@@ -35,8 +35,7 @@
 		<link rel="shortcut icon" href="assets/plantillas/solido/images/favicon.ico" type="image/x-icon" />
 
 		<!-- Estilos General
-
-		-->
+		<link type="text/css" rel="stylesheet" href="assets/general/angular-toastr.css" />-->
 
 		<!--
 		<link type="text/css" rel="stylesheet" href="assets/plantillas/admin/css/admin.css" />

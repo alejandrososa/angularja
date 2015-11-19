@@ -85,6 +85,8 @@ class JaCategorias extends BaseJaCategorias
             return $this->helper->leerJson(true);
         }else{
             $categorias = JaCategoriasQuery::create()->find();
+            // 'clave' => str_replace(" ", "-", strtolower($categoria->getTitulo)),
+
             $this->helper->crearJson($categorias->toArray());
 
             if(Config::$DEBUG){

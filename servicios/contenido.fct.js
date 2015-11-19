@@ -10,6 +10,7 @@ angular
 
 function servicio($http, API_URL, $log) { 
     var data = {
+        'getArticulos': getArticulos,
     	'getUltimosArticulos': getUltimosArticulos,
     	'getUltimasNoticias': getUltimasNoticias,
     	'getArticulosCategoria': getArticulosCategoria,
@@ -32,6 +33,11 @@ function servicio($http, API_URL, $log) {
         }).then(function(response){
             return response.data;
         }).catch(dataServiceError);
+    }
+
+    function getArticulos(categoria, cantidad){
+        console.log(categoria+' / '+cantidad);
+        return ejecutar('get', 'getArticulos?categoria='+categoria+'&cantidad='+ cantidad, {});
     }
     
     function getUltimosArticulos(cantidad){

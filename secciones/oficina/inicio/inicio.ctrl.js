@@ -34,7 +34,7 @@ angular
     })
     .controller('InicioController', function ($scope, $rootScope, PageValues, $cookieStore,
                                                 $q, $location, $auth, $log, toastr, $window,
-                                                $routeParams, Paginas, _datos, _existe,
+                                                $routeParams, Paginas, Categorias, _datos, _existe,
                                                 triLayout, $mdDialog,
                                                 $timeout) {
 
@@ -74,11 +74,26 @@ angular
         vm.menus = [];
         vm.enlaces = [];
         vm.enlace = {};
-        vm.categoriasPaginas = {};
+        vm.categorias = [];
         vm.categoriaDefault = 'principal';
 
 
 
+        Paginas.categorias().then(function(datos){
+            if(angular.isDefined(datos)){
+       //         vm.categorias = datos.data.resultado;
+            }
+        });
+
+        Categorias.todos().then(function(datos){
+            if(angular.isDefined(datos)){
+                console.log(datos);
+                vm.categorias = datos.data.resultado;
+            }
+        });
+
+        console.log(vm.categorias);
+        console.log('hola');
 
 
 
@@ -134,17 +149,7 @@ angular
 
 
 
-        Paginas.categorias().then(function(datos){
-            if(angular.isDefined(datos)){
-                vm.categoriasPaginas = datos.data.resultado;
-            }
-        });
 
-        Paginas.todos(vm.categoriaDefault).then(function(datos){
-            if(angular.isDefined(datos)){
-                vm.menus = datos.resultado;
-            }
-        });
 
 
 

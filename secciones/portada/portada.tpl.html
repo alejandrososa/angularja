@@ -70,9 +70,16 @@
 			<!--<portal-articulos categoria="portada.bloque1.categoria" estilo="portada.bloque1.estilo"></portal-articulos>-->
 
 			<portal-articulos
+					ng-show="vm.bloque1.visible"
 					categoria="vm.bloque1.categoria"
 					estilo="recientes"
 					cantidad="vm.bloque1.cantidad"></portal-articulos>
+
+			<portal-articulos
+					ng-show="vm.bloque2.visible"
+					categoria="vm.bloque2.categoria"
+					estilo="destacadaconlistado"
+					cantidad="vm.bloque2.cantidad"></portal-articulos>
 
 
 			<!--

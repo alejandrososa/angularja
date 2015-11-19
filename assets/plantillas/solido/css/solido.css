@@ -10,6 +10,8 @@
 @import url("responsive.css");
 @import url("animate.css");
 @import url("dat-menu.css");
+@import url("../../../../assets/general/angular-toastr.css");
+@import url("../../../../assets/general/angular-spinkit.min.css");
 
 /*sass*/
 @import url("web.css");

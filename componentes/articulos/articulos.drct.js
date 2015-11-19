@@ -34,31 +34,24 @@ function articulos(Contenido, $filter) {  //ShowService
 
 		var vm = this;
 		vm.datos = vm.datos2 = {};
-
-		console.log(vm.cantidad);
 		var cnt = vm.cantidad || 3;
 
 
-		if(angular.isDefined(vm.categoria)) {
 
-			switch (vm.categoria) {
-				case "articulos":
-
-					console.log(cnt);
-
-					Contenido.getArticulosCategoria(cnt).then(function (respuesta) {
-						vm.datos = respuesta;
-						vm.datos2 = respuesta;
-					});
-
-					break;
-			}
-		}
 
 		//vista categoria
 		if (angular.isDefined(vm.proveedor)) {
 			vm.titulo = vm.proveedor.titulo;
 			vm.datos = vm.proveedor.datos;
+		}
+
+		//vista dinamica
+		if(angular.isDefined(vm.categoria) && angular.isNumber(vm.categoria)) {
+			Contenido.getArticulos(vm.categoria, vm.cantidad).then(function (respuesta) {
+				vm.datos = respuesta;
+				vm.datos2 = respuesta;
+				console.log(respuesta)
+			});
 		}
 
 		//vista general
