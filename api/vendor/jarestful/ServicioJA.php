@@ -924,6 +924,44 @@ namespace Api;
 
 
         //frontend
+        private function cargarPortada(){
+            if($this->rest->get_request_method() != "GET"){
+                $this->rest->response('',406);
+            }
+
+            $respuesta = false;
+
+            $obj = new JaPaginas();
+            $resultado = $obj->obtenerPortada();
+            $resultado['metapalabras'] = $this->helper->convertirStringAArray($resultado['metapalabras']);
+            $resultado['configuracion'] = $this->helper->convertirJsonAArray($resultado['configuracion']);
+
+            //bloque1 - ultimos articulos
+            if(isset($resultado) && isset($resultado['configuracion']) && isset($resultado['configuracion']['bloque1'])){
+                $paginas = new JaPaginas();
+                $paginas->atributos = $resultado['configuracion']['bloque1']['numarticulos'];
+                $paginas->ultimosArticulos();
+                $respuesta = true;
+            }
+
+            //bloque1 - articulo principal con listado
+            if(isset($resultado) && isset($resultado['configuracion']) && isset($resultado['configuracion']['bloque2'])){
+                $paginas = new JaPaginas();
+                $paginas->atributos = array('cantidad'=>$resultado['configuracion']['bloque2']['numarticulos'], 'categoria'=>$resultado['configuracion']['bloque2']['categoria']);
+                $paginas->articulosPorCategoria();
+                $respuesta = true;
+            }
+
+
+
+            //var_dump($resultado);
+            //exit();
+
+            if(isset($respuesta)){
+                $this->rest->response($respuesta, 200);
+            }
+            $this->rest->response($this->mensajeError, 204);
+        }
         private function getArticulos(){
             if($this->rest->get_request_method() != "GET"){
                 $this->rest->response('',406);

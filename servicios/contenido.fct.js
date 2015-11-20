@@ -10,6 +10,7 @@ angular
 
 function servicio($http, API_URL, $log) { 
     var data = {
+        'cargarPortada': cargarPortada,
         'getArticulos': getArticulos,
     	'getUltimosArticulos': getUltimosArticulos,
     	'getUltimasNoticias': getUltimasNoticias,
@@ -35,8 +36,11 @@ function servicio($http, API_URL, $log) {
         }).catch(dataServiceError);
     }
 
+    function cargarPortada(){
+        return ejecutar('get', 'cargarPortada', {});
+    }
+
     function getArticulos(categoria, cantidad){
-        console.log(categoria+' / '+cantidad);
         return ejecutar('get', 'getArticulos?categoria='+categoria+'&cantidad='+ cantidad, {});
     }
     

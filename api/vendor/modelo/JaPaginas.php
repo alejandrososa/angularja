@@ -212,10 +212,9 @@ class JaPaginas extends BaseJaPaginas
 
     public function articulosPorCategoria(){
         $_idcategoria = $this->atributos['categoria'];
-        $_cantidad = $this->atributos['cantidad'];
+        $_cantidad = (int)$this->atributos['cantidad'];
         $_nombrecategoria = JaCategorias::getNombre($_idcategoria);
         $_nombrecategoria = $this->helper->convertirAMinuscula($_nombrecategoria,true);
-        $clave = [];
 
         $this->helper->categoriaJson = 'articulos';
         $this->helper->nombreJson = 'articulos_categoria_'.$_nombrecategoria;
