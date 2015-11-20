@@ -937,17 +937,17 @@ namespace Api;
             $resultado['configuracion'] = $this->helper->convertirJsonAArray($resultado['configuracion']);
 
             //bloque1 - ultimos articulos
-            if(isset($resultado) && isset($resultado['configuracion']) && isset($resultado['configuracion']['bloque1'])){
+            if(isset($resultado) && isset($resultado['configuracion']) && isset($resultado['configuracion']['principal']['bloque1'])){
                 $paginas = new JaPaginas();
-                $paginas->atributos = $resultado['configuracion']['bloque1']['numarticulos'];
+                $paginas->atributos = $resultado['configuracion']['principal']['bloque1']['numarticulos'];
                 $paginas->ultimosArticulos();
                 $respuesta = true;
             }
 
             //bloque1 - articulo principal con listado
-            if(isset($resultado) && isset($resultado['configuracion']) && isset($resultado['configuracion']['bloque2'])){
+            if(isset($resultado) && isset($resultado['configuracion']) && isset($resultado['configuracion']['principal']['bloque2'])){
                 $paginas = new JaPaginas();
-                $paginas->atributos = array('cantidad'=>$resultado['configuracion']['bloque2']['numarticulos'], 'categoria'=>$resultado['configuracion']['bloque2']['categoria']);
+                $paginas->atributos = array('cantidad'=>$resultado['configuracion']['principal']['bloque2']['numarticulos'], 'categoria'=>$resultado['configuracion']['principal']['bloque2']['categoria']);
                 $paginas->articulosPorCategoria();
                 $respuesta = true;
             }

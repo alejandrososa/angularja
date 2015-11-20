@@ -36,14 +36,14 @@ function articulos(Contenido, $filter) {  //ShowService
 		vm.datos = vm.datos2 = {};
 		var cnt = vm.cantidad || 3;
 
-
-
-
 		//vista categoria
 		if (angular.isDefined(vm.proveedor)) {
 			vm.titulo = vm.proveedor.titulo;
 			vm.datos = vm.proveedor.datos;
 		}
+
+
+		console.log(vm.categoria +' - '+vm.cantidad);
 
 		//vista dinamica
 		if(angular.isDefined(vm.categoria) && angular.isNumber(vm.categoria)) {
@@ -61,7 +61,6 @@ function articulos(Contenido, $filter) {  //ShowService
 					Contenido.getUltimosArticulos(cnt).then(function (respuesta) {
 						vm.datos = respuesta;
 						vm.datos2 = respuesta;
-						console.log(respuesta)
 					});
 
 					break;

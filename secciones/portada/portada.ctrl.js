@@ -21,20 +21,37 @@ angular
         var b2visible = angular.isDefined(vm.configuracion.bloque2.visible) ? vm.configuracion.bloque2.visible : true;
 
 
+        vm.principal = {};
+        vm.colcentro = {};
+        vm.colderecha = {};
 
 
-        vm.bloque1 = {
+        vm.principal.bloque1 = {
             categoria: 'articulosrecientes',
             estilo: 'recientes',
             cantidad: b1cantidad,
             visible: b2visible
         };
-        vm.bloque2 = {
+        vm.principal.bloque2 = {
             categoria: b2categoria,
             estilo: 'defecto',
             cantidad: b2cantidad,
             visible: b1visible
         };
+
+        vm.colcentro.bloque1 = {
+            categoria: b2categoria,
+            estilo: 'listadoarticulos',
+            cantidad: b2cantidad,
+            visible: b1visible
+        };
+        vm.colcentro.bloque2 = {
+            categoria: b2categoria,
+            estilo: 'listadoarticulosconfotos',
+            cantidad: b2cantidad,
+            visible: b1visible
+        }
+
 
     });
 
