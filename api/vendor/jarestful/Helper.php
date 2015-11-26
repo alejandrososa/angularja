@@ -141,7 +141,7 @@ class Helper {
         $directorio = $this->categoriaJson;
         $this->existeCarpeta($directorio);
         $directorio = Config::getBaseData() . $directorio .'/'. $archivo .'.json';
-        if (file_exists($directorio)) {
+        if(file_exists($directorio)) {
             return true;
         }
         return false;
@@ -153,6 +153,11 @@ class Helper {
         $nombre = $this->nombreJson;
         $directorio = $this->categoriaJson;
         $archivo = Config::getBaseData() . $directorio ."\\". $nombre .".json";
+
+        if(file_exists($directorio)) {
+            return null;
+        }
+
         if($array){
             return array_change_key_case(json_decode(file_get_contents($archivo, true), true), CASE_LOWER);
         }else{

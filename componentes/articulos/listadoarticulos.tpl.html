@@ -3,14 +3,14 @@
 		<h2>Ultimos Articulos</h2>
 	</div>
 	<div class="ot-article-big">
-	
+
        <div class="item" data-ng-repeat="art in vm.datos track by $index">
 			<div class="item-content">
 				<h5><a href="{{art.categoria | lowercase}}/{{art.slug}}">{{art.titulo}}</a></h5>
 				<p>{{art.leermas}}</p>
 			</div>
 		</div>
-		
+
 	</div>
 <!-- END .widget -->
 </div>

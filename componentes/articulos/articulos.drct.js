@@ -5,9 +5,9 @@ angular
     .module('app.core')
 	.filter('limiteTexto', limitetexto)
 	.directive('imagen', verificaImagen)
-	.directive('portalArticulos', articulos );
+	.directive('portalArticulos', articulos);
 
-function articulos(Contenido, $filter) {  //ShowService
+function articulos(Contenido) {  //$filter ShowService
     var directive = {
         controller: controller,
         controllerAs: 'vm',
@@ -22,10 +22,10 @@ function articulos(Contenido, $filter) {  //ShowService
 			proveedor: '=?proveedor',
             categoria: '=?categoria',
             estilo: '@?estilo',
-			cantidad: '=?',
+			cantidad: '=?cantidad',
 			demo: '=?demo',
 			paginacion: '@?paginacion'
-        },
+        }
         
     };
     return directive;
@@ -50,7 +50,7 @@ function articulos(Contenido, $filter) {  //ShowService
 			Contenido.getArticulos(vm.categoria, vm.cantidad).then(function (respuesta) {
 				vm.datos = respuesta;
 				vm.datos2 = respuesta;
-				console.log(respuesta)
+				console.log(respuesta);
 			});
 		}
 
@@ -121,7 +121,7 @@ function articulos(Contenido, $filter) {  //ShowService
 			if (resetPage === true) {
 				vm.page = 0;
 			}
-			vm.datos = vm.datos; //$filter('orderBy')(vm.datos, '-id', true);
+			//vm.datos = vm.datos; //$filter('orderBy')(vm.datos, '-id', true);
 		};
 
 		vm.totalItems = function () {

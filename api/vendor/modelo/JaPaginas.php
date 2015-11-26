@@ -137,6 +137,8 @@ class JaPaginas extends BaseJaPaginas
         $existeJson = $this->helper->existeJson('paginainicio');
 
 
+
+
         if($existeJson){
             return $this->helper->leerJson(true);
         }else{
@@ -146,6 +148,7 @@ class JaPaginas extends BaseJaPaginas
                 ->filterByCategoria(0, Criteria::EQUAL)
                 ->filterByTipo($tipo, Criteria::EQUAL)
                 ->findOne();
+
 
             $this->helper->crearJson($portada->toArray(), false);
 
@@ -184,6 +187,7 @@ class JaPaginas extends BaseJaPaginas
 
         $max    = Config::getMaxCaracteres();
         $limite = !empty($this->atributos) ? $this->atributos : Config::getCantidadArticulosRecientes();
+
 
         if($existeJson){
             return $this->helper->leerJson(true);

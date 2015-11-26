@@ -55,9 +55,9 @@ angular
         var pagina = angular.isDefined(_datos) ? _datos : {};
 
         vm.pagina = {};
-        //vm.pagina.seo = {};
-        vm.pagina.palabrasclave = [];
-        //vm.palabrasclave = []
+        vm.pagina.metapalabras = [];
+        vm.pagina.configuracion = {};
+
 
         vm.pagina.autor = Utilidades.LocalStorage.getIdUsuarioActual();
         vm.targets = [];
@@ -66,8 +66,7 @@ angular
 
         vm.existePortada = angular.isDefined(_existe) ? _existe.existe : false;
         vm.idPortada = angular.isDefined(_existe) ? _existe.id : false;
-        vm.pagina = angular.isDefined(pagina) ? pagina : {};
-
+        vm.pagina = angular.isDefined(pagina) ? pagina : '';
 
 
 

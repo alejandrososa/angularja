@@ -10,15 +10,18 @@ angular
         vm.pagina = angular.isDefined(_datos) ? _datos : {};
         vm.configuracion = angular.isDefined(vm.pagina.configuracion) ? vm.pagina.configuracion : {};
 
+        //SEO
+       // vm.pagina.metapalabras = '';
+
 
 
         //BLOQUES
-        var b1cantidad = angular.isDefined(vm.configuracion.bloque1.numarticulos) ? vm.configuracion.bloque1.numarticulos : 4;
-        var b1visible = angular.isDefined(vm.configuracion.bloque1.visible) ? vm.configuracion.bloque1.visible : true;
+        var b1cantidad = angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque1.numarticulos : 4;
+        var b1visible = angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque1.visible : true;
 
-        var b2cantidad = angular.isDefined(vm.configuracion.bloque2.numarticulos) ? vm.configuracion.bloque1.numarticulos : 4;
-        var b2categoria = angular.isDefined(vm.configuracion.bloque2.categoria) ? vm.configuracion.bloque2.categoria : 'articulos';
-        var b2visible = angular.isDefined(vm.configuracion.bloque2.visible) ? vm.configuracion.bloque2.visible : true;
+        var b2cantidad = angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque2.numarticulos : 4;
+        var b2categoria = angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque2.categoria : 'articulos';
+        var b2visible = angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque2.visible : true;
 
 
         vm.principal = {};

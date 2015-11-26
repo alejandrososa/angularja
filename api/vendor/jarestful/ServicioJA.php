@@ -721,9 +721,17 @@ namespace Api;
             }
             $obj = new JaPaginas();
             $resultado = $obj->obtenerPortada();
-            $resultado['metapalabras'] = $this->helper->convertirStringAArray($resultado['metapalabras']);
-            $resultado['configuracion'] = $this->helper->convertirJsonAArray($resultado['configuracion']);
-            $this->rest->response($this->helper->json($resultado), 200);
+            if(isset($resultado['metapalabras'])){
+                $resultado['metapalabras'] = $this->helper->convertirStringAArray($resultado['metapalabras']);
+            }
+            if(isset($resultado['configuracion'])) {
+                $resultado['configuracion'] = $this->helper->convertirJsonAArray($resultado['configuracion']);
+            }
+
+            if(!empty($resultado)){
+                $this->rest->response($this->helper->json($resultado), 200);
+            }
+            $this->rest->response($this->mensajeError, 204);
         }
 
         private function guardarPortada(){
@@ -933,8 +941,13 @@ namespace Api;
 
             $obj = new JaPaginas();
             $resultado = $obj->obtenerPortada();
-            $resultado['metapalabras'] = $this->helper->convertirStringAArray($resultado['metapalabras']);
-            $resultado['configuracion'] = $this->helper->convertirJsonAArray($resultado['configuracion']);
+
+            if(isset($resultado['metapalabras'])){
+                $resultado['metapalabras'] = $this->helper->convertirStringAArray($resultado['metapalabras']);
+            }
+            if(isset($resultado['configuracion'])) {
+                $resultado['configuracion'] = $this->helper->convertirJsonAArray($resultado['configuracion']);
+            }
 
             //bloque1 - ultimos articulos
             if(isset($resultado) && isset($resultado['configuracion']) && isset($resultado['configuracion']['principal']['bloque1'])){
@@ -952,12 +965,7 @@ namespace Api;
                 $respuesta = true;
             }
 
-
-
-            //var_dump($resultado);
-            //exit();
-
-            if(isset($respuesta)){
+            if($respuesta){
                 $this->rest->response($respuesta, 200);
             }
             $this->rest->response($this->mensajeError, 204);
@@ -988,8 +996,6 @@ namespace Api;
             $paginas = new JaPaginas();
             $paginas->atributos = $cantidad;
             $articulos = $paginas->ultimosArticulos();
-
-            $this->rest->response($this->helper->json($articulos), 200);
 
             if(isset($articulos) && !empty($articulos)){
                 $this->rest->response($this->helper->json($articulos), 200);
