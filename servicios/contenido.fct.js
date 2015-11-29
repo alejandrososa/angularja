@@ -1,4 +1,4 @@
-'use strict';+
+'use strict';
 
 /*
  * Contains a service to communicate with the TRACK TV API

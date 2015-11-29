@@ -1,5 +1,6 @@
+'use strict';
 /**
- * 
+ *
  */
 angular
     .module('app.core')
@@ -26,10 +27,10 @@ function articulos(Contenido) {  //$filter ShowService
 			demo: '=?demo',
 			paginacion: '@?paginacion'
         }
-        
+
     };
     return directive;
-    
+
     function controller(Contenido, $scope, $attrs) {
 
 		var vm = this;

@@ -101,6 +101,9 @@
 			<script src="bower_components/textAngular/dist/textAngular-rangy.min.js"></script>
 			<script src="bower_components/textAngular/dist/textAngular-sanitize.min.js"></script>
 			<script src="bower_components/textAngular/dist/textAngular.min.js"></script>
+			<script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+			<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+			<script src="bower_components/ng-flow/ng-flow-standalone.js"></script>
 	    <!-- / -->
 	    <!-- endbuild -->
 	    <!-- build:js app.min.js -->
@@ -143,8 +146,7 @@
 	    	<script src="componentes/menu/menu.drct.js"></script>
 	    	<script src="componentes/slider/slider.drct.js"></script>
 	    	<script src="componentes/etiquetas/etiquetas.drct.js"></script>	    	
-	    	<script src="componentes/articulos/articulos.drct.js"></script>	    	
-	    	<script src="componentes/listadoarticulos/articulos.drct.js"></script>
+	    	<script src="componentes/articulos/articulos.drct.js"></script>
 	    	<script src="componentes/listadocategorias/categorias.drct.js"></script>
 	        <script src="componentes/show/show.drct.js"></script>
 	        <script src="componentes/quienesomos/quienesomos.drct.js"></script>

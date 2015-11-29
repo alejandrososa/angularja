@@ -136,9 +136,6 @@ class JaPaginas extends BaseJaPaginas
         $this->helper->nombreJson = 'paginainicio';
         $existeJson = $this->helper->existeJson('paginainicio');
 
-
-
-
         if($existeJson){
             return $this->helper->leerJson(true);
         }else{
@@ -147,16 +144,16 @@ class JaPaginas extends BaseJaPaginas
                 ->addAsColumn('Existe', "if(ja_paginas.id > 0, 'true', false)")
                 ->filterByCategoria(0, Criteria::EQUAL)
                 ->filterByTipo($tipo, Criteria::EQUAL)
-                ->findOne();
-
-
-            $this->helper->crearJson($portada->toArray(), false);
+                ->limit(1)
+                ->find();
 
             if(Config::$DEBUG){
                 $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
             }
-
-            return $this->helper->leerJson(true);
+            if(!$portada->isEmpty()){
+                $this->helper->crearJson($portada->toArray()[0], false);
+                return $this->helper->leerJson(true);
+            }
         }
     }
 

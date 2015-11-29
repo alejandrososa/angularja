@@ -32,8 +32,9 @@ angular
             }
         };
     })
+
     .controller('InicioController', function ($scope, $rootScope, PageValues, $cookieStore,
-                                                $q, $location, $auth, $log, toastr, $window,
+                                                $q, $location, $auth, $log, toastr, $window, FileUploader,
                                                 $routeParams, Paginas, Categorias, _datos, _existe,
                                                 triLayout, $mdDialog,
                                                 $timeout) {
@@ -43,6 +44,7 @@ angular
         // we need to use the scope here because otherwise the expression in md-is-locked-open doesnt work
         $scope.layout = triLayout.layout; //eslint-disable-line
         vm.layout = triLayout.layout; //eslint-disable-line
+
 
 
         vm.vista = $auth.isAuthenticated();
@@ -55,11 +57,8 @@ angular
         var pagina = angular.isDefined(_datos) ? _datos : {};
 
         vm.pagina = {};
-        vm.pagina.metapalabras = [];
-        vm.pagina.configuracion = {};
-
-
         vm.pagina.autor = Utilidades.LocalStorage.getIdUsuarioActual();
+
         vm.targets = [];
         vm.editor = [];
         vm.datosproveedor = {};
@@ -68,6 +67,9 @@ angular
         vm.idPortada = angular.isDefined(_existe) ? _existe.id : false;
         vm.pagina = angular.isDefined(pagina) ? pagina : '';
 
+        //fix propiedad vacia metapalabras
+        vm.pagina.metapalabras = angular.isDefined(pagina) ? pagina.metapalabras : [];
+        vm.pagina.configuracion = angular.isDefined(pagina) ? pagina.configuracion : {};
 
 
         vm.menus = [];
@@ -80,7 +82,7 @@ angular
 
         Paginas.categorias().then(function(datos){
             if(angular.isDefined(datos)){
-       //         vm.categorias = datos.data.resultado;
+                vm.categorias = datos.data.resultado;
             }
         });
 
@@ -146,38 +148,51 @@ angular
 
 
 
+        ///imagen
+        var _name = 'defecto.jpg';
+        vm.procesarArchivo = {
+            getImagen: function(nombre){
+                var slider = [];
+                var archivo = arguments.length ? (_name = nombre) : _name;
+                slider.push(archivo);
+                //vm.configuracion.slider = slider;
+                console.log(archivo);
+                console.debug(slider);
+            }
+        }
+        var uploader = vm.uploader = new FileUploader({});
+
+        // FILTERS
+
+        uploader.filters.push({
+            name: 'imageFilter',
+            fn: function(item /*{File|FileLikeObject}*/, options) {
+                var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+                return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+            }
+        });
+
+        var controller = vm.controller = {
+            isImage: function(item) {
+                var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+                return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+            }
+        };
+
+        ///slider
+        //console.debug($rootScope.imagenes);
+
+        $scope.obj = {};
+
+        $scope.$on('flow::filesAdded', function (event, $flow, flowFiles) {
+            event.preventDefault();//prevent file from uploading
+
+            alert(flowFiles);
+        });
+
+        ///fin slider
 
 
-
-
-
-
-
-
-        vm.columns = [
-            {
-                title: 'Id',
-                field: 'id',
-                sortable: false
-            },{
-                title: 'Nombre',
-                field: 'nombre',
-                sortable: true
-            },{
-                title: 'Enlace',
-                field: 'enlace',
-                sortable: true
-            },{
-                title: 'Categoria',
-                field: 'categoria',
-                sortable: true
-            },{
-                title: 'Total',
-                field: 'hijos',
-                sortable: false
-                //filter: 'tablaFecha'
-            },];
-        vm.tblcontenido = [];
 
 
 
@@ -188,7 +203,7 @@ angular
             titulo: 'Listado de paginas',
             categoria: vm.categoriaDefault,
             //datos : vm.contenido, //vm.usuarios,
-            columnas : vm.columns,//vm.columnas,
+            //columnas : vm.columns,//vm.columnas,
             pordefecto: 'nombre',
             acciones: true,
             ordenAsc: false
@@ -220,7 +235,7 @@ angular
 
             //console.log(vm.tablacontenido);
         }
-
+/*
         vm.getPaginas = function(){
             //return $timeout(function() {
             //console.log(vm.categoriaDefault);
@@ -236,120 +251,7 @@ angular
             //}, 650);
         }
 
-
-        //observadores
-        //select categorias de menu - vista menu
-        var id_categoria;
-        $scope.$watch('vm.categoriaSeleccionada', function (newValue, oldValue) {
-            if(!oldValue) {
-                id_categoria = vm.categoriaDefault;
-            }
-
-            if(newValue !== oldValue) {
-                vm.categoriaDefault = newValue;
-            }
-
-            if(!newValue) {
-                vm.categoriaDefault = id_categoria;
-            }
-
-            vm.datosproveedor.categoria = vm.categoriaDefault;
-
-            vm.getPaginas();
-        });
-
-        $scope.$watch('vm.enlace.padre', function (newValue, oldValue) {
-            if(newValue !== oldValue) {
-                 Paginas.unico(newValue).then(function(datos){
-                    vm.enlace.idcategoria = datos.idcategoria;
-                });
-            }
-        });
-
-        $scope.$on('cancelar', function( ev ){
-            $location.path('/admin/paginas');
-        });
-
-        $scope.$on('agregar', function( ev ){
-            $mdDialog.show({
-                templateUrl: 'secciones/oficina/paginas/dialogo.tpl.html',
-                targetEvent: ev,
-                controllerAs: 'vm',
-                controller:  DialogController,
-            }).then(function(enlace) {
-                vm.tblcontenido.push(enlace);
-                var resultado = Paginas.crear(enlace);
-
-
-                vm.actualizardatos();
-            });
-
-            function DialogController($scope, $mdDialog, Paginas) {
-                var vm = this;
-                vm.cancelar = cancelar;
-                vm.ocultar = ocultar;
-                vm.actualizar = actualizar;
-                vm.query = {
-                    filtro: 'principal',
-                    tipo:'principal',
-                };
-                vm.usuario = {};
-                vm.categorias = {};
-                vm.enlace = {};
-                vm.enlaces = [];
-                //vm.target = Paginas.targets();
-
-                Paginas.categorias().then(function(datos){
-                    if(angular.isDefined(datos)){
-                        vm.categorias = datos.data.resultado;
-                    }
-                });
-
-                Paginas.todos(vm.filtro).then(function(datos){
-                    if(angular.isDefined(datos)){
-                        vm.enlaces = datos.resultado;
-                    }
-                });
-
-                //observador
-                var id_categoria;
-                $scope.$watch('vm.enlace.categoria', function (nuevo, anterior) {
-                    if(!anterior) {
-                        id_categoria = vm.query.filtro;
-                    }
-
-                    if(nuevo !== anterior) {
-                        vm.query.filtro = nuevo;
-                        vm.query.tipo = nuevo;
-                    }
-
-                    if(!nuevo) {
-                        vm.query.filtro = id_categoria;
-                        vm.query.tipo = id_categoria;
-                    }
-
-                    vm.actualizar();
-                });
-
-                /////////////////////////
-
-                function actualizar(){
-                    vm.query.tipo = vm.enlace.categoria;
-                    /*Paginas.buscadorporcategorias(vm.query).then(function(datos){
-                        vm.enlaces = datos.data;
-                    });*/
-                }
-
-                function ocultar() {
-                    $mdDialog.hide(vm.enlace);
-                }
-
-                function cancelar() {
-                    $mdDialog.cancel();
-                }
-            }
-        });
-
+*/
 
 
 

@@ -23,14 +23,12 @@
 
                 <md-input-container flex>
                     <label>Contenido</label>
-                </md-input-container>
-
-                <md-input-container flex>
-                    <text-angular-toolbar name="editor"
-                                          class="email-dialog-editor-toolbar"
-                                          ta-toolbar-active-button-class="active"
-                                          ta-toolbar="vm.editor"></text-angular-toolbar>
-                    <text-angular name="contenido" ng-model="vm.pagina.contenido" ta-target-toolbars="editor"></text-angular>
+                    <input type="text" name="contenido" ng-model="vm.pagina.contenido" class="dialog-close" md-maxlength="55" required>
+                    <div ng-messages="frm.contenido.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Titulo es obligatorio</span>
+                        </div>
+                    </div>
 
                 </md-input-container>
 
@@ -41,6 +39,9 @@
         </md-card>
     </div>
 
+
+    <!-- SLIDER -->
+    <div ng-include="'secciones/oficina/inicio/_slider.html'"></div>
 
 
     <!-- BLOQUE PRINCIPAL-->

@@ -16,12 +16,12 @@ angular
 
 
         //BLOQUES
-        var b1cantidad = angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque1.numarticulos : 4;
-        var b1visible = angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque1.visible : true;
+        var b1cantidad = {}; //angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque1.numarticulos : 4;
+        var b1visible = {}; //angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque1.visible : true;
 
-        var b2cantidad = angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque2.numarticulos : 4;
-        var b2categoria = angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque2.categoria : 'articulos';
-        var b2visible = angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque2.visible : true;
+        var b2cantidad = {}; //angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque2.numarticulos : 4;
+        var b2categoria = {}; //angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque2.categoria : 'articulos';
+        var b2visible = {}; //angular.isDefined(vm.configuracion.principal) ? vm.configuracion.principal.bloque2.visible : true;
 
 
         vm.principal = {};
