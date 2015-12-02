@@ -1,0 +1,8 @@
+{
+    "propel": {
+        "paths": {
+            "schemaDir": "C:\\xampp\\htdocs\\angularja\\api\\vendor\\modelo",
+            "phpDir": "C:\\xampp\\htdocs\\angularja\\api\\vendor\\modelo"
+        }
+    }
+}

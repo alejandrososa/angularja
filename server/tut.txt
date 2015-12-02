@@ -123,4 +123,4 @@ https://www.youtube.com/watch?v=qUtq59N6ph4
 https://www.youtube.com/watch?v=d84IsK8YzLs
 https://www.digitalocean.com/community/tutorials/como-configurar-virtual-host-de-apache-en-ubuntu-14-04-lts-es
 
-https://www.phusionpassenger.com/library/walkthroughs/deploy/meteor/ownserver/nginx/oss/install_language_runtime.html
+https://www.phusionpassenger.com/library/walkthroughs/deploy/meteor/ownserver/nginx/oss/install_language_runtime.htmladd
