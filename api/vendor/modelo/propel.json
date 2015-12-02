@@ -11,12 +11,32 @@
                     "settings": {
                         "charset": "utf8"
                     }
+                },
+                "tst": {
+                    "adapter": "mysql",
+                    "classname": "Propel\\Runtime\\Connection\\DebugPDO",
+                    "dsn": "mysql:host=localhost:3306;dbname=jatst",
+                    "user": "adoraxion",
+                    "password": "dilcia0386",
+                    "settings": {
+                        "charset": "utf8"
+                    }
+                },
+                "pro": {
+                    "adapter": "mysql",
+                    "classname": "Propel\\Runtime\\Connection\\DebugPDO",
+                    "dsn": "mysql:host=localhost:3306;dbname=ja",
+                    "user": "adoraxion",
+                    "password": "dilcia0386",
+                    "settings": {
+                        "charset": "utf8"
+                    }
                 }
             }
         },
         "runtime": {
             "defaultConnection": "default",
-            "connections": ["default"],
+            "connections": ["default","tst","pro"],
             "log": {
                 "app": {
                     "type": "stream",
