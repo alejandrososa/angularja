@@ -1,0 +1,7 @@
+<md-toolbar  ng-show="vm.layout.footer">
+    <div id="footer" class="md-toolbar-tools md-body-1" layout="row" layout-align="space-between center">
+        <h2>{{vm.name}}</h2> {{triSkin.elements.toolbar}}
+        <h2 hide-sm>&copy; {{vm.date | amDateFormat:'YYYY'}}</h2>
+        <h2>v{{vm.version}}</h2>
+    </div>
+</md-toolbar>

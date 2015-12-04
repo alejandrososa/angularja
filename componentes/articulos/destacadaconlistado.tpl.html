@@ -1,0 +1,50 @@
+<div class="ot-panel-block">
+<div class="article-classic">
+
+	<div class="paragraph-row">
+		<div class="column6 featured-side">
+
+			<div class="item" data-ng-repeat="princ in vm.datos" ng-if="$index == 0">
+				<div class="item-header">
+					<a href="{{princ.categoria | lowercase}}/{{princ.slug}}">
+						<span class="item-header-category"><i class="fa fa-folder-open"></i><span>{{princ.categoria}}</span></span>
+						<img src="assets/plantillas/solido/images/photos/image-29.jpg" alt="" />
+					</a>
+				</div>
+				<div class="item-content">
+					<div class="item-content-head">
+						<div class="item-content-date">
+							<strong>16</strong>
+							<span>Oct</span>
+							<span>2015</span>
+						</div>
+						<h3><a href="{{princ.categoria | lowercase}}/{{princ.slug}}">{{princ.titulo}}</a></h3>
+					</div>
+					<p>{{princ.leermas}}</p>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="column6 list-side">
+
+			<!-- BEGIN .item -->
+			<div class="item" data-ng-repeat="art in vm.datos" ng-if="$index > 0">
+				<div class="item-header">
+					<a href="{{art.categoria | lowercase}}/{{art.slug}}"><img src="{{art.imagen}}" alt="{{art.titulo}}" /></a>
+				</div>
+				<div class="item-content">
+					<h3><a href="{{art.categoria | lowercase}}/{{art.slug}}">{{art.titulo}}</a></h3>
+					<a href="{{art.categoria | lowercase}}/{{art.slug}}" class="read-more-link">Leer más...</a>
+				</div>
+			<!-- END .item -->
+			</div>
+
+		</div>
+	</div>
+
+
+</div>
+<!-- END .ot-panel-block -->
+</div>

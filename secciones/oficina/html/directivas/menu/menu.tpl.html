@@ -1,0 +1,46 @@
+<div id="sidebar-wrapper">
+	<ul class="sidebar">
+		<li class="sidebar-main">
+			<a ng-click="vm.toggleSidebar()">
+				Dashboard
+				<span class="menu-icon glyphicon glyphicon-transfer"></span>
+			</a>
+		</li>
+		<li class="sidebar-title"><span>NAVIGATION</span></li>
+		<li class="sidebar-list">
+			<a href="#">Dashboard <span class="menu-icon fa fa-home"></span></a>
+		</li>
+		<li class="sidebar-list">
+			<a href="/admin/paginas">Paginas <span class="menu-icon fa fa-table"></span></a>
+		</li>
+		<li class="sidebar-list">
+			<a href="/admin/usuarios">Usuarios <span class="menu-icon fa fa-table"></span></a>
+		</li>
+		<li class="sidebar-list">
+			<a href="/admin/categorias">Categorias <span class="menu-icon fa fa-list-ol"></span></a>
+		</li>
+		<li class="sidebar-list">
+			<a href="/admin/opciones">Opciones <span class="menu-icon fa fa-table"></span></a>
+		</li>
+		<li class="sidebar-list">
+			<a ng-click="vm.logout()">Salir <span class="menu-icon fa fa-tachometer"></span></a>
+		</li>
+	</ul>
+	<div class="sidebar-footer">
+		<div class="col-xs-4">
+			<a href="https://github.com/rdash/rdash-angular" target="_blank">
+				Github
+			</a>
+		</div>
+		<div class="col-xs-4">
+			<a href="https://github.com/rdash/rdash-angular/README.md" target="_blank">
+				About
+			</a>
+		</div>
+		<div class="col-xs-4">
+			<a href="#" ng-click="vm.demo()">
+				Support
+			</a>
+		</div>
+	</div>
+</div>

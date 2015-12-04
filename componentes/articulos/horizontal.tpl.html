@@ -1,0 +1,36 @@
+<div class="ot-panel-block">
+	<div class="title-block">
+		<h2 style="background-color: #e14f55;">Category</h2>
+	</div>
+	<div class="article-grid articles-long">
+
+		<div class="item" data-ng-repeat="art in vm.datos track by $index">
+
+        <div class="item-header">
+				<a href="{{art.enlace}}">
+					<span class="item-header-category"><i class="fa fa-folder-open"></i><span>{{art.categoria}}</span></span>
+					<img src="{{art.imagen}}" alt="{{art.titulo}}" />
+				</a>
+			</div>
+			<div class="item-content">
+				<div class="item-content-head">
+					<div class="item-content-date">
+						<strong>16</strong>
+						<span>Oct</span>
+						<span>2015</span>
+					</div>
+					<h3><a href="{{art.enlace}}">{{art.titulo}}</a></h3>
+				</div>
+				<p>{{art.texto}}</p>
+			</div>
+			<div class="item-footer">
+				<button class="article-more-arrow right"><i class="fa fa-caret-right"></i><i class="show-hover">Leer m�s</i></button>
+				<div class="item-meta">
+					<a href="{{art.enlace}}"><i class="fa fa-pencil"></i>{{art.autor}}</a>
+					<a href="{{art.enlace}}"><i class="fa fa-comment"></i>{{art.comentarios}}</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

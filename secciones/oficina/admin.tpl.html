@@ -1,0 +1,56 @@
+<div layout="row" class="full-height">
+    <!-- left sidebar -->
+    <cms-sidebar></cms-sidebar>
+
+    <!-- main content -->
+    <div id="admin-panel" layout="column" flex>
+        <!-- loading animation -->
+        <tri-loader></tri-loader>
+
+        <!-- top toolbar ui-view="toolbar" -->
+        <md-toolbar class="admin-toolbar"
+                    ng-if="vm.layout.showToolbar"
+                    md-theme="{{triSkin.elements.toolbar}}"
+                    ng-class="[vm.layout.toolbarSize,vm.layout.toolbarClass]">
+            <cms-toolbar></cms-toolbar>
+        </md-toolbar>
+
+
+        <!-- scrollable content -->
+        <md-content ng-class="layout.contentClass"  flex tri-default-content  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
+
+           <div class="padded-content-page ng-scope">
+                <md-card>
+                    <tri-table class="elements-image-table-example" columns="vm.columns" contents="vm.contents" page-size="5"></tri-table>
+                </md-card>
+            </div>
+
+
+            <md-card flex="50">
+                <img src="assets/plantillas/admin/img/backgrounds/material-backgrounds/mb-bg-03.jpg" alt="Card Image">
+                <md-card-content>
+                    <div class="content-padded">
+                        <h2 class="md-title">Card Title</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, distinctio minus nostrum aut magni ipsam, eius ipsa eos voluptate natus excepturi qui numquam velit non explicabo molestias quasi sunt veniam.</p>
+                    </div>
+                    <md-divider></md-divider>
+                    <div class="button-toolbar" layout="row" layout-align="start center">
+                        <md-button class="md-accent">Share</md-button>
+                        <md-button class="md-primary">Explore</md-button>
+                    </div>
+                </md-card-content>
+            </md-card>
+
+
+
+        </md-content>
+
+        <cms-pie-pagina md-theme="{{triSkin.elements.toolbar}}"></cms-pie-pagina>
+
+    </div>
+
+    <!-- right sidebar -->
+    <md-sidenav layout layout-fill class="md-sidenav-right md-whiteframe-z2"
+                md-component-id="notifications"
+                ui-view="sidebarRight"></md-sidenav>
+</div>

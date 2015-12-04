@@ -1,0 +1,38 @@
+<md-card flex>
+    <md-card-content>
+        <div>
+            <h2>{{vm.tituloVista}}</h2>
+            <br>
+            <form name="frm" novalidate>
+                <md-input-container>
+                    <label>Titulo</label>
+                    <input type="text" name="titulo" ng-model="vm.categoria.titulo" class="dialog-close" required>
+                    <div ng-messages="frm.titulo.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Titulo requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Slug</label>
+                    <input type="text" name="enlace" ng-model="vm.categoria.slug" class="dialog-close" required>
+                    <div ng-messages="frm.enlace.$dirty">
+                        <div ng-message when="required">
+                            <span translate>enlace requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <div layout="row" layout-align="end center">
+                    <md-button ng-click="vm.cancelar()" class="md-warn">Cancelar</md-button>
+                    <md-button ng-click="vm.editar(frm.$valid)" class="md-accent md-hue-3" ng-disabled="frm.$invalid">{{vm.botonTexto}}</md-button>
+                </div>
+
+                
+
+
+            </form>
+        </div>
+    </md-card-content>
+</md-card>

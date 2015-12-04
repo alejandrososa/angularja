@@ -1,0 +1,19 @@
+NOTA: POSICIONARSE EN EL DIRECTORIO DONDE SE EJECUTARA LOS COMANDOS
+cd C:\xampp\htdocs\angularja\api\vendor\modelos
+
+#INICIAR LOS MODELOS
+C:\xampp\htdocs\angularja\api\vendor\bin\propel init
+
+#VER DIFERENCIAS
+C:\xampp\htdocs\angularja\api\vendor\bin\propel migration:diff
+
+#EJECUTAR CAMBIOS DE SCHEMA.XML A BASE DE DATOS
+C:\xampp\htdocs\angularja\api\vendor\bin\propel migration:diff
+C:\xampp\htdocs\angularja\api\vendor\bin\propel migration:migrate
+
+#EJECUTAR CAMBIOS DE BASE DE DATOS A SCHEMA.XML
+C:\xampp\htdocs\angularja\api\vendor\bin\propel reverse "mysql:host=localhost;dbname=appja;user=root;password="
+SE CREARÁ UN NUEVO archivo en generated-reversed-database/schema.xml
+SOBREESCRIBIR EL schema.xml del root con el generado
+C:\xampp\htdocs\angularja\api\vendor\bin\propel model:build
+

@@ -1,0 +1,57 @@
+// Dashboard
+
+// Dashboard Container
+.dashboard-container {
+  [layout-margin] {
+    margin: 0px;
+  }
+}
+// - Chart Container
+.dashboard-fullwidth-chart {
+  .chart-container {
+    position: relative;
+    left: -5px;
+    bottom: -5px;
+    width: calc(100% + 10px);
+  }
+}
+
+.dashboard-no-bar-tabs {
+  md-tabs-wrapper {
+    display: none;
+  }
+}
+.google-chart {
+  height: 100%;
+  width: 100%;
+}
+
+// Social Dashboard
+.tabs-tall {
+  md-pagination-wrapper, md-tabs-canvas {
+    height: 72px;
+  }
+}
+
+// Draggable widgets
+.drag-container > .widget {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  &:hover {
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.14), 0px 6px 10px 0px rgba(0, 0, 0, 0.098), 0px 1px 18px 0px rgba(0, 0, 0, 0.084);
+  }
+}
+
+.widget.gu-mirror {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.14), 0px 8px 10px 1px rgba(0, 0, 0, 0.098), 0px 3px 14px 2px rgba(0, 0, 0, 0.084);
+}
+
+.drag-container > .gu-transit {
+  opacity: 0;
+}

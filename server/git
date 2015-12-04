@@ -1,0 +1,41 @@
+REFERENCIAS
+-------------------------------------
+http://docs.aws.amazon.com/codecommit/latest/userguide/codecommit-user.pdf
+
+
+COMANDOS
+------------------------------------
+#crear nueva rama
+git checkout -b MyNewBranch
+
+#sobrescribir local desde una rama 
+git fetch origin
+
+#verificar ramas existentes
+git branch --all
+
+#verificar repositorio remoto
+git remote show  procristianosja
+
+#cambiar de rama
+git checkout MyNewBranch
+git remote set-branches procristianosja master
+
+#ver log
+git branch or git status
+git log
+
+#ver branch remote
+git branch -r
+
+#ver branch local y remote
+git branch -a
+
+ERRORES
+#force-git-to-overwrite-local-files-on-pull
+#ERRRO: your local changes to would be overwritten by merge
+git fetch --all
+git reset --hard origin/RAMA
+
+#ver ultimo commit remote
+git ls-remote ssh://git.dev.pages/opt/git/repos/dev.git <branch>

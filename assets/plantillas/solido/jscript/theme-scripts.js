@@ -161,11 +161,12 @@ Array.prototype.forEach2=function(a){ var l=this.length; for(var i=0;i<l;i++)a(t
 			}
 			return false;
 		});
-
-		footer_reach = parseInt(jQuery(".footer", "body").offset().top, 10);
-		setTimeout(function(){
+		if ($('.footer').length) {
 			footer_reach = parseInt(jQuery(".footer", "body").offset().top, 10);
-		}, 1000);
+			setTimeout(function () {
+				footer_reach = parseInt(jQuery(".footer", "body").offset().top, 10);
+			}, 1000);
+		}
 
 		jQuery(".item-footer > a", ".ot-widget-gallery").on("click", function(){
 			var thisel = jQuery(this),

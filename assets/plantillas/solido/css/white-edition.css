@@ -9,62 +9,7 @@
 	color: #232323;
 }
 
-#main-menu.main-menu-dark .wrapper > .right .menu-icon .content,
-#main-menu.main-menu-dark {
-	background: #FFFFFF;
-	color: #232323;
-}
 
-#main-menu .wrapper > ul > li {
-	border-right: 1px solid #F0F0F0;
-}
-
-#main-menu li a {
-	color: #232323!important;
-}
-
-#main-menu li:hover > a {
-	background-color: #F7F7F7!important;
-}
-
-#main-menu .wrapper > ul > li.ot-showmenu > a {
-	background-color: #FFFFFF;
-}
-
-#main-menu .wrapper > ul > li.ot-showmenu:hover > a {
-	background-color: #F7F7F7;
-}
-
-.under-menu .wrapper {
-	background: #F5F5F5;
-	border-top: 1px solid rgba(0,0,0,0.03);
-}
-
-.under-menu li {
-	border-right: 1px solid #EAEAEA;
-}
-
-.under-menu a {
-	color: #717171;
-}
-
-.under-menu a:hover {
-	background-color: #FCFCFC!important;
-}
-
-#main-menu.main-menu-dark .wrapper > ul > li:not(.has-ot-mega-menu) ul,
-#main-menu.main-menu-dark .wrapper > ul > li.has-ot-mega-menu > ul {
-	background: #F7F7F7;
-}
-
-#main-menu.main-menu-dark li.has-ot-mega-menu .article-block .item,
-#main-menu.main-menu-dark ul li ul li a:after {
-	border-bottom: 1px dotted #D3D3D3;
-}
-
-#main-menu.main-menu-dark .wrapper > ul > li li:hover > a {
-	background: rgba(0,0,0,0.02)!important;
-}
 
 #sidebar-small .widget,
 #sidebar .widget {

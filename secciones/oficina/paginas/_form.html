@@ -1,0 +1,132 @@
+{{vm.categoria}}
+
+<form name="frm" novalidate>
+
+    <!-- CONTENIDO -->
+    <div layout layout-sm="column"  class="md-padding">
+        <div flex="20" layout-padding layout-margin>
+            <h5>Demo prueba</h5>
+            <p>Esto es una prueba de texto</p>
+        </div>
+
+        <md-card layout-padding flex="78" flex-sm="30">
+
+            <md-content class="md-padding">
+
+                <md-input-container flex>
+                    <label>Titulo</label>
+                    <input type="text" id="titulo" name="titulo" ng-model="vm.pagina.titulo" class="dialog-close" md-maxlength="55" required>
+                    <div ng-messages="frm.titulo.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Titulo es obligatorio</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container flex>
+                    <label>Contenido</label>
+                </md-input-container>
+
+                <md-input-container flex>
+                    <text-angular-toolbar name="editor"
+                                          class="email-dialog-editor-toolbar"
+                                          ta-toolbar-active-button-class="active"
+                                          ta-toolbar="vm.editor"></text-angular-toolbar>
+                    <text-angular name="contenido" ng-model="vm.pagina.contenido" ta-target-toolbars="editor"></text-angular>
+
+                </md-input-container>
+
+            </md-content>
+        </md-card>
+    </div>
+
+
+    <div layout layout-sm="column"  class="md-padding">
+        <div flex="20" layout-padding layout-margin>
+            <h5>SEO</h5>
+            <p>Esto es una prueba de texto</p>
+        </div>
+
+        <md-card layout-padding flex="78" flex-sm="30">
+
+            <md-content class="md-padding">
+
+                <md-input-container flex>
+                    <label for="seo[titulo]">Titulo</label>
+                    <input type="text" id="seo[titulo]" name="seo[titulo]"
+                           ng-model="vm.pagina.seo.titulo"
+                           class="dialog-close"
+                           reemplazarespacioss="{titulo:vm.pagina.titulo, campo:titulo}"
+                           required>
+                </md-input-container>
+
+
+
+                <label for="palabrasclave">Palabras Clave</label>
+                <md-chips flex class="chipsdemoBasicUsage"
+                          id="palabrasclave"
+                          ng-model="vm.pagina.seo.palabrasclave"
+                          readonly="vm.readonly"
+                          placeholder="Digite otra palabra clave"
+                          delete-button-label="Eliminar palabra"
+                          delete-hint="Presione tecla delete para eliminar palabra"
+                          secondary-placeholder="+Palabra clave"></md-chips>
+
+
+                <md-input-container flex>
+                    <label>Descripcion</label>
+                    <textarea ng-model="vm.pagina.seo.descripcion" columns="1" md-maxlength="150" aria-label="Descripcion"></textarea>
+                </md-input-container>
+
+            </md-content>
+        </md-card>
+    </div>
+
+    {{vm.pagina}}
+
+
+
+
+
+
+</form>
+
+
+
+
+
+
+<!--
+ <div layout layout-sm="column">
+                            <md-input-container flex>
+                                <label>First Name</label>
+                                <input ng-model="user.firstName" placeholder="Placeholder text">
+                            </md-input-container>
+                            <md-input-container flex>
+                                <label>Last Name</label>
+                                <input ng-model="theMax">
+                            </md-input-container>
+                        </div>
+
+                        <md-input-container flex>
+                            <label>Address</label>
+                            <input ng-model="user.address">
+                        </md-input-container>
+
+                        <div layout layout-sm="column">
+                            <md-input-container flex>
+                                <label>City</label>
+                                <input ng-model="user.city">
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>State</label>
+                                <input ng-model="user.state">
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>Postal Code</label>
+                                <input ng-model="user.postalCode">
+                            </md-input-container>
+                        </div>
+ -->

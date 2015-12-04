@@ -1,0 +1,23 @@
+<nav class="top-menu">
+	<div class="wrapper">
+		<ul class="left load-responsive" rel="Top Menu">
+			<li><a href="/"><i class="fa fa-home"></i></a></li>
+
+
+			<li ng-repeat="link in vm.datosmenu track by $index">
+				<a href="{{link.enlace}}" class="{{link.clase}}" ng-hide="link.items">{{link.nombre}}</a>
+				<a href="{{link.enlace}}" class="{{link.clase}}" ng-show="link.items"><span>{{link.nombre}}</span></a>
+				<ul ng-show="link.items">
+					<li ng-repeat="item in link.items"><a href="{{item.enlace}}">{{item.nombre}}</a></li>
+				</ul>
+			</li>
+
+			<li ng-if="vm.isAuthenticated()"><a href="/admin">Admin</a></li>
+			<li ng-if="!vm.isAuthenticated()"><a href="/login">Acceder</a></li>
+			<li ng-if="!vm.isAuthenticated()"><a href="/signup">Registrarse</a></li>
+			<li ng-if="vm.isAuthenticated()"><a href="/logout">Salir</a></li>
+
+		</ul>
+		<div class="clear-float"></div>
+	</div>
+</nav>

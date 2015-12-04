@@ -1,0 +1,91 @@
+
+<md-data-table-toolbar ng-hide="vm.selected.length || vm.filter.show">
+    <h2 class="md-title">{{vm.tblTitulo | capitalize}}</h2>
+    <div flex></div>
+    <md-button class="md-icon-button" ng-click="vm.filter.show = true" aria-label="Buscar">
+        <!-- <i class="material-icons md-dark">filter_list</i> -->
+        <md-icon md-font-icon="zmdi zmdi-filter-list"></md-icon>
+        <md-tooltip>Buscar</md-tooltip>
+    </md-button>
+</md-data-table-toolbar>
+
+<md-data-table-toolbar ng-show="vm.filter.show && !vm.selected.length" class="md-data-table-toolbar">
+    <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+    <form flex="" name="vm.filter.form">
+        <input type="text" ng-model="vm.query.filter" ng-model-options="vm.filter.options" placeholder="buscar...">
+    </form>
+    <md-button class="md-icon-button" ng-click="vm.limpiaFiltro()" aria-label="Salir">
+        <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+    </md-button>
+</md-data-table-toolbar>
+
+<md-data-table-toolbar class="alternate" ng-show="vm.selected.length" layout-align="space-between">
+    <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'users' : 'user'}} selected</div>
+</md-data-table-toolbar>
+
+
+<table class="md-table" md-progress="vm.deferred">
+    <thead>
+        <tr>
+            <th ng-repeat="column in columns" ng-click="sortClick(column.field)" ng-class="headerClass(column.field)">
+                <md-icon ng-show="showSortOrder(column.field, true)" class="icon-rotate-90" md-font-icon="zmdi zmdi-arrow-back"></md-icon>
+                <md-icon ng-show="showSortOrder(column.field, false)" class="icon-rotate-270" md-font-icon="zmdi zmdi-arrow-back"></md-icon>
+                <span>
+                    {{column.title}}
+                </span>
+            </th>
+            <th colspan="2" align="center" ng-show="vm.tblAcciones"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="content in contents | filter:filters | startFrom:page * pageSize | limitTo: pageSize">
+            <td ng-repeat="column in columns" ng-bind-html="cellContents(column, content)" ng-class="column.field + '-cell'"></td>
+            <td ng-show="vm.tblAcciones">
+                <md-button ng-click="vm.accionEditar(content.id)" class="md-icon-button md-hue-2" aria-label="Favorite">
+                    <md-icon md-font-icon="zmdi zmdi-edit"></md-icon>
+                    <md-tooltip>Editar</md-tooltip>
+                </md-button>
+
+                <md-button ng-click="vm.accionBorrar($event, content.id, $index)" class="md-icon-button md-warn" aria-label="Favorite">
+                    <md-icon md-font-icon="zmdi zmdi-delete"></md-icon>
+                    <md-tooltip>Eliminar</md-tooltip>
+                </md-button>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="{{columns.length}}">
+                <div class="md-table-footer" layout="row" layout-align="end center">
+                    <div class="md-table-page-select" layout="row" layout-align="center center">
+                        <span>Filas por p&aacute;gina:</span>
+                        <md-select ng-model="pageSize" ng-change="refresh(true)">
+                            <md-option value="5">5</md-option>
+                            <md-option value="10">10</md-option>
+                            <md-option value="25">25</md-option>
+                            <md-option value="50">50</md-option>
+                            <md-option value="100">100</md-option>
+                        </md-select>
+                    </div>
+                    <span class="md-table-info">
+                        {{pageStart()}}
+                        -
+                        {{pageEnd()}}
+                        <span>de</span> <!--  | translate -->
+                        {{totalItems()}}
+                    </span>
+                    <div class="md-table-page-nav">
+                        <md-button ng-disabled="page == 0" ng-click="page = page - 1" aria-label="TABLES.PREV" class="md-icon-button md-accent">
+                            <md-icon md-font-icon="zmdi zmdi-chevron-left"></md-icon>
+                            <md-tooltip>Anterior</md-tooltip>
+                        </md-button>
+                        <md-button ng-disabled="page == numberOfPages() - 1" ng-click="page = page + 1" aria-label="TABLES.NEXT" class="md-icon-button md-accent">
+                            <md-icon md-font-icon="zmdi zmdi-chevron-right"></md-icon>
+                            <md-tooltip>Siguiente</md-tooltip>
+                        </md-button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>

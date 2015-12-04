@@ -1,0 +1,165 @@
+<!-- BEGIN .boxed.active -->
+<div class="boxed">
+
+    <!-- BEGIN .header -->
+    <header class="header">
+
+        <!--<portal-menutop></portal-menutop> -->
+
+        <!-- END .header -->
+    </header>
+
+    <!-- BEGIN .content -->
+    <section class="content">
+
+        <cms-login></cms-login>
+
+<!--
+        <div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text">
+            <h1><strong>Bootstrap</strong> Login Form</h1>
+            <div class="description">
+                <p>
+                    This is a free responsive login form made with Bootstrap.
+                    Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 form-box">
+            <div class="form-top">
+                <div class="form-top-left">
+                    <h3>Login to our site</h3>
+                    <p>Enter your username and password to log on:</p>
+                </div>
+                <div class="form-top-right">
+                    <i class="fa fa-key"></i>
+                </div>
+            </div>
+            <div class="form-bottom">
+                <form role="form" ng-submit="acceso.login()" name="loginForm" method="post" class="login-form">
+                    <div class="form-group">
+                        <label class="sr-only" for="form-username">Username</label>
+                        <input type="text" name="email" ng-model="acceso.persona.usuario" placeholder="Username..." class="form-username form-control" id="form-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="form-password">Password</label>
+                        <input type="password" name="password" ng-model="acceso.persona.clave" placeholder="Password" required class="form-password form-control" id="form-password">
+                    </div>
+                    <button type="submit" class="btn">Sign in!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 social-login">
+            <h3>...or login with:</h3>
+            <div class="social-login-buttons">
+                <a class="btn btn-link-1 btn-link-1-facebook" href="#">
+                    <i class="fa fa-facebook"></i> Facebook
+                </a>
+                <a class="btn btn-link-1 btn-link-1-twitter" href="#">
+                    <i class="fa fa-twitter"></i> Twitter
+                </a>
+                <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
+                    <i class="fa fa-google-plus"></i> Google Plus
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="center-form panel">
+            <div class="panel-body">
+                <h2 class="text-center">Log in</h2>
+                <form method="post" ng-submit="acceso.login()" name="loginForm">
+                    <div class="form-group has-feedback">
+                        <input class="form-control input-lg" type="text" name="email" ng-model="acceso.persona.usuario" placeholder="Email" required>
+                        <span class="ion-at form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input class="form-control input-lg" type="password" name="password" ng-model="acceso.persona.clave" placeholder="Password" required>
+                        <span class="ion-key form-control-feedback"></span>
+                    </div>
+                    <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-lg  btn-block btn-success">Log in</button>
+                    <br/>
+                    <p class="text-center text-muted">
+                        <small>Don't have an account yet? <a href="/#/signup">Sign up</a></small>
+                    </p>
+                    <div class="signup-or-separator">
+                        <h6 class="text">or</h6>
+                        <hr>
+                    </div>
+                </form>
+
+
+                acceso
+                {{::acceso.persona.usuario}}
+                {{::acceso.persona.clave}}
+                {{::acceso.datos}}
+                {{::acceso.admin}}
+                <div ng-repeat="datos in acceso.datos">
+                    <span>{{datos.usuario}}</span><br>
+                    <span>{{datos.clave}}</span><br>
+                </div>
+
+
+
+                <button class="btn btn-block btn-facebook" ng-click="authenticate('facebook')">
+                    <i class="ion-social-facebook"></i> Sign in with Facebook
+                </button>
+                <button class="btn btn-block btn-google-plus" ng-click="authenticate('google')">
+                    <span class="ion-social-googleplus"></span>Sign in with Google
+                </button>
+                <button class="btn btn-block btn-linkedin" ng-click="authenticate('linkedin')">
+                    <i class="ion-social-linkedin"></i> Sign in with LinkedIn
+                </button>
+                <button class="btn btn-block btn-instagram" ng-click="authenticate('instagram')">
+                    <i class="ion-social-instagram"></i> Sign in with Instagram
+                </button>
+                <button class="btn btn-block btn-twitter" ng-click="authenticate('twitter')">
+                    <i class="ion-social-twitter"></i> Sign in with Twitter
+                </button>
+                <button class="btn btn-block btn-foursquare" ng-click="authenticate('foursquare')">
+                    <i class="fa fa-foursquare"></i> Sign in with Foursquare
+                </button>
+                <button class="btn btn-block btn-github" ng-click="authenticate('github')">
+                    <i class="ion-social-github"></i> Sign in with GitHub
+                </button>
+                <button class="btn btn-block btn-yahoo" ng-click="authenticate('yahoo')">
+                    <i class="ion-social-yahoo"></i> Sign in with Yahoo
+                </button>
+                <button class="btn btn-block btn-live" ng-click="authenticate('live')">
+                    <i class="ion-social-windows"></i> Sign in with Windows Live
+                </button>
+                <button class="btn btn-block btn-twitch" ng-click="authenticate('twitch')">
+                    <i class="ion-social-twitch"></i> Sign in with Twitch
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+-->
+
+
+        <!-- BEGIN .content -->
+    </section>
+
+    <!-- BEGIN .footer -->
+    <footer class="footer">
+
+        <!-- BEGIN .footer-copy -->
+        <portal-piedepagina></portal-piedepagina>
+
+        <!-- END .footer -->
+    </footer>
+
+    <!-- END .boxed -->
+</div>

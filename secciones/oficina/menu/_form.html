@@ -1,0 +1,75 @@
+<md-card flex>
+    <md-card-content>
+        <div>
+            <h2>{{vm.tituloVista}}</h2>
+            <br>
+            <form name="frm" novalidate>
+                <md-input-container>
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" ng-model="vm.enlace.nombre" class="dialog-close" required>
+                    <div ng-messages="frm.nombre.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Nombre requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>enlace</label>
+                    <input type="text" name="enlace" ng-model="vm.enlace.ruta" class="dialog-close" required>
+                    <div ng-messages="frm.enlace.$dirty">
+                        <div ng-message when="required">
+                            <span translate>enlace requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container>
+                    <md-select placeholder="Seleccionar target" ng-model="vm.enlace.target">
+                        <md-option ng-repeat="opcion in vm.targets"
+                                   ng-selected="opcion.clave == vm.enlace.target ? true:false"
+                                   value="{{opcion.clave}}">{{opcion.valor}}</md-option>
+                    </md-select>
+
+                    <div ng-messages="frm.target.$dirty">
+                        <div ng-message when="required">
+                            <span translate>target requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container ng-show="vm.enlace.padre">
+                    <md-select placeholder="Seleccionar Padre" ng-model="vm.enlace.padre">
+                        <md-option ng-repeat="opcion in vm.enlaces"
+                                   ng-selected="opcion.id == vm.enlace.padre ? true:false"
+                                   value="{{opcion.id}}">{{opcion.nombre}}</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container>
+                    <md-input-container style="margin-right: 10px;">
+                        <md-select placeholder="Seleccionar Categoria" ng-model="vm.enlace.categoria" aria-disabled="true">
+                            <md-option ng-repeat="opcion in vm.categoriasMenu"
+                                       ng-selected="opcion.id == vm.enlace.idcategoria ? true:false"
+                                       value="{{opcion.clave}}">{{opcion.valor}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Clase</label>
+                    <input type="text" name="direccion" ng-model="vm.enlace.clase" class="dialog-close">
+                </md-input-container>
+
+                <div layout="row" layout-align="end center">
+                    <md-button ng-click="vm.cancelar()" class="md-warn">Cancelar</md-button>
+                    <md-button ng-click="vm.editar(frm.$valid)" class="md-accent md-hue-3" ng-disabled="frm.$invalid">{{vm.botonTexto}}</md-button>
+                </div>
+
+                
+
+
+            </form>
+        </div>
+    </md-card-content>
+</md-card>

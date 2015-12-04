@@ -1,0 +1,8 @@
+<div class="footer-menu">
+	<a href="#top" class="right">Subir <i class="fa fa-chevron-up"></i></a>
+	<ul>
+		<li ng-repeat="link in vm.datosmenu track by $index">
+			<a href="{{link.enlace}}" class="{{link.clase}}">{{link.nombre}}</a>
+		</li>
+	</ul>
+</div>

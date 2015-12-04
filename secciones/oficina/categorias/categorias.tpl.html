@@ -1,0 +1,48 @@
+<div layout="row" class="full-height">
+    <!-- left sidebar -->
+    <cms-sidebar></cms-sidebar>
+
+    <!-- main content -->
+    <div id="admin-panel" layout="column" flex>
+        <!-- loading animation -->
+        <tri-loader></tri-loader>
+
+        <!-- top toolbar ui-view="toolbar" -->
+        <md-toolbar class="admin-toolbar"
+                    ng-if="vm.layout.showToolbar"
+                    md-theme="{{triSkin.elements.toolbar}}"
+                    ng-class="[vm.layout.toolbarSize,vm.layout.toolbarClass]">
+            <cms-toolbar></cms-toolbar>
+        </md-toolbar>
+
+
+        <!-- scrollable content -->
+        <md-content ng-class="layout.contentClass"  flex  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
+
+            <div class="padded-content-page ng-scope">
+                <md-card>
+                    <cms-data-tabla class="tabla-listado"
+                                    identidad="categoria"
+                                    columns="vm.columns"
+                                    contents="vm.tblcontenido"
+                                    datosproveedor="vm.datosproveedor"
+                                    page-size="5"></cms-data-tabla>
+                </md-card>
+            </div>
+
+        </md-content>
+
+        <md-button ng-click="vm.agregar($event)" class="md-fab md-hue-1 md-fab-bottom-right" aria-label="{{'TODO.ADD-TODO'}}">
+            <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+        </md-button>
+
+
+        <cms-pie-pagina md-theme="{{triSkin.elements.toolbar}}"></cms-pie-pagina>
+
+    </div>
+
+    <!-- right sidebar -->
+    <md-sidenav layout layout-fill class="md-sidenav-right md-whiteframe-z2"
+                md-component-id="notifications"
+                ui-view="sidebarRight"></md-sidenav>
+</div>

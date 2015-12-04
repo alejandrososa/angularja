@@ -1,0 +1,253 @@
+<div ng-cloak ng-controller="MasterController as vm">
+
+    <div id="page-wrapper" ng-class="{'open': menu}" ng-cloak>
+        <!-- Sidebar -->
+        <!--<div ng-include="'html/_menulateral.html'"></div>-->
+        <cms-menu></cms-menu>
+        <!-- End Sidebar -->
+
+        <div id="content-wrapper">
+            <div class="page-content">
+
+                <!-- Header Bar -->
+                <cms-barra-superior></cms-barra-superior>
+                <!-- End Header Bar -->
+
+                <!-- Main Content -->
+                contenido
+                <!-- END MAIN CONTENT -->
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>
+                                h3. Lorem ipsum dolor sit amet.
+                            </h3>
+                            <div class="page-header">
+                                <h1>
+                                    LayoutIt! <small>Interface Builder for Bootstrap</small>
+                                </h1>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li>
+                                    <a href="#">Home</a> <span class="divider">/</span>
+                                </li>
+                                <li>
+                                    <a href="#">Library</a> <span class="divider">/</span>
+                                </li>
+                                <li class="active">
+                                    Data
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>
+                                        Product
+                                    </th>
+                                    <th>
+                                        Payment Taken
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        TB - Monthly
+                                    </td>
+                                    <td>
+                                        01/04/2012
+                                    </td>
+                                    <td>
+                                        Default
+                                    </td>
+                                </tr>
+                                <tr class="active">
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        TB - Monthly
+                                    </td>
+                                    <td>
+                                        01/04/2012
+                                    </td>
+                                    <td>
+                                        Approved
+                                    </td>
+                                </tr>
+                                <tr class="success">
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        TB - Monthly
+                                    </td>
+                                    <td>
+                                        02/04/2012
+                                    </td>
+                                    <td>
+                                        Declined
+                                    </td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>
+                                        3
+                                    </td>
+                                    <td>
+                                        TB - Monthly
+                                    </td>
+                                    <td>
+                                        03/04/2012
+                                    </td>
+                                    <td>
+                                        Pending
+                                    </td>
+                                </tr>
+                                <tr class="danger">
+                                    <td>
+                                        4
+                                    </td>
+                                    <td>
+                                        TB - Monthly
+                                    </td>
+                                    <td>
+                                        04/04/2012
+                                    </td>
+                                    <td>
+                                        Call in to confirm
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <form role="form">
+                                <div class="form-group">
+
+                                    <label for="exampleInputEmail1">
+                                        Email address
+                                    </label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" />
+                                </div>
+                                <div class="form-group">
+
+                                    <label for="exampleInputPassword1">
+                                        Password
+                                    </label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" />
+                                </div>
+                                <div class="form-group">
+
+                                    <label for="exampleInputFile">
+                                        File input
+                                    </label>
+                                    <input type="file" id="exampleInputFile" />
+                                    <p class="help-block">
+                                        Example block-level help text here.
+                                    </p>
+                                </div>
+                                <div class="checkbox">
+
+                                    <label>
+                                        <input type="checkbox" /> Check me out
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-default">
+                                    Submit
+                                </button>
+                            </form>
+                            <button type="button" class="btn btn-success">
+                                Default
+                            </button>
+                            <a id="modal-283950" href="#modal-container-283950" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+
+                            <div class="modal fade" id="modal-container-283950" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                ×
+                                            </button>
+                                            <h4 class="modal-title" id="myModalLabel">
+                                                Modal title
+                                            </h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">
+                                                Save changes
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+
+                            <address>
+                                <strong>Twitter, Inc.</strong><br /> 795 Folsom Ave, Suite 600<br /> San Francisco, CA 94107<br /> <abbr title="Phone">P:</abbr> (123) 456-7890
+                            </address>
+                            <dl>
+                                <dt>
+                                    Description lists
+                                </dt>
+                                <dd>
+                                    A description list is perfect for defining terms.
+                                </dd>
+                                <dt>
+                                    Euismod
+                                </dt>
+                                <dd>
+                                    Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                                </dd>
+                                <dd>
+                                    Donec id elit non mi porta gravida at eget metus.
+                                </dd>
+                                <dt>
+                                    Malesuada porta
+                                </dt>
+                                <dd>
+                                    Etiam porta sem malesuada magna mollis euismod.
+                                </dd>
+                                <dt>
+                                    Felis euismod semper eget lacinia
+                                </dt>
+                                <dd>
+                                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- End Page Content -->
+        </div><!-- End Content Wrapper -->
+    </div><!-- End Page Wrapper -->
+
+</div>

@@ -1,0 +1,30 @@
+ALTER TABLE `appja`.`ja_paginas`
+DROP COLUMN `comentario_count`,
+DROP COLUMN `mime_type`,
+DROP COLUMN `menu_orden`,
+DROP COLUMN `guid`,
+DROP COLUMN `content_filtered`,
+DROP COLUMN `modificado_gmt`,
+DROP COLUMN `pinged`,
+DROP COLUMN `to_ping`,
+DROP COLUMN `password`,
+DROP COLUMN `ping_status`,
+DROP COLUMN `comentario_estado`,
+DROP COLUMN `fecha_gmt`,
+DROP COLUMN `nombre`,
+CHANGE COLUMN `titulo` `titulo` TEXT NOT NULL COMMENT '' AFTER `id`,
+CHANGE COLUMN `tipo` `tipo` VARCHAR(20) NULL DEFAULT 'pagina' COMMENT '' AFTER `estado`,
+CHANGE COLUMN `autor` `autor` INT(4) UNSIGNED NULL DEFAULT '0' COMMENT '' AFTER `tipo`,
+CHANGE COLUMN `fecha` `fecha_creado` DATETIME NULL DEFAULT '0000-00-00 00:00:00' COMMENT '' AFTER `meta_titulo`,
+CHANGE COLUMN `modificado` `fecha_modificado` DATETIME NULL DEFAULT '0000-00-00 00:00:00' COMMENT '' AFTER `fecha_creado`,
+CHANGE COLUMN `leermas` `leermas` TEXT NULL COMMENT '' ,
+CHANGE COLUMN `estado` `estado` ENUM('publicado','pendiente','programado') NULL DEFAULT 'publicado' COMMENT '' ,
+CHANGE COLUMN `padre` `padre` BIGINT(20) UNSIGNED NULL DEFAULT '0' COMMENT '' ,
+CHANGE COLUMN `meta_description` `meta_descripcion` TEXT NULL DEFAULT NULL COMMENT '' ,
+CHANGE COLUMN `meta_keyword` `meta_palabras` TEXT NULL DEFAULT NULL COMMENT '' ,
+CHANGE COLUMN `meta_title` `meta_titulo` VARCHAR(80) NULL DEFAULT NULL COMMENT '' ,
+CHANGE COLUMN `autor` `autor` INT(4) NULL DEFAULT '0' COMMENT '' ,
+CHANGE COLUMN `padre` `padre` BIGINT(20) NULL DEFAULT '0' COMMENT '' ;
+DROP INDEX `pagina_nombre` ;
+
+

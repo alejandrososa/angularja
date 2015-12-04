@@ -1,0 +1,180 @@
+<!-- CONTENIDO -->
+<div layout layout-sm="column"  class="md-padding">
+    <div flex="20" layout-padding layout-margin>
+        <h5>Slider</h5>
+        <p>Esto es una prueba de texto</p>
+    </div>
+
+    <md-card layout-padding flex="78" flex-sm="30">
+
+        <md-content class="md-padding">
+
+            <md-input-container flex>
+                <label>Titulo</label>
+                <input type="text" id="titulo" name="titulo" ng-model="vm.pagina.titulo" class="dialog-close" md-maxlength="55" required>
+                <div ng-messages="frm.titulo.$dirty">
+                    <div ng-message when="required">
+                        <span translate>Titulo es obligatorio</span>
+                    </div>
+                </div>
+            </md-input-container>
+
+
+
+            <div flow-prevent-drop
+                 flow-drag-enter="style={border: '5px solid green'}"
+                 flow-drag-leave="style={}"
+                 ng-style="style">
+
+            <!--  flow-files-added="someHandlerMethod( $files, $event, $flow )" -->
+                <div flow-init="" flow-files-submitted="$flow.upload()"
+                     flow-name="obj.flow"
+                     flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
+
+                     class="ng-scope">
+                    <div class="drop" flow-drop="" ng-class="dropClass">
+                        <span class="btn btn-default" flow-btn="">Upload Image<input type="file" multiple="multiple" style="visibility: hidden; position: absolute;"></span>
+                        <span class="btn btn-default" flow-btn="" flow-directory="" ng-show="$flow.supportDirectory">Upload Folder of Images<input type="file" multiple="multiple" webkitdirectory="webkitdirectory" style="visibility: hidden; position: absolute;"></span>
+                        <b>OR</b>
+                        Drag And Drop your images here
+                    </div>
+
+                    <br>
+
+                    <div>
+
+                        I have uploaded files: #{{obj.flow.files.length}}
+
+                        <!-- ngRepeat: file in $flow.files -->
+                        <div class="clear"></div>
+                    </div>
+
+                    <div>
+
+                        <div ng-repeat="file in $flow.files" class="gallery-box">
+                            <span class="title">{{file.name}}</span>
+                            <div class="thumbnail" ng-show="$flow.files.length">
+                                <img flow-img="file" />
+                            </div>
+                            <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+                                <div class="progress-bar" role="progressbar"
+                                     aria-valuenow="{{file.progress() * 100}}"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100"
+                                     ng-style="{width: (file.progress() * 100) + '%'}">
+                                    <span class="sr-only">{{file.progress()}}% Complete</span>
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <a class="btn btn-xs btn-danger" ng-click="file.cancel()">
+                                    Remove
+                                </a>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+
+                <!-- ngRepeat: file in $flow.files -->
+                <div class="clear"></div>
+            </div>
+
+
+
+
+
+            <md-input-container flex>
+
+
+
+
+                    <!--
+                    <div class="preview">
+                        <div>Preview image/audio/video:</div>
+                        <img ngf-src="!files[0].$error && files[0]">
+                        <audio controls="" ngf-src="!files[0].$error && files[0]"></audio>
+                        <video controls="" ngf-src="!files[0].$error && files[0]"></video>
+                    </div>
+                    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!--<cms-cargar-archivo></cms-cargar-archivo>-->
+                <div ng-show="vm.uploader.isHTML5 && !vm.uploader.queue.length">
+                    <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                    <div nv-file-drop="" uploader="vm.uploader" options="{ url: '/foo' }">
+                        <div nv-file-over="" uploader="vm.uploader" over-class="another-file-over-class" class="well my-drop-zone">
+                            Arrastrar y soltar imagen aqu&iacute; ...
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-show="!vm.uploader.queue.length < 5">
+                    <input type="file" id="fileInput" class="btn btn-success btn-s" nv-file-select="" uploader="vm.uploader" multiple aria-label="cargar" accept="image/*"/>
+                </div>
+
+                <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th width="70%"></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in vm.uploader.queue">
+                        <td>
+                            <div ng-bind="vm.procesarArchivo.getImagen(item)"></div>
+                            <!--<strong>{{ item.file.name }}</strong>-->
+                            <!-- Image preview -->
+                            <!--auto height-->
+                            <!--<div ng-thumb="{ file: item.file, width: 100 }"></div>-->
+                            <!--auto width-->
+                            <div ng-show="vm.uploader.isHTML5 && vm.controller.isImage(item._file)" cms-imagen-vista="{ file: item._file, height: 100 }"></div>
+                            <!--fixed width and height -->
+                            <!--<div ng-thumb="{ file: item.file, width: 100, height: 100 }"></div>-->
+                        </td>
+
+                        <td class="text-center">
+                            <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                        </td>
+                        <td nowrap>
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                <span class="glyphicon glyphicon-trash"></span> Remove
+                            </button>
+                            <!--
+                            <button ng-click="vm.uploader.uploadAll()" ng-disabled="!vm.uploader.getNotUploadedItems().length">Upload all</button>
+                            <button ng-click="vm.uploader.cancelAll()" ng-disabled="!vm.uploader.isUploading">Cancel all</button>
+                            <button ng-click="vm.uploader.clearQueue()" ng-disabled="!vm.uploader.queue.length">Remove all</button>
+                            -->
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+            </md-input-container>
+
+
+
+
+        </md-content>
+    </md-card>
+</div>

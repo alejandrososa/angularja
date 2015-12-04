@@ -1,0 +1,87 @@
+	<div class="ot-panel-block">
+		<div class="title-block">
+			<h2 style="background-color: #7BBE33;">Fashion</h2>
+		</div>
+		<div class="article-grid lets-do-2">
+
+			<div class="item">
+				<div data-ng-repeat="princ in vm.datos" ng-if="$index == 0">
+					<div class="item-header">
+						<a href="post.html">
+							<span class="item-header-category"><i class="fa fa-folder-open"></i><span>{{princ.categoria}}</span></span>
+							<img src="{{princ.imagen}}" alt="{{princ.titulo}}" />
+						</a>
+					</div>
+					<div class="item-content">
+						<div class="item-content-head">
+							<div class="item-content-date">
+								<strong>16</strong>
+								<span>Oct</span>
+								<span>2015</span>
+							</div>
+							<h3><a href="{{princ.enlace}}">{{princ.titulo}}</a></h3>
+						</div>
+						<p>{{princ.texto}}</p>
+					</div>
+				</div>
+
+				<div class="list-side">
+
+					<!-- BEGIN .item -->
+					<div class="item" data-ng-repeat="list in vm.datos" ng-if="$index > 0">
+						<div class="item-header">
+							<a href="{{list.enlace}}"><img src="{{list.imagen}}" alt=""></a>
+						</div>
+						<div class="item-content">
+							<h3><a href="{{list.enlace}}">{{list.titulo}}</a></h3>
+							<a href="{{list.enlace}}" class="read-more-link">leer m�s...</a>
+						</div>
+						<!-- END .item -->
+					</div>
+
+				</div>
+			</div>
+
+
+            <div class="item">
+                <div data-ng-repeat="princ in vm.datos2" ng-if="$index == 0">
+                    <div class="item-header">
+                        <a href="post.html">
+                            <span class="item-header-category"><i class="fa fa-folder-open"></i><span>{{princ.categoria}}</span></span>
+                            <img src="{{princ.imagen}}" alt="{{princ.titulo}}" />
+                        </a>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-content-head">
+                            <div class="item-content-date">
+                                <strong>16</strong>
+                                <span>Oct</span>
+                                <span>2015</span>
+                            </div>
+                            <h3><a href="{{princ.enlace}}">{{princ.titulo}}</a></h3>
+                        </div>
+                        <p>{{princ.texto}}</p>
+                    </div>
+                </div>
+
+                <div class="list-side">
+
+                    <!-- BEGIN .item -->
+                    <div class="item" data-ng-repeat="list in vm.datos2" ng-if="$index > 0">
+                        <div class="item-header">
+                            <a href="{{list.enlace}}"><img src="{{list.imagen}}" alt=""></a>
+                        </div>
+                        <div class="item-content">
+                            <h3><a href="{{list.enlace}}">{{list.titulo}}</a></h3>
+                            <a href="{{list.enlace}}" class="read-more-link">leer m�s...</a>
+                        </div>
+                        <!-- END .item -->
+                    </div>
+
+                </div>
+            </div>
+
+
+		</div>
+		<!-- END .ot-panel-block -->
+	</div>

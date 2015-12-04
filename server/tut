@@ -1,3 +1,34 @@
+FEDORA
+#CREACIÓN REPO
+cd /var
+mkdir repos && cd repos
+mkdir cristianosja.git && cd cristianosja.git
+git init --bare
+####Initialized empty Git repository in /var/repos/cristianosja.git/
+cd hooks
+sudo cat > post-receive
+#copiar siguientes lineas:
+#!/bin/sh
+GIT_WORK_TREE=/var/www/vhosts/cristianosja.com/httpdocs
+export GIT_WORK_TREE
+git checkout -f
+
+#CREACION REPO TST
+cd /var/repos
+mkdir tstcristianosja.git && cd tstcristianosja.git
+git init --bare
+####Initialized empty Git repository in /var/repos/cristianosja.git/
+cd hooks
+sudo cat > post-receive
+#copiar siguientes lineas:
+#!/bin/sh
+GIT_WORK_TREE=/var/www/vhosts/cristianosja.com/tst.cristianosja.com/httpdocs
+export GIT_WORK_TREE
+git checkout -f
+
+ssh://root@212.48.92.177/var/repos/cristianosja.git
+
+UBUNTU
 #CREACION CARPETA DONDE SE ALOJARA LA WEB
 chmod 755 /var/www/
 sudo mkdir -p /var/www/portalja_pro/public_html
