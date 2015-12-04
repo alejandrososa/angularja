@@ -14,8 +14,12 @@ git fetch origin
 #verificar ramas existentes
 git branch --all
 
+#verificar repositorio remoto
+git remote show  procristianosja
+
 #cambiar de rama
 git checkout MyNewBranch
+git remote set-branches procristianosja master
 
 #ver log
 git branch or git status
