@@ -2,70 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f16f3d-7c9e-4bbf-910f-c7acdd0599f4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular.min.js.gzip" afterPath="$PROJECT_DIR$/bower_components/angular/angular.min.js.gzip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/.htaccess" afterPath="$PROJECT_DIR$/api/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/api.php" afterPath="$PROJECT_DIR$/api/api.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plantillas/solido/css/main-stylesheet.css" afterPath="$PROJECT_DIR$/assets/plantillas/solido/css/main-stylesheet.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plantillas/solido/css/white-edition.css" afterPath="$PROJECT_DIR$/assets/plantillas/solido/css/white-edition.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plantillas/solido/jscript/theme-scripts.js" afterPath="$PROJECT_DIR$/assets/plantillas/solido/jscript/theme-scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/.bower.json" afterPath="$PROJECT_DIR$/bower_components/angular/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-animate.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-animate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-animate.min.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-animate.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-animate.min.js.map" afterPath="$PROJECT_DIR$/bower_components/angular/angular-animate.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-aria.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-aria.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-aria.min.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-aria.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-aria.min.js.map" afterPath="$PROJECT_DIR$/bower_components/angular/angular-aria.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-cookies.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-cookies.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-cookies.min.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-cookies.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-cookies.min.js.map" afterPath="$PROJECT_DIR$/bower_components/angular/angular-cookies.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-csp.css" afterPath="$PROJECT_DIR$/bower_components/angular/angular-csp.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-loader.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-loader.min.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-loader.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-loader.min.js.map" afterPath="$PROJECT_DIR$/bower_components/angular/angular-loader.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-message-format.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-message-format.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-message-format.min.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-message-format.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-messages.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-messages.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-messages.min.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-messages.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-messages.min.js.map" afterPath="$PROJECT_DIR$/bower_components/angular/angular-messages.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-mocks.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-mocks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-resource.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-resource.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-resource.min.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-resource.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-resource.min.js.map" afterPath="$PROJECT_DIR$/bower_components/angular/angular-resource.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-route.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-route.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-route.min.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-route.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-route.min.js.map" afterPath="$PROJECT_DIR$/bower_components/angular/angular-route.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-sanitize.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-sanitize.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-sanitize.min.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-sanitize.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-sanitize.min.js.map" afterPath="$PROJECT_DIR$/bower_components/angular/angular-sanitize.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-scenario.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-scenario.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-touch.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-touch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-touch.min.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular-touch.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular-touch.min.js.map" afterPath="$PROJECT_DIR$/bower_components/angular/angular-touch.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular.min.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular.min.js.map" afterPath="$PROJECT_DIR$/bower_components/angular/angular.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/bower.json" afterPath="$PROJECT_DIR$/bower_components/angular/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/errors.json" afterPath="$PROJECT_DIR$/bower_components/angular/errors.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/package.json" afterPath="$PROJECT_DIR$/bower_components/angular/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/version.json" afterPath="$PROJECT_DIR$/bower_components/angular/version.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/version.txt" afterPath="$PROJECT_DIR$/bower_components/angular/version.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/bootstrap/.bower.json" afterPath="$PROJECT_DIR$/bower_components/bootstrap/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/jquery/.bower.json" afterPath="$PROJECT_DIR$/bower_components/jquery/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/componentes/logo/logo.tpl.html" afterPath="$PROJECT_DIR$/componentes/logo/logo.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/componentes/menu/menu.css" afterPath="$PROJECT_DIR$/componentes/menu/menu.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/componentes/menu/menu.drct.js" afterPath="$PROJECT_DIR$/componentes/menu/menu.drct.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/app.config.js" afterPath="$PROJECT_DIR$/lib/app.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/app.core.js" afterPath="$PROJECT_DIR$/lib/app.core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/app.js" afterPath="$PROJECT_DIR$/lib/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/app.rutas.js" afterPath="$PROJECT_DIR$/lib/app.rutas.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/app.servicios.js" afterPath="$PROJECT_DIR$/lib/app.servicios.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/portada/portada.ctrl.js" afterPath="$PROJECT_DIR$/secciones/portada/portada.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/secciones/portada/portada.tpl.html" afterPath="$PROJECT_DIR$/secciones/portada/portada.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/tut" afterPath="$PROJECT_DIR$/server/tut" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/config/pro/app_config.php" afterPath="$PROJECT_DIR$/api/config/pro/app_config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/logs/api.log" afterPath="$PROJECT_DIR$/api/logs/api.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" afterPath="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/tut.txt" afterPath="$PROJECT_DIR$/server/tut.txt" />
     </list>
     <ignored path="angularja.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -103,90 +44,106 @@
       <file leaf-file-name="ServicioJA.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="949" column="178" selection-start-line="949" selection-start-column="178" selection-end-line="949" selection-end-column="178" />
+            <state vertical-scroll-proportion="-3.2">
+              <caret line="44" column="25" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="25" />
               <folding>
                 <element signature="e#25#38#0#PHP" expanded="true" />
-                <element signature="e#1427#1764#0#PHP" expanded="false" />
-                <element signature="e#2716#3433#0#PHP" expanded="false" />
-                <element signature="e#30556#31019#0#PHP" expanded="false" />
-                <element signature="e#31030#31524#0#PHP" expanded="false" />
-                <element signature="e#31535#31878#0#PHP" expanded="false" />
-                <element signature="e#31890#32928#0#PHP" expanded="false" />
-                <element signature="e#32938#33936#0#PHP" expanded="false" />
-                <element signature="e#33946#37175#0#PHP" expanded="false" />
-                <element signature="e#37185#38593#0#PHP" expanded="false" />
-                <element signature="e#38603#39320#0#PHP" expanded="false" />
-                <element signature="e#42274#42981#0#PHP" expanded="false" />
+                <element signature="e#1429#1766#0#PHP" expanded="false" />
+                <element signature="e#2718#3435#0#PHP" expanded="false" />
+                <element signature="e#30558#31021#0#PHP" expanded="false" />
+                <element signature="e#31032#31526#0#PHP" expanded="false" />
+                <element signature="e#31537#31880#0#PHP" expanded="false" />
+                <element signature="e#31892#32930#0#PHP" expanded="false" />
+                <element signature="e#32940#33938#0#PHP" expanded="false" />
+                <element signature="e#33948#37177#0#PHP" expanded="false" />
+                <element signature="e#37187#38595#0#PHP" expanded="false" />
+                <element signature="e#38605#39322#0#PHP" expanded="false" />
+                <element signature="e#42276#42983#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tut" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/tut">
+      <file leaf-file-name="propel.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/vendor/modelo/propel.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="142" column="117" selection-start-line="142" selection-start-column="117" selection-end-line="142" selection-end-column="117" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JaCategorias.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaCategorias.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp13188/httpdocs/api/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="55" column="32" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="32" />
-              <folding />
+            <state vertical-scroll-proportion="-5.8846154">
+              <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+              <folding>
+                <element signature="e#476#498#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tut.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tut.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/tut.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.91435766">
-              <caret line="125" column="120" selection-start-line="125" selection-start-column="120" selection-end-line="125" selection-end-column="120" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JaPaginas.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaPaginas.php">
+      <file leaf-file-name="test.cgi" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp37353/var/www/vhosts/cristianosja.com/httpdocs/cgi-bin/test/test.cgi">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="proxy_error_log" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp45654/var/www/vhosts/system/cristianosja.com/logs/proxy_error_log">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="121" column="52" selection-start-line="121" selection-start-column="52" selection-end-line="121" selection-end-column="52" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="error_log" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp45810/var/www/vhosts/system/cristianosja.com/logs/error_log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autoload_classmap.php" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp57443/var/www/vhosts/cristianosja.com/httpdocs/api/vendor/composer/autoload_classmap.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServicioJA.php" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp51706/var/www/vhosts/cristianosja.com/httpdocs/api/vendor/jarestful/ServicioJA.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.8909092">
+              <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
               <folding>
-                <element signature="e#7#43#0#PHP" expanded="true" />
-                <element signature="n#__construct#0;n#JaPaginas#0;n#!!top" expanded="false" />
-                <element signature="n#buscador#0;n#JaPaginas#0;n#!!top" expanded="false" />
-                <element signature="n#existePortada#0;n#JaPaginas#0;n#!!top" expanded="false" />
-                <element signature="n#obtenerPortada#0;n#JaPaginas#0;n#!!top" expanded="false" />
-                <element signature="n#existeContacto#0;n#JaPaginas#0;n#!!top" expanded="false" />
-                <element signature="n#detalleArticulo#0;n#JaPaginas#0;n#!!top" expanded="false" />
+                <element signature="e#25#38#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="portada.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secciones/portada/portada.tpl.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="portada.ctrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/secciones/portada/portada.ctrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="20" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="20" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -210,13 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/api/vendor/jarestful/Modelo.php" />
-        <option value="$PROJECT_DIR$/api/vendor/orm/bin/propel.bat" />
-        <option value="$PROJECT_DIR$/server/composer.json.js" />
-        <option value="$PROJECT_DIR$/server/composer.json" />
-        <option value="$PROJECT_DIR$/api/composer.json" />
-        <option value="$PROJECT_DIR$/api/vendor/composer/autoload_psr4.php" />
-        <option value="$PROJECT_DIR$/server/TODO" />
         <option value="$PROJECT_DIR$/api/api.php" />
         <option value="$PROJECT_DIR$/api/vendor/jarestful/RestJA.php" />
         <option value="$PROJECT_DIR$/api/vendor/modelo/JaPaginasQuery.php" />
@@ -237,7 +187,6 @@
         <option value="$PROJECT_DIR$/servicios/paginas.fct.js" />
         <option value="$PROJECT_DIR$/api/vendor/jarestful/Helper.php" />
         <option value="$PROJECT_DIR$/secciones/oficina/html/componentes/toolbars/toolbar.controller.js" />
-        <option value="$PROJECT_DIR$/api/vendor/config/Config.php" />
         <option value="$PROJECT_DIR$/componentes/listadoarticulos/articulos.drct.js" />
         <option value="$PROJECT_DIR$/assets/plantillas/solido/css/solido.css" />
         <option value="$PROJECT_DIR$/index.php" />
@@ -257,8 +206,18 @@
         <option value="$PROJECT_DIR$/secciones/portada/portada.tpl.html" />
         <option value="$PROJECT_DIR$/componentes/articulos/articulos.drct.js" />
         <option value="$PROJECT_DIR$/componentes/articulos/listadoarticulosconfoto.tpl.html" />
-        <option value="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
         <option value="$PROJECT_DIR$/secciones/oficina/inicio/_form.html" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp21749/httpdocs/info.php" />
+        <option value="$PROJECT_DIR$/../../apache/conf/extra/httpd-vhosts.conf" />
+        <option value="$PROJECT_DIR$/api/config/pro/app_config.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp34831/logs/access_log" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp37140/logs/error_log" />
+        <option value="$PROJECT_DIR$/api/vendor/config/Config.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp09776/logs/error_log" />
+        <option value="$PROJECT_DIR$/server/tut.txt" />
+        <option value="$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp51706/var/www/vhosts/cristianosja.com/httpdocs/api/vendor/jarestful/ServicioJA.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp45810/var/www/vhosts/system/cristianosja.com/logs/error_log" />
       </list>
     </option>
   </component>
@@ -334,6 +293,144 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modelo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jarestful" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -429,7 +526,7 @@
       <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296131" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24925596" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30555555" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.65686274" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -483,136 +580,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="949" column="178" selection-start-line="949" selection-start-column="178" selection-end-line="949" selection-end-column="178" />
-          <folding>
-            <element signature="e#25#38#0#PHP" expanded="true" />
-            <element signature="e#1427#1764#0#PHP" expanded="false" />
-            <element signature="e#2716#3433#0#PHP" expanded="false" />
-            <element signature="e#30556#31019#0#PHP" expanded="false" />
-            <element signature="e#31030#31524#0#PHP" expanded="false" />
-            <element signature="e#31535#31878#0#PHP" expanded="false" />
-            <element signature="e#31890#32928#0#PHP" expanded="false" />
-            <element signature="e#32938#33936#0#PHP" expanded="false" />
-            <element signature="e#33946#37175#0#PHP" expanded="false" />
-            <element signature="e#37185#38593#0#PHP" expanded="false" />
-            <element signature="e#38603#39320#0#PHP" expanded="false" />
-            <element signature="e#42274#42981#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/tut">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="111" column="117" selection-start-line="111" selection-start-column="117" selection-end-line="111" selection-end-column="117" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaCategorias.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="32" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/tut.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaPaginas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="121" column="52" selection-start-line="121" selection-start-column="52" selection-end-line="121" selection-end-column="52" />
-          <folding>
-            <element signature="e#7#43#0#PHP" expanded="true" />
-            <element signature="n#__construct#0;n#JaPaginas#0;n#!!top" expanded="false" />
-            <element signature="n#buscador#0;n#JaPaginas#0;n#!!top" expanded="false" />
-            <element signature="n#existePortada#0;n#JaPaginas#0;n#!!top" expanded="false" />
-            <element signature="n#obtenerPortada#0;n#JaPaginas#0;n#!!top" expanded="false" />
-            <element signature="n#existeContacto#0;n#JaPaginas#0;n#!!top" expanded="false" />
-            <element signature="n#detalleArticulo#0;n#JaPaginas#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/portada/portada.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/portada/portada.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#25#38#0#PHP" expanded="true" />
-            <element signature="e#1427#1764#0#PHP" expanded="false" />
-            <element signature="e#2716#3433#0#PHP" expanded="false" />
-            <element signature="e#30556#31019#0#PHP" expanded="false" />
-            <element signature="e#31030#31524#0#PHP" expanded="false" />
-            <element signature="e#31535#31878#0#PHP" expanded="false" />
-            <element signature="e#31890#32928#0#PHP" expanded="false" />
-            <element signature="e#32938#33936#0#PHP" expanded="false" />
-            <element signature="e#33946#37175#0#PHP" expanded="false" />
-            <element signature="e#37185#38593#0#PHP" expanded="false" />
-            <element signature="e#38603#39320#0#PHP" expanded="false" />
-            <element signature="e#42274#42981#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaCategorias.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="32" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/modelo/JaPaginas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="121" column="52" selection-start-line="121" selection-start-column="52" selection-end-line="121" selection-end-column="52" />
-          <folding>
-            <element signature="e#7#43#0#PHP" expanded="true" />
-            <element signature="n#__construct#0;n#JaPaginas#0;n#!!top" expanded="false" />
-            <element signature="n#buscador#0;n#JaPaginas#0;n#!!top" expanded="false" />
-            <element signature="n#existePortada#0;n#JaPaginas#0;n#!!top" expanded="false" />
-            <element signature="n#obtenerPortada#0;n#JaPaginas#0;n#!!top" expanded="false" />
-            <element signature="n#existeContacto#0;n#JaPaginas#0;n#!!top" expanded="false" />
-            <element signature="n#detalleArticulo#0;n#JaPaginas#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/secciones/portada/portada.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/secciones/portada/portada.ctrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -632,6 +599,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.5637343">
           <caret line="86" column="16" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -639,6 +607,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3691756">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -646,6 +615,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="42" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -684,13 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/config/Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="110" column="16" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.423077">
@@ -709,6 +672,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -723,6 +687,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-84.5">
           <caret line="215" column="13" selection-start-line="208" selection-start-column="12" selection-end-line="215" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -730,6 +695,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="30.73077">
           <caret line="187" column="30" selection-start-line="187" selection-start-column="30" selection-end-line="187" selection-end-column="30" />
+          <folding>
+            <element signature="e#255#379#0#PHP" expanded="false" />
+            <element signature="e#530#1902#0#PHP" expanded="false" />
+            <element signature="e#896#1705#0#PHP" expanded="false" />
+            <element signature="e#923#996#0#PHP" expanded="false" />
+            <element signature="e#1009#1084#0#PHP" expanded="false" />
+            <element signature="e#1097#1176#0#PHP" expanded="false" />
+            <element signature="e#1189#1264#0#PHP" expanded="false" />
+            <element signature="e#1277#1354#0#PHP" expanded="false" />
+            <element signature="e#1367#1448#0#PHP" expanded="false" />
+            <element signature="e#1461#1536#0#PHP" expanded="false" />
+            <element signature="e#1549#1632#0#PHP" expanded="false" />
+            <element signature="e#1645#1694#0#PHP" expanded="false" />
+            <element signature="e#1907#2576#0#PHP" expanded="false" />
+            <element signature="e#1982#2570#0#PHP" expanded="false" />
+            <element signature="e#2224#2471#0#PHP" expanded="false" />
+            <element signature="e#2362#2471#0#PHP" expanded="false" />
+            <element signature="e#2936#3202#0#PHP" expanded="false" />
+            <element signature="e#3024#3169#0#PHP" expanded="false" />
+            <element signature="e#3071#3159#0#PHP" expanded="false" />
+            <element signature="e#3450#3831#0#PHP" expanded="false" />
+            <element signature="e#3550#3650#0#PHP" expanded="false" />
+            <element signature="e#3660#3825#0#PHP" expanded="false" />
+            <element signature="e#3784#3825#0#PHP" expanded="false" />
+            <element signature="e#4151#4639#0#PHP" expanded="false" />
+            <element signature="e#4201#4265#0#PHP" expanded="false" />
+            <element signature="e#4644#5499#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -760,7 +753,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="121" column="52" selection-start-line="121" selection-start-column="52" selection-end-line="121" selection-end-column="52" />
           <folding>
-            <element signature="e#7#43#0#PHP" expanded="true" />
+            <element signature="e#7#43#0#PHP" expanded="false" />
             <element signature="n#__construct#0;n#JaPaginas#0;n#!!top" expanded="false" />
             <element signature="n#buscador#0;n#JaPaginas#0;n#!!top" expanded="false" />
             <element signature="n#existePortada#0;n#JaPaginas#0;n#!!top" expanded="false" />
@@ -794,27 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="949" column="178" selection-start-line="949" selection-start-column="178" selection-end-line="949" selection-end-column="178" />
-          <folding>
-            <element signature="e#25#38#0#PHP" expanded="true" />
-            <element signature="e#1427#1764#0#PHP" expanded="false" />
-            <element signature="e#2716#3433#0#PHP" expanded="false" />
-            <element signature="e#30556#31019#0#PHP" expanded="false" />
-            <element signature="e#31030#31524#0#PHP" expanded="false" />
-            <element signature="e#31535#31878#0#PHP" expanded="false" />
-            <element signature="e#31890#32928#0#PHP" expanded="false" />
-            <element signature="e#32938#33936#0#PHP" expanded="false" />
-            <element signature="e#33946#37175#0#PHP" expanded="false" />
-            <element signature="e#37185#38593#0#PHP" expanded="false" />
-            <element signature="e#38603#39320#0#PHP" expanded="false" />
-            <element signature="e#42274#42981#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/tut">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -823,10 +795,237 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#127#146#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/app_entorno.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp21749/httpdocs/info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/config/pro/app_global.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/config/pro/app_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12208258">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../apache/conf/extra/httpd-vhosts.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5351629">
+          <caret line="66" column="4" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp05699/httpdocs/api/config/pro/app_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp05905/httpdocs/api/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp34831/logs/access_log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.277874">
+          <caret line="794" column="0" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp09442/logs/proxy_error_log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp09178/logs/tst.cristianosja.com/error_log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp37140/logs/error_log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp11167/httpdocs/api/logs/api.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7084048">
+          <caret line="221" column="100" selection-start-line="221" selection-start-column="100" selection-end-line="221" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/config/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-49.192307">
+          <caret line="98" column="23" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/modelo/propel.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp09776/logs/error_log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp13188/httpdocs/api/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+          <folding>
+            <element signature="e#476#498#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/tut.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91435766">
-          <caret line="125" column="120" selection-start-line="125" selection-start-column="120" selection-end-line="125" selection-end-column="120" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp44085/var/www/vhosts/chroot/etc/group">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp37353/var/www/vhosts/cristianosja.com/httpdocs/cgi-bin/test/test.cgi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp49446/var/www/vhosts/cristianosja.com/logs/error_log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/demo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12208258">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/vendor/jarestful/ServicioJA.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2">
+          <caret line="44" column="25" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="25" />
+          <folding>
+            <element signature="e#25#38#0#PHP" expanded="true" />
+            <element signature="e#1429#1766#0#PHP" expanded="false" />
+            <element signature="e#2718#3435#0#PHP" expanded="false" />
+            <element signature="e#30558#31021#0#PHP" expanded="false" />
+            <element signature="e#31032#31526#0#PHP" expanded="false" />
+            <element signature="e#31537#31880#0#PHP" expanded="false" />
+            <element signature="e#31892#32930#0#PHP" expanded="false" />
+            <element signature="e#32940#33938#0#PHP" expanded="false" />
+            <element signature="e#33948#37177#0#PHP" expanded="false" />
+            <element signature="e#37187#38595#0#PHP" expanded="false" />
+            <element signature="e#38605#39322#0#PHP" expanded="false" />
+            <element signature="e#42276#42983#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp51706/var/www/vhosts/cristianosja.com/httpdocs/api/vendor/jarestful/ServicioJA.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8909092">
+          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+          <folding>
+            <element signature="e#25#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp45654/var/www/vhosts/system/cristianosja.com/logs/proxy_error_log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp45810/var/www/vhosts/system/cristianosja.com/logs/error_log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp57443/var/www/vhosts/cristianosja.com/httpdocs/api/vendor/composer/autoload_classmap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

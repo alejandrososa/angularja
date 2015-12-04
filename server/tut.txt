@@ -1,5 +1,5 @@
 #CREACION CARPETA DONDE SE ALOJARA LA WEB
-chmod 755 /var/www/
+    chmod 755 /var/www/
 sudo mkdir -p /var/www/portalja_pro/public_html
 sudo mkdir -p /var/www/ja_pro/public_html/log
 sudo chown -R $USER:$USER /var/www/ja_pro/public_html
