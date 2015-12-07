@@ -18,6 +18,7 @@ namespace Api;
 
     use JaCategorias;
     use JaPaginas;
+    use JaUsuarios;
 
     use Api\RedesSociales;
 
@@ -43,10 +44,10 @@ namespace Api;
             $this->sesion    = new Sesion();
             $this->helper    = new Helper();
             $this->demo      = new Demo();
-            $this->modelUsuarios = Usuarios::getInstance();
+            $this->modelUsuarios = new JaUsuarios(); //Usuarios::getInstance();
             $this->modelCategorias = new Categorias(); //Categorias::getInstance();
-            $this->modelPaginas = Paginas::getInstance();
-            $this->modelMenu = Menu::getInstance();
+            $this->modelPaginas = new Paginas(); //Paginas::getInstance();
+            $this->modelMenu = new Menu(); //Menu::getInstance();
             $this->mensajeError = Config::getMensajesErrores();
         }
 

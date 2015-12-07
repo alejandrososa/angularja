@@ -5,7 +5,7 @@
                 "default": {
                     "adapter": "mysql",
                     "classname": "Propel\\Runtime\\Connection\\DebugPDO",
-                    "dsn": "mysql:host=localhost;dbname=appja",
+                    "dsn": "mysql:host=localhost;dbname=appja;",
                     "user": "root",
                     "password": "",
                     "settings": {
@@ -36,22 +36,22 @@
         },
         "runtime": {
             "defaultConnection": "default",
-            "connections": ["default","tst","pro"],
+            "connections": ["default"],
             "log": {
                 "app": {
                     "type": "stream",
-                    "path": "c:/xampp/htdocs/angularjs/api/logs/api.log",
+                    "path": "api/logs/api.log",
                     "level": 300
                 },
 
                 "defaultLogger": {
                     "type": "stream",
-                    "path": "c:/xampp/htdocs/angularjs/api/logs/api.log",
+                    "path": "api/logs/api.log",
                     "level": 300
                 },
                 "default": {
                     "type": "stream",
-                    "path": "c:/xampp/htdocs/angularjs/api/logs/api.log",
+                    "path": "api/logs/api.log",
                     "level": 300
                 }
             }

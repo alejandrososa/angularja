@@ -12,7 +12,7 @@ abstract class Modelo{
 	private $_dbclave;
 	private $_dbHost;
 	private $_dbbd;
-	private static $config;
+	private $config;
 	protected $query;
 	protected $tabla;	
 	protected $where;	
@@ -79,21 +79,21 @@ abstract class Modelo{
 		//$entorno = new Entorno();
 		//self::$config = $this->config_load($entorno->getEntorno().'app_config');
 
-		$config = new Config();
-		self::$config = $config->getBaseDatos();
+		$configApp = new Config();
+		$this->config = $configApp->getBaseDatos();
 
-		if (empty(self::$config['driver'])) 
-			die('Por favor, establece un controlador de base de datos v�lido');
+		if (empty($this->config['driver']))
+			die('Por favor, establece un controlador de base de datos valido '.$this->config['driver']);
 				
-		$driver = strtoupper(self::$config['driver']);
+		$driver = strtoupper($this->config['driver']);
 		
 		switch ($driver) {
 
 			case 'MYSQL':
-				$this->_dbHost      = self::$config['dbHost'];
-				$this->_dbbd        = self::$config['dbbd'];
-				$this->_dbusuario   = self::$config['dbusuario'];		
-				$this->_dbclave     = self::$config['dbclave'];	
+				$this->_dbHost      = $this->config['host'];
+				$this->_dbbd        = $this->config['nombre'];
+				$this->_dbusuario   = $this->config['usuario'];
+				$this->_dbclave     = $this->config['clave'];
 				
 				$this->pdo = new PDO('mysql:host='.$this->_dbHost.'; dbname='.$this->_dbbd, $this->_dbusuario, $this->_dbclave);  
 				$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -102,7 +102,7 @@ abstract class Modelo{
 			break;
 
 			default:
-				die('Base de datos no soporta: ' . self::$config['driver']);
+				die('Base de datos no soporta: ' . $this->config['driver']);
 				
 		}
 	}

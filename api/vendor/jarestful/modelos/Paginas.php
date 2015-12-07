@@ -11,14 +11,23 @@ namespace Api\Modelos;
 use Api\Modelo;
 use Api\Helper;
 
-class Paginas extends Modelo
+class Paginas //extends Modelo
 {
 
+    private $db;
+    private $helper;
     private static $modelo = 'ja_paginas';
     private static $modelo_categorias = 'ja_categorias';
     public static $atributos = array();
     public static $setatributos = array();
 
+    public function __construct() {
+        //$this->db = new JaCategoriasQuery();
+        $this->helper = new Helper();
+
+
+        $base = $this->helper->baseApi();
+    }
 
     /**
      * Inicializaci�n Base de datos

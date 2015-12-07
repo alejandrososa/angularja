@@ -11,7 +11,7 @@ namespace Api\Modelos;
 use Api\Helper;
 use Api\Modelo;
 
-class Menu extends Modelo
+class Menu //extends Modelo
 {
 
     private static $modelo = 'ja_menu';

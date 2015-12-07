@@ -7,7 +7,7 @@
  */
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/vendor/orm/generated-conf/config.php';
+require_once __DIR__ . '/vendor/modelo/generated-conf/config.php';
 
 
 //use Monolog\Logger;
@@ -16,15 +16,24 @@ require_once __DIR__ . '/vendor/orm/generated-conf/config.php';
 //$defaultLogger->pushHandler(new StreamHandler( __DIR__ . '/logs/propel.log', Logger::WARNING));
 //$defaultLogger->addWarning('test logs to loggly');
 
-//
-
-
-use JaCategoriasQuery;
-use JaCategorias;
+/*
+use App\Config;
+$entorno = new Config();
+$vars = $entorno->getBaseDatos();
+echo '<pre>';
+print_r($vars['nombre']);
+echo '</pre>';
+*/
 
 $categorias = JaCategoriasQuery::create()->find();
-
-
 echo $categorias->exportTo('JSON');
-
 print_r($categorias->toArray());
+
+
+/*
+use App\Config;
+$config = new Config();
+echo '<pre>';
+print_r($config->getBaseDatos());
+echo '</pre>';
+*/

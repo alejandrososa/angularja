@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+w<?xml version="1.0" encoding="utf-8"?>
 <database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
   <table name="ja_acl_perfiles" idMethod="native" phpName="JaAclPerfiles">
     <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>

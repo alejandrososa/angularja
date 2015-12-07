@@ -14,7 +14,7 @@ use Token\JWT\ValidationData;
 use Api\Helper;
 use \stdClass;
 
-class Usuarios extends Modelo
+class Usuarios //extends Modelo
 {
 
     private static $modelo = 'ja_usuarios';
@@ -27,11 +27,11 @@ class Usuarios extends Modelo
 
 
     /**
-     * Inicialización Base de datos
+     * Inicializaciï¿½n Base de datos
      * @abstract Modelo
      */
     protected static function initModelo() {
-        // Aquí realizaríamos la conexión a la BBDD con el método que queramos
+        // Aquï¿½ realizarï¿½amos la conexiï¿½n a la BBDD con el mï¿½todo que queramos
     }
 
     public function buscadorUsuarios(){
