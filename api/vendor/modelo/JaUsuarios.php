@@ -7,6 +7,8 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Api\Helper;
 use App\Config;
+use Token\JWT\Builder;
+use Token\JWT\ValidationData;
 
 /**
  * Skeleton subclass for representing a row from the 'ja_usuarios' table.
@@ -23,8 +25,8 @@ class JaUsuarios extends BaseJaUsuarios
     private static $modelo = 'ja_usuarios';
     private static $vista = 'v_getusuarios';
     private static $vista_perfil = 'v_getperfilusuario';
-    public static $atributos = array();
-    public static $setatributos = array();
+    public $atributos = array();
+    public $setatributos = array();
     private static $ruta = 'assets/archivos/usuarios/';
     private static $dominio = 'http://ja.dev';
 
@@ -45,6 +47,42 @@ class JaUsuarios extends BaseJaUsuarios
             'bindValue'
         ));
         $this->debug->useDebug(Config::$DEBUG_SQL);
+    }
+
+    public function buscador(){
+
+        $like = '';
+        $i = 0;
+        foreach($this->atributos as $key => $valor){
+            $operador = $key == 'id' ? 'and' : 'or';
+            $like .= $i > 0 ? ' '.$operador.' ' : '';
+            $like .= ($i == 0 && $key === 'id' && is_int($valor)) ? $key.' = '.$valor : $key.' like "%'.$valor.'%"';
+            $i++;
+        }
+
+        $_usuario =  JaUsuariosQuery::create()
+            ->where($like, '')
+            ->find();
+
+        if(Config::$DEBUG){
+            $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
+        }
+
+        return $_usuario->isEmpty() ? false : $_usuario->toArray();
+    }
+
+    public function unico(){
+        $id = $this->atributos['id'];
+        $_usuario =  JaUsuariosQuery::create()
+            ->filterById($id, Criteria::EQUAL)
+            ->find();
+
+        if(Config::$DEBUG){
+            $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
+        }
+
+        return $_usuario->isEmpty() ? false : $_usuario->toArray();
+
     }
 
     private function getToken($credencial){
@@ -128,7 +166,7 @@ class JaUsuarios extends BaseJaUsuarios
         }
 
         //valido clave
-        if(!empty($_usuario)){
+        if(!empty($_usuario->getClave())){
             $helper = new Helper();
             $valido = $helper->validarEncriptacion($clave, $_usuario->getClave());
         }
@@ -164,8 +202,6 @@ class JaUsuarios extends BaseJaUsuarios
         $perfiles = array();
         $_perfiles = '';
         $i = 0;
-
-        print_r($_misperfiles->getPerfilesUsuario($id)); die();
 
         foreach($_misperfiles->getPerfilesUsuario($id) as $key => $perfil){
             $perfiles[] = $perfil['nombre'];

@@ -19,6 +19,7 @@ namespace Api;
     use JaCategorias;
     use JaPaginas;
     use JaUsuarios;
+    use JaMenu;
 
     use Api\RedesSociales;
 
@@ -30,7 +31,7 @@ namespace Api;
         private $mysqli   = NULL;
         private $helper;
         private $demo;
-        private $modelUsuarios = NULL;
+        private $modelUsuarios;
         private $modelCategorias = NULL;
         private $modelPaginas = NULL;
         private $modelMenu = NULL;
@@ -43,11 +44,11 @@ namespace Api;
             $this->rest      = new RestJA();
             $this->sesion    = new Sesion();
             $this->helper    = new Helper();
-            $this->demo      = new Demo();
+            //$this->demo      = new Demo();
             $this->modelUsuarios = new JaUsuarios(); //Usuarios::getInstance();
-            $this->modelCategorias = new Categorias(); //Categorias::getInstance();
-            $this->modelPaginas = new Paginas(); //Paginas::getInstance();
-            $this->modelMenu = new Menu(); //Menu::getInstance();
+            $this->modelCategorias = new JaCategorias(); //Categorias::getInstance();
+            $this->modelPaginas = new JaPaginas(); //Paginas::getInstance();
+            $this->modelMenu = new JaMenu(); //Menu::getInstance();
             $this->mensajeError = Config::getMensajesErrores();
         }
 
@@ -98,13 +99,13 @@ namespace Api;
                 $this->rest->response('',406);
             }
 
-            $post = json_decode(file_get_contents("php://input"),true);
-            $filtro     = isset($post['filtro']) ? $post['filtro'] : '';
+            $post = json_decode(file_get_contents("php://input"));
+            $filtro     = isset($post) ? $post->filtro : '';
 
-            $this->modelUsuarios->atributos = array('id'=> $filtro,'nombre'=> $filtro,'correo'=> $filtro,'usuario'=> $filtro,'telefono'=> $filtro);
-            $resultado = $this->modelUsuarios->buscadorUsuarios();
-            if(isset($resultado)){
-                $this->rest->response($this->helper->json($resultado), 200);
+            $this->modelUsuarios->atributos = array('id'=> (int)$filtro,'nombre'=> $filtro,'correo'=> $filtro,'usuario'=> $filtro,'telefono'=> $filtro);
+            $resultado = $this->modelUsuarios->buscador();
+            if(!empty($resultado)){
+                $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
             }
             $this->rest->response($this->mensajeError, 204);
         }
@@ -118,11 +119,12 @@ namespace Api;
             $id         = isset($post['id']) ? (int)$post['id'] : 0;
 
             if(empty($id) || $id == 0){
-                $this->rest->response($this->helper->json(array('mensaje'=>'est�s perdido?')),204);
+                $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),204);
             }
 
-            $this->modelUsuarios->atributos = array('id'=> $id);
-            $resultado = $this->modelUsuarios->unicoUsuario();
+            $usuarios = new JaUsuarios();
+            $usuarios->atributos = array('id'=> $id);
+            $resultado = $usuarios->unico();
             if(isset($resultado)){
                 $this->rest->response($this->helper->json($resultado), 200);
             }

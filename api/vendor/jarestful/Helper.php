@@ -119,9 +119,12 @@ class Helper {
      * @return json encode
      */
     public function json($data){
+        $str = false;
         if(is_array($data)){
-            return json_encode($data, JSON_NUMERIC_CHECK);
+            $str = json_encode($data, JSON_NUMERIC_CHECK);
         }
+        print_r($str); die();
+        return $str;
     }
     private function existeCarpeta($ruta){
         $directorio = Config::getBaseData() . $ruta;

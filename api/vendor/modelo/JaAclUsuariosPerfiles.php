@@ -44,16 +44,28 @@ class JaAclUsuariosPerfiles extends BaseJaAclUsuariosPerfiles
             return null;
         }
 
-        $perfiles =  JaAclUsuariosPerfilesQuery::create()
-            ->addAsColumn('Nombre', 'ja_acl_perfiles.Nombre')
-            ->addJoin('ja_acl_usuarios_perfiles.usuario_id', 'ja_usuarios.id', Criteria::INNER_JOIN)
-            ->addJoin('ja_acl_usuarios_perfiles.perfil_id', 'ja_acl_perfiles.id', Criteria::INNER_JOIN)
-            ->groupBy('Nombre')
+        $perfiles =
+            //JaAclUsuariosPerfilesQuery::create()
+            //->joinWithJaAclPerfiles()
+            //->select(array('usuario_id','ja_acl_perfiles.nombre'))
+            //->filterByUsuarioId($id, Criteria::EQUAL)
+
+            JaAclPerfilesQuery::create()
+            ->joinJaAclUsuariosPerfiles('up', Criteria::INNER_JOIN)
+            ->select(array('up.usuario_id','nombre'))
+            ->useJaAclUsuariosPerfilesQuery()
+                ->filterByUsuarioId($id, Criteria::EQUAL)
+            ->endUse()
             ->find();
+
+        $_perfiles = [];
+        foreach ($perfiles as $perfil) {
+            $_perfiles[] = array('id'=> $perfil['up.usuario_id'], 'nombre'=> $perfil['nombre']);
+        }
 
         if(Config::$DEBUG){
             $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
         }
-        return !empty($perfiles) ? $perfiles->toArray() : null;
+        return $perfiles->isEmpty() ? null : $_perfiles; //$perfiles->toArray();
     }
 }
