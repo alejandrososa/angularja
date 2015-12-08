@@ -58,6 +58,10 @@
 
 
 
+
+		<script src="assets/plantillas/mega/js/jquery-2.1.1.js"></script>
+		<script src="assets/plantillas/mega/js/app.js"></script>
+
 	<!-- END head -->
 	</head>
 
@@ -74,9 +78,13 @@
 
 		
 		
-		<!-- build:assets assets.min.js -->
+		<!-- build:assets assets.min.js
+			<script src="lib/app.main.js"></script>
+				<script src="bower_components/jquery/dist/jquery.js"></script>
+			-->
 	    <!-- ASSETS -->
-            <script src="bower_components/jquery/dist/jquery.js"></script>
+
+
 	        <script src="bower_components/angular/angular.min.js"></script>
 			<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 			<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
@@ -88,6 +96,7 @@
 	        <script src="bower_components/angular/angular-cookies.min.js"></script>
 	        <script src="bower_components/angular/angular-route.min.js"></script>
 	        <script src="bower_components/angular/angular-touch.min.js"></script>
+<<<<<<< Updated upstream
 	        <script src="bower_components/moment/moment.js"></script>
 	        <script src="bower_components/angular-moment/angular-moment.min.js"></script>
 	        <script src="bower_components/angular-truncate/angular-truncate.js"></script>
@@ -104,6 +113,18 @@
 			<script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
 			<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
 			<script src="bower_components/ng-flow/ng-flow-standalone.js"></script>
+=======
+	        <script src="bower_components/angular/moment.min.js"></script>
+	        <script src="bower_components/angular/angular-moment.min.js"></script>
+	        <script src="bower_components/angular/angular-truncate.js"></script>
+	        <script src="bower_components/angular/angular-preload-image.min.js"></script>
+			<script src="bower_components/angular/ui-bootstrap-tpls.min.js"></script>
+			<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+			<script src="bower_components/angular/angular-css.js"></script>
+			<script src="bower_components/angular/angular-css.min.js"></script>
+
+	<script src="assets/plantillas/mega/js/app.js"></script>
+>>>>>>> Stashed changes
 	    <!-- / -->
 	    <!-- endbuild -->
 	    <!-- build:js app.min.js -->
@@ -143,17 +164,27 @@
 	    	<script src="directivas/ngCargando.drct.js"></script>
 			<script src="directivas/ngEnter.drct.js"></script>
 	    	<script src="componentes/logo/logo.drct.js"></script>
+<<<<<<< Updated upstream
+=======
+	    	<script src="componentes/menutop/menu.drct.js"></script>
+>>>>>>> Stashed changes
 	    	<script src="componentes/menu/menu.drct.js"></script>
 	    	<script src="componentes/slider/slider.drct.js"></script>
+<<<<<<< Updated upstream
 	    	<script src="componentes/etiquetas/etiquetas.drct.js"></script>	    	
 	    	<script src="componentes/articulos/articulos.drct.js"></script>
+=======
+	    	<script src="componentes/etiquetas/etiquetas.drct.js"></script>
+	    	<script src="componentes/articulos/articulos.drct.js"></script>
+	    	<script src="componentes/listadoarticulos/articulos.drct.js"></script>
+>>>>>>> Stashed changes
 	    	<script src="componentes/listadocategorias/categorias.drct.js"></script>
 	        <script src="componentes/show/show.drct.js"></script>
 	        <script src="componentes/quienesomos/quienesomos.drct.js"></script>
 	        <script src="componentes/eventos/eventos.drct.js"></script>
 	        <script src="componentes/comentarios/comentarios.drct.js"></script>
 	        <script src="componentes/galeria/galeria.drct.js"></script>
-	        <script src="componentes/videos/videos.drct.js"></script>	        
+	        <script src="componentes/videos/videos.drct.js"></script>
 	        <script src="componentes/publicidad/publicidad.drct.js"></script>
 	        <script src="componentes/piedepagina/pie.drct.js"></script>
 			<script src="componentes/seo/seo.drct.js"></script>
@@ -177,6 +208,7 @@
 
 
 
+<<<<<<< Updated upstream
 		<script src="secciones/oficina/html/componentes/toolbars/toolbar.controller.js"></script>
 
 		<script src="secciones/oficina/html/componentes/breadcrumbs/breadcrumbs.service.js"></script>
@@ -210,6 +242,12 @@
 
 		<script src="utilidades/utilidad.js"></script>
 
+=======
+
+
+
+
+>>>>>>> Stashed changes
 
 
 		<!-- Scripts -->
@@ -271,6 +309,60 @@
 		<!-- Demo Only 
 		<script type="text/javascript" src="assets/plantillas/solido/jscript/demo-settings.js"></script>
 		-->
+
+
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+				//**** Bootstrap Tooltip ****//
+				//$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+				//**** Message Dropdown ***//
+				$('.message-list.dropdown > a').click(function(e) {
+					$(".message.drop-list").stop(true, true).fadeIn("fast");
+					$(".notification.drop-list:visible").stop(true, true).fadeOut("fast");
+					$(".activity.drop-list:visible").stop(true, true).fadeOut("fast");
+					e.stopPropagation();
+				});
+
+				$("body").click(function () {
+					$(".message.drop-list:visible").stop(true, true).fadeOut("fast");
+				});
+
+				//**** Notification Dropdown ***//
+				$('.notification-list.dropdown > a').click(function(e) {
+					$(".notification.drop-list").stop(true, true).fadeIn("fast");
+					$(".message.drop-list:visible").stop(true, true).fadeOut("fast");
+					$(".activity.drop-list:visible").stop(true, true).fadeOut("fast");
+					e.stopPropagation();
+				});
+
+				$("body").click(function () {
+					$(".notification.drop-list:visible").stop(true, true).fadeOut("fast");
+				});
+
+				//**** Activity Dropdown ***//
+				$('.activity-list.dropdown > a').click(function(e) {
+					$(".activity.drop-list").stop(true, true).fadeIn("fast");
+					$(".notification.drop-list:visible").stop(true, true).fadeOut("fast");
+					$(".message.drop-list:visible").stop(true, true).fadeOut("fast");
+					e.stopPropagation();
+				});
+
+				$("body").click(function () {
+					$(".activity.drop-list:visible").stop(true, true).fadeOut("fast");
+				});
+
+				//**** Profile Dropdown ***//
+				$('.profile.dropdown > a').click(function(e) {
+					$(".profile.drop-list").stop(true, true).fadeIn("fast");
+					e.stopPropagation();
+				});
+			});
+		</script>
+
+
+
+
 	<!-- END body -->
 	</body>
 <!-- END html -->
