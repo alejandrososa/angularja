@@ -165,7 +165,7 @@ class JaUsuarios extends BaseJaUsuarios
         $_perfiles = '';
         $i = 0;
 
-        print_r($_misperfiles->getPerfilesUsuario($id)); die();
+       print_r($_misperfiles->getPerfilesUsuario($id)); die('FIN');
 
         foreach($_misperfiles->getPerfilesUsuario($id) as $key => $perfil){
             $perfiles[] = $perfil['nombre'];

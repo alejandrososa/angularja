@@ -45,11 +45,15 @@ class JaAclUsuariosPerfiles extends BaseJaAclUsuariosPerfiles
         }
 
         $perfiles =  JaAclUsuariosPerfilesQuery::create()
-            ->addAsColumn('Nombre', 'ja_acl_perfiles.Nombre')
+            ->addAsColumn('nombre','ja_acl_perfiles.nombre')
             ->addJoin('ja_acl_usuarios_perfiles.usuario_id', 'ja_usuarios.id', Criteria::INNER_JOIN)
             ->addJoin('ja_acl_usuarios_perfiles.perfil_id', 'ja_acl_perfiles.id', Criteria::INNER_JOIN)
-            ->groupBy('Nombre')
+            ->groupBy('ja_acl_perfiles.nombre')
+            ->filterByUsuarioId($id, Criteria::EQUAL)
             ->find();
+
+
+        //print_r($perfiles->toArray()); die();
 
         if(Config::$DEBUG){
             $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
