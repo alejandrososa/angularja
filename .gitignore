@@ -12,3 +12,7 @@
 /index-light.html
 /design/
 /php/
+/api/data/
+/api/logs/*.log
+/assets/plantillas/solido/images/*.jpg
+/assets/plantillas/solido/images/photos/

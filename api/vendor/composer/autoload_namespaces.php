@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
-    'Propel' => array($vendorDir . '/propel/propel/src'),
+    'Propel' => array($vendorDir . '/propel/src'),
     'Token\\JWT\\'  => array($vendorDir . '/token/jwt/src'),
     'Api\\'         => array($vendorDir . '/jarestful'),
     'DB\\'          => array($vendorDir . '/modelo'),

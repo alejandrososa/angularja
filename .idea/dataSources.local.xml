@@ -6,7 +6,6 @@
       <schema-pattern>appja.*</schema-pattern>
       <default-schemas>appja.*</default-schemas>
       <table-pattern>appja</table-pattern>
-      <legacy-introspector>true</legacy-introspector>
     </data-source>
   </component>
 </project>

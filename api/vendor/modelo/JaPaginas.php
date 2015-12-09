@@ -10,7 +10,7 @@ use App\Config;
 /**
  * Skeleton subclass for representing a row from the 'ja_paginas' table.
  *
- * 
+ *
  *
  * You should add additional methods to this class to meet the
  * application requirements.  This class will only be generated as
@@ -136,7 +136,6 @@ class JaPaginas extends BaseJaPaginas
         $this->helper->nombreJson = 'paginainicio';
         $existeJson = $this->helper->existeJson('paginainicio');
 
-
         if($existeJson){
             return $this->helper->leerJson(true);
         }else{
@@ -145,15 +144,16 @@ class JaPaginas extends BaseJaPaginas
                 ->addAsColumn('Existe', "if(ja_paginas.id > 0, 'true', false)")
                 ->filterByCategoria(0, Criteria::EQUAL)
                 ->filterByTipo($tipo, Criteria::EQUAL)
-                ->findOne();
-
-            $this->helper->crearJson($portada->toArray(), false);
+                ->limit(1)
+                ->find();
 
             if(Config::$DEBUG){
                 $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
             }
-
-            return $this->helper->leerJson(true);
+            if(!$portada->isEmpty()){
+                $this->helper->crearJson($portada->toArray()[0], false);
+                return $this->helper->leerJson(true);
+            }
         }
     }
 
@@ -184,6 +184,7 @@ class JaPaginas extends BaseJaPaginas
 
         $max    = Config::getMaxCaracteres();
         $limite = !empty($this->atributos) ? $this->atributos : Config::getCantidadArticulosRecientes();
+
 
         if($existeJson){
             return $this->helper->leerJson(true);

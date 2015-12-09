@@ -1,44 +1,64 @@
 {
-    "propel": {
-        "database": {
-            "connections": {
-                "default": {
-                    "adapter": "mysql",
-                    "classname": "Propel\\Runtime\\Connection\\DebugPDO",
-                    "dsn": "mysql:host=localhost;dbname=appja",
-                    "user": "root",
-                    "password": "",
-                    "settings": {
-                        "charset": "utf8"
-                    }
-                }
-            }
+  "propel": {
+    "database": {
+      "connections": {
+        "default": {
+          "adapter": "mysql",
+          "classname": "Propel\\Runtime\\Connection\\DebugPDO",
+          "dsn": "mysql:host=localhost;dbname=appja;",
+          "user": "root",
+          "password": "",
+          "settings": {
+            "charset": "utf8"
+          }
         },
-        "runtime": {
-            "defaultConnection": "default",
-            "connections": ["default"],
-            "log": {
-                "app": {
-                    "type": "stream",
-                    "path": "c:/xampp/htdocs/angularjs/api/logs/api.log",
-                    "level": 300
-                },
-
-                "defaultLogger": {
-                    "type": "stream",
-                    "path": "c:/xampp/htdocs/angularjs/api/logs/api.log",
-                    "level": 300
-                },
-                "default": {
-                    "type": "stream",
-                    "path": "c:/xampp/htdocs/angularjs/api/logs/api.log",
-                    "level": 300
-                }
-            }
+        "tst": {
+          "adapter": "mysql",
+          "classname": "Propel\\Runtime\\Connection\\DebugPDO",
+          "dsn": "mysql:host=localhost:3306;dbname=jatst",
+          "user": "adoraxion",
+          "password": "dilcia0386",
+          "settings": {
+            "charset": "utf8"
+          }
         },
-        "generator": {
-            "defaultConnection": "default",
-            "connections": ["default"]
+        "pro": {
+          "adapter": "mysql",
+          "classname": "Propel\\Runtime\\Connection\\DebugPDO",
+          "dsn": "mysql:host=localhost:3306;dbname=ja",
+          "user": "adoraxion",
+          "password": "dilcia0386",
+          "settings": {
+            "charset": "utf8"
+          }
         }
+      }
+    },
+    "runtime": {
+      "defaultConnection": "default",
+      "connections": ["default"],
+      "log": {
+        "app": {
+          "type": "stream",
+          "path": "api/logs/api.log",
+          "level": 300
+        },
+
+        "defaultLogger": {
+          "type": "stream",
+          "path": "api/logs/api.log",
+          "level": 300
+        },
+        "default": {
+          "type": "stream",
+          "path": "api/logs/api.log",
+          "level": 300
+        }
+      }
+    },
+    "generator": {
+      "defaultConnection": "default",
+      "connections": ["default"]
     }
+  }
 }
