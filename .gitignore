@@ -1,4 +1,4 @@
-*.settings
+﻿*.settings
 *.buildpath
 *.project
 *.idea
@@ -12,3 +12,5 @@
 /index-light.html
 /design/
 /php/
+/api/logs/*
+/api/data/*.json

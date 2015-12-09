@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f16f3d-7c9e-4bbf-910f-c7acdd0599f4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/modelo/JaAclUsuariosPerfiles.php" afterPath="$PROJECT_DIR$/api/vendor/modelo/JaAclUsuariosPerfiles.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/vendor/modelo/JaUsuarios.php" afterPath="$PROJECT_DIR$/api/vendor/modelo/JaUsuarios.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/appja-26-11-15--ULTIMA.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/logs/api.log" afterPath="$PROJECT_DIR$/api/logs/api.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="angularja.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,8 +67,8 @@
       <file leaf-file-name="config" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.git/config">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6925926">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.75555557">
+              <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -82,7 +81,7 @@
         <entry file="file://$PROJECT_DIR$/api/logs/api.log">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-17.448277">
-              <caret line="90" column="0" selection-start-line="86" selection-start-column="87" selection-end-line="87" selection-end-column="0" />
+              <caret line="330" column="0" selection-start-line="330" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -954,7 +953,7 @@
     <entry file="file://$PROJECT_DIR$/api/logs/api.log">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.448277">
-          <caret line="90" column="0" selection-start-line="86" selection-start-column="87" selection-end-line="87" selection-end-column="0" />
+          <caret line="330" column="0" selection-start-line="330" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -974,8 +973,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.git/config">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6925926">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.75555557">
+          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
           <folding />
         </state>
       </provider>
