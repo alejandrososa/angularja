@@ -154,7 +154,7 @@ class Helper {
         }
         $nombre = $this->nombreJson;
         $directorio = $this->categoriaJson;
-        $archivo = Config::getBaseData() . $directorio ."\\". $nombre .".json";
+        $archivo = Config::getBaseData() . $directorio ."/". $nombre .".json";
 
         if(file_exists($directorio)) {
             return null;

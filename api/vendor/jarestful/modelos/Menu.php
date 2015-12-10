@@ -11,11 +11,8 @@ namespace Api\Modelos;
 use Api\Helper;
 use Api\Modelo;
 
-<<<<<<< HEAD
-class Menu extends Modelo
-=======
-class Menu //extends Modelo
->>>>>>> portadafix
+
+class Menu
 {
 
     private static $modelo = 'ja_menu';

@@ -1,0 +1,113 @@
+<md-card flex>
+    <md-card-content>
+        <div>
+            <h2>{{vm.tituloVista}}</h2>
+            <br>
+            <form name="frmUsuario" novalidate>
+                <md-input-container>
+                    <label>Usuario</label>
+                    <input type="text" name="usuario" ng-model="vm.usuario.usuario" class="dialog-close" required>
+                    <div ng-messages="frmUsuario.usuario.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Nombre requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" ng-model="vm.usuario.nombre" class="dialog-close" required>
+                    <div ng-messages="frmUsuario.nombre.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Nombre requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Apellido</label>
+                    <input type="text" name="apellidos" ng-model="vm.usuario.apellidos" class="dialog-close" required>
+                    <div ng-messages="frmUsuario.apellidos.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Apellido requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Correo</label>
+                    <input type="text" name="correo" ng-model="vm.usuario.correo" class="dialog-close" required>
+                    <div ng-messages="frmUsuario.correo.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Correo requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Telefono</label>
+                    <input type="text" name="telefono" ng-model="vm.usuario.tel" class="dialog-close" required>
+                    <div ng-messages="frmUsuario.telefono.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Telefono requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Clave</label>
+                    <input type="text" name="clave" ng-model="vm.usuario.clave" class="dialog-close">
+                    <div ng-messages="frmUsuario.clave.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Clave requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Dirección</label>
+                    <input type="text" name="direccion" ng-model="vm.usuario.direccion" class="dialog-close" required>
+                    <div ng-messages="frmUsuario.direccion.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Direcci&oacute;n requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Ciudad</label>
+                    <input type="text" name="ciudad" ng-model="vm.usuario.ciudad" class="dialog-close" required>
+                    <div ng-messages="frmUsuario.ciudad.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Ciudad requerido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container>
+                    <md-select placeholder="{{'MENU.TODO.DIALOG.PRIORITY'}}" ng-model="vm.usuario.pais">
+                        <md-option value="repdominicana" translate>Rep. Dominicana</md-option>
+                        <md-option value="espana" translate>España</md-option>
+                    </md-select>
+                </md-input-container>
+
+
+
+                <md-input-container>
+                    <label>Imagen</label>
+                    <input type="file" id="imagen" file-model="vm.usuario.imagen" class="dialog-close">
+                </md-input-container>
+
+
+                <div layout="row" layout-align="end center">
+                    <md-button ng-click="vm.cancelar()" class="md-warn">Cancelar</md-button>
+                    <md-button ng-click="vm.editar(frmUsuario.$valid)" class="md-accent md-hue-3" ng-disabled="frmUsuario.$invalid">{{vm.botonTexto}}</md-button>
+                </div>
+
+                
+
+
+            </form>
+        </div>
+    </md-card-content>
+</md-card>

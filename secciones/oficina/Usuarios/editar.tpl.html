@@ -1,0 +1,56 @@
+<div layout="row" class="full-height">
+    <!-- left sidebar -->
+    <cms-sidebar></cms-sidebar>
+
+    <!-- main content -->
+    <div id="admin-panel" layout="column" flex>
+        <!-- loading animation -->
+        <tri-loader></tri-loader>
+
+        <!-- top toolbar ui-view="toolbar" -->
+        <md-toolbar class="admin-toolbar"
+                    ng-if="vm.layout.showToolbar"
+                    md-theme="{{triSkin.elements.toolbar}}"
+                    ng-class="[vm.layout.toolbarSize,vm.layout.toolbarClass]">
+            <cms-toolbar></cms-toolbar>
+        </md-toolbar>
+
+
+        <!-- scrollable content -->
+        <md-content ng-class="layout.contentClass"  flex  md-theme="{{triSkin.elements.toolbar}}" theme-background="background:hue-1">
+
+            {{layout.contentClass}}
+
+            <div class="padded-content-page ng-scope">
+                <!-- Contenido -->
+
+                <div layout="row" layout-wrap>
+                    <div flex="70">
+                        <div ng-include="'secciones/oficina/usuarios/_form.html'"></div>
+                    </div>
+
+                    <div flex="30">
+
+                                <div ng-include="'secciones/oficina/usuarios/_vista.html'"></div>
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                </div>
+
+
+
+
+                <!-- Fin Contenido -->
+            </div>
+
+        </md-content>
+
+        <cms-pie-pagina md-theme="{{triSkin.elements.toolbar}}"></cms-pie-pagina>
+
+    </div>
+
+    <!-- right sidebar -->
+    <md-sidenav layout layout-fill class="md-sidenav-right md-whiteframe-z2"
+                md-component-id="notifications"
+                ui-view="sidebarRight"></md-sidenav>
+</div>
