@@ -69,11 +69,19 @@ class JaMenu extends BaseJaMenu
         return $categorias;
     }
 
+    private function getItem($id) {
+        if(empty($id)){
+            return null;
+        }
+
+        $query = 'select * from '.self::$vista.' where id in('.$id.')';
+        return $this->helper->consultaSQL($query);
+    }
+
     public function enlacesMenu($tipo){
         $categoria = array_key_exists($tipo, $this->_categorias) ? $this->_categorias[$tipo] : 0;
         $categorias = $this->getCategorias();
 
-        $this->helper = new Helper();
         $this->helper->categoriaJson = 'menu';
         $this->helper->nombreJson = $tipo;
         $existeJson = $this->helper->existeJson($tipo);
@@ -82,17 +90,7 @@ class JaMenu extends BaseJaMenu
             return $this->helper->leerJson(true);
         }else{
             $query = 'call sp_getMenuJerarquia('.$categoria.');';
-            $con = Propel::getReadConnection(JaMenuTableMap::DATABASE_NAME);
-            $stmt = $con->prepare($query);
-            $menu = $stmt->execute();
-
-            /*$formatter = new \PropelObjectFormatter();
-            $formatter->setClass('JaMenu');
-            $menu = $formatter->format($stmt);
-*/
-            JaMenuQuery::
-
-            print_r($menu); die();
+            $menu = $this->helper->consultaSQL($query);
 
             foreach($menu as $key => $enlace){
                 //1 = nivel base
@@ -113,8 +111,6 @@ class JaMenu extends BaseJaMenu
                     );
                 }
             }
-
-            print_r($enlaces); die();
 
             $this->helper->crearJson($enlaces);
             return $this->helper->leerJson(true);

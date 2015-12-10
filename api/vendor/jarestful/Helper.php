@@ -3,6 +3,7 @@
 namespace Api;
 
 use App\Config;
+use Propel\Runtime\Propel;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
@@ -270,6 +271,18 @@ class Helper {
     //FECHAS Y HORAS
     public function fechaActual(){
         return date("Y-m-d H:i:s");
+    }
+
+    //SQL
+    public function consultaSQL($query, $todos = true){
+        if(!isset($query)){
+            return null;
+        }
+
+        $con = Propel::getConnection();
+        $stmt = $con->prepare($query);
+        $stmt->execute();
+        return $todos ? $stmt->fetchAll() : $stmt->fetch();
     }
 
 }
