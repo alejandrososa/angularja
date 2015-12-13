@@ -65,8 +65,6 @@ class ServicioJA { //REST
             $this->rest->response($this->mensajeError,404);
     }
 
-
-
     /**
      * Login
      * @param string correo, clave
@@ -88,61 +86,57 @@ class ServicioJA { //REST
         }
     }
 
-
-
     /**
      * USUARIOS
      */
-
     private function buscadorUsuarios(){
         if($this->rest->get_request_method() != "POST"){
             $this->rest->response('',406);
         }
 
-        $post = json_decode(file_get_contents("php://input"));
+        $post       = json_decode(file_get_contents("php://input"));
         $filtro     = isset($post) ? $post->filtro : '';
+        $atributos  = array('id'=> (int)$filtro,'nombre'=> $filtro,'correo'=> $filtro,'usuario'=> $filtro,'telefono'=> $filtro);
 
-        $this->modelUsuarios->atributos = array('id'=> (int)$filtro,'nombre'=> $filtro,'correo'=> $filtro,'usuario'=> $filtro,'telefono'=> $filtro);
+        $this->modelUsuarios->atributos = $atributos;
         $resultado = $this->modelUsuarios->buscador();
         if(!empty($resultado)){
-            $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
+            $this->rest->response($this->helper->json($resultado), 200);
         }
         $this->rest->response($this->mensajeError, 204);
     }
-
     private function unicoUsuario(){
         if($this->rest->get_request_method() != "POST"){
             $this->rest->response('',406);
         }
 
-        $post = json_decode(file_get_contents("php://input"),true);
-        $id         = isset($post['id']) ? (int)$post['id'] : 0;
+        $post   = json_decode(file_get_contents("php://input"),true);
+        $id     = isset($post['id']) ? (int)$post['id'] : 0;
 
         if(empty($id) || $id == 0){
-            $this->rest->response($this->helper->json(array('mensaje'=>'estás perdido?')),204);
+            $this->rest->response($this->mensajeError,204);
         }
 
-        $usuarios = new JaUsuarios();
-        $usuarios->atributos = array('id'=> $id);
-        $resultado = $usuarios->unico();
-        if(isset($resultado)){
+        $this->modelUsuarios->atributos = array('id'=> $id);
+        $resultado = $this->modelUsuarios->unico();
+        if(isset($resultado) && $resultado != false){
             $this->rest->response($this->helper->json($resultado), 200);
         }
         $this->rest->response($this->mensajeError, 204);
     }
-
     private function todosUsuarios(){
         if($this->rest->get_request_method() != "GET"){
             $this->rest->response('',406);
         }
 
-        $usuarios = $this->modelUsuarios->todosUsuarios();
-        if(isset($usuarios)){
-            $this->rest->response($this->helper->json(array('resultado'=>$usuarios)), 200);
+        $resultado = $this->modelUsuarios->todos();
+        if(isset($resultado) && $resultado != false){
+            $this->rest->response($this->helper->json($resultado), 200);
         }
         $this->rest->response($this->mensajeError, 204);
     }
 
+    //TODO verificar si se usa esta function
     private function existeDatoUsuario(){
         if($this->rest->get_request_method() != "POST"){
             $this->rest->response('',406);
@@ -278,7 +272,6 @@ class ServicioJA { //REST
     /**
      * CATEGORIAS
      */
-
     private function buscadorCategorias(){
         if($this->rest->get_request_method() != "POST"){
             $this->rest->response('',406);
@@ -287,9 +280,8 @@ class ServicioJA { //REST
         $post = json_decode(file_get_contents("php://input"));
         $filtro     = isset($post->filtro) ? $post->filtro : '';
 
-        $categoria = new JaCategorias();
-        $categoria->atributos = array('id'=> $filtro,'titulo'=> $filtro,'slug'=> $filtro);
-        $resultado = $categoria->buscador();
+        $this->modelCategorias->atributos = array('id'=> (int)$filtro,'titulo'=> $filtro,'slug'=> $filtro);
+        $resultado = $this->modelCategorias->buscador();
 
         if(isset($resultado) && !empty($resultado)){
             $this->rest->response($this->helper->json($resultado), 200);
@@ -317,15 +309,15 @@ class ServicioJA { //REST
         $this->rest->response($this->mensajeError,204);
     }
 
+    //ok
     private function todasCategorias(){
         if($this->rest->get_request_method() != "GET"){
             $this->rest->response('',406);
         }
 
-        $resultado = new JaCategorias();
-        $categorias = $resultado->todas();
+        $categorias = $this->modelCategorias->todas();
         if(isset($categorias) && !empty($categorias)){
-            $this->rest->response($this->helper->json(array('resultado'=>$categorias)), 200);
+            $this->rest->response($this->helper->json($categorias), 200);
         }
         $this->rest->response($this->mensajeError,204);
     }
@@ -440,6 +432,7 @@ class ServicioJA { //REST
         $this->rest->response($this->mensajeError, 204);
     }
 
+    //ok
     private function getMenu(){
         if($this->rest->get_request_method() != "GET"){
             $this->rest->response('',406);
@@ -449,7 +442,7 @@ class ServicioJA { //REST
 
         $enlaces = $this->modelMenu->enlacesMenu($tipo);
         if(isset($enlaces)){
-            $this->rest->response($this->helper->json(array('resultado'=>$enlaces)), 200);
+            $this->rest->response($this->helper->json($enlaces), 200);
         }
         $this->rest->response($this->mensajeError, 204);
     }
@@ -709,6 +702,7 @@ class ServicioJA { //REST
         $this->rest->response($this->mensajeError, 204);
     }
 
+    //ok
     private function existePortada(){
         if($this->rest->get_request_method() != "GET"){
             $this->rest->response('',406);
@@ -717,13 +711,13 @@ class ServicioJA { //REST
         $resultado = $obj->existePortada();
         $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
     }
-
+    //ok
     private function obtenerPortada(){
         if($this->rest->get_request_method() != "GET"){
             $this->rest->response('',406);
         }
-        $obj = new JaPaginas();
-        $resultado = $obj->obtenerPortada();
+
+        $resultado = $this->modelPaginas->obtenerPortada();
         if(isset($resultado['metapalabras'])){
             $resultado['metapalabras'] = $this->helper->convertirStringAArray($resultado['metapalabras']);
         }
@@ -736,18 +730,32 @@ class ServicioJA { //REST
         }
         $this->rest->response($this->mensajeError, 204);
     }
-
+    //ok
     private function guardarPortada(){
         if($this->rest->get_request_method() != "POST"){
             $this->rest->response('',406);
         }
 
-        $portada = json_decode(file_get_contents("php://input"));
+        //$portada2   = json_decode(file_get_contents("php://input"));
+        $portada    = $this->rest->_request['pagina'];
+        $portada    = json_decode($portada);
+        $slider     = !empty($_FILES) ? $_FILES : '';
+        $_slider    = [];
+        $index      = 0;
 
-        $pagina = new JaPaginas();
-        $pagina->objecto = $portada;
-        $resultado = $pagina->guardarPortada();
-        $this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
+        if(!empty($slider)) {
+            foreach($slider as $imagen ){
+                $_slider[] = $this->helper->guardarImagen($imagen, 'slider_'.$index, 'portada_slider');
+                $index++;
+            }
+            //$portada['configuracion']['slider'] = $_slider;
+            //$portada->configuracion->slider = $_slider;
+            $portada->configuracion->slider = (object)$_slider;
+        }
+
+        $this->modelPaginas->objecto = (object)$portada;
+        $resultado = $this->modelPaginas->guardarPortada();
+        //$this->rest->response($this->helper->json(array('resultado'=>$resultado)), 200);
     }
 
 
@@ -824,49 +832,19 @@ class ServicioJA { //REST
         $this->rest->response($this->mensajeError, 204);
     }
 
+    //OK
     private function crearPagina(){
         if($this->rest->get_request_method() != "POST"){
             $this->rest->response('',406);
         }
 
         $datos      = json_decode(file_get_contents("php://input"));
-        $titulo     = isset($datos->pagina->titulo) ? $datos->pagina->titulo : '';
-        $contenido  = isset($datos->pagina->contenido) ? $datos->pagina->contenido : '';
-        $leermas    = isset($datos->pagina->leermas) ? $datos->pagina->leermas : '';
-        $estado     = isset($datos->pagina->estado) ? $datos->pagina->estado : '';
-        $tipo       = isset($datos->pagina->tipo) ? $datos->pagina->tipo : '';
-        $autor      = isset($datos->pagina->autor) ? $datos->pagina->autor : '';
-        $padre      = isset($datos->pagina->padre) ? $datos->pagina->padre : '';
-        $slug       = isset($datos->pagina->slug) ? $datos->pagina->slug : '';
-        $meta_titulo        = isset($datos->pagina->seo->titulo) ? $datos->pagina->seo->titulo : '';
-        $meta_descripcion   = isset($datos->pagina->seo->descripcion) ? $datos->pagina->seo->descripcion : '';
-        $meta_palabras      = isset($datos->pagina->seo->palabrasclave) ? $datos->pagina->seo->palabrasclave : '';
-        $fecha_creado       = isset($datos->pagina->fechacreado) ? $datos->pagina->fechacreado : '';
-        $fecha_modificado   = isset($datos->pagina->fechamodificado) ? $datos->pagina->fechamodificado : '';
-
-        $valores = [];
-
         if(empty($datos)){
             $this->rest->response($this->mensajeError, 204);
         }
 
-        if(isset($titulo))          { $valores['titulo']        = $titulo; }
-        if(isset($contenido))       { $valores['contenido']     = $contenido; }
-        if(isset($leermas))         { $valores['leermas']       = $leermas; }
-        if(isset($estado))          { $valores['estado']        = $estado; }
-        if(isset($tipo))            { $valores['tipo']          = $tipo; }
-        if(isset($autor))           { $valores['autor']         = $autor; }
-        if(isset($padre))           { $valores['padre']         = $padre; }
-        if(isset($slug))            { $valores['slug']          = $slug; }
-        if(isset($meta_titulo))     { $valores['meta_titulo']   = $meta_titulo; }
-        if(isset($meta_descripcion)){ $valores['meta_descripcion'] = $meta_descripcion; }
-        if(isset($meta_palabras))   { $valores['meta_palabras'] = $this->helper->convertirArrayAString($meta_palabras); }
-        if(isset($fecha_creado))    { $valores['fecha_creado']  = $fecha_creado; }
-        if(isset($fecha_modificado)){ $valores['fecha_modificado'] = $fecha_modificado; }
-        //if(isset($categoria))   { $valores['categoria']  = $this->modelMenu->getIdCategoria($categoria); }
-
-        $this->modelPaginas->atributos = $valores;
-        $resultado = $this->modelPaginas->crearPagina();
+        $this->modelPaginas->objecto = $datos->pagina;
+        $resultado = $this->modelPaginas->crear();
         if(isset($resultado)){
             $this->rest->response($this->helper->json(array('mensaje'=>$resultado.'Se ha creado la pagina con exito')), 200);
         }
@@ -921,29 +899,29 @@ class ServicioJA { //REST
         }
     }
 
-    private function getPaginasCategorias(){
+    //ok
+    private function obtenerCategoriasDetalle(){
         if($this->rest->get_request_method() != "GET"){
             $this->rest->response('',406);
         }
 
-        $categorias = $this->modelPaginas->getCategorias();
+        $categorias = $this->modelCategorias->todasDetalle();
         if(isset($categorias)){
-            $this->rest->response($this->helper->json(array('resultado'=>$categorias)), 200);
+            $this->rest->response($this->helper->json($categorias), 200);
         }
         $this->rest->response($this->mensajeError, 204);
     }
 
 
     //frontend
+    //ok
     private function cargarPortada(){
         if($this->rest->get_request_method() != "GET"){
             $this->rest->response('',406);
         }
 
         $respuesta = false;
-
-        $obj = new JaPaginas();
-        $resultado = $obj->obtenerPortada();
+        $resultado = $this->modelPaginas->obtenerPortada();
 
         if(isset($resultado['metapalabras'])){
             $resultado['metapalabras'] = $this->helper->convertirStringAArray($resultado['metapalabras']);

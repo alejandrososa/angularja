@@ -27,10 +27,11 @@
                  ng-style="style">
 
             <!--  flow-files-added="someHandlerMethod( $files, $event, $flow )" -->
-                <div flow-init="" flow-files-submitted="$flow.upload()"
-                     flow-name="obj.flow"
+                <div flow-init
+                     flow-object="vm.pagina.configuracion.slider"
+                     flow-files-added="vm.midemo( $files, $event, $flow )"
                      flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
-
+                     flow-files-submitted="$flow.upload()"
                      class="ng-scope">
                     <div class="drop" flow-drop="" ng-class="dropClass">
                         <span class="btn btn-default" flow-btn="">Upload Image<input type="file" multiple="multiple" style="visibility: hidden; position: absolute;"></span>
@@ -38,12 +39,12 @@
                         <b>OR</b>
                         Drag And Drop your images here
                     </div>
+                <div>
 
-                    <br>
 
-                    <div>
+                    {{vm.pagina.configuracion.slider}}
 
-                        I have uploaded files: #{{obj.flow.files.length}}
+                        <!--I have uploaded files: #{{vm.pagina.slider.files.length}} -->
 
                         <!-- ngRepeat: file in $flow.files -->
                         <div class="clear"></div>
@@ -56,6 +57,7 @@
                             <div class="thumbnail" ng-show="$flow.files.length">
                                 <img flow-img="file" />
                             </div>
+                            <!--
                             <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
                                 <div class="progress-bar" role="progressbar"
                                      aria-valuenow="{{file.progress() * 100}}"
@@ -64,7 +66,7 @@
                                      ng-style="{width: (file.progress() * 100) + '%'}">
                                     <span class="sr-only">{{file.progress()}}% Complete</span>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="btn-group">
                                 <a class="btn btn-xs btn-danger" ng-click="file.cancel()">
                                     Remove

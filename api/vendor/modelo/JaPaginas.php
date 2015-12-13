@@ -62,6 +62,52 @@ class JaPaginas extends BaseJaPaginas
         return $categoria->toArray();
     }
 
+    public function crear(){
+        $tipo   = 'articulo';
+        $objeto = $this->objecto;
+
+        $titulo             = isset($objeto->titulo) ? $objeto->titulo : '';
+        $contenido          = isset($objeto->contenido) ? $objeto->contenido : '';
+        $leermas            = isset($objeto->leermas) ? $objeto->leermas : '';
+        $estado             = isset($objeto->estado) ? $objeto->estado : '';
+        $tipo               = isset($objeto->tipo) ? $objeto->tipo : '';
+        $autor              = isset($objeto->autor) ? $objeto->autor : '';
+        $padre              = isset($objeto->padre) ? $objeto->padre : '';
+        $slug               = isset($objeto->slug) ? $objeto->slug : '';
+        $configuracion      = isset($objeto->configuracion) ? $this->helper->convertirObjectAString($objeto->configuracion) : '';
+        $seotitulo          = isset($objeto->metatitulo) ? $objeto->metatitulo : '';
+        $seodescripcion     = isset($objeto->metadescripcion) ? $objeto->metadescripcion : '';
+        $seopalabras        = isset($objeto->metapalabras) ? $this->helper->convertirArrayAString($objeto->metapalabras) : '';
+
+        $portada = new JaPaginas();
+        $portada->setFechaCreado($this->helper->fechaActual());
+        $portada->setFechaModificado($this->helper->fechaActual());
+        $portada->setCategoria(0);
+        $portada->setTipo($tipo);
+
+        if(isset($titulo))          { $portada->setTitulo($titulo); }
+        if(isset($contenido))       { $portada->setContenido($contenido); }
+        if(isset($leermas))         { $portada->setLeermas($leermas); }
+        if(isset($estado))          { $portada->setEstado($estado); }
+        if(isset($tipo))            { $portada->setTipo($tipo); }
+        if(isset($autor))           { $portada->setAutor($autor); }
+        if(isset($padre))           { $portada->setPadre($padre); }
+        if(isset($slug))            { $portada->setSlug($slug); }
+        if(isset($seotitulo))       { $portada->setMetaTitulo($seotitulo); }
+        if(isset($seodescripcion))  { $portada->setMetaDescripcion($seodescripcion); }
+        if(isset($seopalabras))     { $portada->setMetaPalabras($seopalabras); }
+        if(isset($configuracion))   { $portada->setConfiguracion($configuracion); }
+
+        $resultado = $portada->save();
+
+        if(Config::$DEBUG){
+            $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
+        }
+
+        return $resultado != 0 ? true : false;
+    }
+
+
     public function existePortada(){
         $pagina = array('existe' => false);
         $tipo   = Config::$TIPO_PORTADA;
@@ -82,7 +128,7 @@ class JaPaginas extends BaseJaPaginas
 
     public function guardarPortada(){
         $tipo   = Config::$TIPO_PORTADA;
-        $objeto = $this->objecto->pagina;
+        $objeto = $this->objecto;
 
         $titulo         = isset($objeto->titulo) ? $objeto->titulo : '';
         $contenido      = isset($objeto->contenido) ? $objeto->contenido : '';
@@ -102,18 +148,25 @@ class JaPaginas extends BaseJaPaginas
         if(empty($portada)){
             $portada = new JaPaginas();
             $portada->setFechaCreado($this->helper->fechaActual());
+        }else{
+            $portada->setFechaModificado($this->helper->fechaActual());
         }
 
-        $portada->setTitulo($titulo);
-        $portada->setContenido($contenido);
-        $portada->setAutor($autor);
+        if(isset($titulo))          { $portada->setTitulo($titulo); }
+        if(isset($contenido))       { $portada->setContenido($contenido); }
+        if(isset($leermas))         { $portada->setLeermas($leermas); }
+        if(isset($estado))          { $portada->setEstado($estado); }
+        if(isset($tipo))            { $portada->setTipo($tipo); }
+        if(isset($autor))           { $portada->setAutor($autor); }
+        if(isset($padre))           { $portada->setPadre($padre); }
+        if(isset($slug))            { $portada->setSlug($slug); }
+        if(isset($seotitulo))       { $portada->setMetaTitulo($seotitulo); }
+        if(isset($seodescripcion))  { $portada->setMetaDescripcion($seodescripcion); }
+        if(isset($seopalabras))     { $portada->setMetaPalabras($seopalabras); }
+        if(isset($configuracion))   { $portada->setConfiguracion($configuracion); }
+
         $portada->setCategoria(0);
         $portada->setTipo($tipo);
-        $portada->setConfiguracion($configuracion);
-        $portada->setMetaTitulo($seotitulo);
-        $portada->setMetaDescripcion($seodescripcion);
-        $portada->setMetaPalabras($seopalabras);
-        $portada->setFechaModificado($this->helper->fechaActual());
         $resultado = $portada->save();
 
         //eliminar json existente
@@ -140,18 +193,16 @@ class JaPaginas extends BaseJaPaginas
             return $this->helper->leerJson(true);
         }else{
             $portada =  JaPaginasQuery::create()
-                ->filterByCategoria(0, Criteria::EQUAL)
                 ->addAsColumn('Existe', "if(ja_paginas.id > 0, 'true', false)")
                 ->filterByCategoria(0, Criteria::EQUAL)
                 ->filterByTipo($tipo, Criteria::EQUAL)
-                ->limit(1)
-                ->find();
+                ->findOne();
 
             if(Config::$DEBUG){
                 $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
             }
-            if(!$portada->isEmpty()){
-                $this->helper->crearJson($portada->toArray()[0], false);
+            if(!empty($portada)){
+                $this->helper->crearJson($portada->toArray());
                 return $this->helper->leerJson(true);
             }
         }

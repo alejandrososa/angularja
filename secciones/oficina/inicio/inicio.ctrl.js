@@ -39,6 +39,10 @@ angular
                                                 triLayout, $mdDialog,
                                                 $timeout) {
 
+        angular.isUndefinedOrNull = function(val) {
+            return angular.isUndefined(val) || val === null
+        }
+
         var vm = this;
 
         // we need to use the scope here because otherwise the expression in md-is-locked-open doesnt work
@@ -55,8 +59,15 @@ angular
         }
 
         var pagina = angular.isDefined(_datos) ? _datos : {};
+        var paginainit = {
+            metapalabras : [],
+            configuración :  pagina.configuracion == '' ? {slider: []} : pagina.configuracion,
+            slider : []
+        };
 
-        vm.pagina = {};
+        vm.pagina = angular.equals({}, pagina) ? paginainit : pagina;
+
+        //vm.pagina.configuracion = pagina.configuracion == '' ? paginainit.configuración : pagina.configuracion;
         vm.pagina.autor = Utilidades.LocalStorage.getIdUsuarioActual();
 
         vm.targets = [];
@@ -65,11 +76,13 @@ angular
 
         vm.existePortada = angular.isDefined(_existe) ? _existe.existe : false;
         vm.idPortada = angular.isDefined(_existe) ? _existe.id : false;
-        vm.pagina = angular.isDefined(pagina) ? pagina : '';
+
 
         //fix propiedad vacia metapalabras
-        vm.pagina.metapalabras = angular.isDefined(pagina) ? pagina.metapalabras : [];
-        vm.pagina.configuracion = angular.isDefined(pagina) ? pagina.configuracion : {};
+        //vm.pagina.slider = {};
+        //vm.pagina.metapalabras = angular.isDefined(pagina) ? pagina.metapalabras : [];
+        //vm.pagina.configuracion = angular.isDefined(pagina) ? pagina.configuracion : {};
+
 
 
         vm.menus = [];
@@ -78,23 +91,12 @@ angular
         vm.categorias = [];
         vm.categoriaDefault = 'principal';
 
-
-
-        Paginas.categorias().then(function(datos){
-            if(angular.isDefined(datos)){
-                vm.categorias = datos.data.resultado;
-            }
-        });
-
         Categorias.todos().then(function(datos){
-            if(angular.isDefined(datos)){
-                console.log(datos);
-                vm.categorias = datos.data.resultado;
+            if(angular.isDefined(datos) && datos.status == 200){
+                vm.categorias = datos.data;
             }
         });
 
-        console.log(vm.categorias);
-        console.log('hola');
 
 
 
@@ -115,35 +117,6 @@ angular
 
 
         vm.readonly = false;
-
-        // Lists of fruit names and Vegetable objects
-        vm.fruitNames = ['Apple', 'Banana', 'Orange'];
-        vm.roFruitNames = angular.copy(vm.fruitNames);
-        vm.tags = [];
-        vm.vegObjs = [
-            {
-                'name' : 'Broccoli',
-                'type' : 'Brassica'
-            },
-            {
-                'name' : 'Cabbage',
-                'type' : 'Brassica'
-            },
-            {
-                'name' : 'Carrot',
-                'type' : 'Umbelliferous'
-            }
-        ];
-        vm.newVeg = function(chip) {
-            return {
-                name: chip,
-                type: 'unknown'
-            };
-        };
-
-
-
-
         //console.log('id usuario:' + Utilidades.LocalStorage.getIdUsuarioActual());
 
 
@@ -180,15 +153,43 @@ angular
         };
 
         ///slider
-        //console.debug($rootScope.imagenes);
+        vm.sliders = angular.isDefined(vm.pagina.configuración) &&
+                        angular.isArray(vm.pagina.configuración.slider) ?
+                        vm.pagina.configuración.slider :{};
 
-        $scope.obj = {};
+        //vm.autoloadImagenes = function($flow)
+        var resultado = [];
+        angular.forEach(pagina, function(value, key) {
+            if(key == 'configuracion') {
 
-        $scope.$on('flow::filesAdded', function (event, $flow, flowFiles) {
-            event.preventDefault();//prevent file from uploading
+                this.push(value.slider);
 
-            alert(flowFiles);
-        });
+                angular.forEach(value.slider, function(imagen, key) {
+                    console.log(imagen);
+                    //$flow.addFile(imagen);
+
+                    //this.push(value.file);
+                });
+
+            }
+        }, resultado);
+
+        console.log(resultado);
+
+        vm.midemo = function($files, $event, $flow){
+            var resultado = [];
+            angular.forEach($files, function(value, key) {
+                console.log(value);
+                this.push(value.file);
+            }, resultado);
+
+            vm.pagina.slider = resultado;
+
+            //console.debug(resultado);
+            //console.debug($files);
+            //console.debug($flow);
+        }
+
 
         ///fin slider
 

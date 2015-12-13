@@ -14,6 +14,7 @@ function categoria($http, API_URL, $log, toastr) {
         'buscador': buscador,
         'unico': unico,
         'todos': todos,
+        'todosDetalle': todosDetalle,
         'crear': crear,
         'eliminar': eliminar,
         'actualizar': actualizar,
@@ -55,6 +56,10 @@ function categoria($http, API_URL, $log, toastr) {
             /*.then(function (datos) {
             return datos.data.resultado;
         });*/
+    }
+
+    function todosDetalle(){
+        return $http.get(API_URL + 'obtenerCategoriasDetalle', {});
     }
 
     function actualizar(categoria){

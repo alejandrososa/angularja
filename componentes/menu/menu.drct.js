@@ -27,7 +27,7 @@ function portalMenu() {  //ShowService
         vm.datosmenu = [];
 
         Menu.seleccionar(vm.tipo).then(function(datos){
-            vm.datosmenu = datos.resultado;
+            vm.datosmenu = datos;
         });
     }
 }

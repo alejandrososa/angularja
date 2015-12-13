@@ -44,14 +44,14 @@ function articulos(Contenido) {  //$filter ShowService
 		}
 
 
-		console.log(vm.categoria +' - '+vm.cantidad);
+		//console.log(vm.categoria +' - '+vm.cantidad);
 
 		//vista dinamica
 		if(angular.isDefined(vm.categoria) && angular.isNumber(vm.categoria)) {
 			Contenido.getArticulos(vm.categoria, vm.cantidad).then(function (respuesta) {
 				vm.datos = respuesta;
 				vm.datos2 = respuesta;
-				console.log(respuesta);
+				//console.log(respuesta);
 			});
 		}
 

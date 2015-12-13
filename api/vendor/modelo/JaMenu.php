@@ -112,8 +112,10 @@ class JaMenu extends BaseJaMenu
                 }
             }
 
-            $this->helper->crearJson($enlaces);
-            return $this->helper->leerJson(true);
+            if(!empty($enlace)){
+                $this->helper->crearJson($enlaces);
+                return $this->helper->leerJson(true);
+            }
         }
 
     }

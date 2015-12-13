@@ -57,6 +57,14 @@ angular
             $location.path('/login');
         }
 
+        var pagina = angular.isDefined(_datos) ? _datos : {};
+
+        vm.pagina = {
+            metapalabras : [],
+            configuración : {}
+        };
+        vm.pagina = angular.equals({}, _datos) ? vm.pagina : pagina;
+
         vm.menus = [];
         vm.enlaces = [];
         vm.enlace = {};
@@ -65,10 +73,12 @@ angular
         vm.targets = [];
         vm.datosproveedor = {};
         vm.editor = [];
-        vm.pagina = {};
-        vm.pagina.seo = {};
-        vm.pagina.seo.palabrasclave = [];
+
         vm.pagina.autor = Utilidades.LocalStorage.getIdUsuarioActual();
+        //fix propiedad vacia metapalabras
+        //vm.pagina.slider = {};
+        //vm.pagina.metapalabras = angular.isArray(pagina) ? pagina.metapalabras : [];
+        //vm.pagina.configuracion = angular.isDefined(pagina) ? pagina.configuracion : {};
 
         vm.idUsuario = ($routeParams.id) ? parseInt($routeParams.id) : 0;
         vm.botonTexto = (vm.idUsuario > 0) ? 'Actualizar' : 'Agregar';
@@ -206,6 +216,23 @@ angular
             acciones: true,
             ordenAsc: false
         };
+
+        ///slider
+        //console.debug($rootScope.imagenes);
+        vm.sliders = {};
+        vm.midemo = function($files, $event, $flow){
+            var resultado = [];
+            angular.forEach($files, function(value, key) {
+                this.push(value.file);
+            }, resultado);
+
+            vm.pagina.configuracion.slider = resultado;
+
+            console.debug(resultado);
+            //console.debug($files);
+            //console.debug($flow);
+        }
+
 
         //acciones
         vm.editar = function (frm) {

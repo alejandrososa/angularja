@@ -97,4 +97,32 @@ class JaCategorias extends BaseJaCategorias
         }
     }
 
+    public function todasDetalle(){
+        $categorias = array();
+        $this->helper->categoriaJson = 'paginas';
+        $this->helper->nombreJson = 'categorias';
+        $existeJson = $this->helper->existeJson('categorias');
+
+        if($existeJson){
+            return $this->helper->leerJson(true);
+        }else{
+            $listacategorias = JaCategoriasQuery::create()->find();
+            foreach($listacategorias as $k => $v){
+                $categorias[$v->getId()] = array(
+                    'id'=>$v->getId(),
+                    'clave'=>str_replace(" ", "-", strtolower($v->getTitulo())),
+                    'valor'=>ucfirst($v->getTitulo()),
+                    'slug'=>$v->getSlug()
+                );
+            }
+            $this->helper->crearJson($categorias);
+
+            if(Config::$DEBUG){
+                $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
+            }
+
+            return $this->helper->leerJson(true);
+        }
+    }
+
 }

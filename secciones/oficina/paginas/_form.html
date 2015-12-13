@@ -1,5 +1,3 @@
-{{vm.categoria}}
-
 <form name="frm" novalidate>
 
     <!-- CONTENIDO -->
@@ -25,22 +23,24 @@
 
                 <md-input-container flex>
                     <label>Contenido</label>
-                </md-input-container>
-
-                <md-input-container flex>
-                    <text-angular-toolbar name="editor"
-                                          class="email-dialog-editor-toolbar"
-                                          ta-toolbar-active-button-class="active"
-                                          ta-toolbar="vm.editor"></text-angular-toolbar>
-                    <text-angular name="contenido" ng-model="vm.pagina.contenido" ta-target-toolbars="editor"></text-angular>
+                    <input type="text" name="contenido" ng-model="vm.pagina.contenido" class="dialog-close" md-maxlength="55" required>
+                    <div ng-messages="frm.contenido.$dirty">
+                        <div ng-message when="required">
+                            <span translate>Titulo es obligatorio</span>
+                        </div>
+                    </div>
 
                 </md-input-container>
+
+
+
 
             </md-content>
         </md-card>
     </div>
 
 
+    <!-- SEO -->
     <div layout layout-sm="column"  class="md-padding">
         <div flex="20" layout-padding layout-margin>
             <h5>SEO</h5>
@@ -54,7 +54,7 @@
                 <md-input-container flex>
                     <label for="seo[titulo]">Titulo</label>
                     <input type="text" id="seo[titulo]" name="seo[titulo]"
-                           ng-model="vm.pagina.seo.titulo"
+                           ng-model="vm.pagina.metatitulo"
                            class="dialog-close"
                            reemplazarespacioss="{titulo:vm.pagina.titulo, campo:titulo}"
                            required>
@@ -65,8 +65,7 @@
                 <label for="palabrasclave">Palabras Clave</label>
                 <md-chips flex class="chipsdemoBasicUsage"
                           id="palabrasclave"
-                          ng-model="vm.pagina.seo.palabrasclave"
-                          readonly="vm.readonly"
+                          ng-model="vm.pagina.metapalabras"
                           placeholder="Digite otra palabra clave"
                           delete-button-label="Eliminar palabra"
                           delete-hint="Presione tecla delete para eliminar palabra"
@@ -75,20 +74,19 @@
 
                 <md-input-container flex>
                     <label>Descripcion</label>
-                    <textarea ng-model="vm.pagina.seo.descripcion" columns="1" md-maxlength="150" aria-label="Descripcion"></textarea>
+                    <textarea ng-model="vm.pagina.metadescripcion" columns="1" md-maxlength="150" aria-label="Descripcion"></textarea>
                 </md-input-container>
 
             </md-content>
         </md-card>
     </div>
 
+
+
+
+
+
     {{vm.pagina}}
-
-
-
-
-
-
 </form>
 
 

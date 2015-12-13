@@ -25,7 +25,7 @@ class RestJA {
         $this->_code = ($status)?$status:200;
         $this->_mensaje = ($status) && $status == 204 ? $data : '';
         $this->set_headers();
-        echo $data;
+        print_r($data);
         exit;
     }
     public function setToken($token){

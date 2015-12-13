@@ -19,7 +19,7 @@ function paginas($http, API_URL, $log, toastr) {
         'crear': crear,
         'eliminar': eliminar,
         'actualizar': actualizar,
-        'categorias': categorias,
+        //'categorias': categorias,
 
         'existePortada': existePortada,
         'guardarPortada': guardarPortada,
@@ -111,9 +111,7 @@ function paginas($http, API_URL, $log, toastr) {
         });
     }
 
-    function categorias(){
-        return $http.get(API_URL + 'getPaginasCategorias', {});
-    }
+
 
     function existePortada(){
         return $http.get(API_URL + 'existePortada', {});
@@ -124,6 +122,33 @@ function paginas($http, API_URL, $log, toastr) {
     }
 
     function guardarPortada(pagina){
+        var fd = new FormData();
+        console.log(pagina.slider);
+        if(angular.isDefined(pagina.slider)) {
+            for (var i = 0; i < pagina.slider.length; i++) { // Loop all files
+                fd.append('file' + i, pagina.slider[i]); // Create an append() method, one for each file dropped
+            }
+            //fd.append('file', pagina.slider);
+        }
+
+        fd.append("pagina", JSON.stringify(pagina));
+        /*for (var key in pagina) {
+            if(key != 'slider') {
+                //fd.append('pagina['+ key +']', pagina[key]);
+            }
+        }*/
+
+        return $http.post(API_URL + 'guardarPortada', fd, {
+            //file: fd,
+            transformRequest: angular.indentity,
+            headers: { 'Content-Type': undefined, processData: false }
+        }).then(function (datos) {
+            toastr.success(datos.data.mensaje);
+            return datos.data;
+        });
+    }
+
+    function guardarPortada2(pagina){
         pagina.fechacreado = moment().format("YYYY-MM-DD hh:mm:ss");
         return $http.post(API_URL + 'guardarPortada', {
             pagina:pagina,

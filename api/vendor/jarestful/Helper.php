@@ -76,18 +76,32 @@ class Helper {
     }
     public function guardarImagen($archivo, $nombre, $carpeta = null){
         if ( !empty( $archivo ) ) {
-            $tempPath = $archivo[ 'file' ][ 'tmp_name' ];
-            $temp = explode(".", $archivo["file"]["name"]);
+            $_carpeta = $carpeta != '' ? $carpeta : '';
+            $_assets = Config::getBaseAssets().'archivos/'. $_carpeta;
+            $tempPath = $archivo[ 'tmp_name' ]; //[ 'file' ][ 'tmp_name' ]
+            $temp = explode(".", $archivo["name"]); //$archivo["file"]["name"]
             $foto = $nombre . '.' . end($temp);
+            $tipo = $archivo['type'];
+            $size = $archivo['size'];
 
             $carpeta_destino = '';
             if(!empty($carpeta)){
-                $carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/assets/archivos/'.$carpeta.'/'.$foto;
+                $this->existeCarpeta($_assets);
+                $carpeta_destino = $_assets . '/'.$foto;
             }else{
-                $carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/assets/archivos/'.$foto;
+                $carpeta_destino = $_assets . '/'.$foto;
             }
             move_uploaded_file( $tempPath, $carpeta_destino );
-            return $foto;
+
+            $imagen = array(
+                'name'=> $foto,
+                'ruta'=> $_assets,
+                'type'=> $tipo,
+                'size'=> $size,
+            );
+            return $imagen;
+            //return $this->convertirArrayAJson($imagen);
+            //return $foto;
         }
     }
 
@@ -119,15 +133,25 @@ class Helper {
      * @param array $data
      * @return json encode
      */
-    public function json($data){
+    public function json($datos){
         $str = false;
-        if(is_array($data)){
-            $str = json_encode($data, JSON_NUMERIC_CHECK);
+        $_datos = array();
+
+        if(is_array($datos)){
+            if($this->es_ArrayMultidimensional($datos)) {
+                foreach ($datos as $array) {
+                    $_datos[] = array_change_key_case($array, CASE_LOWER);
+                }
+            }else{
+                $_datos = array_change_key_case($datos, CASE_LOWER);
+            }
+            $str = json_encode($_datos, JSON_NUMERIC_CHECK);
         }
         return $str;
     }
-    private function existeCarpeta($ruta){
-        $directorio = Config::getBaseData() . $ruta;
+    private function existeCarpeta($ruta, $raiz = false){
+        //true base es raiz, false base es api
+        $directorio = $raiz ? Config::getBaseData() . $ruta : $ruta;
         if (!file_exists(Config::getBaseData())) {
             mkdir(Config::getBaseData(), 0777);
         }
@@ -157,7 +181,7 @@ class Helper {
         $directorio = $this->categoriaJson;
         $archivo = Config::getBaseData() . $directorio ."/". $nombre .".json";
 
-        if(file_exists($directorio)) {
+        if(!file_exists($archivo)) {
             return null;
         }
 
@@ -173,20 +197,22 @@ class Helper {
         }
         $nombre = $this->nombreJson;
         $directorio = $this->categoriaJson;
+        $_directorio = Config::getBaseData() . $directorio;
         $archivo = Config::getBaseData() . $directorio .'/'. $nombre .'.json';
 
         $_datos = array();
         //fix claves minusculas
         if(is_array($datos)) {
-            if($multidimensional) {
+            if($this->es_ArrayMultidimensional($datos)) {
                 foreach ($datos as $array) {
                     $_datos[] = array_change_key_case($array, CASE_LOWER);
                 }
             }else{
-                $_datos = array_change_key_case($datos, CASE_LOWER);;
+                $_datos = array_change_key_case($datos, CASE_LOWER);
             }
         }
         //$_datos = mb_convert_encoding($datos, 'UTF-8', 'OLD-ENCODING');
+        $this->existeCarpeta($_directorio);
         file_put_contents($archivo, json_encode($_datos,JSON_NUMERIC_CHECK), LOCK_EX);
     }
     public function eliminarJson($archivo){
@@ -205,6 +231,22 @@ class Helper {
         }
         return $resultado;
     }
+    public function es_ArrayMultidimensional($array){
+        $resultado = true;
+        if (count($array) == count($array, COUNT_RECURSIVE)){
+            $resultado = false;
+        }
+
+        if(is_array(array())) {
+            foreach ($array as $elm) {
+                if (!is_array($elm)) {
+                    $resultado = false;
+                    break;
+                }
+            }
+        }
+        return $resultado;
+    }
 
     //CONVERSORES
     public function convertirArrayAString($array){
@@ -214,7 +256,7 @@ class Helper {
         $string = '';
         $i = 0;
         foreach($array as $clave => $valor){
-            $string .= $i != 0 ? ', ' . $valor : $valor;
+            $string .= $i != 0 ? ',' . $valor : $valor;
             $i++;
         }
 
@@ -239,7 +281,7 @@ class Helper {
         if(empty($string)){
             return null;
         }
-        return explode(',', $string);
+        return explode(',', preg_replace('/\s+/', ' ',$string));
     }
 
     public function convertirObjectAString($object){
@@ -282,7 +324,8 @@ class Helper {
         $con = Propel::getConnection();
         $stmt = $con->prepare($query);
         $stmt->execute();
-        return $todos ? $stmt->fetchAll() : $stmt->fetch();
+        //2 fetch assoc
+        return $todos ? $stmt->fetchAll(2) : $stmt->fetch();
     }
 
 }

@@ -104,6 +104,7 @@
 <script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
 <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
 <script src="bower_components/ng-flow/ng-flow-standalone.js"></script>
+<script src="bower_components/ng-flow/ng-flow.js"></script>
 <!-- / -->
 <!-- endbuild -->
 <!-- build:js app.min.js -->

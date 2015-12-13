@@ -50,7 +50,6 @@ class JaUsuarios extends BaseJaUsuarios
     }
 
     public function buscador(){
-
         $like = '';
         $i = 0;
         foreach($this->atributos as $key => $valor){
@@ -67,23 +66,33 @@ class JaUsuarios extends BaseJaUsuarios
         if(Config::$DEBUG){
             $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
         }
-
-        return $_usuario->isEmpty() ? false : $_usuario->toArray();
+        return $_usuario->isEmpty() == true ? null : $_usuario->toArray();
     }
 
     public function unico(){
         $id = $this->atributos['id'];
         $_usuario =  JaUsuariosQuery::create()
             ->filterById($id, Criteria::EQUAL)
-            ->find();
+            ->findOne();
 
         if(Config::$DEBUG){
             $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
         }
 
-        return $_usuario->isEmpty() ? false : $_usuario->toArray();
-
+        return empty($_usuario) ? false : $_usuario->toArray();
     }
+
+    public function todos(){
+        $query = "SELECT * FROM " . self::$vista;
+        $_usuarios =  $this->helper->consultaSQL($query);
+
+        if(Config::$DEBUG){
+            $this->log(__FUNCTION__ .' | '.$this->debug->getLastExecutedQuery(), Logger::DEBUG);
+        }
+        return empty($_usuarios) ? false : $_usuarios;
+    }
+
+
 
     private function getToken($credencial){
         $config = new Config();

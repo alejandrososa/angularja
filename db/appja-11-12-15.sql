@@ -1,0 +1,9 @@
+ALTER TABLE ja_acl_usuarios_perfiles CHARACTER SET = utf8;
+ALTER TABLE ja_acl_recursos CHARACTER SET = utf8;
+ALTER TABLE ja_acl_perfiles_recursos CHARACTER SET = utf8;
+ALTER TABLE ja_acl_perfiles CHARACTER SET = utf8;
+ALTER TABLE ja_usuarios CHARACTER SET = utf8;
+ALTER TABLE ja_categorias CHARACTER SET = utf8;
+ALTER TABLE ja_paginas CHARACTER SET = utf8;
+ALTER TABLE ja_menu CHARACTER SET = utf8;
+ALTER TABLE ja_opciones CHARACTER SET = utf8;

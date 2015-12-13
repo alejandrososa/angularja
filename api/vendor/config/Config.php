@@ -69,6 +69,7 @@ class Config
     public function getBaseData(){
         $vendorDir = dirname(dirname(__FILE__));
         $baseDir = dirname($vendorDir);
+        $baseDir = str_replace('\\', '/', $baseDir);
         return $baseDir . self::$DIR_DATA;
     }
 
@@ -89,6 +90,10 @@ class Config
     public function getGeneral(){
         $config = $this->getEntorno();
         return $config['general'];
+    }
+
+    public static function getBaseAssets(){
+        return $_SERVER['DOCUMENT_ROOT'] . '/assets/';
     }
 
     /**

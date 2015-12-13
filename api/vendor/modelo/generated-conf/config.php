@@ -12,9 +12,9 @@ $manager->setConfiguration(array (
     'password' => $entorno['clave'],
     'settings' =>
         array (
-          //'charset' => $entorno['charset'],
+          'charset' => $entorno['charset'],
             'queries' =>
-                array (
+                array ('utf8'=> "SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci"
                 ),
         ),
     'classname' => '\\Propel\\Runtime\\Connection\\ConnectionWrapper',
