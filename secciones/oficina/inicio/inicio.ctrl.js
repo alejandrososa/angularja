@@ -36,7 +36,7 @@ angular
     .controller('InicioController', function ($scope, $rootScope, PageValues, $cookieStore,
                                                 $q, $location, $auth, $log, toastr, $window, FileUploader,
                                                 $routeParams, Paginas, Categorias, _datos, _existe,
-                                                triLayout, $mdDialog,
+                                                triLayout, $mdDialog, flowFactory,
                                                 $timeout) {
 
         angular.isUndefinedOrNull = function(val) {
@@ -60,7 +60,7 @@ angular
 
         var pagina = angular.isDefined(_datos) ? _datos : {};
         var paginainit = {
-            metapalabras : [],
+            metapalabras : typeof pagina.metapalabras === undefined  || pagina.metapalabras === null ? [] : pagina.metapalabras,
             configuración :  pagina.configuracion == '' ? {slider: []} : pagina.configuracion,
             slider : []
         };
@@ -175,6 +175,26 @@ angular
         }, resultado);
 
         console.log(resultado);
+
+        var imagen = {
+            flowObj:"slider_0.jpg",
+            name:"slider_0.jpg",
+            ruta:"C:/xampp/htdocs/angularja/assets/archivos/portada_slider",
+            type:"image/jpeg",
+            size:511693
+        }
+
+
+
+        var r = new Flow();
+        r.addFile(imagen);
+        r.upload();
+        //var fl = new FlowFile(r, imagen);
+
+
+        vm.laimagen = r;
+
+        console.log(vm.laimagen);
 
         vm.midemo = function($files, $event, $flow){
             var resultado = [];
