@@ -153,6 +153,7 @@ angular
         };
 
         ///slider
+        /*
         vm.sliders = angular.isDefined(vm.pagina.configuración) &&
                         angular.isArray(vm.pagina.configuración.slider) ?
                         vm.pagina.configuración.slider :{};
@@ -161,40 +162,86 @@ angular
         var resultado = [];
         angular.forEach(pagina, function(value, key) {
             if(key == 'configuracion') {
-
                 this.push(value.slider);
-
                 angular.forEach(value.slider, function(imagen, key) {
                     console.log(imagen);
                     //$flow.addFile(imagen);
-
                     //this.push(value.file);
                 });
-
             }
         }, resultado);
-
         console.log(resultado);
+        */
 
         var imagen = {
             flowObj:"slider_0.jpg",
             name:"slider_0.jpg",
-            ruta:"C:/xampp/htdocs/angularja/assets/archivos/portada_slider",
+            alt:"slider 1",
+            ruta:"C:/xampp/htdocs/angularja/assets/archivos/portada_slider/slider_0.jpg",
             type:"image/jpeg",
             size:511693
         }
 
 
+        var parts = [
+            new Blob([imagen], {type: 'image/jpeg'}),
+            ' Same way as you do with blob',
+            new Uint16Array([33])
+        ];
 
-        var r = new Flow();
-        r.addFile(imagen);
-        r.upload();
+
+
+        var flow = new Flow();
+        //flow.addFile(imagen);
+        //flow.upload();
         //var fl = new FlowFile(r, imagen);
 
+        var blob = new Blob([imagen.name], {type: imagen.type});
+        blob.name = imagen.name;
+        blob.image_url = imagen.ruta;
+        blob.image_id = imagen.flowObj;
+        blob.alt_text = imagen.alt;
 
-        vm.laimagen = r;
+
+        var mifile = new File(parts, imagen.name);
+
+
+
+        var f = new Flow.FlowFile(flow,mifile);
+        flow.addFile(mifile);
+        flow.upload();
+        //flow.ad.push(f);
+
+
+        vm.laimagen = f;
 
         console.log(vm.laimagen);
+
+
+
+
+
+       /* var initdemo = function(listing_images, flowObj) {
+
+            Flow.prototype.addExistingFile = function (file, event) {
+                var f = new Flow.FlowFile(this, file);
+                this.files.push(f);
+            };
+
+            angular.forEach(listing_images, function(value, key) {
+                var blob = new Blob(['pre_existing_image'], {type: value.type});
+                blob.name = value.name;
+                blob.image_url = value.flowObj + value.name;
+                blob.image_id = value.flowObj;
+                blob.alt_text = value.alt;
+                blob.listing_image_id = value.flowObj;
+                flowObj.addExistingFile(blob);
+            });
+        };
+
+        initdemo(imagen, flow);
+*/
+
 
         vm.midemo = function($files, $event, $flow){
             var resultado = [];
